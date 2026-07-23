@@ -4,7 +4,7 @@
 Suministro de unidades estándar (20 FT STD, 40 FT HC/STD) para almacenamiento y logística.
 
 ## Renta de contenedores
-Disponibilidad inmediata para proyectos temporales, obras y necesidades urgentes de resguardo.
+Disponibilidad sujeta a inventario, ubicación y logística para proyectos temporales, obras y necesidades de resguardo.
 
 ## Oficinas reubicables
 Módulos configurados para supervisión de obra, administración y coordinación de equipos en sitio.

@@ -12,30 +12,50 @@ export const Layout: React.FC = () => {
           {`
             {
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "@id": "https://www.creativosespacios.mx/#organization",
-              "name": "Creativos Espacios",
-              "url": "https://www.creativosespacios.mx/",
-              "logo": "https://www.creativosespacios.mx/images/logo-creativos-espacios.png",
-              "description": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos.",
-              "areaServed": {
-                "@type": "Country",
-                "name": "México"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+52-55-5426-9941",
-                "contactType": "sales",
-                "areaServed": "MX",
-                "availableLanguage": "Spanish"
-              },
-              "sameAs": [
-                "https://wa.me/522291846751",
-                "https://www.facebook.com/creativosespaciosmx",
-                "https://www.instagram.com/creativosespaciosmx/",
-                  "https://www.linkedin.com/company/creativos-espacios/",
-                   "https://www.google.com/search?q=Creativos%20Espacios%20%7C%20Venta%2C%20renta%20y%20adaptación%20de%20contenedores%20marítimos"
-                ]
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.creativosespacios.mx/#organization",
+                  "name": "Creativos Espacios",
+                  "url": "https://www.creativosespacios.mx/",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "@id": "https://www.creativosespacios.mx/#logo",
+                    "url": "https://www.creativosespacios.mx/images/logo-creativos-espacios.png",
+                    "contentUrl": "https://www.creativosespacios.mx/images/logo-creativos-espacios.png",
+                    "caption": "Creativos Espacios"
+                  },
+                  "description": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos.",
+                  "areaServed": {
+                    "@type": "Country",
+                    "name": "México"
+                  },
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+52-55-5426-9941",
+                    "contactType": "sales",
+                    "areaServed": "MX",
+                    "availableLanguage": "Spanish"
+                  },
+                  "sameAs": [
+                    "https://wa.me/522291846751",
+                    "https://www.facebook.com/creativosespaciosmx",
+                    "https://www.instagram.com/creativosespaciosmx/",
+                    "https://www.linkedin.com/company/creativos-espacios/",
+                    "https://www.google.com/search?q=Creativos%20Espacios%20%7C%20Venta%2C%20renta%20y%20adaptación%20de%20contenedores%20marítimos"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.creativosespacios.mx/#website",
+                  "url": "https://www.creativosespacios.mx/",
+                  "name": "Creativos Espacios",
+                  "publisher": {
+                    "@id": "https://www.creativosespacios.mx/#organization"
+                  },
+                  "inLanguage": "es-MX"
+                }
+              ]
             }
           `}
         </script>
@@ -95,9 +115,14 @@ export const Layout: React.FC = () => {
             <p className="text-brand-graphite text-sm md:text-base leading-relaxed font-sans">
               ventas@creativosespacios.mx
             </p>
-            <p className="text-sm text-brand-graphite/60 font-sans mt-2 leading-relaxed">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Av.+del+Arbol+104-Lote+2,+Lomas+de+San+Lorenzo,+Iztapalapa,+09790+Ciudad+de+Mexico,+CDMX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block text-sm leading-relaxed text-brand-graphite/60 font-sans transition-colors duration-200 hover:text-brand-orange focus-visible:outline-none focus-visible:text-brand-orange"
+            >
               Av. del Árbol 104-Lote 2, Lomas de San Lorenzo, Iztapalapa, 09790 Ciudad de México, CDMX
-            </p>
+            </a>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-16 md:mt-24 pt-8 md:pt-10 border-t border-brand-gray flex flex-col md:flex-row justify-between items-center gap-6">

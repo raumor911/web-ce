@@ -15,7 +15,7 @@
       "status": "verify-wording",
       "source": "/contacto",
       "allowedInPublicContent": true,
-      "notes": "No debe interpretarse como disponibilidad inmediata garantizada en cualquier localidad sin validación logística."
+      "notes": "No debe interpretarse como disponibilidad garantizada en cualquier localidad sin validación de inventario, ubicación y logística."
     },
     {
       "id": "years-experience",

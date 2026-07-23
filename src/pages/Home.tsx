@@ -12,11 +12,13 @@ const Home: React.FC = () => {
         description="Infraestructura modular para empresas y proyectos industriales en CDMX. Venta y renta de contenedores y oficinas reubicables."
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "Creativos Espacios",
-          "description": "Proveedor de infraestructura modular industrial en CDMX",
-          "areaServed": "CDMX y Área Metropolitana",
-          "serviceType": ["Venta de contenedores", "Renta de contenedores", "Oficinas reubicables"]
+          "@type": "WebPage",
+          "@id": "https://www.creativosespacios.mx/#webpage",
+          "url": "https://www.creativosespacios.mx/",
+          "name": "Creativos Espacios | Capacidad Operativa Inmediata",
+          "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
+          "about": { "@id": "https://www.creativosespacios.mx/#organization" },
+          "description": "Infraestructura modular para empresas y proyectos industriales en CDMX. Venta y renta de contenedores y oficinas reubicables."
         }}
       />
 
@@ -70,9 +72,9 @@ const Home: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {[
-                { title: "Ampliación Rápida", desc: "Nuevos puntos operativos en días, no meses." },
+                { title: "Ampliación Rápida", desc: "Incorporación de espacio en plazos definidos por proyecto." },
                 { title: "Supervisión de Obra", desc: "Oficinas habitables en el frente de trabajo." },
-                { title: "Resguardo Seguro", desc: "Almacenamiento industrial blindado." },
+                { title: "Resguardo Seguro", desc: "Espacio resistente para resguardo de materiales." },
                 { title: "Flexibilidad Total", desc: "Renta por proyecto o adquisición permanente." }
               ].map((item, i) => (
                 <div key={i} className="p-6 md:p-8 border-l-4 border-brand-orange bg-brand-gray/30">
@@ -178,11 +180,11 @@ const Home: React.FC = () => {
           </div>
           <div className="flex flex-col items-center text-center gap-4 md:gap-6">
             <Zap className="w-10 h-10 md:w-12 md:h-12 text-brand-orange" />
-            <h5 className="font-bold text-[10px] uppercase tracking-[0.2em] text-brand-petroleum">Entrega Inmediata</h5>
+            <h5 className="font-bold text-[10px] uppercase tracking-[0.2em] text-brand-petroleum">Disponibilidad sujeta a inventario y ubicación</h5>
           </div>
           <div className="flex flex-col items-center text-center gap-4 md:gap-6">
             <Truck className="w-10 h-10 md:w-12 md:h-12 text-brand-orange" />
-            <h5 className="font-bold text-[10px] uppercase tracking-[0.2em] text-brand-petroleum">Logística Propia</h5>
+            <h5 className="font-bold text-[10px] uppercase tracking-[0.2em] text-brand-petroleum">Coordinación de transporte y posicionamiento</h5>
           </div>
           <div className="flex flex-col items-center text-center gap-4 md:gap-6">
             <Box className="w-10 h-10 md:w-12 md:h-12 text-brand-orange" />

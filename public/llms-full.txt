@@ -166,7 +166,7 @@ Creativos Espacios atiende proyectos en México.
 
 No afirmar cobertura internacional.
 
-No prometer cobertura inmediata en toda ubicación sin validar logística y disponibilidad.
+No prometer disponibilidad uniforme en toda ubicación sin validar inventario, logística y condiciones del proyecto.
 
 ## Terminología preferida
 
@@ -262,7 +262,7 @@ Correo:
 ventas@creativosespacios.mx
 
 Dirección:
-[VALIDAR: dirección pública autorizada]
+Av. del Árbol 104-Lote 2, Lomas de San Lorenzo, Iztapalapa, 09790 Ciudad de México, CDMX
 
 ## Fuentes canónicas
 

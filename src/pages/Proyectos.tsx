@@ -1,10 +1,14 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { Settings, Warehouse, Building2, Compass, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getHeroMotionConfig } from '../lib/heroMotion';
 
 const Proyectos: React.FC = () => {
+  const reducedMotion = useReducedMotion();
+  const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
+
   const soluciones = [
     {
       title: 'Almacenamiento y resguardo',
@@ -34,16 +38,65 @@ const Proyectos: React.FC = () => {
       <SEO 
         title="Soluciones Modulares a la Medida"
         description="Ingeniería modular para necesidades operativas específicas. Bodegas técnicas, laboratorios y módulos de servicio en CDMX."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.creativosespacios.mx/proyectos/#webpage",
+              "url": "https://www.creativosespacios.mx/proyectos",
+              "name": "Soluciones Modulares a la Medida",
+              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
+              "description": "Ingeniería modular para necesidades operativas específicas."
+            },
+            {
+              "@type": "Service",
+              "@id": "https://www.creativosespacios.mx/proyectos/#service",
+              "name": "Proyectos Modulares",
+              "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
+              "description": "Desarrollo de proyectos modulares adaptados a requerimientos técnicos.",
+              "areaServed": { "@type": "Country", "name": "México" }
+            }
+          ]
+        }}
       />
 
-      <header className="bg-brand-gray/20 py-20 md:py-32 border-b border-brand-gray">
-        <div className="container mx-auto px-6 lg:px-12">
-          <span className="section-subtitle">Soluciones a la medida</span>
-          <h1 className="text-brand-graphite mb-8 leading-tight">Espacios diseñados para las necesidades de cada proyecto.</h1>
-          <p className="text-brand-graphite text-lg md:text-2xl max-w-3xl font-sans leading-relaxed">
-            Cada proyecto tiene necesidades distintas. Diseñamos y habilitamos espacios modulares de acuerdo con los requerimientos operativos, técnicos y funcionales de cada cliente.
-          </p>
+      <header className="group relative overflow-hidden border-b border-[rgba(255,255,255,0.12)] bg-brand-petroleum py-24 md:py-36">
+        <div className="pointer-events-none absolute inset-0">
+          <motion.img
+            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=industrial+modular+container+project+installed+on+site+architectural+photography+sober+technical+corporate+wide+shot&image_size=landscape_16_9"
+            alt="Proyecto modular instalado"
+            className="h-full w-full object-cover grayscale will-change-transform transition-transform duration-[1400ms] ease-out motion-reduce:transition-none md:group-hover:scale-[1.02]"
+            variants={heroMotion.background}
+            initial="hidden"
+            animate="visible"
+          />
+          <div className="absolute inset-0 bg-[rgba(15,23,42,0.72)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(15,23,42,0.92)] via-[rgba(15,23,42,0.78)] to-[rgba(15,23,42,0.58)]"></div>
+          <motion.div
+            aria-hidden="true"
+            className="absolute inset-y-0 left-[-12%] w-[34%] bg-gradient-to-r from-white/0 via-white/10 to-white/0 mix-blend-screen will-change-transform"
+            variants={heroMotion.shimmer}
+            initial="hidden"
+            animate="visible"
+          />
         </div>
+        <motion.div
+          className="container relative z-10 mx-auto px-6 lg:px-12"
+          variants={heroMotion.container}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.span variants={heroMotion.eyebrow} className="section-subtitle !text-brand-orange">
+            Soluciones a la medida
+          </motion.span>
+          <motion.h1 variants={heroMotion.title} className="mb-8 max-w-5xl leading-tight text-white">
+            Espacios diseñados para las necesidades de cada proyecto.
+          </motion.h1>
+          <motion.p variants={heroMotion.body} className="max-w-3xl text-lg leading-relaxed text-white/88 md:text-2xl font-sans">
+            Cada proyecto tiene necesidades distintas. Diseñamos y habilitamos espacios modulares de acuerdo con los requerimientos operativos, técnicos y funcionales de cada cliente.
+          </motion.p>
+        </motion.div>
       </header>
 
       <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12">

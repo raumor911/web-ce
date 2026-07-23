@@ -10,6 +10,25 @@ const Nosotros: React.FC = () => {
       <SEO 
         title="Nuestra Empresa | Infraestructura Modular Industrial"
         description="Diseñamos infraestructura modular para operaciones que no pueden detenerse. Más de una década desarrollando soluciones técnicas para la industria."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.creativosespacios.mx/nosotros/#webpage",
+              "url": "https://www.creativosespacios.mx/nosotros",
+              "name": "Nuestra Empresa | Infraestructura Modular Industrial",
+              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
+              "description": "Información sobre Creativos Espacios y nuestra experiencia en infraestructura modular."
+            },
+            {
+              "@type": "AboutPage",
+              "@id": "https://www.creativosespacios.mx/nosotros/#about",
+              "url": "https://www.creativosespacios.mx/nosotros",
+              "mainEntity": { "@id": "https://www.creativosespacios.mx/#organization" }
+            }
+          ]
+        }}
       />
 
       {/* Hero Section - Technical & Sober */}

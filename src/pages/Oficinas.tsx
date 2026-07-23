@@ -1,36 +1,75 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getHeroMotionConfig } from '../lib/heroMotion';
 
 const Oficinas: React.FC = () => {
+  const reducedMotion = useReducedMotion();
+  const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
+
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
         title="Oficinas Reubicables para Industria y Obra"
         description="Módulos de oficina habitables para supervisión, administración y frentes de obra en CDMX. Equipamiento técnico completo."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.creativosespacios.mx/soluciones/oficinas/#webpage",
+              "url": "https://www.creativosespacios.mx/soluciones/oficinas",
+              "name": "Oficinas Reubicables para Industria y Obra",
+              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
+              "description": "Módulos de oficina habitables para supervisión, administración y frentes de obra."
+            },
+            {
+              "@type": "Service",
+              "@id": "https://www.creativosespacios.mx/soluciones/oficinas/#service",
+              "name": "Oficinas Reubicables",
+              "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
+              "description": "Diseño y suministro de oficinas modulares reubicables.",
+              "areaServed": { "@type": "Country", "name": "México" }
+            }
+          ]
+        }}
       />
 
-      <header className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-brand-gray/20 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20 grayscale mix-blend-multiply">
-          <img 
+      <header className="group relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-brand-gray/20 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 z-0">
+          <motion.img 
             src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern+container+office+industrial+site+sober+technical+photography+high+quality&image_size=landscape_16_9" 
             alt="Oficinas Reubicables"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover grayscale will-change-transform transition-transform duration-[1400ms] ease-out motion-reduce:transition-none md:group-hover:scale-[1.02]"
+            variants={heroMotion.background}
+            initial="hidden"
+            animate="visible"
+          />
+          <div className="absolute inset-0 bg-[rgba(255,255,255,0.72)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(253,253,253,0.94)] via-[rgba(253,253,253,0.84)] to-[rgba(253,253,253,0.52)]" />
+          <motion.div
+            aria-hidden="true"
+            className="absolute inset-y-0 left-[-12%] w-[34%] bg-gradient-to-r from-white/0 via-white/25 to-white/0 will-change-transform"
+            variants={heroMotion.shimmer}
+            initial="hidden"
+            animate="visible"
           />
         </div>
-        <div className="container relative z-10 mx-auto px-6 lg:px-12">
-          <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <h1 className="text-brand-graphite mb-8 leading-tight uppercase tracking-tight">OFICINAS <br /> REUBICABLES.</h1>
-            <p className="text-brand-graphite text-lg md:text-2xl max-w-3xl font-sans leading-relaxed">
+        <motion.div
+          className="container relative z-10 mx-auto px-6 lg:px-12"
+          variants={heroMotion.container}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h1 variants={heroMotion.title} className="text-brand-graphite mb-8 leading-tight uppercase tracking-tight">
+            OFICINAS <br /> REUBICABLES.
+          </motion.h1>
+          <motion.p variants={heroMotion.body} className="text-brand-graphite text-lg md:text-2xl max-w-3xl font-sans leading-relaxed">
             Infraestructura diseñada para ofrecer un entorno de trabajo ergonómico, seguro y eficiente, justo donde su operación lo necesita.
-          </p>
-          </motion.div>
-        </div>
+          </motion.p>
+        </motion.div>
       </header>
 
       <section className="py-20 md:py-32 bg-brand-white">

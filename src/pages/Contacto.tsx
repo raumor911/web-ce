@@ -9,6 +9,25 @@ const Contacto: React.FC = () => {
       <SEO 
         title="Contacto y Cotización Técnica"
         description="Inicie su proyecto de infraestructura modular. Solicite una cotización técnica para venta o renta de contenedores en CDMX."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.creativosespacios.mx/contacto/#webpage",
+              "url": "https://www.creativosespacios.mx/contacto",
+              "name": "Contacto y Cotización Técnica",
+              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
+              "description": "Página de contacto de Creativos Espacios para cotizaciones técnicas."
+            },
+            {
+              "@type": "ContactPage",
+              "@id": "https://www.creativosespacios.mx/contacto/#contact",
+              "url": "https://www.creativosespacios.mx/contacto",
+              "mainEntity": { "@id": "https://www.creativosespacios.mx/#organization" }
+            }
+          ]
+        }}
       />
 
       <header className="bg-brand-gray/50 py-20 md:py-32 border-b border-brand-gray">
@@ -94,9 +113,14 @@ const Contacto: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-[10px] md:text-xs uppercase tracking-widest">Centro Operativo</h4>
-                    <p className="text-sm text-brand-graphite/60 font-sans mt-1 leading-relaxed">
-                      Atención principal en CDMX, Área Metropolitana y principales nodos logísticos de la región.
-                    </p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Av.+del+Arbol+104-Lote+2,+Lomas+de+San+Lorenzo,+Iztapalapa,+09790+Ciudad+de+Mexico,+CDMX"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 block text-sm leading-relaxed text-brand-graphite/60 font-sans transition-colors duration-200 hover:text-brand-orange focus-visible:outline-none focus-visible:text-brand-orange"
+                    >
+                      Av. del Arbol 104-Lote 2, Lomas de San Lorenzo, Iztapalapa, 09790 Ciudad de Mexico, CDMX
+                    </a>
                   </div>
                 </div>
               </div>
