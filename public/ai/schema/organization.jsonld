@@ -5,7 +5,7 @@
       "@type": "Organization",
       "@id": "https://www.creativosespacios.mx/#organization",
       "name": "Creativos Espacios",
-      "legalName": "[VALIDAR: razón social oficial]",
+      "legalName": "Creativos Espacios",
       "url": "https://www.creativosespacios.mx/",
       "logo": {
         "@type": "ImageObject",

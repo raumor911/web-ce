@@ -35,8 +35,12 @@ const Nosotros: React.FC = () => {
       <header className="bg-brand-gray/20 py-20 md:py-32 border-b border-brand-gray relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10 grayscale pointer-events-none">
           <img 
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=industrial+engineering+blueprint+background+minimalist+technical+drawing&image_size=landscape_16_9" 
+            src="/images/nosotros-hero-blueprint.png" 
             alt="Ingeniería Industrial" 
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = '/images/nosotros-hero-blueprint.svg';
+            }}
             className="w-full h-full object-cover"
           />
         </div>
@@ -51,10 +55,10 @@ const Nosotros: React.FC = () => {
               Diseñamos infraestructura modular para operaciones que <span className="text-brand-orange">no pueden detenerse.</span>
             </h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
-              <p className="text-brand-graphite text-lg md:text-xl font-sans leading-relaxed">
+              <p className="text-brand-graphite text-lg md:text-xl font-sans leading-relaxed text-justify">
                 Durante más de una década hemos desarrollado soluciones modulares para empresas, industria y proyectos que requieren incorporar capacidad operativa sin depender de la construcción tradicional.
               </p>
-              <p className="text-brand-graphite text-lg md:text-xl font-sans leading-relaxed">
+              <p className="text-brand-graphite text-lg md:text-xl font-sans leading-relaxed text-justify">
                 Nuestra experiencia combina venta y renta de contenedores, oficinas reubicables y proyectos modulares desarrollados de acuerdo con los requerimientos específicos de cada operación. Trabajamos con organizaciones que necesitan espacios funcionales para ejecutar proyectos, ampliar su capacidad o responder con rapidez a nuevas necesidades operativas.
               </p>
             </div>
@@ -69,18 +73,22 @@ const Nosotros: React.FC = () => {
             <div className="relative">
               <div className="absolute -top-6 -left-6 md:-top-10 md:-left-10 w-48 h-48 md:w-64 md:h-64 border-l-2 border-t-2 border-brand-orange/40"></div>
               <img 
-                src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=industrial+modular+infrastructure+installation+technical+photography+high+quality+sober&image_size=landscape_4_3" 
+                src="/images/nosotros-method-installation.png" 
                 alt="Infraestructura Modular" 
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = '/images/nosotros-method-installation.svg';
+                }}
                 className="relative z-10 grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl"
               />
             </div>
             <div>
               <h2 className="section-title">Más que contenedores, desarrollamos soluciones para cada operación.</h2>
               <div className="space-y-8 mt-10">
-                <p className="text-brand-graphite text-lg leading-relaxed font-sans">
+                <p className="text-brand-graphite text-lg leading-relaxed font-sans text-justify">
                   Entendemos que cada proyecto tiene condiciones particulares de tiempo, espacio, operación y logística.
                 </p>
-                <p className="text-brand-graphite text-lg leading-relaxed font-sans">
+                <p className="text-brand-graphite text-lg leading-relaxed font-sans text-justify">
                   Por ello, antes de fabricar una solución, analizamos el uso previsto, las condiciones del sitio y los requerimientos técnicos para definir una configuración alineada con las necesidades del proyecto.
                 </p>
                 <p className="text-brand-graphite text-lg leading-relaxed font-sans border-l-4 border-brand-orange pl-8 italic">
@@ -143,10 +151,10 @@ const Nosotros: React.FC = () => {
             <span className="section-subtitle">Cómo trabajamos</span>
             <h2 className="section-title">Nuestro proceso comienza por comprender la necesidad del proyecto.</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-              <p className="text-brand-graphite text-lg leading-relaxed font-sans">
+              <p className="text-brand-graphite text-lg leading-relaxed font-sans text-justify">
                 A partir de esa información definimos el alcance, la configuración, las adecuaciones y los servicios necesarios para desarrollar una solución funcional y preparada para su instalación.
               </p>
-              <p className="text-brand-graphite text-lg leading-relaxed font-sans">
+              <p className="text-brand-graphite text-lg leading-relaxed font-sans text-justify">
                 Durante todo el proceso coordinamos las diferentes etapas para ofrecer una experiencia ordenada, desde la definición del proyecto hasta la entrega de la infraestructura.
               </p>
             </div>
@@ -158,8 +166,12 @@ const Nosotros: React.FC = () => {
       <section className="py-20 md:py-32 bg-brand-petroleum text-white overflow-hidden relative">
         <div className="absolute inset-0 opacity-10 pointer-events-none grayscale invert">
           <img 
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=mexico+map+technical+logistics+network+dots+and+lines+industrial+style&image_size=landscape_16_9" 
+            src="/images/nosotros-coverage-map.png" 
             alt="Cobertura Nacional" 
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = '/images/nosotros-coverage-map.svg';
+            }}
             className="w-full h-full object-cover"
           />
         </div>
@@ -168,7 +180,7 @@ const Nosotros: React.FC = () => {
             <div>
               <span className="text-brand-orange font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-6 block font-bold">Cobertura nacional</span>
               <h2 className="text-3xl md:text-5xl font-serif mb-8 text-white">Desarrollamos proyectos en toda la República Mexicana.</h2>
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed font-sans mb-10">
+              <p className="text-white/80 text-lg md:text-xl leading-relaxed font-sans mb-10 text-justify">
                 Nuestra red logística y experiencia en transporte e instalación nos permite atender proyectos en distintas regiones del país, adaptando cada solución a las condiciones particulares de cada ubicación.
               </p>
               <div className="flex items-center gap-6">

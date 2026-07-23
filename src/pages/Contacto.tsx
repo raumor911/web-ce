@@ -32,7 +32,7 @@ const Contacto: React.FC = () => {
 
       <header className="bg-brand-gray/50 py-20 md:py-32 border-b border-brand-gray">
         <div className="container px-6 lg:px-12">
-          <h1 className="section-title">Inicie su <br /> Conversación Técnica.</h1>
+          <h1 className="section-title">Inicie su Conversación.</h1>
           <p className="text-brand-graphite/70 text-base md:text-lg max-w-2xl font-sans leading-relaxed">
             Nuestro equipo de especialistas le proporcionará una estimación detallada basada en sus necesidades operativas y logística de sitio.
           </p>
@@ -66,12 +66,12 @@ const Contacto: React.FC = () => {
                 <select className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors appearance-none cursor-pointer">
                   <option>Venta / Renta de Contenedores</option>
                   <option>Oficinas Reubicables</option>
-                  <option>Proyectos Adaptados</option>
+                  <option>Proyectos</option>
                 </select>
               </div>
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">Descripción del Requerimiento Técnico</label>
-                <textarea rows={4} className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors"></textarea>
+                <textarea rows={4} className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm text-justify focus:outline-none focus:border-brand-orange transition-colors"></textarea>
               </div>
               <button className="w-full btn-primary flex items-center justify-center gap-3">
                 Enviar Solicitud <ArrowRight size={16} />
@@ -114,7 +114,7 @@ const Contacto: React.FC = () => {
                   <div>
                     <h4 className="font-bold text-[10px] md:text-xs uppercase tracking-widest">Centro Operativo</h4>
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=Av.+del+Arbol+104-Lote+2,+Lomas+de+San+Lorenzo,+Iztapalapa,+09790+Ciudad+de+Mexico,+CDMX"
+                      href="https://google.com/maps/place/Creativos+Espacios+%7C+Venta,+renta+y+adaptaci%C3%B3n+de+contenedores+mar%C3%ADtimos/data=!4m2!3m1!1s0x0:0xcf94e14da72b42e9?sa=X&ved=1t:2428&ictx=111"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-1 block text-sm leading-relaxed text-brand-graphite/60 font-sans transition-colors duration-200 hover:text-brand-orange focus-visible:outline-none focus-visible:text-brand-orange"

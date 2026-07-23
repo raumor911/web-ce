@@ -1,0 +1,19 @@
+{
+  "images": [
+    { "file": "logo-creativos-espacios.png", "path": "/images/logo-creativos-espacios.png", "usage": ["logo header", "logo footer", "schema organization"] },
+    { "file": "home-hero-modular-infra.png", "path": "/images/home-hero-modular-infra.png", "usage": ["home hero"] },
+    { "file": "home-solution-containers.png", "path": "/images/home-solution-containers.png", "usage": ["home solutions card: venta y renta"] },
+    { "file": "home-solution-offices.png", "path": "/images/home-solution-offices.png", "usage": ["home solutions card: oficinas"] },
+    { "file": "home-solution-projects.png", "path": "/images/home-solution-projects.png", "usage": ["home solutions card: proyectos"] },
+    { "file": "venta-renta-hero.png", "path": "/images/venta-renta-hero.png", "usage": ["venta y renta hero"] },
+    { "file": "venta-renta-contenedor-20ft.png", "path": "/images/venta-renta-contenedor-20ft.png", "usage": ["venta y renta card: 20 FT"] },
+    { "file": "venta-renta-contenedor-40ft.png", "path": "/images/venta-renta-contenedor-40ft.png", "usage": ["venta y renta card: 40 FT"] },
+    { "file": "oficinas-hero.png", "path": "/images/oficinas-hero.png", "usage": ["oficinas hero"] },
+    { "file": "proyectos-hero.png", "path": "/images/proyectos-hero.png", "usage": ["proyectos hero"] },
+    { "file": "proyectos-blueprint.png", "path": "/images/proyectos-blueprint.png", "usage": ["proyectos blueprint section"] },
+    { "file": "nosotros-hero-blueprint.png", "path": "/images/nosotros-hero-blueprint.png", "usage": ["nosotros hero"] },
+    { "file": "nosotros-method-installation.png", "path": "/images/nosotros-method-installation.png", "usage": ["nosotros method image"] },
+    { "file": "nosotros-coverage-map.png", "path": "/images/nosotros-coverage-map.png", "usage": ["nosotros coverage section"] },
+    { "file": "social-preview.png", "path": "/images/social-preview.png", "usage": ["default og image", "twitter image"] }
+  ]
+}

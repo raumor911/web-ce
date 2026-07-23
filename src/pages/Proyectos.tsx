@@ -4,6 +4,8 @@ import { SEO } from '../components/SEO';
 import { Settings, Warehouse, Building2, Compass, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getHeroMotionConfig } from '../lib/heroMotion';
+import { FAQ } from '../components/FAQ';
+import faqData from '../data/faqData.json';
 
 const Proyectos: React.FC = () => {
   const reducedMotion = useReducedMotion();
@@ -64,8 +66,12 @@ const Proyectos: React.FC = () => {
       <header className="group relative overflow-hidden border-b border-[rgba(255,255,255,0.12)] bg-brand-petroleum py-24 md:py-36">
         <div className="pointer-events-none absolute inset-0">
           <motion.img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=industrial+modular+container+project+installed+on+site+architectural+photography+sober+technical+corporate+wide+shot&image_size=landscape_16_9"
+            src="/images/proyectos-hero.png"
             alt="Proyecto modular instalado"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = '/images/proyectos-hero.svg';
+            }}
             className="h-full w-full object-cover grayscale will-change-transform transition-transform duration-[1400ms] ease-out motion-reduce:transition-none md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
             initial="hidden"
@@ -93,7 +99,7 @@ const Proyectos: React.FC = () => {
           <motion.h1 variants={heroMotion.title} className="mb-8 max-w-5xl leading-tight text-white">
             Espacios diseñados para las necesidades de cada proyecto.
           </motion.h1>
-          <motion.p variants={heroMotion.body} className="max-w-3xl text-lg leading-relaxed text-white/88 md:text-2xl font-sans">
+          <motion.p variants={heroMotion.body} className="max-w-3xl text-lg leading-relaxed text-white md:text-2xl font-sans text-justify">
             Cada proyecto tiene necesidades distintas. Diseñamos y habilitamos espacios modulares de acuerdo con los requerimientos operativos, técnicos y funcionales de cada cliente.
           </motion.p>
         </motion.div>
@@ -151,15 +157,19 @@ const Proyectos: React.FC = () => {
           <div className="relative order-2 lg:order-1">
             <div className="absolute -top-6 -left-6 md:-top-10 md:-left-10 w-48 h-48 md:w-64 md:h-64 border-l-2 border-t-2 border-brand-orange/40"></div>
             <img 
-              src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=technical+blueprint+drawing+industrial+modular+unit+architecture+minimalist+black+lines+on+white+background&image_size=landscape_4_3" 
+              src="/images/proyectos-blueprint.png" 
               alt="Blueprint Técnico"
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = '/images/proyectos-blueprint.svg';
+              }}
               className="relative z-10 w-full opacity-60 grayscale mix-blend-multiply"
             />
           </div>
           <div className="order-1 lg:order-2">
             <span className="section-subtitle">Nuestro método</span>
             <h2 className="text-3xl md:text-6xl font-serif mb-8 md:mb-10 leading-tight text-brand-petroleum">Del requerimiento a una solución lista para operar</h2>
-            <p className="text-brand-graphite text-lg md:text-2xl leading-relaxed mb-10 md:mb-12 font-sans">
+            <p className="text-brand-graphite text-lg md:text-2xl leading-relaxed mb-10 md:mb-12 font-sans text-justify">
               Analizamos el uso, las condiciones del sitio y los requerimientos técnicos de cada proyecto. A partir de esta información, definimos la configuración, los servicios y las adecuaciones necesarias para entregar una solución preparada para su instalación y puesta en operación.
             </p>
             <div className="flex gap-10 md:gap-16">
@@ -175,6 +185,12 @@ const Proyectos: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <FAQ 
+        items={[...faqData.proyectos, ...faqData.general]} 
+        title="Dudas sobre Proyectos Especiales"
+        subtitle="Información sobre el desarrollo de soluciones de ingeniería modular a medida."
+      />
     </div>
   );
 };

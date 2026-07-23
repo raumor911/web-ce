@@ -23,20 +23,6 @@
       "status": "verified",
       "source": "/nosotros",
       "allowedInPublicContent": true
-    },
-    {
-      "id": "certifications",
-      "statement": "[VALIDAR: certificaciones específicas]",
-      "status": "pending",
-      "source": null,
-      "allowedInPublicContent": false
-    },
-    {
-      "id": "client-count",
-      "statement": "[VALIDAR: número de clientes atendidos]",
-      "status": "pending",
-      "source": null,
-      "allowedInPublicContent": false
     }
   ]
 }

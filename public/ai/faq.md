@@ -39,5 +39,14 @@ Nuestras soluciones están diseñadas bajo principios de modularidad y movilidad
 ## ¿Sus soluciones sustituyen a una construcción permanente?
 Son una alternativa estratégica en proyectos donde la velocidad de despliegue, la modularidad o la necesidad de reubicación aportan un valor superior a la construcción tradicional.
 
+## ¿Es mejor rentar o comprar un contenedor?
+La renta es ideal para proyectos temporales, obras con duración definida o necesidades de almacenamiento estacional. La compra se recomienda cuando la unidad formará parte de sus activos permanentes o para proyectos de muy larga duración.
+
+## ¿Qué mantenimiento requieren las unidades?
+Nuestras unidades están fabricadas en acero Corten de alta resistencia, lo que minimiza el mantenimiento. Recomendamos inspecciones periódicas de pintura y sellos para garantizar la hermeticidad a largo plazo.
+
+## ¿Qué se necesita para la entrega en sitio?
+Se requiere un terreno nivelado y firme, así como espacio suficiente para las maniobras del camión y la grúa. Nosotros coordinamos la logística de acuerdo con las condiciones específicas de su sitio.
+
 ## ¿Cómo inicio una cotización?
 Puede contactarnos directamente vía WhatsApp (+52 229 184 6751), teléfono o a través de nuestro formulario de contacto en el sitio oficial.

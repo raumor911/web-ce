@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Creativos Espacios</title>
+<desc id="desc">Vista previa social para Open Graph y Twitter.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#0f172a"/>
+<stop offset="100%" stop-color="#334155"/>
+</linearGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<g opacity=".1" stroke="#e5e7eb" stroke-width="1">
+<path d="M0 110h1200M0 250h1200M0 390h1200M0 530h1200"/>
+<path d="M120 0v630M320 0v630M520 0v630M720 0v630M920 0v630M1120 0v630"/>
+</g>
+<rect x="84" y="84" width="210" height="8" fill="#f97316"/>
+<text x="84" y="205" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700">Creativos Espacios</text>
+<text x="84" y="292" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="34">Infraestructura modular para operaciones, proyectos y capacidad operativa.</text>
+<rect x="735" y="180" width="320" height="180" fill="#374151"/>
+<rect x="885" y="130" width="180" height="120" fill="#475569"/>
+<path d="M690 402h420" stroke="#f97316" stroke-width="10"/>
+</svg>

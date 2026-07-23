@@ -115,8 +115,11 @@ export const Layout: React.FC = () => {
             <p className="text-brand-graphite text-sm md:text-base leading-relaxed font-sans">
               ventas@creativosespacios.mx
             </p>
+            <p className="mt-2 text-brand-graphite text-sm md:text-base leading-relaxed font-sans">
+              55 5426 9941
+            </p>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Av.+del+Arbol+104-Lote+2,+Lomas+de+San+Lorenzo,+Iztapalapa,+09790+Ciudad+de+Mexico,+CDMX"
+              href="https://google.com/maps/place/Creativos+Espacios+%7C+Venta,+renta+y+adaptaci%C3%B3n+de+contenedores+mar%C3%ADtimos/data=!4m2!3m1!1s0x0:0xcf94e14da72b42e9?sa=X&ved=1t:2428&ictx=111"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 block text-sm leading-relaxed text-brand-graphite/60 font-sans transition-colors duration-200 hover:text-brand-orange focus-visible:outline-none focus-visible:text-brand-orange"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Box, CheckCircle2, ShieldCheck, Zap, Truck } from 'lucide-react';
+import { ArrowRight, Box, CheckCircle2, Zap, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 
@@ -26,8 +26,12 @@ const Home: React.FC = () => {
       <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden bg-brand-gray/20">
         <div className="absolute inset-0 z-0 opacity-20 grayscale mix-blend-multiply pointer-events-none">
           <img 
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=industrial+shipping+container+complex+modern+architectural+lighting+sober+technical+photography+high+quality&image_size=landscape_16_9" 
+            src="/images/home-hero-modular-infra.png" 
             alt="Infraestructura Modular" 
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = '/images/home-hero-modular-infra.svg';
+            }}
             className="w-full h-full object-cover"
           />
         </div>
@@ -73,7 +77,7 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {[
                 { title: "Ampliación Rápida", desc: "Incorporación de espacio en plazos definidos por proyecto." },
-                { title: "Supervisión de Obra", desc: "Oficinas habitables en el frente de trabajo." },
+                { title: "Supervisión de Obra", desc: "Oficinas reubicables para supervisión y coordinación en sitio." },
                 { title: "Resguardo Seguro", desc: "Espacio resistente para resguardo de materiales." },
                 { title: "Flexibilidad Total", desc: "Renta por proyecto o adquisición permanente." }
               ].map((item, i) => (
@@ -95,39 +99,50 @@ const Home: React.FC = () => {
             <h2 className="section-title">Espacios para operar, ampliar y ejecutar proyectos.</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {[
               {
                 title: "Venta y Renta de Contenedores",
                 desc: "Unidades estándar de 20 y 40 pies para almacenamiento y logística.",
                 href: "/soluciones/venta-renta",
-                img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=industrial+shipping+container+yard+clean+technical+photography+high+quality&image_size=square"
+                img: "/images/home-solution-containers.png",
+                fallbackImg: "/images/home-solution-containers.svg"
               },
               {
                 title: "Oficinas Reubicables",
                 desc: "Módulos administrativos equipados para uso inmediato en campo.",
                 href: "/soluciones/oficinas",
-                img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=interior+modern+container+office+industrial+clean+sober+photography&image_size=square"
+                img: "/images/home-solution-offices.png",
+                fallbackImg: "/images/home-solution-offices.svg"
               },
               {
                 title: "Soluciones a la medida",
                 desc: "Ingeniería modular para necesidades técnicas, operativas y funcionales específicas.",
                 href: "/proyectos",
-                img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=custom+modified+industrial+container+project+architectural+photography+clean+technical&image_size=square"
+                img: "/images/home-solution-projects.png",
+                fallbackImg: "/images/home-solution-projects.svg"
               }
             ].map((sol, i) => (
               <Link 
                 key={i} 
                 to={sol.href}
-                className="group relative overflow-hidden bg-white aspect-[4/5] md:aspect-[4/5] flex flex-col justify-end p-8 md:p-10 transition-all duration-700 shadow-xl"
+                className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-white p-8 transition-all duration-700 shadow-xl md:min-h-[500px] md:p-10 xl:aspect-[4/5] xl:min-h-0"
               >
                 <div className="absolute inset-0 z-0 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000">
-                  <img src={sol.img} alt={sol.title} className="w-full h-full object-cover" />
+                  <img
+                    src={sol.img}
+                    alt={sol.title}
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = sol.fallbackImg;
+                    }}
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-graphite via-brand-graphite/40 to-transparent opacity-80 group-hover:opacity-90"></div>
                 </div>
                 <div className="relative z-10 text-white">
-                  <h3 className="text-2xl md:text-3xl font-serif mb-4 text-white">{sol.title}</h3>
-                  <p className="text-sm md:text-base font-sans text-white/90 mb-6 leading-relaxed opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+                  <h3 className="mb-4 text-2xl leading-[1.08] text-white md:text-3xl font-serif [text-wrap:balance]">{sol.title}</h3>
+                  <p className="mb-6 text-sm leading-relaxed text-white/90 opacity-100 transition-opacity duration-500 md:text-base xl:opacity-0 xl:group-hover:opacity-100">
                     {sol.desc}
                   </p>
                   <span className="flex items-center gap-3 text-[10px] md:text-xs font-bold uppercase tracking-widest text-brand-orange">
@@ -147,7 +162,7 @@ const Home: React.FC = () => {
             <div className="lg:col-span-1">
               <span className="section-subtitle">Nuestro Método</span>
               <h2 className="section-title">Definimos cada proyecto antes de llevarlo a producción.</h2>
-                <p className="text-brand-graphite text-base md:text-lg leading-relaxed mt-6 md:mt-8">
+                <p className="text-brand-graphite text-base md:text-lg leading-relaxed mt-6 md:mt-8 text-justify">
                   Aclaramos el uso, el alcance y los requerimientos técnicos para preparar una solución alineada con la operación.
                 </p>
             </div>
@@ -173,11 +188,7 @@ const Home: React.FC = () => {
 
       {/* Trust Markers - High Legibility */}
       <section className="py-16 md:py-24 bg-brand-gray/20 border-y border-brand-gray">
-        <div className="container mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
-          <div className="flex flex-col items-center text-center gap-4 md:gap-6">
-            <ShieldCheck className="w-10 h-10 md:w-12 md:h-12 text-brand-orange" />
-            <h5 className="font-bold text-[10px] uppercase tracking-[0.2em] text-brand-petroleum">Seguridad Industrial</h5>
-          </div>
+        <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           <div className="flex flex-col items-center text-center gap-4 md:gap-6">
             <Zap className="w-10 h-10 md:w-12 md:h-12 text-brand-orange" />
             <h5 className="font-bold text-[10px] uppercase tracking-[0.2em] text-brand-petroleum">Disponibilidad sujeta a inventario y ubicación</h5>

@@ -3,6 +3,8 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { CheckCircle2, Truck, ShieldCheck, Clock } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
+import { FAQ } from '../components/FAQ';
+import faqData from '../data/faqData.json';
 
 const VentaRenta: React.FC = () => {
   const reducedMotion = useReducedMotion();
@@ -19,7 +21,8 @@ const VentaRenta: React.FC = () => {
         'Reacondicionado para asegurar protección contra filtraciones de agua.',
         'Disponible pintado o en acabado original, según disponibilidad.',
       ],
-      img: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=shipping+container+20ft+industrial+clean+white+background+technical+photography&image_size=landscape_4_3'
+      img: '/images/venta-renta-contenedor-20ft.png',
+      fallbackImg: '/images/venta-renta-contenedor-20ft.svg'
     },
     {
       id: '40ft-std',
@@ -31,7 +34,8 @@ const VentaRenta: React.FC = () => {
         'Reacondicionado para asegurar protección contra filtraciones de agua.',
         'Disponible pintado o en acabado original, sujeto a disponibilidad.',
       ],
-      img: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=shipping+container+40ft+industrial+grey+sober+technical+photography&image_size=landscape_4_3'
+      img: '/images/venta-renta-contenedor-40ft.png',
+      fallbackImg: '/images/venta-renta-contenedor-40ft.svg'
     }
   ];
 
@@ -88,8 +92,12 @@ const VentaRenta: React.FC = () => {
       <header className="group relative overflow-hidden border-b border-[rgba(255,255,255,0.12)] bg-brand-petroleum py-20 md:py-32">
         <div className="pointer-events-none absolute inset-0">
           <motion.img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=industrial+shipping+containers+installed+in+logistics+yard+sober+technical+corporate+photography+wide+shot&image_size=landscape_16_9"
+            src="/images/venta-renta-hero.png"
             alt="Contenedores industriales para almacenamiento y operación"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = '/images/venta-renta-hero.svg';
+            }}
             className="h-full w-full object-cover grayscale will-change-transform transition-transform duration-[1400ms] ease-out motion-reduce:transition-none md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
             initial="hidden"
@@ -114,7 +122,7 @@ const VentaRenta: React.FC = () => {
           <motion.h1 variants={heroMotion.title} className="mb-8 leading-tight text-white">
             Venta y Renta de <br /> Contenedores.
           </motion.h1>
-          <motion.p variants={heroMotion.body} className="max-w-3xl text-lg leading-relaxed text-white/88 md:text-2xl font-sans">
+          <motion.p variants={heroMotion.body} className="max-w-3xl text-lg leading-relaxed text-white md:text-2xl font-sans text-justify">
             Unidades verificadas estructuralmente para garantizar el resguardo de activos y la continuidad operativa para distintos contextos operativos e industriales.
           </motion.p>
         </motion.div>
@@ -128,12 +136,20 @@ const VentaRenta: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="card-industrial group !p-0 overflow-hidden shadow-xl"
+              className="card-industrial group flex h-full flex-col !p-0 overflow-hidden shadow-xl"
             >
-              <div className="aspect-video overflow-hidden">
-                <img src={item.img} alt={item.titulo} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+              <div className="flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-brand-gray/60 bg-brand-gray/10 p-6 sm:p-8 md:p-10">
+                <img
+                  src={item.img}
+                  alt={item.titulo}
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = item.fallbackImg;
+                  }}
+                  className="h-full w-full object-contain object-center grayscale transition-all duration-1000 group-hover:grayscale-0 md:group-hover:scale-[1.02]"
+                />
               </div>
-              <div className="p-6 sm:p-10 md:p-12">
+              <div className="flex flex-1 flex-col p-6 sm:p-10 md:p-12">
                 <div className="mb-8 text-center md:mb-10">
                   <h2 className="text-2xl md:text-4xl font-serif text-brand-petroleum">{item.titulo}</h2>
                 </div>
@@ -149,23 +165,25 @@ const VentaRenta: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-brand-graphite text-base md:text-lg mb-8 md:mb-12 leading-relaxed italic">
-                  "{item.uso}"
-                </p>
+                <div className="flex flex-1 flex-col">
+                  <p className="min-h-[120px] text-brand-graphite text-base leading-relaxed italic md:min-h-[144px] md:text-lg">
+                    "{item.uso}"
+                  </p>
 
-                <div className="space-y-4 md:space-y-5 mb-10 md:mb-12">
-                  {item.features.map((feat) => (
-                    <div key={feat} className="flex items-center gap-4 text-sm text-brand-graphite font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-brand-orange flex-shrink-0" /> {feat}
-                    </div>
-                  ))}
+                  <div className="mb-10 space-y-4 md:mb-12 md:space-y-5">
+                    {item.features.map((feat) => (
+                      <div key={feat} className="flex items-start gap-4 text-sm text-brand-graphite font-medium">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-orange" /> {feat}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <a 
                   href="https://wa.me/522291846751" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-full btn-primary block text-center"
+                  className="mt-auto block w-full text-center btn-primary"
                 >
                   Solicitar Cotización
                 </a>
@@ -201,6 +219,12 @@ const VentaRenta: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <FAQ 
+        items={[...faqData.ventaRenta, ...faqData.general]} 
+        title="Dudas sobre Venta y Renta"
+        subtitle="Información clave para decidir la mejor opción de infraestructura para su operación."
+      />
     </div>
   );
 };

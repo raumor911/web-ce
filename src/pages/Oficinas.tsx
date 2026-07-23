@@ -4,6 +4,8 @@ import { SEO } from '../components/SEO';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getHeroMotionConfig } from '../lib/heroMotion';
+import { FAQ } from '../components/FAQ';
+import faqData from '../data/faqData.json';
 
 const Oficinas: React.FC = () => {
   const reducedMotion = useReducedMotion();
@@ -40,8 +42,12 @@ const Oficinas: React.FC = () => {
       <header className="group relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-brand-gray/20 overflow-hidden">
         <div className="pointer-events-none absolute inset-0 z-0">
           <motion.img 
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern+container+office+industrial+site+sober+technical+photography+high+quality&image_size=landscape_16_9" 
+            src="/images/oficinas-hero.png" 
             alt="Oficinas Reubicables"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = '/images/oficinas-hero.svg';
+            }}
             className="w-full h-full object-cover grayscale will-change-transform transition-transform duration-[1400ms] ease-out motion-reduce:transition-none md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
             initial="hidden"
@@ -168,6 +174,12 @@ const Oficinas: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <FAQ 
+        items={[...faqData.oficinas, ...faqData.general]} 
+        title="Dudas sobre Oficinas Reubicables"
+        subtitle="Todo lo que necesita saber para habilitar su espacio de trabajo en sitio."
+      />
     </div>
   );
 };
