@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+  }
+
+  body {
+    background-color: #FDFDFD;
+    color: #1A1C23;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    @apply antialiased text-base md:text-lg overflow-x-hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents iOS auto-zoom */
+  }
+
+  h1 {
+    @apply font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl;
+  }
+
+  h2 {
+    @apply font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h3 {
+    @apply font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  h4 {
+    @apply font-serif text-lg sm:text-xl md:text-2xl;
+  }
+}
+
+@layer components {
+  .btn-brand {
+    @apply px-6 py-4 md:px-10 md:py-5 font-sans text-xs md:text-sm uppercase tracking-[0.2em] font-bold transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply btn-brand text-white shadow-lg hover:shadow-xl active:scale-95 inline-block text-center;
+    background-color: #EF6C33;
+  }
+
+  .btn-primary:hover {
+    background-color: #1A1C23;
+  }
+  
+  .btn-outline {
+    @apply btn-brand bg-transparent border-2 transition-all duration-300 inline-block text-center;
+    color: #1A1C23;
+    border-color: #1A1C23;
+  }
+
+  .btn-outline:hover {
+    background-color: #E2E2E2;
+  }
+
+  .section-title {
+    @apply leading-tight mb-8;
+    color: theme('colors.brand.petroleum');
+  }
+
+  .section-subtitle {
+    @apply font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-6 block font-bold;
+    color: theme('colors.brand.orange');
+  }
+
+  .card-industrial {
+    @apply bg-white border p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1;
+    border-color: theme('colors.brand.gray');
+  }
+}

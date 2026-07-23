@@ -1,0 +1,56 @@
+{
+  "services": [
+    {
+      "id": "container-sale",
+      "name": "Venta de contenedores",
+      "category": "Infraestructura modular",
+      "description": "Suministro de contenedores para almacenamiento, operación o proyectos que requieren adquirir el activo.",
+      "transactionType": "sale",
+      "availability": "subject-to-confirmation",
+      "areaServed": "México",
+      "requiresAssessment": true,
+      "canonicalUrl": "https://www.creativosespacios.mx/soluciones/venta-renta",
+      "verified": true,
+      "lastReviewed": "2026-07-22T22:18:00Z"
+    },
+    {
+      "id": "container-rental",
+      "name": "Renta de contenedores",
+      "category": "Infraestructura modular",
+      "description": "Disponibilidad temporal de contenedores para almacenamiento, operación o proyectos.",
+      "transactionType": "rental",
+      "availability": "subject-to-confirmation",
+      "areaServed": "México",
+      "requiresAssessment": true,
+      "canonicalUrl": "https://www.creativosespacios.mx/soluciones/venta-renta",
+      "verified": true,
+      "lastReviewed": "2026-07-22T22:18:00Z"
+    },
+    {
+      "id": "relocatable-offices",
+      "name": "Oficinas reubicables",
+      "category": "Infraestructura modular",
+      "description": "Espacios modulares destinados a funciones como supervisión, coordinación, administración y soporte operativo.",
+      "transactionType": "sale-or-rental",
+      "availability": "subject-to-confirmation",
+      "areaServed": "México",
+      "requiresAssessment": true,
+      "canonicalUrl": "https://www.creativosespacios.mx/soluciones/oficinas",
+      "verified": true,
+      "lastReviewed": "2026-07-22T22:18:00Z"
+    },
+    {
+      "id": "modular-projects",
+      "name": "Proyectos modulares",
+      "category": "Infraestructura modular",
+      "description": "Soluciones desarrolladas para requerimientos que necesitan una configuración técnica y funcional específica.",
+      "transactionType": "custom-project",
+      "availability": "subject-to-confirmation",
+      "areaServed": "México",
+      "requiresAssessment": true,
+      "canonicalUrl": "https://www.creativosespacios.mx/proyectos",
+      "verified": true,
+      "lastReviewed": "2026-07-22T22:18:00Z"
+    }
+  ]
+}

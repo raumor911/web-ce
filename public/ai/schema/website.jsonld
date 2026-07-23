@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.creativosespacios.mx/#website",
+  "url": "https://www.creativosespacios.mx/",
+  "name": "Creativos Espacios",
+  "description": "Infraestructura modular técnica para operaciones industriales.",
+  "publisher": {
+    "@id": "https://www.creativosespacios.mx/#organization"
+  },
+  "inLanguage": "es-MX"
+}

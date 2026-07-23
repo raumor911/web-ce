@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "provider": {
+    "@id": "https://www.creativosespacios.mx/#organization"
+  },
+  "serviceType": "Infraestructura Modular",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Mexico"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Creativos Espacios",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Venta de contenedores"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Renta de contenedores"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Oficinas reubicables"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Proyectos modulares"
+        }
+      }
+    ]
+  }
+}

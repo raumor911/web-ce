@@ -1,0 +1,84 @@
+{
+  "name": "Creativos Espacios AI Content Manifest",
+  "version": "1.0.0",
+  "language": "es-MX",
+  "canonicalDomain": "https://www.creativosespacios.mx",
+  "generatedAt": "2026-07-23T05:19:09.806Z",
+  "resources": [
+    {
+      "path": "/llms.txt",
+      "type": "text/plain",
+      "purpose": "Índice breve para sistemas de IA"
+    },
+    {
+      "path": "/llms-full.txt",
+      "type": "text/plain",
+      "purpose": "Perfil corporativo ampliado"
+    },
+    {
+      "path": "/ai/company.md",
+      "type": "text/markdown",
+      "purpose": "Perfil corporativo"
+    },
+    {
+      "path": "/ai/company.json",
+      "type": "application/json",
+      "purpose": "Identidad estructurada"
+    },
+    {
+      "path": "/ai/knowledge-graph.json",
+      "type": "application/json",
+      "purpose": "Relaciones entre entidades"
+    },
+    {
+      "path": "/ai/services.md",
+      "type": "text/markdown",
+      "purpose": "Servicios descriptivos"
+    },
+    {
+      "path": "/ai/services.json",
+      "type": "application/json",
+      "purpose": "Servicios estructurados"
+    },
+    {
+      "path": "/ai/industries.md",
+      "type": "text/markdown",
+      "purpose": "Sectores y aplicaciones"
+    },
+    {
+      "path": "/ai/use-cases.md",
+      "type": "text/markdown",
+      "purpose": "Casos de uso"
+    },
+    {
+      "path": "/ai/terminology.md",
+      "type": "text/markdown",
+      "purpose": "Guía semántica"
+    },
+    {
+      "path": "/ai/glossary.md",
+      "type": "text/markdown",
+      "purpose": "Glosario técnico"
+    },
+    {
+      "path": "/ai/faq.md",
+      "type": "text/markdown",
+      "purpose": "Preguntas frecuentes"
+    },
+    {
+      "path": "/ai/canonical-answers.md",
+      "type": "text/markdown",
+      "purpose": "Respuestas corporativas canónicas"
+    },
+    {
+      "path": "/ai/claims-register.json",
+      "type": "application/json",
+      "purpose": "Control de afirmaciones"
+    },
+    {
+      "path": "/ai/sources.json",
+      "type": "application/json",
+      "purpose": "Fuentes canónicas"
+    }
+  ]
+}

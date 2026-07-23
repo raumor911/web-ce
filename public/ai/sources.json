@@ -1,0 +1,49 @@
+{
+  "organization": "Creativos Espacios",
+  "canonicalDomain": "https://www.creativosespacios.mx",
+  "lastReviewed": "2026-07-22T22:20:00Z",
+  "sources": [
+    {
+      "id": "homepage",
+      "type": "webpage",
+      "url": "https://www.creativosespacios.mx/",
+      "priority": 1,
+      "status": "canonical"
+    },
+    {
+      "id": "about",
+      "type": "webpage",
+      "url": "https://www.creativosespacios.mx/nosotros",
+      "priority": 1,
+      "status": "canonical"
+    },
+    {
+      "id": "solutions-renta",
+      "type": "webpage",
+      "url": "https://www.creativosespacios.mx/soluciones/venta-renta",
+      "priority": 1,
+      "status": "canonical"
+    },
+    {
+      "id": "solutions-oficinas",
+      "type": "webpage",
+      "url": "https://www.creativosespacios.mx/soluciones/oficinas",
+      "priority": 1,
+      "status": "canonical"
+    },
+    {
+      "id": "projects",
+      "type": "webpage",
+      "url": "https://www.creativosespacios.mx/proyectos",
+      "priority": 2,
+      "status": "canonical"
+    },
+    {
+      "id": "contact",
+      "type": "webpage",
+      "url": "https://www.creativosespacios.mx/contacto",
+      "priority": 1,
+      "status": "canonical"
+    }
+  ]
+}

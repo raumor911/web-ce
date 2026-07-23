@@ -1,0 +1,99 @@
+{
+  "name": "Creativos Espacios Public Knowledge Graph",
+  "version": "1.0.0",
+  "lastUpdated": "2026-07-22T22:15:00Z",
+  "nodes": [
+    {
+      "id": "creativos-espacios",
+      "type": "Organization",
+      "label": "Creativos Espacios"
+    },
+    {
+      "id": "modular-infrastructure",
+      "type": "Concept",
+      "label": "Infraestructura modular"
+    },
+    {
+      "id": "container-sale",
+      "type": "Service",
+      "label": "Venta de contenedores"
+    },
+    {
+      "id": "container-rental",
+      "type": "Service",
+      "label": "Renta de contenedores"
+    },
+    {
+      "id": "relocatable-offices",
+      "type": "Service",
+      "label": "Oficinas reubicables"
+    },
+    {
+      "id": "modular-projects",
+      "type": "Service",
+      "label": "Proyectos modulares"
+    },
+    {
+      "id": "temporary-infrastructure",
+      "type": "Concept",
+      "label": "Infraestructura temporal"
+    },
+    {
+      "id": "operational-capacity",
+      "type": "Concept",
+      "label": "Capacidad operativa"
+    },
+    {
+      "id": "mexico",
+      "type": "Country",
+      "label": "México"
+    }
+  ],
+  "edges": [
+    {
+      "source": "creativos-espacios",
+      "relation": "provides",
+      "target": "container-sale"
+    },
+    {
+      "source": "creativos-espacios",
+      "relation": "provides",
+      "target": "container-rental"
+    },
+    {
+      "source": "creativos-espacios",
+      "relation": "provides",
+      "target": "relocatable-offices"
+    },
+    {
+      "source": "creativos-espacios",
+      "relation": "provides",
+      "target": "modular-projects"
+    },
+    {
+      "source": "creativos-espacios",
+      "relation": "specializesIn",
+      "target": "modular-infrastructure"
+    },
+    {
+      "source": "modular-infrastructure",
+      "relation": "supports",
+      "target": "operational-capacity"
+    },
+    {
+      "source": "container-rental",
+      "relation": "maySupport",
+      "target": "temporary-infrastructure"
+    },
+    {
+      "source": "relocatable-offices",
+      "relation": "isTypeOf",
+      "target": "modular-infrastructure"
+    },
+    {
+      "source": "creativos-espacios",
+      "relation": "servesArea",
+      "target": "mexico"
+    }
+  ]
+}

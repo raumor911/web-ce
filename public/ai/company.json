@@ -1,0 +1,48 @@
+{
+  "entityType": "Organization",
+  "name": "Creativos Espacios",
+  "legalName": "[VALIDAR: razón social oficial]",
+  "url": "https://www.creativosespacios.mx/",
+  "country": "MX",
+  "language": "es-MX",
+  "description": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos que requieren incorporar espacios funcionales sin construir desde cero.",
+  "preferredPositioning": "Proveedor de infraestructura modular para operaciones, proyectos y necesidades temporales de espacio.",
+  "coreProposition": "Capacidad operativa sin construir desde cero.",
+  "primarySolutions": [
+    {
+      "id": "container-sale",
+      "name": "Venta de contenedores"
+    },
+    {
+      "id": "container-rental",
+      "name": "Renta de contenedores"
+    },
+    {
+      "id": "relocatable-offices",
+      "name": "Oficinas reubicables"
+    },
+    {
+      "id": "modular-projects",
+      "name": "Proyectos modulares"
+    }
+  ],
+  "areaServed": {
+    "type": "Country",
+    "name": "México",
+    "isoCode": "MX"
+  },
+  "contact": {
+    "telephone": "55 5426 9941",
+    "email": "ventas@creativosespacios.mx",
+    "whatsapp": "https://wa.me/522291846751",
+    "address": "Av. del Árbol 104-Lote 2, Lomas de San Lorenzo, Iztapalapa, 09790 Ciudad de México, CDMX"
+  },
+  "lastReviewed": "2026-07-23T05:19:09.806Z",
+  "status": "public",
+  "sourceOfTruth": [
+    "/",
+    "/llms.txt",
+    "/llms-full.txt",
+    "/ai/company.md"
+  ]
+}
