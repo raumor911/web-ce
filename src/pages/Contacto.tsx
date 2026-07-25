@@ -1,9 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { MessageSquare, Mail, MapPin, Phone, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, Phone, ArrowRight, Loader2 } from 'lucide-react';
 
 const Contacto: React.FC = () => {
+  // Estado para capturar los datos del formulario (incluye el honeypot 'website')
+  const [formData, setFormData] = useState({
+    nombre: '',
+    empresa: '',
+    email: '',
+    interes: 'Venta / Renta de Contenedores',
+    mensaje: '',
+    website: '' // Campo trampolín para bots (Honeypot)
+  });
+
+  // Estados para el control de interfaz y respuestas de la API
+  const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setFeedback(null);
+
+    try {
+      // Petición a tu endpoint PHP en HostGator
+      const response = await fetch('https://www.creativosespacios.mx/mail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setFeedback({ type: 'success', message: result.message });
+        // Limpia el formulario
+        setFormData({
+          nombre: '',
+          empresa: '',
+          email: '',
+          interes: 'Venta / Renta de Contenedores',
+          mensaje: '',
+          website: ''
+        });
+      } else {
+        setFeedback({ type: 'error', message: result.message || 'Error al procesar la solicitud.' });
+      }
+    } catch (error) {
+      console.error(error);
+      setFeedback({ type: 'error', message: 'No se pudo conectar con el servidor. Intente más tarde.' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
@@ -46,35 +107,110 @@ const Contacto: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="bg-white p-8 sm:p-12 border border-brand-gray shadow-2xl"
           >
-            <form className="space-y-6 md:space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">Nombre Completo</label>
-                  <input type="text" className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">
+                    Nombre Completo *
+                  </label>
+                  <input 
+                    type="text" 
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors" 
+                  />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">Empresa / Cargo</label>
-                  <input type="text" className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">
+                    Empresa / Cargo
+                  </label>
+                  <input 
+                    type="text" 
+                    name="empresa"
+                    value={formData.empresa}
+                    onChange={handleChange}
+                    className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors" 
+                  />
                 </div>
               </div>
+
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">Email Corporativo</label>
-                <input type="email" className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">
+                  Email Corporativo *
+                </label>
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors" 
+                />
               </div>
+
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">Línea de Interés</label>
-                <select className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors appearance-none cursor-pointer">
-                  <option>Venta / Renta de Contenedores</option>
-                  <option>Oficinas Reubicables</option>
-                  <option>Proyectos</option>
+                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">
+                  Línea de Interés
+                </label>
+                <select 
+                  name="interes"
+                  value={formData.interes}
+                  onChange={handleChange}
+                  className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm focus:outline-none focus:border-brand-orange transition-colors appearance-none cursor-pointer"
+                >
+                  <option value="Venta / Renta de Contenedores">Venta / Renta de Contenedores</option>
+                  <option value="Oficinas Reubicables">Oficinas Reubicables</option>
+                  <option value="Proyectos">Proyectos</option>
                 </select>
               </div>
+
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">Descripción del Requerimiento Técnico</label>
-                <textarea rows={4} className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm text-justify focus:outline-none focus:border-brand-orange transition-colors"></textarea>
+                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">
+                  Descripción del Requerimiento Técnico *
+                </label>
+                <textarea 
+                  name="mensaje"
+                  rows={4} 
+                  value={formData.mensaje}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-brand-gray/30 border-b-2 border-brand-gray p-4 text-sm text-justify focus:outline-none focus:border-brand-orange transition-colors"
+                ></textarea>
               </div>
-              <button className="w-full btn-primary flex items-center justify-center gap-3">
-                Enviar Solicitud <ArrowRight size={16} />
+
+              {/* Honeypot Anti-Spam: Oculto para humanos, visible para bots */}
+              <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+                <label htmlFor="website">No rellenar este campo</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Banner de Feedback (Éxito / Error) */}
+              {feedback && (
+                <div className={`p-4 text-xs font-semibold ${feedback.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                  {feedback.message}
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                disabled={loading}
+                className="w-full btn-primary flex items-center justify-center gap-3 disabled:opacity-50"
+              >
+                {loading ? (
+                  <>Procesando <Loader2 size={16} className="animate-spin" /></>
+                ) : (
+                  <>Enviar Solicitud <ArrowRight size={16} /></>
+                )}
               </button>
             </form>
           </motion.div>
