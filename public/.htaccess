@@ -1,0 +1,72 @@
+# ==============================
+# 🔒 1. REDIRECCIÓN CANÓNICA Y HTTPS
+# ==============================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Forza HTTPS y www para unificar el dominio y evitar problemas de origen
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://www.creativosespacios.mx/$1 [R=301,L]
+
+  # Excluir archivos y carpetas reales de la reescritura de React Router
+  # Esto garantiza que 'formulario-creativosespacios.php' y los assets físicos se ejecuten directamente
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Enrutamiento para React Router (fallback a index.html)
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# ==============================
+# 🚀 2. OPTIMIZACIÓN DE RENDIMIENTO (GZIP)
+# ==============================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/font-woff2
+</IfModule>
+
+# ==============================
+# 🧠 3. CACHE DE ARCHIVOS ESTÁTICOS
+# ==============================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 7 days"
+
+  # Imágenes
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+
+  # Assets del build (JS/CSS/Fuentes)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+</IfModule>
+
+# ==============================
+# 🔒 4. SEGURIDAD Y RECURSOS ESTÁTICOS
+# ==============================
+# Desactivar la lectura de directorios si no hay index.html
+Options -Indexes
+
+# Ocultar la firma del servidor Apache
+ServerSignature Off
+
+# Permitir CORS únicamente para recursos estáticos (fuentes, imágenes, estilos)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|eot)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
