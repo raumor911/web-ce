@@ -30,9 +30,9 @@ const Blog: React.FC = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('https://creativosespacios.mx/blog/wp-json/wp/v2/posts?_embed&per_page=9');
+        const response = await fetch('/blog/wp-json/wp/v2/posts?_embed&per_page=9');
         if (!response.ok) throw new Error('No se pudieron cargar las publicaciones');
-        const data = await response.ok ? await response.json() : [];
+        const data = await response.json();
         setPosts(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Error desconocido');

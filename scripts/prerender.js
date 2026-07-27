@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 import http from 'http';
+import https from 'https';
 import handler from 'serve-handler';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -15,6 +16,34 @@ async function prerender() {
   
   // Start a temporary server to serve the dist folder
   const server = http.createServer((request, response) => {
+    // Proxy WordPress API requests to the real server during prerender
+    if (request.url.startsWith('/blog/wp-json')) {
+      const options = {
+        hostname: 'creativosespacios.mx',
+        port: 443,
+        path: request.url,
+        method: request.method,
+        headers: {
+          ...request.headers,
+          host: 'creativosespacios.mx'
+        }
+      };
+
+      const proxyReq = https.request(options, (proxyRes) => {
+        response.writeHead(proxyRes.statusCode, proxyRes.headers);
+        proxyRes.pipe(response, { end: true });
+      });
+
+      proxyReq.on('error', (e) => {
+        console.error(`Proxy error: ${e.message}`);
+        response.statusCode = 500;
+        response.end();
+      });
+
+      request.pipe(proxyReq, { end: true });
+      return;
+    }
+
     return handler(request, response, {
       public: DIST_DIR,
       rewrites: [

@@ -8,6 +8,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    proxy: {
+      '/blog/wp-json': {
+        target: 'https://creativosespacios.mx',
+        changeOrigin: true,
+      },
+    },
+  },
   build: {
     target: 'es2018',
     sourcemap: 'hidden',
