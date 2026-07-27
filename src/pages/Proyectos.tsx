@@ -38,48 +38,29 @@ const Proyectos: React.FC = () => {
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
-        title="Proyectos Especiales y Modificaciones"
-        description="Ingeniería a medida en contenedores. Desarrollo de soluciones personalizadas para necesidades técnicas y operativas específicas."
-        jsonLd={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Ingeniería y Proyectos Especiales en Contenedores",
-            "description": "Desarrollo de proyectos modulares adaptados a requerimientos específicos.",
-            "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
-            "areaServed": "MX"
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.proyectos.map(item => ({
-              "@type": "Question",
-              "name": item.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.answer
-              }
-            }))
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Inicio",
-                "item": "https://www.creativosespacios.mx"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Proyectos",
-                "item": "https://www.creativosespacios.mx/proyectos"
-              }
-            ]
-          }
-        ]}
+        title="Soluciones Modulares a la Medida"
+        description="Ingeniería modular para necesidades operativas específicas. Bodegas técnicas, laboratorios y módulos de servicio en CDMX."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.creativosespacios.mx/proyectos/#webpage",
+              "url": "https://www.creativosespacios.mx/proyectos",
+              "name": "Soluciones Modulares a la Medida",
+              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
+              "description": "Ingeniería modular para necesidades operativas específicas."
+            },
+            {
+              "@type": "Service",
+              "@id": "https://www.creativosespacios.mx/proyectos/#service",
+              "name": "Proyectos Modulares",
+              "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
+              "description": "Desarrollo de proyectos modulares adaptados a requerimientos técnicos.",
+              "areaServed": { "@type": "Country", "name": "México" }
+            }
+          ]
+        }}
       />
 
       <header className="group relative overflow-hidden border-b border-[rgba(255,255,255,0.12)] bg-brand-petroleum py-24 md:py-36">
