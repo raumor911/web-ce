@@ -17,7 +17,7 @@
       "image": {
         "@id": "https://www.creativosespacios.mx/#logo"
       },
-      "description": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos.",
+      "description": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos que requieren incorporar espacios funcionales sin construir desde cero.",
       "areaServed": {
         "@type": "Country",
         "name": "México"
@@ -27,70 +27,18 @@
         "contactType": "sales",
         "telephone": "+52-55-5426-9941",
         "email": "ventas@creativosespacios.mx",
-        "availableLanguage": ["es"],
+        "availableLanguage": [
+          "es"
+        ],
         "areaServed": "MX"
       },
       "sameAs": [
-        "https://wa.me/522291846751"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Soluciones de infraestructura modular",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/#container-sale",
-              "name": "Venta de contenedores",
-              "serviceType": "Venta de contenedores",
-              "areaServed": {
-                "@type": "Country",
-                "name": "México"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/#container-rental",
-              "name": "Renta de contenedores",
-              "serviceType": "Renta de contenedores",
-              "areaServed": {
-                "@type": "Country",
-                "name": "México"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/#relocatable-offices",
-              "name": "Oficinas reubicables",
-              "serviceType": "Oficinas reubicables",
-              "areaServed": {
-                "@type": "Country",
-                "name": "México"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/#modular-projects",
-              "name": "Proyectos modulares",
-              "serviceType": "Proyectos modulares",
-              "areaServed": {
-                "@type": "Country",
-                "name": "México"
-              }
-            }
-          }
-        ]
-      }
+        "https://wa.me/522291846751",
+        "https://www.facebook.com/creativosespaciosmx",
+        "https://www.instagram.com/creativosespaciosmx/",
+        "https://www.linkedin.com/company/creativos-espacios/",
+        "https://www.google.com/search?q=Creativos%20Espacios%20%7C%20Venta%2C%20renta%20y%20adaptación%20de%20contenedores%20marítimos"
+      ]
     },
     {
       "@type": "WebSite",

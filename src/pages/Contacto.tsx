@@ -7,26 +7,32 @@ const Contacto: React.FC = () => {
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
-        title="Contacto y Cotización Técnica"
-        description="Inicie su proyecto de infraestructura modular. Solicite una cotización técnica para venta o renta de contenedores en CDMX."
+        title="Contacto"
+        description="Cotice su proyecto modular. Atención personalizada vía WhatsApp, teléfono y formulario para cobertura en todo México."
         jsonLd={{
           "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://www.creativosespacios.mx/contacto/#webpage",
-              "url": "https://www.creativosespacios.mx/contacto",
-              "name": "Contacto y Cotización Técnica",
-              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-              "description": "Página de contacto de Creativos Espacios para cotizaciones técnicas."
-            },
-            {
-              "@type": "ContactPage",
-              "@id": "https://www.creativosespacios.mx/contacto/#contact",
-              "url": "https://www.creativosespacios.mx/contacto",
-              "mainEntity": { "@id": "https://www.creativosespacios.mx/#organization" }
-            }
-          ]
+          "@type": "ContactPage",
+          "@id": "https://www.creativosespacios.mx/contacto/#webpage",
+          "url": "https://www.creativosespacios.mx/contacto",
+          "name": "Contacto | Creativos Espacios",
+          "description": "Formas de contacto para cotizaciones y soporte técnico.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://www.creativosespacios.mx"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contacto",
+                "item": "https://www.creativosespacios.mx/contacto"
+              }
+            ]
+          }
         }}
       />
 

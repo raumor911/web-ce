@@ -42,51 +42,76 @@ const VentaRenta: React.FC = () => {
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
-        title="Venta y Renta de Contenedores Industriales"
-        description="Contenedores marítimos de 20 y 40 pies para almacenamiento y logística industrial en CDMX. Disponibilidad sujeta a inventario."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://www.creativosespacios.mx/soluciones/venta-renta/#webpage",
-              "url": "https://www.creativosespacios.mx/soluciones/venta-renta",
-              "name": "Venta y Renta de Contenedores Industriales",
-              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-              "description": "Contenedores marítimos de 20 y 40 pies para almacenamiento y logística industrial en CDMX."
-            },
-            {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/soluciones/venta-renta/#service",
-              "name": "Venta y Renta de Contenedores",
-              "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
-              "description": "Suministro y renta de contenedores industriales de 20 y 40 pies.",
-              "areaServed": { "@type": "Country", "name": "México" },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Catálogo de Contenedores",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Product",
-                      "name": "Contenedor 20 FT STD",
-                      "description": "Contenedor de 20 pies para almacenamiento y logística."
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Product",
-                      "name": "Contenedor 40 FT HC/STD",
-                      "description": "Contenedor de 40 pies de gran capacidad."
-                    }
+        title="Venta y Renta de Contenedores"
+        description="Suministro de contenedores de 20ft y 40ft. Opciones flexibles de compra y arrendamiento para almacenamiento y operación segura."
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Venta y Renta de Contenedores Marítimos",
+            "description": "Suministro de contenedores de 20ft y 40ft para almacenamiento y operación industrial.",
+            "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
+            "areaServed": "MX",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Catálogo de Contenedores",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Contenedor 20 FT STD",
+                    "description": "Contenedor marítimo de 20 pies para almacenamiento y logística."
                   }
-                ]
-              }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Contenedor 40 FT HC/STD",
+                    "description": "Contenedor marítimo de 40 pies de gran capacidad."
+                  }
+                }
+              ]
             }
-          ]
-        }}
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqData.ventaRenta.map(item => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+              }
+            }))
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://www.creativosespacios.mx"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Soluciones",
+                "item": "https://www.creativosespacios.mx/soluciones/venta-renta"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Venta y Renta",
+                "item": "https://www.creativosespacios.mx/soluciones/venta-renta"
+              }
+            ]
+          }
+        ]}
       />
       
       <header className="group relative overflow-hidden border-b border-[rgba(255,255,255,0.12)] bg-brand-petroleum py-20 md:py-32">

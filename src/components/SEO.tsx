@@ -8,7 +8,7 @@ interface SEOProps {
   canonical?: string;
   type?: string;
   ogImage?: string;
-  jsonLd?: Record<string, any>;
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
 }
 
 export const SEO: React.FC<SEOProps> = ({ 
@@ -22,12 +22,21 @@ export const SEO: React.FC<SEOProps> = ({
   const { pathname } = useLocation();
   const fullTitle = `${title} | Creativos Espacios - Infraestructura Modular`;
   const siteUrl = 'https://www.creativosespacios.mx';
-  const defaultOgImage = `${siteUrl}/images/social-preview.png`;
+  const logoImage = `${siteUrl}/images/logo-creativos-espacios.png`;
+  const socialPreview = `${siteUrl}/images/social-preview.png`;
   
   // Construir la URL canónica basada en el pathname actual o el prop canonical
   const path = canonical || pathname;
   const canonicalUrl = `${siteUrl}${path === '/' ? '' : path.replace(/\/$/, '')}`;
-  const finalOgImage = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`) : defaultOgImage;
+  
+  // Prioridad de imagen: ogImage prop > social-preview.png > logo fallback
+  let finalOgImage = socialPreview;
+  if (ogImage) {
+    finalOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+  }
+
+  // Normalizar jsonLd a un array si no lo es
+  const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : (jsonLd ? [jsonLd] : []);
 
   return (
     <Helmet>
@@ -53,11 +62,11 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:image" content={finalOgImage} />
 
       {/* JSON-LD para Google y LLMs */}
-      {jsonLd && (
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
+      {jsonLdArray.map((ld, index) => (
+        <script key={index} type="application/ld+json">
+          {JSON.stringify(ld)}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 };

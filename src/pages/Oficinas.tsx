@@ -14,29 +14,54 @@ const Oficinas: React.FC = () => {
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
-        title="Oficinas Reubicables para Industria y Obra"
-        description="Módulos de oficina habitables para supervisión, administración y frentes de obra en CDMX. Equipamiento técnico completo."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://www.creativosespacios.mx/soluciones/oficinas/#webpage",
-              "url": "https://www.creativosespacios.mx/soluciones/oficinas",
-              "name": "Oficinas Reubicables para Industria y Obra",
-              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-              "description": "Módulos de oficina habitables para supervisión, administración y frentes de obra."
-            },
-            {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/soluciones/oficinas/#service",
-              "name": "Oficinas Reubicables",
-              "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
-              "description": "Diseño y suministro de oficinas modulares reubicables.",
-              "areaServed": { "@type": "Country", "name": "México" }
-            }
-          ]
-        }}
+        title="Oficinas Reubicables y Modulares"
+        description="Espacios de trabajo funcionales y móviles. Oficinas térmicas, eléctricas y listas para operar en cualquier sitio de obra o planta."
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Oficinas Reubicables y Modulares",
+            "description": "Espacios modulares diseñados para entornos de trabajo ergonómicos y eficientes.",
+            "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
+            "areaServed": "MX"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqData.oficinas.map(item => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+              }
+            }))
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://www.creativosespacios.mx"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Soluciones",
+                "item": "https://www.creativosespacios.mx/soluciones/oficinas"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Oficinas Reubicables",
+                "item": "https://www.creativosespacios.mx/soluciones/oficinas"
+              }
+            ]
+          }
+        ]}
       />
 
       <header className="group relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-brand-gray/20 overflow-hidden">

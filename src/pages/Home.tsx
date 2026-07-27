@@ -8,18 +8,48 @@ const Home: React.FC = () => {
   return (
     <div className="bg-brand-white">
       <SEO 
-        title="Capacidad Operativa Inmediata"
-        description="Infraestructura modular para empresas y proyectos industriales en CDMX. Venta y renta de contenedores y oficinas reubicables."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "@id": "https://www.creativosespacios.mx/#webpage",
-          "url": "https://www.creativosespacios.mx/",
-          "name": "Creativos Espacios | Capacidad Operativa Inmediata",
-          "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-          "about": { "@id": "https://www.creativosespacios.mx/#organization" },
-          "description": "Infraestructura modular para empresas y proyectos industriales en CDMX. Venta y renta de contenedores y oficinas reubicables."
-        }}
+        title="Infraestructura Modular y Contenedores"
+        description="Soluciones de infraestructura modular, venta y renta de contenedores marítimos en México. Capacidad operativa sin construir desde cero."
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://www.creativosespacios.mx/#webpage",
+            "url": "https://www.creativosespacios.mx/",
+            "name": "Creativos Espacios | Infraestructura Modular",
+            "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
+            "about": { "@id": "https://www.creativosespacios.mx/#organization" },
+            "description": "Soluciones de infraestructura modular, venta y renta de contenedores marítimos en México."
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://www.creativosespacios.mx/#localbusiness",
+            "name": "Creativos Espacios",
+            "image": "https://www.creativosespacios.mx/images/logo-creativos-espacios.png",
+            "url": "https://www.creativosespacios.mx",
+            "telephone": "+525554269941",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. del Árbol 104-Lote 2, Lomas de San Lorenzo",
+              "addressLocality": "Iztapalapa",
+              "addressRegion": "CDMX",
+              "postalCode": "09790",
+              "addressCountry": "MX"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 19.3243,
+              "longitude": -99.0621
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
+          }
+        ]}
       />
 
       {/* Hero Section - Executive focus with High Legibility */}
