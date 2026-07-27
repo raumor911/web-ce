@@ -3,67 +3,61 @@ import { Outlet, Link } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Helmet } from 'react-helmet-async';
 import { Facebook, Instagram, Linkedin, MapPin as GoogleIcon } from 'lucide-react';
-import companyData from '../data/companyData.json';
 
 export const Layout: React.FC = () => {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${companyData.url}/#organization`,
-        "name": companyData.name,
-        "legalName": companyData.legalName,
-        "url": `${companyData.url}/`,
-        "logo": {
-          "@type": "ImageObject",
-          "@id": `${companyData.url}/#logo`,
-          "url": `${companyData.url}/images/logo-creativos-espacios.png`,
-          "contentUrl": `${companyData.url}/images/logo-creativos-espacios.png`,
-          "caption": companyData.name
-        },
-        "image": {
-          "@id": `${companyData.url}/#logo`
-        },
-        "description": companyData.description,
-        "areaServed": {
-          "@type": "Country",
-          "name": "México"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "sales",
-          "telephone": `+52-${companyData.contact.telephone.replace(/\s/g, '-')}`,
-          "email": companyData.contact.email,
-          "availableLanguage": ["es"],
-          "areaServed": "MX"
-        },
-        "sameAs": [
-          companyData.contact.whatsapp,
-          companyData.social.facebook,
-          companyData.social.instagram,
-          companyData.social.linkedin,
-          companyData.social.googleMyBusiness
-        ].filter(Boolean)
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${companyData.url}/#website`,
-        "url": `${companyData.url}/`,
-        "name": companyData.name,
-        "publisher": {
-          "@id": `${companyData.url}/#organization`
-        },
-        "inLanguage": "es-MX"
-      }
-    ]
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-brand-white">
       <Helmet>
         <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
+          {`
+            {
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.creativosespacios.mx/#organization",
+                  "name": "Creativos Espacios",
+                  "url": "https://www.creativosespacios.mx/",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "@id": "https://www.creativosespacios.mx/#logo",
+                    "url": "https://www.creativosespacios.mx/images/logo-creativos-espacios.png",
+                    "contentUrl": "https://www.creativosespacios.mx/images/logo-creativos-espacios.png",
+                    "caption": "Creativos Espacios"
+                  },
+                  "description": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos.",
+                  "areaServed": {
+                    "@type": "Country",
+                    "name": "México"
+                  },
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+52-55-5426-9941",
+                    "contactType": "sales",
+                    "areaServed": "MX",
+                    "availableLanguage": "Spanish"
+                  },
+                  "sameAs": [
+                    "https://wa.me/522291846751",
+                    "https://www.facebook.com/creativosespaciosmx",
+                    "https://www.instagram.com/creativosespaciosmx/",
+                    "https://www.linkedin.com/company/creativos-espacios/",
+                    "https://www.google.com/search?q=Creativos%20Espacios%20%7C%20Venta%2C%20renta%20y%20adaptación%20de%20contenedores%20marítimos"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.creativosespacios.mx/#website",
+                  "url": "https://www.creativosespacios.mx/",
+                  "name": "Creativos Espacios",
+                  "publisher": {
+                    "@id": "https://www.creativosespacios.mx/#organization"
+                  },
+                  "inLanguage": "es-MX"
+                }
+              ]
+            }
+          `}
         </script>
       </Helmet>
       <Navbar />

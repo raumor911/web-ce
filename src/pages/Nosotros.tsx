@@ -8,32 +8,26 @@ const Nosotros: React.FC = () => {
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
-        title="Sobre Nosotros"
-        description="Expertos en ingeniería modular. Conozca nuestra trayectoria y metodología de instalación para proyectos industriales y comerciales."
+        title="Nuestra Empresa | Infraestructura Modular Industrial"
+        description="Diseñamos infraestructura modular para operaciones que no pueden detenerse. Más de una década desarrollando soluciones técnicas para la industria."
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "AboutPage",
-          "@id": "https://www.creativosespacios.mx/nosotros/#webpage",
-          "url": "https://www.creativosespacios.mx/nosotros",
-          "name": "Sobre Nosotros | Creativos Espacios",
-          "description": "Conozca la trayectoria y metodología de Creativos Espacios en infraestructura modular.",
-          "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Inicio",
-                "item": "https://www.creativosespacios.mx"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Nosotros",
-                "item": "https://www.creativosespacios.mx/nosotros"
-              }
-            ]
-          }
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.creativosespacios.mx/nosotros/#webpage",
+              "url": "https://www.creativosespacios.mx/nosotros",
+              "name": "Nuestra Empresa | Infraestructura Modular Industrial",
+              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
+              "description": "Información sobre Creativos Espacios y nuestra experiencia en infraestructura modular."
+            },
+            {
+              "@type": "AboutPage",
+              "@id": "https://www.creativosespacios.mx/nosotros/#about",
+              "url": "https://www.creativosespacios.mx/nosotros",
+              "mainEntity": { "@id": "https://www.creativosespacios.mx/#organization" }
+            }
+          ]
         }}
       />
 
