@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { Calendar, ArrowLeft, Clock, Share2 } from 'lucide-react';
+import { Calendar, ArrowLeft, Clock, Share2, Facebook, Linkedin, Instagram } from 'lucide-react';
 
 interface WordPressPost {
   id: number;
@@ -58,6 +58,23 @@ const BlogPost: React.FC = () => {
       month: 'long',
       day: 'numeric'
     });
+  };
+
+  const shareOnSocial = (platform: 'facebook' | 'linkedin' | 'instagram') => {
+    const url = window.location.href;
+    const title = post?.title.rendered || '';
+    
+    const shareUrls = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      instagram: `https://www.instagram.com/creativosespaciosmx/` // Instagram doesn't support direct sharing via URL in the same way
+    };
+
+    if (platform === 'instagram') {
+      window.open(shareUrls.instagram, '_blank');
+    } else {
+      window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+    }
   };
 
   if (isLoading) {
@@ -185,20 +202,40 @@ const BlogPost: React.FC = () => {
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
           />
           
-          <div className="mt-20 pt-10 border-t border-slate-100 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Compartir</span>
-              <button className="p-2 rounded-full bg-slate-50 text-slate-400 hover:text-orange-500 hover:bg-orange-50 transition-all">
-                <Share2 className="w-4 h-4" />
-              </button>
+          <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-6">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">Compartir</span>
+              <div className="flex items-center gap-3">
+                <button 
+                  onClick={() => shareOnSocial('facebook')}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-100 text-slate-400 hover:text-orange-500 hover:border-orange-500 transition-all duration-300"
+                  title="Compartir en Facebook"
+                >
+                  <Facebook className="w-4 h-4" />
+                </button>
+                <button 
+                  onClick={() => shareOnSocial('linkedin')}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-100 text-slate-400 hover:text-orange-500 hover:border-orange-500 transition-all duration-300"
+                  title="Compartir en LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </button>
+                <button 
+                  onClick={() => shareOnSocial('instagram')}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-100 text-slate-400 hover:text-orange-500 hover:border-orange-500 transition-all duration-300"
+                  title="Seguir en Instagram"
+                >
+                  <Instagram className="w-4 h-4" />
+                </button>
+              </div>
             </div>
             
             <Link 
               to="/contacto"
-              className="text-sm font-bold text-slate-900 hover:text-orange-500 transition-colors uppercase tracking-widest flex items-center gap-2"
+              className="text-xs font-bold text-slate-900 hover:text-orange-500 transition-colors uppercase tracking-[0.2em] flex items-center gap-3 group"
             >
               Consultar sobre este tema
-              <ArrowLeft className="w-4 h-4 rotate-180" />
+              <ArrowLeft className="w-4 h-4 rotate-180 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
