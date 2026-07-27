@@ -13,6 +13,7 @@ const routes = [
   { path: '/soluciones/oficinas', priority: '0.8', changefreq: 'monthly' },
   { path: '/proyectos', priority: '0.8', changefreq: 'monthly' },
   { path: '/contacto', priority: '0.5', changefreq: 'monthly' },
+  { path: '/blog', priority: '0.5', changefreq: 'monthly' },
 ];
 
 const generateSitemap = () => {

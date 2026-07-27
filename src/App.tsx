@@ -8,6 +8,7 @@ import Oficinas from './pages/Oficinas';
 import Proyectos from './pages/Proyectos';
 import Nosotros from './pages/Nosotros';
 import Contacto from './pages/Contacto';
+import Blog from './pages/Blog';
 import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
@@ -25,6 +26,7 @@ const App: React.FC = () => {
             <Route path="proyectos" element={<Proyectos />} />
             <Route path="nosotros" element={<Nosotros />} />
             <Route path="contacto" element={<Contacto />} />
+            <Route path="blog" element={<Blog />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

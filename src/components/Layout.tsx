@@ -114,6 +114,11 @@ export const Layout: React.FC = () => {
                   Proyectos
                 </Link>
               </li>
+              <li>
+                <Link to="/blog" className="hover:text-brand-orange transition-colors">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

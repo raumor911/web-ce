@@ -37,6 +37,7 @@ const navItems: NavItem[] = [
   { name: 'Proyectos', href: '/proyectos' },
   { name: 'Nuestra Empresa', href: '/nosotros' },
   { name: 'Contacto', href: '/contacto' },
+  { name: 'Blog', href: '/blog' },
 ];
 
 const isSolutionsRoute = (pathname: string) => pathname.startsWith('/soluciones');
