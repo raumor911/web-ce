@@ -9,6 +9,7 @@ import Proyectos from './pages/Proyectos';
 import Nosotros from './pages/Nosotros';
 import Contacto from './pages/Contacto';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
 
 const App: React.FC = () => {
@@ -27,6 +28,7 @@ const App: React.FC = () => {
             <Route path="nosotros" element={<Nosotros />} />
             <Route path="contacto" element={<Contacto />} />
             <Route path="blog" element={<Blog />} />
+            <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

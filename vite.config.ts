@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   server: {
     proxy: {
-      '/blog/wp-json': {
+      '/blog-admin/wp-json': {
         target: 'https://creativosespacios.mx',
         changeOrigin: true,
       },

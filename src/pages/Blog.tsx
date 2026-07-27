@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { ArrowRight, Calendar, User, Clock } from 'lucide-react';
@@ -30,7 +31,7 @@ const Blog: React.FC = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('/blog/wp-json/wp/v2/posts?_embed&per_page=9');
+        const response = await fetch('/blog-admin/wp-json/wp/v2/posts?_embed&per_page=9');
         if (!response.ok) throw new Error('No se pudieron cargar las publicaciones');
         const data = await response.json();
         setPosts(data);
@@ -120,7 +121,7 @@ const Blog: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <a href={post.link} target="_blank" rel="noopener noreferrer" className="block">
+                <Link to={`/blog/${post.slug}`} className="block">
                   <div className="aspect-video mb-8 overflow-hidden rounded-md bg-slate-100 relative">
                     {post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
                       <img 
@@ -157,7 +158,7 @@ const Blog: React.FC = () => {
                     Leer artículo completo
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
-                </a>
+                </Link>
               </motion.article>
             ))}
           </div>

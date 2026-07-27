@@ -9,15 +9,41 @@ import handler from 'serve-handler';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, '../dist');
-const routes = ['/', '/nosotros', '/soluciones/venta-renta', '/soluciones/oficinas', '/proyectos', '/contacto', '/blog', '/404'];
+
+async function getPostSlugs() {
+  return new Promise((resolve) => {
+    https.get('https://creativosespacios.mx/blog-admin/wp-json/wp/v2/posts?per_page=100', (res) => {
+      let data = '';
+      res.on('data', (chunk) => data += chunk);
+      res.on('end', () => {
+        try {
+          const posts = JSON.parse(data);
+          resolve(posts.map(p => `/blog/${p.slug}`));
+        } catch (e) {
+          console.error('Error parsing posts for prerender:', e.message);
+          resolve([]);
+        }
+      });
+    }).on('error', (e) => {
+      console.error('Error fetching posts for prerender:', e.message);
+      resolve([]);
+    });
+  });
+}
 
 async function prerender() {
   console.log('Starting manual prerender...');
   
+  const staticRoutes = ['/', '/nosotros', '/soluciones/venta-renta', '/soluciones/oficinas', '/proyectos', '/contacto', '/blog', '/404'];
+  const dynamicRoutes = await getPostSlugs();
+  const routes = [...staticRoutes, ...dynamicRoutes];
+  
+  console.log(`Routes to prerender: ${routes.length}`);
+  
   // Start a temporary server to serve the dist folder
   const server = http.createServer((request, response) => {
     // Proxy WordPress API requests to the real server during prerender
-    if (request.url.startsWith('/blog/wp-json')) {
+    if (request.url.startsWith('/blog-admin/wp-json')) {
       const options = {
         hostname: 'creativosespacios.mx',
         port: 443,

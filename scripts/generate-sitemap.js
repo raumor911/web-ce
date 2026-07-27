@@ -1,42 +1,59 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import https from 'https';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DIST_DIR = path.join(__dirname, '../dist');
-const SITE_URL = 'https://www.creativosespacios.mx';
+const PUBLIC_DIR = path.join(__dirname, '../public');
+const DOMAIN = 'https://www.creativosespacios.mx';
 
-const routes = [
-  { path: '/', priority: '1.0', changefreq: 'monthly' },
-  { path: '/nosotros', priority: '0.5', changefreq: 'monthly' },
-  { path: '/soluciones/venta-renta', priority: '0.8', changefreq: 'monthly' },
-  { path: '/soluciones/oficinas', priority: '0.8', changefreq: 'monthly' },
-  { path: '/proyectos', priority: '0.8', changefreq: 'monthly' },
-  { path: '/contacto', priority: '0.5', changefreq: 'monthly' },
-  { path: '/blog', priority: '0.5', changefreq: 'monthly' },
+const staticRoutes = [
+  { url: '/', priority: '1.0', changefreq: 'weekly' },
+  { url: '/nosotros', priority: '0.8', changefreq: 'monthly' },
+  { url: '/soluciones/venta-renta', priority: '0.9', changefreq: 'weekly' },
+  { url: '/soluciones/oficinas', priority: '0.9', changefreq: 'weekly' },
+  { url: '/proyectos', priority: '0.9', changefreq: 'weekly' },
+  { url: '/contacto', priority: '0.8', changefreq: 'monthly' },
+  { url: '/blog', priority: '0.8', changefreq: 'daily' },
 ];
 
-const generateSitemap = () => {
-  const timestamp = new Date().toISOString().split('T')[0];
+async function getPostRoutes() {
+  return new Promise((resolve) => {
+    https.get('https://creativosespacios.mx/blog-admin/wp-json/wp/v2/posts?per_page=100', (res) => {
+      let data = '';
+      res.on('data', (chunk) => data += chunk);
+      res.on('end', () => {
+        try {
+          const posts = JSON.parse(data);
+          resolve(posts.map(p => ({
+            url: `/blog/${p.slug}`,
+            priority: '0.6',
+            changefreq: 'monthly'
+          })));
+        } catch (e) {
+          resolve([]);
+        }
+      });
+    }).on('error', () => resolve([]));
+  });
+}
+
+async function generateSitemap() {
+  const dynamicRoutes = await getPostRoutes();
+  const allRoutes = [...staticRoutes, ...dynamicRoutes];
   
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes.map(route => `  <url>
-    <loc>${SITE_URL}${route.path}</loc>
-    <lastmod>${timestamp}</lastmod>
+${allRoutes.map(route => `  <url>
+    <loc>${DOMAIN}${route.url}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>`).join('\n')}
 </urlset>`;
 
-  if (!fs.existsSync(DIST_DIR)) {
-    fs.mkdirSync(DIST_DIR, { recursive: true });
-  }
-
-  fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), xml);
-  fs.writeFileSync(path.join(__dirname, '../public/sitemap.xml'), xml);
-  
-  console.log('Sitemap generated successfully.');
-};
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemap);
+  console.log('Sitemap generated successfully with blog posts.');
+}
 
 generateSitemap();
