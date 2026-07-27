@@ -5,7 +5,7 @@
 - **Styling**: Tailwind CSS 3 (Custom Config para Palette B2B).
 - **Icons**: Lucide React.
 - **Motion**: Framer Motion (Transiciones de opacidad y desplazamientos sutiles).
-- **Typography**: Google Fonts (DM Serif Display + Plus Jakarta Sans).
+- **Typography**: Google Fonts (DM Serif Display + Inter).
 
 ## 2. Sistema de Diseño (Tailwind Config)
 ```javascript
@@ -23,7 +23,7 @@
   },
   fontFamily: {
     serif: ['DM Serif Display', 'serif'], // Arquitectura
-    sans: ['Plus Jakarta Sans', 'sans-serif'], // Ingeniería
+    sans: ['Inter', 'sans-serif'], // Ingeniería
   }
 }
 ```

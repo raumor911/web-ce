@@ -21,7 +21,7 @@ export default {
       },
       fontFamily: {
         serif: ['"DM Serif Display"', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular'],
       },
     },
