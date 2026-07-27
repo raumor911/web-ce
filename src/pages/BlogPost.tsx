@@ -133,7 +133,7 @@ const BlogPost: React.FC = () => {
             </div>
 
             <h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-serif text-slate-900 leading-tight mb-8"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-8"
               dangerouslySetInnerHTML={{ __html: post.title.rendered }}
             />
             
@@ -174,12 +174,14 @@ const BlogPost: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="prose prose-slate prose-lg max-w-none 
-              prose-headings:font-serif prose-headings:text-slate-900 prose-headings:font-normal
-              prose-p:text-slate-600 prose-p:leading-relaxed prose-p:text-justify
-              prose-a:text-orange-500 prose-a:no-underline hover:prose-a:underline
+              prose-headings:font-bold prose-headings:text-slate-900 prose-headings:tracking-tight
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+              prose-p:text-slate-700 prose-p:leading-relaxed prose-p:mb-6
+              prose-p:text-left
               prose-strong:text-slate-900 prose-strong:font-bold
-              prose-img:rounded-lg prose-img:shadow-md
-              prose-li:text-slate-600"
+              prose-ul:my-6 prose-li:my-2
+              prose-img:rounded-lg prose-img:shadow-md"
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
           />
           
