@@ -18,6 +18,7 @@ export default defineConfig({
     },
   },
   build: {
+    target: 'es2015',
     sourcemap: 'hidden',
   },
   plugins: [
@@ -29,7 +30,7 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
-    prerender({
+    /* prerender({
       // Las rutas que queremos pre-renderizar
       staticDir: path.join(__dirname, 'dist'),
       routes: [
@@ -47,6 +48,6 @@ export default defineConfig({
         headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
-    })
+    }) */
   ],
 })

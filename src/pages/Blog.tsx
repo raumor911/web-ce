@@ -3,25 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { ArrowRight, Calendar, User, Clock } from 'lucide-react';
-
-interface WordPressPost {
-  id: number;
-  date: string;
-  slug: string;
-  link: string;
-  title: {
-    rendered: string;
-  };
-  excerpt: {
-    rendered: string;
-  };
-  _embedded?: {
-    'wp:featuredmedia'?: Array<{
-      source_url: string;
-      alt_text: string;
-    }>;
-  };
-}
+import { getPosts, WordPressPost } from '../services/wordpress';
 
 const Blog: React.FC = () => {
   const [posts, setPosts] = useState<WordPressPost[]>([]);
@@ -31,10 +13,8 @@ const Blog: React.FC = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('/blog-admin/wp-json/wp/v2/posts?_embed&per_page=9');
-        if (!response.ok) throw new Error('No se pudieron cargar las publicaciones');
-        const data = await response.json();
-        setPosts(data);
+        const { posts } = await getPosts(12, 1);
+        setPosts(posts);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Error desconocido');
       } finally {
