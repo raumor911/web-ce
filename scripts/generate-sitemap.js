@@ -27,11 +27,27 @@ async function getAllPosts() {
 
   async function fetchPage(p) {
     return new Promise((resolve) => {
-      https.get(`https://creativosespacios.mx/blog-admin/wp-json/wp/v2/posts?per_page=100&page=${p}&status=publish`, (res) => {
+      const options = {
+        hostname: 'creativosespacios.mx',
+        port: 443,
+        path: `/blog-admin/index.php?rest_route=/wp/v2/posts&per_page=100&page=${p}&status=publish`,
+        method: 'GET',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+          'Accept': 'application/json'
+        }
+      };
+
+      https.get(options, (res) => {
         let data = '';
         res.on('data', (chunk) => data += chunk);
         res.on('end', () => {
           try {
+            if (res.statusCode !== 200) {
+              console.error(`HTTP ${res.statusCode} on page ${p}`);
+              resolve({ posts: [], totalPages: 1 });
+              return;
+            }
             const totalP = parseInt(res.headers['x-wp-totalpages'] || '1', 10);
             const posts = JSON.parse(data);
             resolve({ posts, totalPages: totalP });

@@ -19,11 +19,27 @@ async function getAllPostSlugs() {
 
   async function fetchPage(p) {
     return new Promise((resolve) => {
-      https.get(`https://creativosespacios.mx/blog-admin/wp-json/wp/v2/posts?per_page=100&page=${p}&status=publish`, (res) => {
+      const options = {
+        hostname: 'creativosespacios.mx',
+        port: 443,
+        path: `/blog-admin/index.php?rest_route=/wp/v2/posts&per_page=100&page=${p}&status=publish`,
+        method: 'GET',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+          'Accept': 'application/json'
+        }
+      };
+
+      https.get(options, (res) => {
         let data = '';
         res.on('data', (chunk) => data += chunk);
         res.on('end', () => {
           try {
+            if (res.statusCode !== 200) {
+              console.error(`HTTP ${res.statusCode} on page ${p}`);
+              resolve({ posts: [], totalPages: 1 });
+              return;
+            }
             const totalP = parseInt(res.headers['x-wp-totalpages'] || '1', 10);
             const posts = JSON.parse(data);
             resolve({ posts, totalPages: totalP });
@@ -71,7 +87,7 @@ async function prerender() {
   
   const server = http.createServer((request, response) => {
     // Proxy WordPress API requests to the real server during prerender
-    if (request.url.startsWith('/blog-admin/wp-json')) {
+    if (request.url.startsWith('/blog-admin')) {
       const options = {
         hostname: 'creativosespacios.mx',
         port: 443,
@@ -79,12 +95,17 @@ async function prerender() {
         method: request.method,
         headers: {
           ...request.headers,
-          host: 'creativosespacios.mx'
+          host: 'creativosespacios.mx',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
       };
 
       const proxyReq = https.request(options, (proxyRes) => {
-        response.writeHead(proxyRes.statusCode, proxyRes.headers);
+        // Add CORS headers to the proxied response to satisfy Puppeteer
+        const headers = { ...proxyRes.headers };
+        headers['Access-Control-Allow-Origin'] = '*';
+        
+        response.writeHead(proxyRes.statusCode, headers);
         proxyRes.pipe(response, { end: true });
       });
 

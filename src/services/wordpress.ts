@@ -39,22 +39,30 @@ export interface WordPressPost {
   };
 }
 
-const API_BASE = '/blog-admin/wp-json/wp/v2';
-const PROXY_BASE = 'https://creativosespacios.mx/blog-admin/wp-json/wp/v2';
+const API_BASE = '/blog-admin';
 
 /**
  * Get the appropriate base URL depending on the environment
- * During build (node), we use the full URL.
- * During runtime (browser), we use the relative path (proxied by Vite).
  */
 const getBaseUrl = () => {
-  return typeof window === 'undefined' ? PROXY_BASE : API_BASE;
+  // Use absolute URL during build (node)
+  if (typeof window === 'undefined') {
+    return 'https://creativosespacios.mx/blog-admin';
+  }
+  // Use relative path in the browser (works in dev, prerender and production)
+  return API_BASE;
 };
 
 /**
  * Fetch with timeout and error handling
  */
-async function fetchWithTimeout(url: string, options: RequestInit = {}, timeout = 10000) {
+async function fetchWithTimeout(endpoint: string, options: RequestInit = {}, timeout = 10000) {
+  const baseUrl = getBaseUrl();
+  
+  // Use plain permalinks style to avoid 301 redirects or config issues
+  // We use the rest_route parameter which is the most compatible way
+  const url = `${baseUrl}/index.php?rest_route=${endpoint}`;
+  
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);
   
@@ -75,11 +83,10 @@ async function fetchWithTimeout(url: string, options: RequestInit = {}, timeout 
  * Get a list of posts with pagination support
  */
 export async function getPosts(perPage = 10, page = 1): Promise<{ posts: WordPressPost[], total: number, totalPages: number }> {
-  const baseUrl = getBaseUrl();
-  const url = `${baseUrl}/posts?_embed&per_page=${perPage}&page=${page}&status=publish`;
+  const endpoint = `/wp/v2/posts&_embed&per_page=${perPage}&page=${page}&status=publish`;
   
   try {
-    const response = await fetchWithTimeout(url);
+    const response = await fetchWithTimeout(endpoint);
     
     if (!response.ok) {
       if (response.status === 400) return { posts: [], total: 0, totalPages: 0 };
@@ -134,11 +141,10 @@ export async function getAllPosts(): Promise<WordPressPost[]> {
  * Get a single post by slug
  */
 export async function getPostBySlug(slug: string): Promise<WordPressPost | null> {
-  const baseUrl = getBaseUrl();
-  const url = `${baseUrl}/posts?_embed&slug=${slug}&status=publish`;
+  const endpoint = `/wp/v2/posts&_embed&slug=${slug}&status=publish`;
   
   try {
-    const response = await fetchWithTimeout(url);
+    const response = await fetchWithTimeout(endpoint);
     
     if (!response.ok) {
       throw new Error(`WordPress API Error: ${response.status} ${response.statusText}`);

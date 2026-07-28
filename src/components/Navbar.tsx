@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
+import logoCreativosEspacios from '../assets/images/logo-creativos-espacios.png';
 
 type NavItem = {
   name: string;
@@ -239,13 +240,24 @@ export const Navbar: React.FC = () => {
                 aria-label="Creativos Espacios, ir a inicio"
               >
                 <img
-                  src="/images/logo-creativos-espacios.png"
+                  src={logoCreativosEspacios}
                   alt="Creativos Espacios"
+                  width={220}
+                  height={60}
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                   className={[
                     'w-auto object-contain mix-blend-multiply transition-[height] ease-out',
                     transitionClass,
                     isScrolled ? 'h-12 md:h-[52px]' : 'h-16 md:h-[84px]',
                   ].join(' ')}
+                  onError={(event) => {
+                    console.error(
+                      "No fue posible cargar el logotipo de Creativos Espacios:",
+                      event.currentTarget.src
+                    );
+                  }}
                 />
               </Link>
             </div>

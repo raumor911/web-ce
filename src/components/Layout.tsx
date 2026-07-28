@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Navbar } from './Navbar';
+import logoCreativosEspacios from '../assets/images/logo-creativos-espacios.png';
 import { Helmet } from 'react-helmet-async';
 import { Facebook, Instagram, Linkedin, MapPin as GoogleIcon } from 'lucide-react';
 
@@ -68,9 +69,19 @@ export const Layout: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20">
           <div>
             <img 
-              src="/images/logo-creativos-espacios.png" 
+              src={logoCreativosEspacios} 
               alt="Creativos Espacios" 
+              width={220}
+              height={60}
+              loading="lazy"
+              decoding="async"
               className="h-16 md:h-20 mb-8 md:mb-10 object-contain mix-blend-multiply" 
+              onError={(event) => {
+                console.error(
+                  "No fue posible cargar el logotipo del footer de Creativos Espacios:",
+                  event.currentTarget.src
+                );
+              }}
             />
             <p className="text-brand-graphite text-sm md:text-base max-w-xs leading-relaxed font-sans mb-8">
               Soluciones modulares para empresas, industria y proyectos.
