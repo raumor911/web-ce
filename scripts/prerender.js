@@ -153,11 +153,11 @@ async function prerender() {
       // Navigate to the route
       await page.goto(`http://localhost:${port}${route}`, { 
         waitUntil: 'networkidle2', 
-        timeout: 60000 
+        timeout: 90000 
       });
       
       // Wait for React to mount - try a different selector or just wait
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      await new Promise(resolve => setTimeout(resolve, 3000));
       
       const content = await page.content();
       
@@ -180,7 +180,9 @@ async function prerender() {
     } catch (err) {
       console.error(`✗ Failed to prerender ${route}:`, err.message);
     } finally {
-      await page.close();
+      if (!page.isClosed()) {
+        await page.close();
+      }
     }
   }
 

@@ -1,72 +1,161 @@
-# ==============================
-# 🔒 1. REDIRECCIÓN CANÓNICA Y HTTPS
-# ==============================
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+# ========================================================= 
+# CREATIVOS ESPACIOS 
+# React + WordPress Headless 
+# Archivo: public_html/.htaccess 
+# ========================================================= 
 
-  # Forza HTTPS y www para unificar el dominio y evitar problemas de origen
-  RewriteCond %{HTTPS} off [OR]
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
-  RewriteRule ^(.*)$ https://www.creativosespacios.mx/$1 [R=301,L]
+<IfModule mod_rewrite.c> 
+    RewriteEngine On 
 
-  # Excluir archivos y carpetas reales de la reescritura de React Router
-  # Esto garantiza que 'formulario-creativosespacios.php' y los assets físicos se ejecuten directamente
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
+    # ===================================================== 
+    # 1. EXCLUIR WORDPRESS ANTES DE CUALQUIER OTRA REGLA 
+    # ===================================================== 
+    # 
+    # Estas rutas no deben: 
+    # - entrar al fallback de React 
+    # - redirigirse por reglas internas de React 
+    # - convertirse en index.html 
+    # 
+    # Incluye: 
+    # /blog-admin/ 
+    # /blog-admin/wp-admin/ 
+    # /blog-admin/wp-login.php 
+    # /blog-admin/wp-json/ 
+    # /blog-admin/wp-content/ 
+    # /blog-admin/wp-includes/ 
 
-  # Enrutamiento para React Router (fallback a index.html)
-  RewriteRule . /index.html [L]
-</IfModule>
+    RewriteCond %{REQUEST_URI} ^/blog-admin [NC] 
+    RewriteRule ^ - [L] 
 
-# ==============================
-# 🚀 2. OPTIMIZACIÓN DE RENDIMIENTO (GZIP)
-# ==============================
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/plain
-  AddOutputFilterByType DEFLATE text/html
-  AddOutputFilterByType DEFLATE text/xml
-  AddOutputFilterByType DEFLATE text/css
-  AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE application/json
-  AddOutputFilterByType DEFLATE application/font-woff2
-</IfModule>
+    # ===================================================== 
+    # 2. FORZAR HTTPS Y DOMINIO SIN WWW 
+    # ===================================================== 
+    # 
+    # Convierte: 
+    # `http://creativosespacios.mx` 
+    # `http://www.creativosespacios.mx` 
+    # `https://www.creativosespacios.mx` 
+    # 
+    # En: 
+    # `https://creativosespacios.mx` 
 
-# ==============================
-# 🧠 3. CACHE DE ARCHIVOS ESTÁTICOS
-# ==============================
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresDefault "access plus 7 days"
+    RewriteCond %{HTTPS} !=on [OR] 
+    RewriteCond %{HTTP_HOST} ^www\.creativosespacios\.mx$ [NC] 
+    RewriteRule ^ https://creativosespacios.mx%{REQUEST_URI} [R=301,L,NE] 
 
-  # Imágenes
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
+    # ===================================================== 
+    # 3. SERVIR ARCHIVOS Y DIRECTORIOS FÍSICOS 
+    # ===================================================== 
 
-  # Assets del build (JS/CSS/Fuentes)
-  ExpiresByType text/css "access plus 1 year"
-  ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType application/font-woff2 "access plus 1 year"
-  ExpiresByType application/font-woff "access plus 1 year"
-</IfModule>
+    RewriteCond %{REQUEST_FILENAME} -f [OR] 
+    RewriteCond %{REQUEST_FILENAME} -d 
+    RewriteRule ^ - [L] 
 
-# ==============================
-# 🔒 4. SEGURIDAD Y RECURSOS ESTÁTICOS
-# ==============================
-# Desactivar la lectura de directorios si no hay index.html
-Options -Indexes
+    # ===================================================== 
+    # 4. FALLBACK EXCLUSIVO DE REACT ROUTER 
+    # ===================================================== 
+    # 
+    # Solo las rutas virtuales del frontend llegan aquí. 
+    # WordPress ya quedó excluido en el bloque 1. 
 
-# Ocultar la firma del servidor Apache
+    RewriteRule ^ index.html [L] 
+</IfModule> 
+
+
+# ========================================================= 
+# 5. COMPRESIÓN GZIP 
+# ========================================================= 
+
+<IfModule mod_deflate.c> 
+    AddOutputFilterByType DEFLATE text/plain 
+    AddOutputFilterByType DEFLATE text/html 
+    AddOutputFilterByType DEFLATE text/xml 
+    AddOutputFilterByType DEFLATE text/css 
+    AddOutputFilterByType DEFLATE text/javascript 
+
+    AddOutputFilterByType DEFLATE application/javascript 
+    AddOutputFilterByType DEFLATE application/x-javascript 
+    AddOutputFilterByType DEFLATE application/json 
+    AddOutputFilterByType DEFLATE application/xml 
+    AddOutputFilterByType DEFLATE application/xhtml+xml 
+    AddOutputFilterByType DEFLATE application/rss+xml 
+
+    AddOutputFilterByType DEFLATE image/svg+xml 
+
+    AddOutputFilterByType DEFLATE font/ttf 
+    AddOutputFilterByType DEFLATE font/otf 
+    AddOutputFilterByType DEFLATE font/woff 
+    AddOutputFilterByType DEFLATE font/woff2 
+</IfModule> 
+
+
+# ========================================================= 
+# 6. CACHE DE ARCHIVOS ESTÁTICOS 
+# ========================================================= 
+
+<IfModule mod_expires.c> 
+    ExpiresActive On 
+    ExpiresDefault "access plus 7 days" 
+
+    # Imágenes 
+    ExpiresByType image/jpg "access plus 1 year" 
+    ExpiresByType image/jpeg "access plus 1 year" 
+    ExpiresByType image/png "access plus 1 year" 
+    ExpiresByType image/gif "access plus 1 year" 
+    ExpiresByType image/webp "access plus 1 year" 
+    ExpiresByType image/avif "access plus 1 year" 
+    ExpiresByType image/svg+xml "access plus 1 year" 
+    ExpiresByType image/x-icon "access plus 1 year" 
+
+    # CSS y JavaScript 
+    ExpiresByType text/css "access plus 1 year" 
+    ExpiresByType text/javascript "access plus 1 year" 
+    ExpiresByType application/javascript "access plus 1 year" 
+    ExpiresByType application/x-javascript "access plus 1 year" 
+
+    # Fuentes 
+    ExpiresByType font/ttf "access plus 1 year" 
+    ExpiresByType font/otf "access plus 1 year" 
+    ExpiresByType font/woff "access plus 1 year" 
+    ExpiresByType font/woff2 "access plus 1 year" 
+    ExpiresByType application/font-woff "access plus 1 year" 
+    ExpiresByType application/font-woff2 "access plus 1 year" 
+</IfModule> 
+
+
+# ========================================================= 
+# 7. NO CACHEAR INDEX.HTML 
+# ========================================================= 
+
+<IfModule mod_headers.c> 
+    <FilesMatch "\.(html)$"> 
+        Header set Cache-Control "no-cache, no-store, must-revalidate" 
+        Header set Pragma "no-cache" 
+        Header set Expires "0" 
+    </FilesMatch> 
+</IfModule> 
+
+
+# ========================================================= 
+# 8. CORS PARA RECURSOS ESTÁTICOS 
+# ========================================================= 
+
+<IfModule mod_headers.c> 
+    <FilesMatch "\.(js|css|jpg|jpeg|png|gif|webp|avif|svg|woff|woff2|ttf|otf|eot)$"> 
+        Header set Access-Control-Allow-Origin "*" 
+    </FilesMatch> 
+</IfModule> 
+
+
+# ========================================================= 
+# 9. SEGURIDAD 
+# ========================================================= 
+
+<IfModule mod_headers.c> 
+    Header always set X-Content-Type-Options "nosniff" 
+    Header always set Referrer-Policy "strict-origin-when-cross-origin" 
+    Header always set X-Frame-Options "SAMEORIGIN" 
+</IfModule> 
+
+Options -Indexes 
 ServerSignature Off
-
-# Permitir CORS únicamente para recursos estáticos (fuentes, imágenes, estilos)
-<IfModule mod_headers.c>
-  <FilesMatch "\.(js|css|jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|eot)$">
-    Header set Access-Control-Allow-Origin "*"
-  </FilesMatch>
-</IfModule>

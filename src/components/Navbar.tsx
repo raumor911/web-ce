@@ -246,7 +246,7 @@ export const Navbar: React.FC = () => {
                   height={60}
                   loading="eager"
                   decoding="async"
-                  fetchPriority="high"
+                  {...({ fetchpriority: "high" } as any)}
                   className={[
                     'w-auto object-contain mix-blend-multiply transition-[height] ease-out',
                     transitionClass,

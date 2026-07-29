@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
+import { ScrollToTop } from './components/ScrollToTop';
 import Home from './pages/Home';
 import VentaRenta from './pages/VentaRenta';
 import Oficinas from './pages/Oficinas';
@@ -16,6 +17,7 @@ const App: React.FC = () => {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
