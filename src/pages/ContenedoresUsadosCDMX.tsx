@@ -176,7 +176,7 @@ const ContenedoresUsadosCDMX: React.FC = () => {
           ))}
         </div>
         <p className="mt-16 text-brand-graphite/60 italic max-w-2xl mx-auto">
-          Nota: La aptitud del contenedor para acondicionamiento depende de su estado estructural y el tipo de modificación requerida.
+          Nota: El contenedor para acondicionamiento depende de su estado estructural y el tipo de modificación requerida.
         </p>
       </section>
 
