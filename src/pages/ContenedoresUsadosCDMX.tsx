@@ -131,20 +131,25 @@ const ContenedoresUsadosCDMX: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum text-center mb-16">Elige la capacidad según tu proyecto</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "20 pies", link: "/contenedor-20-pies-cdmx", desc: "Compacto y versátil para sitios con espacio limitado." },
-              { title: "40 pies", link: "/contenedor-40-pies-cdmx", desc: "Gran capacidad para inventarios y equipos de alto volumen." },
-              { title: "40 High Cube", link: "/contenedor-40-high-cube-cdmx", desc: "Altura adicional para mayor volumen vertical o acondicionamientos." }
+              { title: "20 pies", link: "/contenedor-20-pies-cdmx", desc: "Compacto y versátil para sitios con espacio limitado.", img: "/images/venta-renta-contenedor-20ft.png" },
+              { title: "40 pies", link: "/contenedor-40-pies-cdmx", desc: "Gran capacidad para inventarios y equipos de alto volumen.", img: "/images/venta-renta-contenedor-40ft.png" },
+              { title: "40 High Cube", link: "/contenedor-40-high-cube-cdmx", desc: "Altura adicional para mayor volumen vertical o acondicionamientos.", img: "/images/venta-renta-contenedor-40ft.png" }
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
                 whileHover={{ y: -5 }}
-                className="bg-white p-8 border border-brand-gray shadow-sm hover:shadow-md transition-all group"
+                className="bg-white border border-brand-gray shadow-sm hover:shadow-md transition-all group overflow-hidden flex flex-col"
               >
-                <h3 className="text-2xl font-serif text-brand-petroleum mb-4">{item.title}</h3>
-                <p className="text-brand-graphite mb-8">{item.desc}</p>
-                <a href={item.link} className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
-                  Ver detalles <ArrowRight className="h-4 w-4" />
-                </a>
+                <div className="aspect-video bg-brand-gray/10 p-6 flex items-center justify-center border-b border-brand-gray/20">
+                  <img src={item.img} alt={item.title} className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
+                </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <h3 className="text-2xl font-serif text-brand-petroleum mb-4">{item.title}</h3>
+                  <p className="text-brand-graphite mb-8 flex-1">{item.desc}</p>
+                  <a href={item.link} className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
+                    Ver detalles <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
               </motion.div>
             ))}
           </div>
