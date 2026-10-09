@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { CheckCircle2, MapPin, MessageSquare, ArrowRight, Clock, ShieldCheck, Truck } from 'lucide-react';
+import { CheckCircle2, MapPin, MessageSquare, ArrowRight, Clock, ShieldCheck, Truck, HardHat, Package, Wrench, Maximize } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
@@ -169,12 +169,13 @@ const RentaContenedoresCDMX: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Obra", text: "Herramientas, materiales y equipamiento cerca del proyecto." },
-              { title: "Inventario temporal", text: "Capacidad adicional durante temporadas, proyectos o cambios operativos." },
-              { title: "Equipamiento", text: "Resguardo de activos y materiales en el punto donde se necesitan." },
-              { title: "Expansión temporal", text: "Espacio adicional mientras una necesidad permanece activa." }
+              { icon: HardHat, title: "Obra", text: "Herramientas, materiales y equipamiento cerca del proyecto." },
+              { icon: Package, title: "Inventario temporal", text: "Capacidad adicional durante temporadas, proyectos o cambios operativos." },
+              { icon: Wrench, title: "Equipamiento", text: "Resguardo de activos y materiales en el punto donde se necesitan." },
+              { icon: Maximize, title: "Expansión temporal", text: "Espacio adicional mientras una necesidad permanece activa." }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white p-8 border border-brand-gray shadow-sm hover:shadow-md transition-shadow">
+              <div key={idx} className="bg-white p-8 border border-brand-gray shadow-sm hover:shadow-md transition-shadow group">
+                <item.icon className="w-10 h-10 text-brand-orange mb-6 group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-serif text-brand-petroleum mb-4">{item.title}</h4>
                 <p className="text-brand-graphite leading-relaxed text-sm">{item.text}</p>
               </div>

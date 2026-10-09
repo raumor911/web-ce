@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { CheckCircle2, MapPin, Truck, ShieldCheck, Clock, MessageSquare, ArrowRight } from 'lucide-react';
+import { CheckCircle2, MapPin, Truck, ShieldCheck, Clock, MessageSquare, ArrowRight, Package, HardHat, LayoutGrid, Settings } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
@@ -216,26 +216,19 @@ const CompraContenedoresCDMX: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <div className="h-1 w-12 bg-brand-orange"></div>
-              <h3 className="text-xl font-serif">Almacenamiento</h3>
-              <p className="text-white/60 leading-relaxed">Amplía capacidad sin construir infraestructura permanente.</p>
-            </div>
-            <div className="space-y-4">
-              <div className="h-1 w-12 bg-brand-orange"></div>
-              <h3 className="text-xl font-serif">Obra</h3>
-              <p className="text-white/60 leading-relaxed">Resguarda herramientas, materiales o equipamiento cerca del punto de operación.</p>
-            </div>
-            <div className="space-y-4">
-              <div className="h-1 w-12 bg-brand-orange"></div>
-              <h3 className="text-xl font-serif">Inventario</h3>
-              <p className="text-white/60 leading-relaxed">Crea capacidad adicional cuando el espacio existente ya no es suficiente.</p>
-            </div>
-            <div className="space-y-4">
-              <div className="h-1 w-12 bg-brand-orange"></div>
-              <h3 className="text-xl font-serif">Proyecto especial</h3>
-              <p className="text-white/60 leading-relaxed">Parte de una solución que puede requerir acondicionamiento o configuración adicional.</p>
-            </div>
+            {[
+              { icon: Package, title: "Almacenamiento", text: "Amplía capacidad sin construir infraestructura permanente." },
+              { icon: HardHat, title: "Obra", text: "Resguarda herramientas, materiales o equipamiento cerca del punto de operación." },
+              { icon: LayoutGrid, title: "Inventario", text: "Crea capacidad adicional cuando el espacio existente ya no es suficiente." },
+              { icon: Settings, title: "Proyecto especial", text: "Parte de una solución que puede requerir acondicionamiento o configuración adicional." }
+            ].map((item, idx) => (
+              <div key={idx} className="space-y-4 group">
+                <div className="h-1 w-12 bg-brand-orange group-hover:w-20 transition-all duration-500"></div>
+                <item.icon className="w-10 h-10 text-brand-orange/80 mb-2 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-serif">{item.title}</h3>
+                <p className="text-white/60 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
           </div>
           
           <div className="mt-16 md:mt-24">
