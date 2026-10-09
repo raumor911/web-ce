@@ -5,38 +5,91 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
-import faqData from '../data/faqData.json';
+import { SemanticSelectors } from '../semantic/selectors';
+import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 
 const Oficinas: React.FC = () => {
+  const serviceOffices = SemanticSelectors.getServiceById('service:relocatable-offices');
+  const configurations = SemanticSelectors.getConfigurationsForService('service:relocatable-offices');
+  const faqData = SemanticSelectors.getFaqByCategory('oficinas');
+  const generalFaq = SemanticSelectors.getGeneralFaq();
+
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
+
+  const pageUrl = getCanonicalUrl('/soluciones/oficinas');
+  const webpageId = getWebPageId('/soluciones/oficinas');
+  const serviceId = getEntityId('/soluciones/oficinas', 'service');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": webpageId,
+        "url": pageUrl,
+        "name": "Oficinas Reubicables para Industria y Obra",
+        "isPartOf": { "@id": WEBSITE_ID },
+        "description": "Módulos de oficina habitables para supervisión, administración y frentes de obra."
+      },
+      {
+        "@type": "Service",
+        "@id": serviceId,
+        "name": serviceOffices?.name || "Oficinas Reubicables",
+        "provider": { "@id": ORG_ID },
+        "description": serviceOffices?.description || "Diseño y suministro de oficinas modulares reubicables.",
+        "areaServed": { "@type": "Country", "name": "México" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Configuraciones de Oficinas",
+          "itemListElement": configurations.map(c => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": c.name,
+              "description": c.description
+            }
+          }))
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": getCanonicalUrl('/')
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Oficinas Reubicables",
+            "item": pageUrl
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": getEntityId('/soluciones/oficinas', 'faq'),
+        "mainEntity": [...faqData, ...generalFaq].map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
 
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
         title="Oficinas Reubicables para Industria y Obra"
         description="Módulos de oficina habitables para supervisión, administración y frentes de obra en CDMX. Equipamiento técnico completo."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://www.creativosespacios.mx/soluciones/oficinas/#webpage",
-              "url": "https://www.creativosespacios.mx/soluciones/oficinas",
-              "name": "Oficinas Reubicables para Industria y Obra",
-              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-              "description": "Módulos de oficina habitables para supervisión, administración y frentes de obra."
-            },
-            {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/soluciones/oficinas/#service",
-              "name": "Oficinas Reubicables",
-              "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
-              "description": "Diseño y suministro de oficinas modulares reubicables.",
-              "areaServed": { "@type": "Country", "name": "México" }
-            }
-          ]
-        }}
+        jsonLd={jsonLd}
       />
 
       <header className="group relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-brand-gray/20 overflow-hidden">
@@ -44,6 +97,8 @@ const Oficinas: React.FC = () => {
           <motion.img 
             src="/images/oficinas-hero.png" 
             alt="Oficinas Reubicables"
+            loading="eager"
+            {...({ fetchpriority: "high" } as any)}
             onError={(event) => {
               event.currentTarget.onerror = null;
               event.currentTarget.src = '/images/oficinas-hero.svg';
@@ -126,31 +181,12 @@ const Oficinas: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-            {[
-              {
-                title: 'Oficina de supervisión',
-                desc: 'Para seguimiento de obra, coordinación en sitio y control de actividades.',
-                features: ['Área de trabajo configurable', 'Espacio para supervisión', 'Instalación eléctrica', 'Aislamiento y acabados'],
-                cta: 'Solicitar Cotización'
-              },
-              {
-                title: 'Oficina operativa',
-                desc: 'Para personal administrativo, coordinación de contratistas y operación temporal.',
-                features: ['Distribución interior configurable', 'Preparación para voz y datos', 'Mobiliario según alcance', 'Climatización opcional'],
-                cta: 'Solicitar Cotización'
-              },
-              {
-                title: 'Espacio para personal',
-                desc: 'Para equipos de trabajo, ampliaciones temporales, contingencias o remodelaciones.',
-                features: ['Área común adaptable', 'Instalaciones eléctricas', 'Preparación de servicios', 'Acabados según uso'],
-                cta: 'Solicitar Cotización'
-              }
-            ].map((item, i) => (
+            {configurations.map((item, i) => (
               <div key={i} className="bg-white p-8 sm:p-10 md:p-12 border border-brand-gray shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl md:text-2xl font-serif mb-6 text-brand-petroleum">{item.title}</h4>
+                  <h4 className="text-xl md:text-2xl font-serif mb-6 text-brand-petroleum">{item.name}</h4>
                   <p className="text-brand-graphite/70 text-sm mb-8 md:mb-10 font-sans leading-relaxed">
-                    {item.desc}
+                    {item.description}
                   </p>
                   <ul className="space-y-3 mb-8 md:mb-10">
                     {item.features.map((feat, idx) => (
@@ -167,7 +203,7 @@ const Oficinas: React.FC = () => {
                   rel="noopener noreferrer" 
                   className="text-xs font-bold uppercase tracking-widest flex items-center gap-3 text-brand-petroleum hover:text-brand-orange transition-colors group"
                 >
-                  {item.cta} <ArrowRight size={18} className="text-brand-orange group-hover:translate-x-2 transition-transform" />
+                  Solicitar Cotización <ArrowRight size={18} className="text-brand-orange group-hover:translate-x-2 transition-transform" />
                 </a>
               </div>
             ))}
@@ -176,7 +212,7 @@ const Oficinas: React.FC = () => {
       </section>
 
       <FAQ 
-        items={[...faqData.oficinas, ...faqData.general]} 
+        items={[...faqData, ...generalFaq]} 
         title="Dudas sobre Oficinas Reubicables"
         subtitle="Todo lo que necesita saber para habilitar su espacio de trabajo en sitio."
       />

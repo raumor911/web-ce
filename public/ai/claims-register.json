@@ -1,28 +1,24 @@
-{
-  "version": "1.0.0",
-  "lastReviewed": "2026-07-22T22:20:00Z",
-  "claims": [
-    {
-      "id": "company-country",
-      "statement": "Creativos Espacios es una empresa mexicana.",
-      "status": "verified",
-      "source": "/nosotros",
-      "allowedInPublicContent": true
-    },
-    {
-      "id": "national-coverage",
-      "statement": "Creativos Espacios atiende proyectos en México.",
-      "status": "verify-wording",
-      "source": "/contacto",
-      "allowedInPublicContent": true,
-      "notes": "No debe interpretarse como disponibilidad garantizada en cualquier localidad sin validación de inventario, ubicación y logística."
-    },
-    {
-      "id": "years-experience",
-      "statement": "Más de una década de experiencia en soluciones modulares.",
-      "status": "verified",
-      "source": "/nosotros",
-      "allowedInPublicContent": true
-    }
-  ]
-}
+[
+  {
+    "id": "claim:company-country",
+    "subjectId": "org:creativos-espacios",
+    "statement": "Es empresa mexicana",
+    "status": "verified",
+    "visibility": "public",
+    "volatility": "stable",
+    "sourceIds": [
+      "source:about"
+    ]
+  },
+  {
+    "id": "claim:years-experience",
+    "subjectId": "org:creativos-espacios",
+    "statement": "Más de una década de experiencia",
+    "status": "verified",
+    "visibility": "public",
+    "volatility": "periodic",
+    "sourceIds": [
+      "source:about"
+    ]
+  }
+]

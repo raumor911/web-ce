@@ -1,0 +1,35 @@
+[
+  {
+    "id": "commercial:sales",
+    "name": "Venta de Equipos",
+    "description": "Venta de contenedores y oficinas modulares como activos permanentes.",
+    "rules": [
+      "Sujeto a disponibilidad de inventario.",
+      "Venta aplicable a unidades estándar y proyectos a la medida."
+    ],
+    "originType": "derived",
+    "sourceIds": ["source:solutions-renta"]
+  },
+  {
+    "id": "commercial:rental",
+    "name": "Renta de Equipos",
+    "description": "Arrendamiento temporal de contenedores y oficinas.",
+    "rules": [
+      "Sujeto a disponibilidad de inventario.",
+      "Ideal para proyectos temporales o almacenamiento estacional."
+    ],
+    "originType": "derived",
+    "sourceIds": ["source:solutions-renta"]
+  },
+  {
+    "id": "commercial:logistics",
+    "name": "Coordinación Logística",
+    "description": "Servicios de entrega y posicionamiento de unidades.",
+    "rules": [
+      "Tiempos definidos según disponibilidad y ubicación.",
+      "Requiere terreno nivelado y firme para maniobras."
+    ],
+    "originType": "derived",
+    "sourceIds": ["source:solutions-renta"]
+  }
+]

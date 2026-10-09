@@ -1,0 +1,57 @@
+[
+  {
+    "id": "industry:construction",
+    "name": "Construcción",
+    "description": "Sector de la construcción."
+  },
+  {
+    "id": "industry:logistics",
+    "name": "Logística",
+    "description": "Sector logístico."
+  },
+  {
+    "id": "industry:manufacturing",
+    "name": "Manufactura",
+    "description": "Sector manufacturero."
+  },
+  {
+    "id": "industry:industrial",
+    "name": "Industria",
+    "description": "Sector industrial general."
+  },
+  {
+    "id": "industry:maintenance",
+    "name": "Mantenimiento",
+    "description": "Servicios de mantenimiento."
+  },
+  {
+    "id": "industry:commerce",
+    "name": "Comercio",
+    "description": "Sector comercio."
+  },
+  {
+    "id": "industry:infrastructure",
+    "name": "Infraestructura",
+    "description": "Sector de infraestructura."
+  },
+  {
+    "id": "industry:telecommunications",
+    "name": "Telecomunicaciones",
+    "description": "Sector de telecomunicaciones."
+  },
+  {
+    "id": "industry:energy",
+    "name": "Energía",
+    "description": "Sector energético."
+  },
+  {
+    "id": "industry:services",
+    "name": "Servicios",
+    "description": "Sector servicios."
+  },
+  {
+    "id": "industry:temporary-projects",
+    "name": "Proyectos temporales",
+    "description": "Cualquier sector con necesidades temporales."
+  }
+]

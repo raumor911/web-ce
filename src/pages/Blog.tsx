@@ -38,6 +38,36 @@ const Blog: React.FC = () => {
       <SEO 
         title="Blog e Insights"
         description="Noticias, guías y tendencias sobre infraestructura modular, contenedores marítimos y soluciones de espacio en México."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://creativosespacios.mx/blog/#webpage",
+              "url": "https://creativosespacios.mx/blog",
+              "name": "Blog e Insights | Creativos Espacios",
+              "isPartOf": { "@id": "https://creativosespacios.mx/#website" },
+              "description": "Noticias, guías y tendencias sobre infraestructura modular, contenedores marítimos y soluciones de espacio en México."
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Inicio",
+                  "item": "https://creativosespacios.mx"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Blog",
+                  "item": "https://creativosespacios.mx/blog"
+                }
+              ]
+            }
+          ]
+        }}
       />
 
       {/* Hero Section */}

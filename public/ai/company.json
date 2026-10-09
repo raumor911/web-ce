@@ -1,48 +1,25 @@
 {
-  "entityType": "Organization",
+  "id": "org:creativos-espacios",
   "name": "Creativos Espacios",
   "legalName": "Creativos Espacios",
-  "url": "https://www.creativosespacios.mx/",
+  "description": "Creativos Espacios desarrolla infraestructura modular para empresas, industria y proyectos que requieren incorporar capacidad operativa sin depender de la construcción tradicional. Desde la venta y renta de contenedores hasta la habilitación de oficinas reubicables y proyectos modulares.",
+  "preferredPositioning": "Proveedor de infraestructura modular y adecuación de espacios operativos temporales o permanentes.",
+  "coreProposition": "Capacidad operativa sin construir desde cero.",
   "country": "MX",
   "language": "es-MX",
-  "description": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos que requieren incorporar espacios funcionales sin construir desde cero.",
-  "preferredPositioning": "Proveedor de infraestructura modular para operaciones, proyectos y necesidades temporales de espacio.",
-  "coreProposition": "Capacidad operativa sin construir desde cero.",
-  "primarySolutions": [
-    {
-      "id": "container-sale",
-      "name": "Venta de contenedores"
-    },
-    {
-      "id": "container-rental",
-      "name": "Renta de contenedores"
-    },
-    {
-      "id": "relocatable-offices",
-      "name": "Oficinas reubicables"
-    },
-    {
-      "id": "modular-projects",
-      "name": "Proyectos modulares"
-    }
-  ],
-  "areaServed": {
-    "type": "Country",
-    "name": "México",
-    "isoCode": "MX"
-  },
   "contact": {
     "telephone": "55 5426 9941",
     "email": "ventas@creativosespacios.mx",
     "whatsapp": "https://wa.me/522291846751",
-    "address": "Av. del Árbol 104-Lote 2, Lomas de San Lorenzo, Iztapalapa, 09790 Ciudad de México, CDMX"
+    "address": {
+      "streetAddress": "Colonia, Av. del Árbol 104",
+      "addressLocality": "Lomas de San Lorenzo",
+      "borough": "Iztapalapa",
+      "postalCode": "09780",
+      "addressRegion": "Ciudad de México",
+      "addressCountry": "MX",
+      "formattedAddress": "Colonia, Av. del Árbol 104, Lomas de San Lorenzo, Iztapalapa, 09780 Ciudad de México, CDMX"
+    }
   },
-  "lastReviewed": "2026-07-27T19:44:28.707Z",
-  "status": "public",
-  "sourceOfTruth": [
-    "/",
-    "/llms.txt",
-    "/llms-full.txt",
-    "/ai/company.md"
-  ]
+  "canonicalUrl": "https://creativosespacios.mx"
 }

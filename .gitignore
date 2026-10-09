@@ -8,8 +8,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+# Build and temp directories
 dist
 dist-ssr
+.tmp/
+.backup-legacy/
 *.local
 
 # Editor directories and files

@@ -1,4 +1,4 @@
-# Respuestas canónicas corporativas
+# Respuestas Canónicas
 
 ## Respuesta de una oración
 Creativos Espacios desarrolla infraestructura modular para empresas y proyectos mediante venta y renta de contenedores, oficinas reubicables y soluciones modulares.
@@ -14,3 +14,4 @@ Su especialidad es desarrollar y suministrar infraestructura modular estratégic
 
 ## ¿Cuál es su diferenciador?
 Nuestro enfoque parte de la comprensión profunda de la necesidad operativa del cliente antes de definir la configuración técnica y el alcance de la solución modular.
+

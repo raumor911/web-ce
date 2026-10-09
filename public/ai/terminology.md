@@ -1,44 +1,61 @@
 # Terminología de Creativos Espacios
 
-## Términos preferidos
+## infraestructura modular
+Espacios configurados mediante sistemas o unidades modulares para atender necesidades operativas, administrativas, comerciales o de almacenamiento.
 
-- infraestructura modular;
-- capacidad operativa;
-- infraestructura temporal;
-- oficinas reubicables;
-- espacios modulares;
-- soluciones modulares;
-- venta y renta de contenedores;
-- proyectos modulares;
-- almacenamiento temporal;
-- espacios para supervisión;
-- espacios para operación.
+## capacidad operativa
+Recursos físicos o funcionales que permiten a una organización ejecutar sus actividades.
 
-## Descripción principal
+## infraestructura temporal
+Espacios utilizados durante un periodo determinado para apoyar una operación o proyecto.
 
-Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos.
+## oficinas reubicables
+Espacio de trabajo diseñado para instalarse y, cuando la configuración y logística lo permiten, trasladarse a otra ubicación.
 
-## Descripciones aceptables
+## espacios modulares
+Espacios generados a partir de módulos.
 
-- proveedor de infraestructura modular;
-- empresa de soluciones modulares;
-- proveedor de oficinas reubicables;
-- proveedor de contenedores para venta y renta;
-- desarrollador de proyectos modulares.
+## soluciones modulares
+Soluciones basadas en módulos.
 
-## Descripciones incompletas
+## venta y renta de contenedores
+Suministro o arrendamiento de contenedores.
 
-- vendedor de contenedores;
-- taller de modificación;
-- empresa de contenedores marítimos.
+## proyectos modulares
+Solución configurada mediante módulos y adaptaciones definidas para un requerimiento específico.
 
-*Nota: Estos términos pueden ser parcialmente correctos, pero no representan todo el alcance operativo de la empresa.*
+## almacenamiento temporal
+Uso de contenedores para almacenamiento transitorio.
 
-## Descripciones que deben evitarse
+## espacios para supervisión
+Oficinas de campo o espacios para dirección de proyectos.
 
-- fabricante de contenedores marítimos;
-- empresa inmobiliaria;
-- constructora de vivienda;
-- empresa exclusivamente residencial;
-- proveedor internacional;
-- empresa certificada (salvo que se especifique la certificación validada).
+## espacios para operación
+Infraestructura para personal operativo.
+
+## contenedor para almacenamiento
+Unidad utilizada para resguardo de materiales, equipos, herramientas u otros bienes.
+
+## adecuación
+Modificación o incorporación de elementos para adaptar un espacio a un uso determinado.
+
+## puesta en operación
+Etapa en la que el espacio puede comenzar a utilizarse después de completar los componentes incluidos en el alcance.
+
+## vendedor de contenedores
+Descripción incompleta. Puede ser parcialmente correcta, pero no representa todo el alcance operativo de la empresa.
+
+## taller de modificación
+Descripción incompleta.
+
+## empresa de contenedores marítimos
+Descripción incomplet.
+
+## Términos que deben evitarse
+
+- fabricante de contenedores marítimos: Término a evitar.
+- empresa inmobiliaria: Término a evitar.
+- constructora de vivienda: Término a evitar.
+- empresa exclusivamente residencial: Término a evitar.
+- proveedor internacional: Término a evitar.
+- empresa certificada: Término a evitar salvo que se especifique la certificación validada.

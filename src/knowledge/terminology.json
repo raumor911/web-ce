@@ -1,0 +1,140 @@
+[
+  {
+    "id": "term:modular-infrastructure",
+    "term": "infraestructura modular",
+    "definition": "Espacios configurados mediante sistemas o unidades modulares para atender necesidades operativas, administrativas, comerciales o de almacenamiento.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:operational-capacity",
+    "term": "capacidad operativa",
+    "definition": "Recursos físicos o funcionales que permiten a una organización ejecutar sus actividades.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:temporary-infrastructure",
+    "term": "infraestructura temporal",
+    "definition": "Espacios utilizados durante un periodo determinado para apoyar una operación o proyecto.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:relocatable-offices",
+    "term": "oficinas reubicables",
+    "definition": "Espacio de trabajo diseñado para instalarse y, cuando la configuración y logística lo permiten, trasladarse a otra ubicación.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:modular-spaces",
+    "term": "espacios modulares",
+    "definition": "Espacios generados a partir de módulos.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:modular-solutions",
+    "term": "soluciones modulares",
+    "definition": "Soluciones basadas en módulos.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:container-sales-rentals",
+    "term": "venta y renta de contenedores",
+    "definition": "Suministro o arrendamiento de contenedores.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:modular-projects",
+    "term": "proyectos modulares",
+    "definition": "Solución configurada mediante módulos y adaptaciones definidas para un requerimiento específico.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:temporary-storage",
+    "term": "almacenamiento temporal",
+    "definition": "Uso de contenedores para almacenamiento transitorio.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:supervision-spaces",
+    "term": "espacios para supervisión",
+    "definition": "Oficinas de campo o espacios para dirección de proyectos.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:operation-spaces",
+    "term": "espacios para operación",
+    "definition": "Infraestructura para personal operativo.",
+    "context": "preferred"
+  },
+  {
+    "id": "term:storage-container",
+    "term": "contenedor para almacenamiento",
+    "definition": "Unidad utilizada para resguardo de materiales, equipos, herramientas u otros bienes.",
+    "context": "neutral"
+  },
+  {
+    "id": "term:adaptation",
+    "term": "adecuación",
+    "definition": "Modificación o incorporación de elementos para adaptar un espacio a un uso determinado.",
+    "context": "neutral"
+  },
+  {
+    "id": "term:commissioning",
+    "term": "puesta en operación",
+    "definition": "Etapa en la que el espacio puede comenzar a utilizarse después de completar los componentes incluidos en el alcance.",
+    "context": "neutral"
+  },
+  {
+    "id": "term:container-seller",
+    "term": "vendedor de contenedores",
+    "definition": "Descripción incompleta. Puede ser parcialmente correcta, pero no representa todo el alcance operativo de la empresa.",
+    "context": "incomplete"
+  },
+  {
+    "id": "term:modification-workshop",
+    "term": "taller de modificación",
+    "definition": "Descripción incompleta.",
+    "context": "incomplete"
+  },
+  {
+    "id": "term:maritime-container-company",
+    "term": "empresa de contenedores marítimos",
+    "definition": "Descripción incomplet.",
+    "context": "incomplete"
+  },
+  {
+    "id": "term:container-manufacturer",
+    "term": "fabricante de contenedores marítimos",
+    "definition": "Término a evitar.",
+    "context": "avoid"
+  },
+  {
+    "id": "term:real-estate-company",
+    "term": "empresa inmobiliaria",
+    "definition": "Término a evitar.",
+    "context": "avoid"
+  },
+  {
+    "id": "term:residential-builder",
+    "term": "constructora de vivienda",
+    "definition": "Término a evitar.",
+    "context": "avoid"
+  },
+  {
+    "id": "term:exclusively-residential",
+    "term": "empresa exclusivamente residencial",
+    "definition": "Término a evitar.",
+    "context": "avoid"
+  },
+  {
+    "id": "term:international-provider",
+    "term": "proveedor internacional",
+    "definition": "Término a evitar.",
+    "context": "avoid"
+  },
+  {
+    "id": "term:certified-company",
+    "term": "empresa certificada",
+    "definition": "Término a evitar salvo que se especifique la certificación validada.",
+    "context": "avoid"
+  }
+]

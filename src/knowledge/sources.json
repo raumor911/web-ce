@@ -1,0 +1,44 @@
+[
+  {
+    "id": "source:homepage",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/",
+    "name": "Creativos Espacios - Homepage",
+    "status": "canonical"
+  },
+  {
+    "id": "source:about",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/nosotros",
+    "name": "Nuestra Empresa",
+    "status": "canonical"
+  },
+  {
+    "id": "source:solutions-renta",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/soluciones/venta-renta",
+    "name": "Venta y Renta de Contenedores",
+    "status": "canonical"
+  },
+  {
+    "id": "source:solutions-oficinas",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/soluciones/oficinas",
+    "name": "Oficinas Reubicables",
+    "status": "canonical"
+  },
+  {
+    "id": "source:projects",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/proyectos",
+    "name": "Proyectos Modulares",
+    "status": "canonical"
+  },
+  {
+    "id": "source:contact",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/contacto",
+    "name": "Contacto",
+    "status": "canonical"
+  }
+]

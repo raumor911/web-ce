@@ -28,13 +28,22 @@
     RewriteRule ^ - [L] 
 
     # ===================================================== 
+    # 1.1 REDIRECCIONES DE URLS ANTIGUAS (LEGACY)
+    # ===================================================== 
+    Redirect 301 /personalizar-contenedor /soluciones/venta-renta
+    Redirect 301 /cotizador-renta /contacto
+    Redirect 301 /productos/oficinas /soluciones/oficinas
+    Redirect 301 /presentacion-empresarial /nosotros
+    Redirect 301 /catalogo /soluciones/venta-renta
+
+    # ===================================================== 
     # 2. FORZAR HTTPS Y DOMINIO SIN WWW 
     # ===================================================== 
     # 
     # Convierte: 
     # `http://creativosespacios.mx` 
-    # `http://www.creativosespacios.mx` 
-    # `https://www.creativosespacios.mx` 
+    # `https://creativosespacios.mx` 
+    # `https://creativosespacios.mx` 
     # 
     # En: 
     # `https://creativosespacios.mx` 
@@ -61,6 +70,13 @@
     RewriteRule ^ index.html [L] 
 </IfModule> 
 
+# ========================================================= 
+# 4.1 ENCODING PARA ARCHIVOS SEMÁNTICOS Y DE TEXTO
+# ========================================================= 
+
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .txt .md .json .jsonld .xml
+</IfModule>
 
 # ========================================================= 
 # 5. COMPRESIÓN GZIP 

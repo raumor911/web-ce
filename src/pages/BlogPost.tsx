@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SEO } from '../components/SEO';
+import { SemanticSelectors } from '../semantic/selectors';
 import { Calendar, ArrowLeft, Clock, Share2, Facebook, Linkedin } from 'lucide-react';
 import { getPostBySlug, WordPressPost } from '../services/wordpress';
 
 const BlogPost: React.FC = () => {
+  const org = SemanticSelectors.getOrganization();
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [post, setPost] = useState<WordPressPost | null>(null);
@@ -67,29 +69,51 @@ const BlogPost: React.FC = () => {
 
     return {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `${siteUrl}/blog/${post.slug}`
-      },
-      "headline": post.title.rendered,
-      "description": description,
-      "image": featuredMedia ? [featuredMedia.source_url] : [],
-      "datePublished": post.date,
-      "dateModified": post.modified,
-      "author": {
-        "@type": "Organization",
-        "name": "Creativos Espacios",
-        "url": siteUrl
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Creativos Espacios",
-        "logo": {
-          "@type": "ImageObject",
-          "url": `${siteUrl}/images/logo-creativos-espacios.png`
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `${siteUrl}/blog/${post.slug}`
+          },
+          "headline": post.title.rendered,
+          "description": description,
+          "image": featuredMedia ? [featuredMedia.source_url] : [],
+          "datePublished": post.date,
+          "dateModified": post.modified,
+          "author": {
+            "@type": "Organization",
+            "name": org.name,
+            "url": siteUrl
+          },
+          "publisher": {
+            "@id": `${siteUrl}/#organization`
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Inicio",
+              "item": siteUrl
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": `${siteUrl}/blog`
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": post.title.rendered,
+              "item": `${siteUrl}/blog/${post.slug}`
+            }
+          ]
         }
-      }
+      ]
     };
   };
 
@@ -201,7 +225,7 @@ const BlogPost: React.FC = () => {
               <div>
                 <span className="block text-xs text-slate-400 uppercase tracking-widest font-bold">Autor</span>
                 <span className="text-sm font-medium text-slate-900" itemProp="name">
-                  {post._embedded?.['author']?.[0]?.name || 'Creativos Espacios'}
+                  {post._embedded?.['author']?.[0]?.name || org.name}
                 </span>
                 <link itemProp="url" href="https://creativosespacios.mx" />
               </div>

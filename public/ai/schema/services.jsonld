@@ -1,46 +1,43 @@
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "provider": {
-    "@id": "https://www.creativosespacios.mx/#organization"
-  },
-  "serviceType": "Infraestructura Modular",
-  "areaServed": {
-    "@type": "Country",
-    "name": "Mexico"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Servicios de Creativos Espacios",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Venta de contenedores"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Renta de contenedores"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Oficinas reubicables"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Proyectos modulares"
-        }
+  "@type": "OfferCatalog",
+  "name": "Catálogo de Servicios",
+  "itemListElement": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "@id": "https://creativosespacios.mx/soluciones/venta-renta#container-sale",
+        "name": "Venta de contenedores",
+        "description": "Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes."
       }
-    ]
-  }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "@id": "https://creativosespacios.mx/soluciones/venta-renta#container-rental",
+        "name": "Renta de contenedores",
+        "description": "Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "@id": "https://creativosespacios.mx/soluciones/oficinas#relocatable-offices",
+        "name": "Oficinas reubicables",
+        "description": "Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "@id": "https://creativosespacios.mx/proyectos#modular-projects",
+        "name": "Proyectos modulares",
+        "description": "Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente."
+      }
+    }
+  ]
 }

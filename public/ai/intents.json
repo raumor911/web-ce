@@ -1,0 +1,84 @@
+[
+  {
+    "id": "intent:need-temporary-storage",
+    "name": "Necesidad de almacenamiento temporal",
+    "description": "Obtener espacio adicional seguro para resguardar materiales o herramientas durante un proyecto.",
+    "goal": "Ampliar capacidad de almacenamiento sin construcción fija",
+    "need": "Espacio seguro y temporal",
+    "transactionStage": "discovery",
+    "useCaseIds": [
+      "usecase:b2b-temporary-storage"
+    ],
+    "serviceIds": [
+      "service:container-rental",
+      "service:container-sale"
+    ],
+    "industryIds": [
+      "industry:construction",
+      "industry:commerce"
+    ],
+    "exampleExpressions": [
+      "Necesito guardar materiales durante una obra",
+      "No tengo suficiente espacio en planta",
+      "Quiero ampliar almacenamiento sin construir"
+    ],
+    "sourceIds": [
+      "source:solutions-renta"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:compare-rent-vs-buy",
+    "name": "Comparar renta vs compra",
+    "description": "Determinar el esquema comercial más adecuado para un requerimiento de infraestructura.",
+    "goal": "Tomar decisión financiera",
+    "need": "Criterios de evaluación comercial",
+    "transactionStage": "comparison",
+    "serviceIds": [
+      "service:container-rental",
+      "service:container-sale"
+    ],
+    "exampleExpressions": [
+      "¿Cuándo conviene rentar y cuándo comprar?",
+      "¿Sale mejor rentar un contenedor o comprarlo?",
+      "Diferencias entre renta y venta"
+    ],
+    "sourceIds": [
+      "source:solutions-renta"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:site-supervision-space",
+    "name": "Espacio para supervisión de obra",
+    "description": "Habilitar un espacio de trabajo en sitio para la dirección y control de proyectos.",
+    "goal": "Control y dirección en campo",
+    "need": "Oficina en terreno",
+    "transactionStage": "exploration",
+    "useCaseIds": [
+      "usecase:site-supervision"
+    ],
+    "serviceIds": [
+      "service:relocatable-offices"
+    ],
+    "configurationIds": [
+      "configuration:office-supervision"
+    ],
+    "industryIds": [
+      "industry:construction",
+      "industry:infrastructure"
+    ],
+    "exampleExpressions": [
+      "Oficina para residente de obra",
+      "Espacio para arquitectos en proyecto",
+      "Caseta para reuniones de avance"
+    ],
+    "sourceIds": [
+      "source:solutions-oficinas"
+    ],
+    "status": "published",
+    "visibility": "public"
+  }
+]

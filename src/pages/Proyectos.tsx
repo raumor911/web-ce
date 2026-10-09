@@ -5,11 +5,71 @@ import { Settings, Warehouse, Building2, Compass, ArrowRight } from 'lucide-reac
 import { Link } from 'react-router-dom';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
-import faqData from '../data/faqData.json';
+import { SemanticSelectors } from '../semantic/selectors';
+import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 
 const Proyectos: React.FC = () => {
+  const serviceProjects = SemanticSelectors.getServiceById('service:modular-projects');
+  const faqData = SemanticSelectors.getFaqByCategory('proyectos');
+  const generalFaq = SemanticSelectors.getGeneralFaq();
+
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
+
+  const pageUrl = getCanonicalUrl('/proyectos');
+  const webpageId = getWebPageId('/proyectos');
+  const serviceId = getEntityId('/proyectos', 'service');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": webpageId,
+        "url": pageUrl,
+        "name": "Soluciones Modulares a la Medida",
+        "isPartOf": { "@id": WEBSITE_ID },
+        "description": "Ingeniería modular para necesidades operativas específicas."
+      },
+      {
+        "@type": "Service",
+        "@id": serviceId,
+        "name": serviceProjects?.name || "Proyectos Modulares",
+        "provider": { "@id": ORG_ID },
+        "description": serviceProjects?.description || "Desarrollo de proyectos modulares adaptados a requerimientos técnicos.",
+        "areaServed": { "@type": "Country", "name": "México" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": getCanonicalUrl('/')
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Proyectos",
+            "item": pageUrl
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": getEntityId('/proyectos', 'faq'),
+        "mainEntity": [...faqData, ...generalFaq].map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
 
   const soluciones = [
     {
@@ -40,27 +100,7 @@ const Proyectos: React.FC = () => {
       <SEO 
         title="Soluciones Modulares a la Medida"
         description="Ingeniería modular para necesidades operativas específicas. Bodegas técnicas, laboratorios y módulos de servicio en CDMX."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://www.creativosespacios.mx/proyectos/#webpage",
-              "url": "https://www.creativosespacios.mx/proyectos",
-              "name": "Soluciones Modulares a la Medida",
-              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-              "description": "Ingeniería modular para necesidades operativas específicas."
-            },
-            {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/proyectos/#service",
-              "name": "Proyectos Modulares",
-              "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
-              "description": "Desarrollo de proyectos modulares adaptados a requerimientos técnicos.",
-              "areaServed": { "@type": "Country", "name": "México" }
-            }
-          ]
-        }}
+        jsonLd={jsonLd}
       />
 
       <header className="group relative overflow-hidden border-b border-[rgba(255,255,255,0.12)] bg-brand-petroleum py-24 md:py-36">
@@ -68,6 +108,8 @@ const Proyectos: React.FC = () => {
           <motion.img
             src="/images/proyectos-hero.png"
             alt="Proyecto modular instalado"
+            loading="eager"
+            {...({ fetchpriority: "high" } as any)}
             onError={(event) => {
               event.currentTarget.onerror = null;
               event.currentTarget.src = '/images/proyectos-hero.svg';
@@ -187,7 +229,7 @@ const Proyectos: React.FC = () => {
       </section>
 
       <FAQ 
-        items={[...faqData.proyectos, ...faqData.general]} 
+        items={[...faqData, ...generalFaq]} 
         title="Dudas sobre Proyectos Especiales"
         subtitle="Información sobre el desarrollo de soluciones de ingeniería modular a medida."
       />

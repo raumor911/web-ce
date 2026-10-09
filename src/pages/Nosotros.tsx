@@ -3,32 +3,55 @@ import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { Shield, Settings, Truck, MapPin, CheckCircle2, Building2, Box, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 
 const Nosotros: React.FC = () => {
+  const pageUrl = getCanonicalUrl('/nosotros');
+  const webpageId = getWebPageId('/nosotros');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": webpageId,
+        "url": pageUrl,
+        "name": "Nuestra Empresa | Infraestructura Modular Industrial",
+        "isPartOf": { "@id": WEBSITE_ID },
+        "description": "Información sobre Creativos Espacios y nuestra experiencia en infraestructura modular."
+      },
+      {
+        "@type": "AboutPage",
+        "@id": `${pageUrl}/#about`,
+        "url": pageUrl,
+        "mainEntity": { "@id": ORG_ID }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": getCanonicalUrl('/')
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Nuestra Empresa",
+            "item": pageUrl
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
         title="Nuestra Empresa | Infraestructura Modular Industrial"
         description="Diseñamos infraestructura modular para operaciones que no pueden detenerse. Más de una década desarrollando soluciones técnicas para la industria."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://www.creativosespacios.mx/nosotros/#webpage",
-              "url": "https://www.creativosespacios.mx/nosotros",
-              "name": "Nuestra Empresa | Infraestructura Modular Industrial",
-              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-              "description": "Información sobre Creativos Espacios y nuestra experiencia en infraestructura modular."
-            },
-            {
-              "@type": "AboutPage",
-              "@id": "https://www.creativosespacios.mx/nosotros/#about",
-              "url": "https://www.creativosespacios.mx/nosotros",
-              "mainEntity": { "@id": "https://www.creativosespacios.mx/#organization" }
-            }
-          ]
-        }}
+        jsonLd={jsonLd}
       />
 
       {/* Hero Section - Technical & Sober */}
@@ -37,6 +60,8 @@ const Nosotros: React.FC = () => {
           <img 
             src="/images/nosotros-hero-blueprint.png" 
             alt="Ingeniería Industrial" 
+            loading="eager"
+            {...({ fetchpriority: "high" } as any)}
             onError={(event) => {
               event.currentTarget.onerror = null;
               event.currentTarget.src = '/images/nosotros-hero-blueprint.svg';

@@ -1,99 +1,1114 @@
 {
-  "name": "Creativos Espacios Public Knowledge Graph",
-  "version": "1.0.0",
-  "lastUpdated": "2026-07-22T22:15:00Z",
+  "name": "Creativos Espacios Knowledge Graph",
+  "version": "2.0.0",
+  "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd",
+  "generatedAt": "2026-10-02T23:19:17.763Z",
   "nodes": [
     {
-      "id": "creativos-espacios",
+      "id": "org:creativos-espacios",
       "type": "Organization",
-      "label": "Creativos Espacios"
+      "name": "Creativos Espacios",
+      "legalName": "Creativos Espacios",
+      "description": "Creativos Espacios desarrolla infraestructura modular para empresas, industria y proyectos que requieren incorporar capacidad operativa sin depender de la construcción tradicional. Desde la venta y renta de contenedores hasta la habilitación de oficinas reubicables y proyectos modulares.",
+      "preferredPositioning": "Proveedor de infraestructura modular y adecuación de espacios operativos temporales o permanentes.",
+      "coreProposition": "Capacidad operativa sin construir desde cero.",
+      "country": "MX",
+      "language": "es-MX",
+      "contact": {
+        "telephone": "55 5426 9941",
+        "email": "ventas@creativosespacios.mx",
+        "whatsapp": "https://wa.me/522291846751",
+        "address": {
+          "streetAddress": "Colonia, Av. del Árbol 104",
+          "addressLocality": "Lomas de San Lorenzo",
+          "borough": "Iztapalapa",
+          "postalCode": "09780",
+          "addressRegion": "Ciudad de México",
+          "addressCountry": "MX",
+          "formattedAddress": "Colonia, Av. del Árbol 104, Lomas de San Lorenzo, Iztapalapa, 09780 Ciudad de México, CDMX"
+        }
+      },
+      "canonicalUrl": "https://creativosespacios.mx"
     },
     {
-      "id": "modular-infrastructure",
-      "type": "Concept",
-      "label": "Infraestructura modular"
-    },
-    {
-      "id": "container-sale",
+      "id": "service:container-sale",
       "type": "Service",
-      "label": "Venta de contenedores"
+      "name": "Venta de contenedores",
+      "category": "Infraestructura modular",
+      "description": "Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes.",
+      "transactionType": "sale",
+      "canonicalPath": "/soluciones/venta-renta",
+      "availability": "subject-to-confirmation",
+      "requiresAssessment": true,
+      "productIds": [
+        "product:container-20ft",
+        "product:container-40ft"
+      ],
+      "useCaseIds": [
+        "usecase:b2b-temporary-storage",
+        "usecase:material-storage",
+        "usecase:inventory-storage"
+      ],
+      "industryIds": [
+        "industry:construction",
+        "industry:logistics",
+        "industry:manufacturing",
+        "industry:industrial",
+        "industry:commerce",
+        "industry:temporary-projects"
+      ],
+      "coverageIds": [
+        "coverage:national-mx"
+      ]
     },
     {
-      "id": "container-rental",
+      "id": "service:container-rental",
       "type": "Service",
-      "label": "Renta de contenedores"
+      "name": "Renta de contenedores",
+      "category": "Infraestructura modular",
+      "description": "Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos.",
+      "transactionType": "rental",
+      "canonicalPath": "/soluciones/venta-renta",
+      "availability": "subject-to-confirmation",
+      "requiresAssessment": true,
+      "productIds": [
+        "product:container-20ft",
+        "product:container-40ft"
+      ],
+      "useCaseIds": [
+        "usecase:b2b-temporary-storage",
+        "usecase:material-storage",
+        "usecase:inventory-storage"
+      ],
+      "industryIds": [
+        "industry:construction",
+        "industry:logistics",
+        "industry:manufacturing",
+        "industry:industrial",
+        "industry:commerce",
+        "industry:temporary-projects"
+      ],
+      "coverageIds": [
+        "coverage:national-mx"
+      ]
     },
     {
-      "id": "relocatable-offices",
+      "id": "service:relocatable-offices",
       "type": "Service",
-      "label": "Oficinas reubicables"
+      "name": "Oficinas reubicables",
+      "category": "Infraestructura modular",
+      "description": "Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta.",
+      "transactionType": "sale-or-rental",
+      "canonicalPath": "/soluciones/oficinas",
+      "availability": "subject-to-confirmation",
+      "requiresAssessment": true,
+      "configurationIds": [
+        "configuration:office-supervision",
+        "configuration:office-operation",
+        "configuration:office-personal"
+      ],
+      "useCaseIds": [
+        "usecase:site-supervision",
+        "usecase:temporary-administration"
+      ],
+      "industryIds": [
+        "industry:construction",
+        "industry:infrastructure",
+        "industry:energy",
+        "industry:telecommunications",
+        "industry:maintenance",
+        "industry:services",
+        "industry:temporary-projects"
+      ],
+      "coverageIds": [
+        "coverage:national-mx"
+      ]
     },
     {
-      "id": "modular-projects",
+      "id": "service:modular-projects",
       "type": "Service",
-      "label": "Proyectos modulares"
+      "name": "Proyectos modulares",
+      "category": "Infraestructura modular",
+      "description": "Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente.",
+      "transactionType": "custom-project",
+      "canonicalPath": "/proyectos",
+      "availability": "subject-to-confirmation",
+      "requiresAssessment": true,
+      "useCaseIds": [
+        "usecase:custom-infrastructure",
+        "usecase:specialized-operations"
+      ],
+      "industryIds": [
+        "industry:construction",
+        "industry:logistics",
+        "industry:manufacturing",
+        "industry:industrial",
+        "industry:maintenance",
+        "industry:commerce",
+        "industry:infrastructure",
+        "industry:telecommunications",
+        "industry:energy",
+        "industry:services",
+        "industry:temporary-projects"
+      ],
+      "coverageIds": [
+        "coverage:national-mx"
+      ]
     },
     {
-      "id": "temporary-infrastructure",
-      "type": "Concept",
-      "label": "Infraestructura temporal"
+      "id": "product:container-20ft",
+      "type": "Product",
+      "name": "Contenedor 20 FT STD",
+      "category": "Contenedor Marítimo",
+      "description": "Solución para almacenamiento temporal, logística, operaciones y proyectos que requieren incorporar capacidad sin construir desde cero.",
+      "dimensions": "6.06m x 2.44m x 2.59m / 2.89m",
+      "features": [
+        "Fabricado en acero Corten de alta resistencia.",
+        "Reacondicionado para asegurar protección contra filtraciones de agua.",
+        "Disponible pintado o en acabado original, según disponibilidad."
+      ],
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ]
     },
     {
-      "id": "operational-capacity",
-      "type": "Concept",
-      "label": "Capacidad operativa"
+      "id": "product:container-40ft",
+      "type": "Product",
+      "name": "Contenedor 40 FT HC/STD",
+      "category": "Contenedor Marítimo",
+      "description": "Solución de gran capacidad para almacenamiento, operación logística y resguardo de maquinaria, materiales o inventarios de alto volumen.",
+      "dimensions": "12.19m x 2.44m x 2.89m",
+      "features": [
+        "Acero Corten de alta resistencia.",
+        "Reacondicionado para asegurar protección contra filtraciones de agua.",
+        "Disponible pintado o en acabado original, sujeto a disponibilidad."
+      ],
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ]
     },
     {
-      "id": "mexico",
-      "type": "Country",
-      "label": "México"
+      "id": "configuration:office-supervision",
+      "type": "Configuration",
+      "name": "Oficina de supervisión",
+      "description": "Para seguimiento de obra, coordinación en sitio y control de actividades.",
+      "features": [
+        "Área de trabajo configurable",
+        "Espacio para supervisión",
+        "Instalación eléctrica",
+        "Aislamiento y acabados"
+      ],
+      "serviceIds": [
+        "service:relocatable-offices"
+      ]
+    },
+    {
+      "id": "configuration:office-operation",
+      "type": "Configuration",
+      "name": "Oficina operativa",
+      "description": "Para personal administrativo, coordinación de contratistas y operación temporal.",
+      "features": [
+        "Distribución interior configurable",
+        "Preparación para voz y datos",
+        "Mobiliario según alcance",
+        "Climatización opcional"
+      ],
+      "serviceIds": [
+        "service:relocatable-offices"
+      ]
+    },
+    {
+      "id": "configuration:office-personal",
+      "type": "Configuration",
+      "name": "Espacio para personal",
+      "description": "Para equipos de trabajo, ampliaciones temporales, contingencias o remodelaciones.",
+      "features": [
+        "Área común adaptable",
+        "Instalaciones eléctricas",
+        "Preparación de servicios",
+        "Acabados según uso"
+      ],
+      "serviceIds": [
+        "service:relocatable-offices"
+      ]
+    },
+    {
+      "id": "usecase:b2b-temporary-storage",
+      "type": "UseCase",
+      "name": "Almacenamiento temporal B2B",
+      "description": "Provisión de espacio seguro y resistente para el resguardo de activos de la empresa sin necesidad de construcción.",
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ]
+    },
+    {
+      "id": "usecase:inventory-storage",
+      "type": "UseCase",
+      "name": "Resguardo de inventario",
+      "description": "Almacenamiento de mercancías o insumos para afrontar picos de demanda o falta de espacio en almacenes principales.",
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ]
+    },
+    {
+      "id": "usecase:tool-storage",
+      "type": "UseCase",
+      "name": "Resguardo de herramientas",
+      "description": "Almacenamiento seguro de equipo y herramienta directamente en el frente de obra o patio de maniobras.",
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ]
+    },
+    {
+      "id": "usecase:material-storage",
+      "type": "UseCase",
+      "name": "Resguardo de materiales",
+      "description": "Protección de materiales de construcción e insumos industriales contra intemperie y robo.",
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ]
+    },
+    {
+      "id": "usecase:site-supervision",
+      "type": "UseCase",
+      "name": "Supervisión de obra",
+      "description": "Módulos habilitados como oficinas de campo para la dirección, supervisión y control operativo de proyectos de construcción.",
+      "serviceIds": [
+        "service:relocatable-offices"
+      ]
+    },
+    {
+      "id": "usecase:temporary-administration",
+      "type": "UseCase",
+      "name": "Administración temporal",
+      "description": "Oficinas de transición o ampliaciones rápidas para personal administrativo durante remodelaciones o crecimiento acelerado.",
+      "serviceIds": [
+        "service:relocatable-offices"
+      ]
+    },
+    {
+      "id": "usecase:custom-infrastructure",
+      "type": "UseCase",
+      "name": "Infraestructura a la medida",
+      "description": "Soluciones diseñadas específicamente para requerimientos únicos.",
+      "serviceIds": [
+        "service:modular-projects"
+      ]
+    },
+    {
+      "id": "usecase:specialized-operations",
+      "type": "UseCase",
+      "name": "Operaciones especializadas",
+      "description": "Módulos equipados para funciones industriales o comerciales específicas.",
+      "serviceIds": [
+        "service:modular-projects"
+      ]
+    },
+    {
+      "id": "industry:construction",
+      "type": "Industry",
+      "name": "Construcción",
+      "description": "Sector de la construcción."
+    },
+    {
+      "id": "industry:logistics",
+      "type": "Industry",
+      "name": "Logística",
+      "description": "Sector logístico."
+    },
+    {
+      "id": "industry:manufacturing",
+      "type": "Industry",
+      "name": "Manufactura",
+      "description": "Sector manufacturero."
+    },
+    {
+      "id": "industry:industrial",
+      "type": "Industry",
+      "name": "Industria",
+      "description": "Sector industrial general."
+    },
+    {
+      "id": "industry:maintenance",
+      "type": "Industry",
+      "name": "Mantenimiento",
+      "description": "Servicios de mantenimiento."
+    },
+    {
+      "id": "industry:commerce",
+      "type": "Industry",
+      "name": "Comercio",
+      "description": "Sector comercio."
+    },
+    {
+      "id": "industry:infrastructure",
+      "type": "Industry",
+      "name": "Infraestructura",
+      "description": "Sector de infraestructura."
+    },
+    {
+      "id": "industry:telecommunications",
+      "type": "Industry",
+      "name": "Telecomunicaciones",
+      "description": "Sector de telecomunicaciones."
+    },
+    {
+      "id": "industry:energy",
+      "type": "Industry",
+      "name": "Energía",
+      "description": "Sector energético."
+    },
+    {
+      "id": "industry:services",
+      "type": "Industry",
+      "name": "Servicios",
+      "description": "Sector servicios."
+    },
+    {
+      "id": "industry:temporary-projects",
+      "type": "Industry",
+      "name": "Proyectos temporales",
+      "description": "Cualquier sector con necesidades temporales."
+    },
+    {
+      "id": "coverage:national-mx",
+      "type": "national",
+      "name": "Cobertura Nacional México",
+      "countryCode": "MX"
+    },
+    {
+      "id": "faq:general-what-we-do",
+      "type": "FAQ",
+      "name": "¿Qué hace Creativos Espacios?",
+      "question": "¿Qué hace Creativos Espacios?",
+      "answer": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos que necesitan incorporar espacios funcionales sin construir desde cero.",
+      "category": "general",
+      "status": "published"
+    },
+    {
+      "id": "faq:general-national-coverage",
+      "type": "FAQ",
+      "name": "¿Tienen cobertura nacional?",
+      "question": "¿Tienen cobertura nacional?",
+      "answer": "Atendemos proyectos en todo México. La factibilidad logística y los tiempos de respuesta se confirman según la ubicación exacta de su proyecto.",
+      "category": "general",
+      "status": "published"
+    },
+    {
+      "id": "faq:general-how-to-quote",
+      "type": "FAQ",
+      "name": "¿Cómo inicio una cotización?",
+      "question": "¿Cómo inicio una cotización?",
+      "answer": "Puede contactarnos directamente vía WhatsApp al +52 229 184 6751, por teléfono o a través de nuestro formulario de contacto. Requerimos detalles básicos como el tipo de solución, ubicación y plazo estimado.",
+      "category": "general",
+      "status": "published"
+    },
+    {
+      "id": "faq:rent-vs-buy",
+      "type": "FAQ",
+      "name": "¿Es mejor rentar o comprar un contenedor?",
+      "question": "¿Es mejor rentar o comprar un contenedor?",
+      "answer": "La renta es ideal para proyectos temporales, obras con duración definida o necesidades de almacenamiento estacional. La compra se recomienda cuando la unidad formará parte de sus activos permanentes o para proyectos de muy larga duración.",
+      "category": "ventaRenta",
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:container-maintenance",
+      "type": "FAQ",
+      "name": "¿Qué mantenimiento requieren las unidades?",
+      "question": "¿Qué mantenimiento requieren las unidades?",
+      "answer": "Nuestras unidades están fabricadas en acero Corten de alta resistencia, lo que minimiza el mantenimiento. Recomendamos inspecciones periódicas de pintura y sellos para garantizar la hermeticidad a largo plazo.",
+      "category": "ventaRenta",
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:delivery-requirements",
+      "type": "FAQ",
+      "name": "¿Qué se necesita para la entrega?",
+      "question": "¿Qué se necesita para la entrega?",
+      "answer": "Se requiere un terreno nivelado y firme, así como espacio suficiente para las maniobras del camión y la grúa. Nosotros coordinamos la logística de acuerdo con las condiciones de su sitio.",
+      "category": "ventaRenta",
+      "serviceIds": [
+        "service:container-sale",
+        "service:container-rental"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:office-electrical",
+      "type": "FAQ",
+      "name": "¿Las oficinas incluyen instalaciones eléctricas?",
+      "question": "¿Las oficinas incluyen instalaciones eléctricas?",
+      "answer": "Sí, nuestras oficinas reubicables se entregan con instalaciones eléctricas base, iluminación y preparación para servicios, de acuerdo con el alcance técnico contratado.",
+      "category": "oficinas",
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:office-relocation",
+      "type": "FAQ",
+      "name": "¿Se pueden reubicar las oficinas?",
+      "question": "¿Se pueden reubicar las oficinas?",
+      "answer": "Están diseñadas específicamente para ser reubicables. Su estructura modular permite el traslado a nuevos frentes de obra o ubicaciones operativas cuando el proyecto lo requiera.",
+      "category": "oficinas",
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:office-insulation",
+      "type": "FAQ",
+      "name": "¿Cuentan con aislamiento térmico?",
+      "question": "¿Cuentan con aislamiento térmico?",
+      "answer": "Sí, incorporamos soluciones de aislamiento y climatización para garantizar un entorno de trabajo confortable y productivo en distintos climas.",
+      "category": "oficinas",
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:custom-projects",
+      "type": "FAQ",
+      "name": "¿Realizan proyectos personalizados?",
+      "question": "¿Realizan proyectos personalizados?",
+      "answer": "Sí. Desarrollamos soluciones de ingeniería modular adaptadas a requerimientos técnicos, funcionales y de operación específicos de cada cliente.",
+      "category": "proyectos",
+      "serviceIds": [
+        "service:modular-projects"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:custom-modifications",
+      "type": "FAQ",
+      "name": "¿Qué tipo de adecuaciones pueden realizar?",
+      "question": "¿Qué tipo de adecuaciones pueden realizar?",
+      "answer": "Desde modificaciones estructurales e integración de servicios especializados hasta acabados arquitectónicos y equipamiento industrial a medida.",
+      "category": "proyectos",
+      "serviceIds": [
+        "service:modular-projects"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:modular-vs-traditional",
+      "type": "FAQ",
+      "name": "¿Sus soluciones sustituyen a la construcción tradicional?",
+      "question": "¿Sus soluciones sustituyen a la construcción tradicional?",
+      "answer": "Son una alternativa estratégica en proyectos donde la velocidad de despliegue, la modularidad o la necesidad de reubicación son factores críticos para el éxito operativo.",
+      "category": "proyectos",
+      "serviceIds": [
+        "service:modular-projects"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "claim:company-country",
+      "type": "Claim",
+      "name": "Es empresa mexicana",
+      "subjectId": "org:creativos-espacios",
+      "statement": "Es empresa mexicana",
+      "status": "verified",
+      "visibility": "public",
+      "volatility": "stable",
+      "sourceIds": [
+        "source:about"
+      ]
+    },
+    {
+      "id": "claim:years-experience",
+      "type": "Claim",
+      "name": "Más de una década de experiencia",
+      "subjectId": "org:creativos-espacios",
+      "statement": "Más de una década de experiencia",
+      "status": "verified",
+      "visibility": "public",
+      "volatility": "periodic",
+      "sourceIds": [
+        "source:about"
+      ]
+    },
+    {
+      "id": "source:homepage",
+      "type": "webpage",
+      "name": "Creativos Espacios - Homepage",
+      "url": "https://creativosespacios.mx/",
+      "status": "canonical"
+    },
+    {
+      "id": "source:about",
+      "type": "webpage",
+      "name": "Nuestra Empresa",
+      "url": "https://creativosespacios.mx/nosotros",
+      "status": "canonical"
+    },
+    {
+      "id": "source:solutions-renta",
+      "type": "webpage",
+      "name": "Venta y Renta de Contenedores",
+      "url": "https://creativosespacios.mx/soluciones/venta-renta",
+      "status": "canonical"
+    },
+    {
+      "id": "source:solutions-oficinas",
+      "type": "webpage",
+      "name": "Oficinas Reubicables",
+      "url": "https://creativosespacios.mx/soluciones/oficinas",
+      "status": "canonical"
+    },
+    {
+      "id": "source:projects",
+      "type": "webpage",
+      "name": "Proyectos Modulares",
+      "url": "https://creativosespacios.mx/proyectos",
+      "status": "canonical"
+    },
+    {
+      "id": "source:contact",
+      "type": "webpage",
+      "name": "Contacto",
+      "url": "https://creativosespacios.mx/contacto",
+      "status": "canonical"
+    },
+    {
+      "id": "intent:need-temporary-storage",
+      "type": "Intent",
+      "name": "Necesidad de almacenamiento temporal",
+      "description": "Obtener espacio adicional seguro para resguardar materiales o herramientas durante un proyecto.",
+      "goal": "Ampliar capacidad de almacenamiento sin construcción fija",
+      "need": "Espacio seguro y temporal",
+      "transactionStage": "discovery",
+      "useCaseIds": [
+        "usecase:b2b-temporary-storage"
+      ],
+      "serviceIds": [
+        "service:container-rental",
+        "service:container-sale"
+      ],
+      "industryIds": [
+        "industry:construction",
+        "industry:commerce"
+      ],
+      "exampleExpressions": [
+        "Necesito guardar materiales durante una obra",
+        "No tengo suficiente espacio en planta",
+        "Quiero ampliar almacenamiento sin construir"
+      ],
+      "sourceIds": [
+        "source:solutions-renta"
+      ],
+      "status": "published",
+      "visibility": "public"
+    },
+    {
+      "id": "intent:compare-rent-vs-buy",
+      "type": "Intent",
+      "name": "Comparar renta vs compra",
+      "description": "Determinar el esquema comercial más adecuado para un requerimiento de infraestructura.",
+      "goal": "Tomar decisión financiera",
+      "need": "Criterios de evaluación comercial",
+      "transactionStage": "comparison",
+      "serviceIds": [
+        "service:container-rental",
+        "service:container-sale"
+      ],
+      "exampleExpressions": [
+        "¿Cuándo conviene rentar y cuándo comprar?",
+        "¿Sale mejor rentar un contenedor o comprarlo?",
+        "Diferencias entre renta y venta"
+      ],
+      "sourceIds": [
+        "source:solutions-renta"
+      ],
+      "status": "published",
+      "visibility": "public"
+    },
+    {
+      "id": "intent:site-supervision-space",
+      "type": "Intent",
+      "name": "Espacio para supervisión de obra",
+      "description": "Habilitar un espacio de trabajo en sitio para la dirección y control de proyectos.",
+      "goal": "Control y dirección en campo",
+      "need": "Oficina en terreno",
+      "transactionStage": "exploration",
+      "useCaseIds": [
+        "usecase:site-supervision"
+      ],
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "configurationIds": [
+        "configuration:office-supervision"
+      ],
+      "industryIds": [
+        "industry:construction",
+        "industry:infrastructure"
+      ],
+      "exampleExpressions": [
+        "Oficina para residente de obra",
+        "Espacio para arquitectos en proyecto",
+        "Caseta para reuniones de avance"
+      ],
+      "sourceIds": [
+        "source:solutions-oficinas"
+      ],
+      "status": "published",
+      "visibility": "public"
     }
   ],
   "edges": [
     {
-      "source": "creativos-espacios",
-      "relation": "provides",
-      "target": "container-sale"
+      "source": "org:creativos-espacios",
+      "target": "service:container-sale",
+      "relation": "offers"
     },
     {
-      "source": "creativos-espacios",
-      "relation": "provides",
-      "target": "container-rental"
+      "source": "org:creativos-espacios",
+      "target": "service:container-rental",
+      "relation": "offers"
     },
     {
-      "source": "creativos-espacios",
-      "relation": "provides",
-      "target": "relocatable-offices"
+      "source": "org:creativos-espacios",
+      "target": "service:relocatable-offices",
+      "relation": "offers"
     },
     {
-      "source": "creativos-espacios",
-      "relation": "provides",
-      "target": "modular-projects"
+      "source": "org:creativos-espacios",
+      "target": "service:modular-projects",
+      "relation": "offers"
     },
     {
-      "source": "creativos-espacios",
-      "relation": "specializesIn",
-      "target": "modular-infrastructure"
+      "source": "org:creativos-espacios",
+      "target": "coverage:national-mx",
+      "relation": "servesArea"
     },
     {
-      "source": "modular-infrastructure",
-      "relation": "supports",
-      "target": "operational-capacity"
+      "source": "service:container-sale",
+      "target": "product:container-20ft",
+      "relation": "offersProduct"
     },
     {
-      "source": "container-rental",
-      "relation": "maySupport",
-      "target": "temporary-infrastructure"
+      "source": "service:container-sale",
+      "target": "product:container-40ft",
+      "relation": "offersProduct"
     },
     {
-      "source": "relocatable-offices",
-      "relation": "isTypeOf",
-      "target": "modular-infrastructure"
+      "source": "service:container-sale",
+      "target": "usecase:b2b-temporary-storage",
+      "relation": "supportsUseCase"
     },
     {
-      "source": "creativos-espacios",
-      "relation": "servesArea",
-      "target": "mexico"
+      "source": "service:container-sale",
+      "target": "usecase:material-storage",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:container-sale",
+      "target": "usecase:inventory-storage",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:container-sale",
+      "target": "industry:construction",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-sale",
+      "target": "industry:logistics",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-sale",
+      "target": "industry:manufacturing",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-sale",
+      "target": "industry:industrial",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-sale",
+      "target": "industry:commerce",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-sale",
+      "target": "industry:temporary-projects",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-sale",
+      "target": "coverage:national-mx",
+      "relation": "servesArea"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "product:container-20ft",
+      "relation": "offersProduct"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "product:container-40ft",
+      "relation": "offersProduct"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "usecase:b2b-temporary-storage",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "usecase:material-storage",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "usecase:inventory-storage",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "industry:construction",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "industry:logistics",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "industry:manufacturing",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "industry:industrial",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "industry:commerce",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "industry:temporary-projects",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:container-rental",
+      "target": "coverage:national-mx",
+      "relation": "servesArea"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "configuration:office-supervision",
+      "relation": "offersConfiguration"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "configuration:office-operation",
+      "relation": "offersConfiguration"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "configuration:office-personal",
+      "relation": "offersConfiguration"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "usecase:site-supervision",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "usecase:temporary-administration",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "industry:construction",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "industry:infrastructure",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "industry:energy",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "industry:telecommunications",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "industry:maintenance",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "industry:services",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "industry:temporary-projects",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:relocatable-offices",
+      "target": "coverage:national-mx",
+      "relation": "servesArea"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "usecase:custom-infrastructure",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "usecase:specialized-operations",
+      "relation": "supportsUseCase"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:construction",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:logistics",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:manufacturing",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:industrial",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:maintenance",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:commerce",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:infrastructure",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:telecommunications",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:energy",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:services",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "industry:temporary-projects",
+      "relation": "servesIndustry"
+    },
+    {
+      "source": "service:modular-projects",
+      "target": "coverage:national-mx",
+      "relation": "servesArea"
+    },
+    {
+      "source": "faq:rent-vs-buy",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:rent-vs-buy",
+      "target": "service:container-rental",
+      "relation": "about"
+    },
+    {
+      "source": "faq:container-maintenance",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:container-maintenance",
+      "target": "service:container-rental",
+      "relation": "about"
+    },
+    {
+      "source": "faq:delivery-requirements",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:delivery-requirements",
+      "target": "service:container-rental",
+      "relation": "about"
+    },
+    {
+      "source": "faq:office-electrical",
+      "target": "service:relocatable-offices",
+      "relation": "about"
+    },
+    {
+      "source": "faq:office-relocation",
+      "target": "service:relocatable-offices",
+      "relation": "about"
+    },
+    {
+      "source": "faq:office-insulation",
+      "target": "service:relocatable-offices",
+      "relation": "about"
+    },
+    {
+      "source": "faq:custom-projects",
+      "target": "service:modular-projects",
+      "relation": "about"
+    },
+    {
+      "source": "faq:custom-modifications",
+      "target": "service:modular-projects",
+      "relation": "about"
+    },
+    {
+      "source": "faq:modular-vs-traditional",
+      "target": "service:modular-projects",
+      "relation": "about"
+    },
+    {
+      "source": "claim:company-country",
+      "target": "org:creativos-espacios",
+      "relation": "about"
+    },
+    {
+      "source": "claim:company-country",
+      "target": "source:about",
+      "relation": "supportedBy"
+    },
+    {
+      "source": "claim:years-experience",
+      "target": "org:creativos-espacios",
+      "relation": "about"
+    },
+    {
+      "source": "claim:years-experience",
+      "target": "source:about",
+      "relation": "supportedBy"
+    },
+    {
+      "source": "intent:need-temporary-storage",
+      "target": "usecase:b2b-temporary-storage",
+      "relation": "resolvesTo"
+    },
+    {
+      "source": "intent:need-temporary-storage",
+      "target": "service:container-rental",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:need-temporary-storage",
+      "target": "service:container-sale",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:need-temporary-storage",
+      "target": "industry:construction",
+      "relation": "occursIn"
+    },
+    {
+      "source": "intent:need-temporary-storage",
+      "target": "industry:commerce",
+      "relation": "occursIn"
+    },
+    {
+      "source": "intent:need-temporary-storage",
+      "target": "source:solutions-renta",
+      "relation": "supportedBy"
+    },
+    {
+      "source": "intent:compare-rent-vs-buy",
+      "target": "service:container-rental",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:compare-rent-vs-buy",
+      "target": "service:container-sale",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:compare-rent-vs-buy",
+      "target": "source:solutions-renta",
+      "relation": "supportedBy"
+    },
+    {
+      "source": "intent:site-supervision-space",
+      "target": "usecase:site-supervision",
+      "relation": "resolvesTo"
+    },
+    {
+      "source": "intent:site-supervision-space",
+      "target": "service:relocatable-offices",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:site-supervision-space",
+      "target": "configuration:office-supervision",
+      "relation": "mayUseConfiguration"
+    },
+    {
+      "source": "intent:site-supervision-space",
+      "target": "industry:construction",
+      "relation": "occursIn"
+    },
+    {
+      "source": "intent:site-supervision-space",
+      "target": "industry:infrastructure",
+      "relation": "occursIn"
+    },
+    {
+      "source": "intent:site-supervision-space",
+      "target": "source:solutions-oficinas",
+      "relation": "supportedBy"
     }
   ]
 }

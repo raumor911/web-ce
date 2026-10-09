@@ -1,0 +1,38 @@
+[
+  {
+    "id": "configuration:office-supervision",
+    "name": "Oficina de supervisión",
+    "description": "Para seguimiento de obra, coordinación en sitio y control de actividades.",
+    "features": [
+      "Área de trabajo configurable",
+      "Espacio para supervisión",
+      "Instalación eléctrica",
+      "Aislamiento y acabados"
+    ],
+    "serviceIds": ["service:relocatable-offices"]
+  },
+  {
+    "id": "configuration:office-operation",
+    "name": "Oficina operativa",
+    "description": "Para personal administrativo, coordinación de contratistas y operación temporal.",
+    "features": [
+      "Distribución interior configurable",
+      "Preparación para voz y datos",
+      "Mobiliario según alcance",
+      "Climatización opcional"
+    ],
+    "serviceIds": ["service:relocatable-offices"]
+  },
+  {
+    "id": "configuration:office-personal",
+    "name": "Espacio para personal",
+    "description": "Para equipos de trabajo, ampliaciones temporales, contingencias o remodelaciones.",
+    "features": [
+      "Área común adaptable",
+      "Instalaciones eléctricas",
+      "Preparación de servicios",
+      "Acabados según uso"
+    ],
+    "serviceIds": ["service:relocatable-offices"]
+  }
+]

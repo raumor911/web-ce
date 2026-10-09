@@ -1,0 +1,28 @@
+[
+  {
+    "id": "product:container-20ft",
+    "name": "Contenedor 20 FT STD",
+    "category": "Contenedor Marítimo",
+    "description": "Solución para almacenamiento temporal, logística, operaciones y proyectos que requieren incorporar capacidad sin construir desde cero.",
+    "dimensions": "6.06m x 2.44m x 2.59m / 2.89m",
+    "features": [
+      "Fabricado en acero Corten de alta resistencia.",
+      "Reacondicionado para asegurar protección contra filtraciones de agua.",
+      "Disponible pintado o en acabado original, según disponibilidad."
+    ],
+    "serviceIds": ["service:container-sale", "service:container-rental"]
+  },
+  {
+    "id": "product:container-40ft",
+    "name": "Contenedor 40 FT HC/STD",
+    "category": "Contenedor Marítimo",
+    "description": "Solución de gran capacidad para almacenamiento, operación logística y resguardo de maquinaria, materiales o inventarios de alto volumen.",
+    "dimensions": "12.19m x 2.44m x 2.89m",
+    "features": [
+      "Acero Corten de alta resistencia.",
+      "Reacondicionado para asegurar protección contra filtraciones de agua.",
+      "Disponible pintado o en acabado original, sujeto a disponibilidad."
+    ],
+    "serviceIds": ["service:container-sale", "service:container-rental"]
+  }
+]

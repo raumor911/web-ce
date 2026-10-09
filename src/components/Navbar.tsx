@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import logoCreativosEspacios from '../assets/images/logo-creativos-espacios.png';
+import { SemanticSelectors } from '../semantic/selectors';
 
 type NavItem = {
   name: string;
@@ -15,24 +16,6 @@ type SolutionItem = NavItem & {
 const mobileMenuId = 'mobile-navigation-panel';
 const desktopSolutionsId = 'desktop-solutions-menu';
 
-const solutions: SolutionItem[] = [
-  {
-    name: 'Venta y renta de contenedores',
-    href: '/soluciones/venta-renta',
-    description: 'Disponibilidad para almacenamiento, operación y proyectos temporales.',
-  },
-  {
-    name: 'Oficinas reubicables',
-    href: '/soluciones/oficinas',
-    description: 'Espacios para supervisión, administración y ampliaciones operativas.',
-  },
-  {
-    name: 'Proyectos modulares',
-    href: '/proyectos',
-    description: 'Soluciones adaptadas a requerimientos técnicos y funcionales.',
-  },
-];
-
 const navItems: NavItem[] = [
   { name: 'Inicio', href: '/' },
   { name: 'Proyectos', href: '/proyectos' },
@@ -44,6 +27,29 @@ const navItems: NavItem[] = [
 const isSolutionsRoute = (pathname: string) => pathname.startsWith('/soluciones');
 
 export const Navbar: React.FC = () => {
+  const org = SemanticSelectors.getOrganization();
+  const serviceSale = SemanticSelectors.getServiceById('service:container-sale');
+  const serviceOffices = SemanticSelectors.getServiceById('service:relocatable-offices');
+  const serviceProjects = SemanticSelectors.getServiceById('service:modular-projects');
+
+  const solutions: SolutionItem[] = [
+    {
+      name: 'Venta y renta de contenedores',
+      href: serviceSale?.canonicalPath || '/soluciones/venta-renta',
+      description: serviceSale?.description || 'Disponibilidad para almacenamiento, operación y proyectos temporales.',
+    },
+    {
+      name: 'Oficinas reubicables',
+      href: serviceOffices?.canonicalPath || '/soluciones/oficinas',
+      description: serviceOffices?.description || 'Espacios para supervisión, administración y ampliaciones operativas.',
+    },
+    {
+      name: 'Proyectos modulares',
+      href: serviceProjects?.canonicalPath || '/proyectos',
+      description: serviceProjects?.description || 'Soluciones adaptadas a requerimientos técnicos y funcionales.',
+    },
+  ];
+
   const location = useLocation();
   const headerRef = useRef<HTMLElement | null>(null);
   const desktopDropdownRef = useRef<HTMLDivElement | null>(null);
@@ -364,7 +370,7 @@ export const Navbar: React.FC = () => {
 
             <div className="hidden md:flex items-center justify-end">
               <a
-                href="https://wa.me/522291846751"
+                href={org.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={[
@@ -495,7 +501,7 @@ export const Navbar: React.FC = () => {
 
             <div className="mt-auto pt-6">
               <a
-                href="https://wa.me/522291846751"
+                href={org.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-brand-petroleum px-5 py-3 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-brand-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-4 focus-visible:ring-offset-white"
@@ -508,7 +514,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       <a
-        href="https://wa.me/522291846751"
+        href={org.contact.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-[calc(2rem+env(safe-area-inset-bottom))] right-[calc(1.5rem+env(safe-area-inset-right))] z-[60] flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-300 hover:bg-brand-petroleum hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-4 focus-visible:ring-offset-white md:bottom-10 md:right-10 md:h-[72px] md:w-[72px]"

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "usecase:b2b-temporary-storage",
+    "name": "Almacenamiento temporal B2B",
+    "description": "Provisión de espacio seguro y resistente para el resguardo de activos de la empresa sin necesidad de construcción.",
+    "serviceIds": ["service:container-sale", "service:container-rental"]
+  },
+  {
+    "id": "usecase:inventory-storage",
+    "name": "Resguardo de inventario",
+    "description": "Almacenamiento de mercancías o insumos para afrontar picos de demanda o falta de espacio en almacenes principales.",
+    "serviceIds": ["service:container-sale", "service:container-rental"]
+  },
+  {
+    "id": "usecase:tool-storage",
+    "name": "Resguardo de herramientas",
+    "description": "Almacenamiento seguro de equipo y herramienta directamente en el frente de obra o patio de maniobras.",
+    "serviceIds": ["service:container-sale", "service:container-rental"]
+  },
+  {
+    "id": "usecase:material-storage",
+    "name": "Resguardo de materiales",
+    "description": "Protección de materiales de construcción e insumos industriales contra intemperie y robo.",
+    "serviceIds": ["service:container-sale", "service:container-rental"]
+  },
+  {
+    "id": "usecase:site-supervision",
+    "name": "Supervisión de obra",
+    "description": "Módulos habilitados como oficinas de campo para la dirección, supervisión y control operativo de proyectos de construcción.",
+    "serviceIds": ["service:relocatable-offices"]
+  },
+  {
+    "id": "usecase:temporary-administration",
+    "name": "Administración temporal",
+    "description": "Oficinas de transición o ampliaciones rápidas para personal administrativo durante remodelaciones o crecimiento acelerado.",
+    "serviceIds": ["service:relocatable-offices"]
+  },
+  {
+    "id": "usecase:custom-infrastructure",
+    "name": "Infraestructura a la medida",
+    "description": "Soluciones diseñadas específicamente para requerimientos únicos.",
+    "serviceIds": ["service:modular-projects"]
+  },
+  {
+    "id": "usecase:specialized-operations",
+    "name": "Operaciones especializadas",
+    "description": "Módulos equipados para funciones industriales o comerciales específicas.",
+    "serviceIds": ["service:modular-projects"]
+  }
+]

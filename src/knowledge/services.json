@@ -1,0 +1,57 @@
+[
+  {
+    "id": "service:container-sale",
+    "name": "Venta de contenedores",
+    "category": "Infraestructura modular",
+    "description": "Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes.",
+    "transactionType": "sale",
+    "canonicalPath": "/soluciones/venta-renta",
+    "availability": "subject-to-confirmation",
+    "requiresAssessment": true,
+    "productIds": ["product:container-20ft", "product:container-40ft"],
+    "useCaseIds": ["usecase:b2b-temporary-storage", "usecase:material-storage", "usecase:inventory-storage"],
+    "industryIds": ["industry:construction", "industry:logistics", "industry:manufacturing", "industry:industrial", "industry:commerce", "industry:temporary-projects"],
+    "coverageIds": ["coverage:national-mx"]
+  },
+  {
+    "id": "service:container-rental",
+    "name": "Renta de contenedores",
+    "category": "Infraestructura modular",
+    "description": "Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos.",
+    "transactionType": "rental",
+    "canonicalPath": "/soluciones/venta-renta",
+    "availability": "subject-to-confirmation",
+    "requiresAssessment": true,
+    "productIds": ["product:container-20ft", "product:container-40ft"],
+    "useCaseIds": ["usecase:b2b-temporary-storage", "usecase:material-storage", "usecase:inventory-storage"],
+    "industryIds": ["industry:construction", "industry:logistics", "industry:manufacturing", "industry:industrial", "industry:commerce", "industry:temporary-projects"],
+    "coverageIds": ["coverage:national-mx"]
+  },
+  {
+    "id": "service:relocatable-offices",
+    "name": "Oficinas reubicables",
+    "category": "Infraestructura modular",
+    "description": "Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta.",
+    "transactionType": "sale-or-rental",
+    "canonicalPath": "/soluciones/oficinas",
+    "availability": "subject-to-confirmation",
+    "requiresAssessment": true,
+    "configurationIds": ["configuration:office-supervision", "configuration:office-operation", "configuration:office-personal"],
+    "useCaseIds": ["usecase:site-supervision", "usecase:temporary-administration"],
+    "industryIds": ["industry:construction", "industry:infrastructure", "industry:energy", "industry:telecommunications", "industry:maintenance", "industry:services", "industry:temporary-projects"],
+    "coverageIds": ["coverage:national-mx"]
+  },
+  {
+    "id": "service:modular-projects",
+    "name": "Proyectos modulares",
+    "category": "Infraestructura modular",
+    "description": "Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente.",
+    "transactionType": "custom-project",
+    "canonicalPath": "/proyectos",
+    "availability": "subject-to-confirmation",
+    "requiresAssessment": true,
+    "useCaseIds": ["usecase:custom-infrastructure", "usecase:specialized-operations"],
+    "industryIds": ["industry:construction", "industry:logistics", "industry:manufacturing", "industry:industrial", "industry:maintenance", "industry:commerce", "industry:infrastructure", "industry:telecommunications", "industry:energy", "industry:services", "industry:temporary-projects"],
+    "coverageIds": ["coverage:national-mx"]
+  }
+]

@@ -1,22 +1,26 @@
-# Casos de uso
+# Casos de Uso y Aplicaciones
 
-## Almacenamiento temporal
-Para operaciones que requieren incorporar capacidad adicional de resguardo durante un periodo definido.
+## Almacenamiento temporal B2B
+Provisión de espacio seguro y resistente para el resguardo de activos de la empresa sin necesidad de construcción.
+
+## Resguardo de inventario
+Almacenamiento de mercancías o insumos para afrontar picos de demanda o falta de espacio en almacenes principales.
+
+## Resguardo de herramientas
+Almacenamiento seguro de equipo y herramienta directamente en el frente de obra o patio de maniobras.
+
+## Resguardo de materiales
+Protección de materiales de construcción e insumos industriales contra intemperie y robo.
 
 ## Supervisión de obra
-Oficinas reubicables para coordinación, seguimiento y administración en sitio.
+Módulos habilitados como oficinas de campo para la dirección, supervisión y control operativo de proyectos de construcción.
 
-## Ampliación operativa
-Espacios adicionales cuando las instalaciones existentes no son suficientes.
+## Administración temporal
+Oficinas de transición o ampliaciones rápidas para personal administrativo durante remodelaciones o crecimiento acelerado.
 
-## Proyectos de duración limitada
-Infraestructura modular para actividades que no justifican una construcción permanente.
+## Infraestructura a la medida
+Soluciones diseñadas específicamente para requerimientos únicos.
 
-## Reubicación de espacios
-Soluciones que pueden cambiar de ubicación cuando el proyecto o la operación lo requieren, sujeto a configuración y logística.
+## Operaciones especializadas
+Módulos equipados para funciones industriales o comerciales específicas.
 
-## Proyectos especiales
-Espacios desarrollados para requerimientos funcionales específicos.
-
----
-*No se presentan estimaciones de resultados cuantitativos sin evidencia técnica del proyecto específico.*

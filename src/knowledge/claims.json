@@ -1,0 +1,30 @@
+[
+  {
+    "id": "claim:company-country",
+    "subjectId": "org:creativos-espacios",
+    "statement": "Es empresa mexicana",
+    "status": "verified",
+    "visibility": "public",
+    "volatility": "stable",
+    "sourceIds": ["source:about"]
+  },
+  {
+    "id": "claim:national-coverage",
+    "subjectId": "org:creativos-espacios",
+    "statement": "Atiende proyectos en México",
+    "status": "verify-wording",
+    "visibility": "public",
+    "volatility": "stable",
+    "sourceIds": ["source:contact"],
+    "notes": "Anti-alucinación: Atendemos en México, pero sujeto a logística."
+  },
+  {
+    "id": "claim:years-experience",
+    "subjectId": "org:creativos-espacios",
+    "statement": "Más de una década de experiencia",
+    "status": "verified",
+    "visibility": "public",
+    "volatility": "periodic",
+    "sourceIds": ["source:about"]
+  }
+]

@@ -4,8 +4,11 @@ import { Navbar } from './Navbar';
 import logoCreativosEspacios from '../assets/images/logo-creativos-espacios.png';
 import { Helmet } from 'react-helmet-async';
 import { Facebook, Instagram, Linkedin, MapPin as GoogleIcon } from 'lucide-react';
+import { SemanticSelectors } from '../semantic/selectors';
 
 export const Layout: React.FC = () => {
+  const org = SemanticSelectors.getOrganization();
+
   return (
     <div className="min-h-screen flex flex-col bg-brand-white">
       <Helmet>
@@ -16,24 +19,24 @@ export const Layout: React.FC = () => {
               "@graph": [
                 {
                   "@type": "Organization",
-                  "@id": "https://www.creativosespacios.mx/#organization",
+                  "@id": "https://creativosespacios.mx/#organization",
                   "name": "Creativos Espacios",
-                  "url": "https://www.creativosespacios.mx/",
+                  "url": "https://creativosespacios.mx/",
                   "logo": {
                     "@type": "ImageObject",
-                    "@id": "https://www.creativosespacios.mx/#logo",
-                    "url": "https://www.creativosespacios.mx/images/logo-creativos-espacios.png",
-                    "contentUrl": "https://www.creativosespacios.mx/images/logo-creativos-espacios.png",
+                    "@id": "https://creativosespacios.mx/#logo",
+                    "url": "https://creativosespacios.mx/images/logo-creativos-espacios.png",
+                    "contentUrl": "https://creativosespacios.mx/images/logo-creativos-espacios.png",
                     "caption": "Creativos Espacios"
                   },
-                  "description": "Creativos Espacios desarrolla infraestructura modular para empresas, operaciones y proyectos.",
+                  "description": "${org.description}",
                   "areaServed": {
                     "@type": "Country",
                     "name": "México"
                   },
                   "contactPoint": {
                     "@type": "ContactPoint",
-                    "telephone": "+52-55-5426-9941",
+                    "telephone": "${org.contact.telephone}",
                     "contactType": "sales",
                     "areaServed": "MX",
                     "availableLanguage": "Spanish"
@@ -47,12 +50,52 @@ export const Layout: React.FC = () => {
                   ]
                 },
                 {
+                  "@type": "LocalBusiness",
+                  "@id": "https://creativosespacios.mx/#localbusiness",
+                  "name": "Creativos Espacios",
+                  "image": "https://creativosespacios.mx/images/logo-creativos-espacios.png",
+                  "url": "https://creativosespacios.mx/",
+                  "telephone": "${org.contact.telephone}",
+                  "email": "${org.contact.email}",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "${org.contact.address.streetAddress}",
+                    "addressLocality": "${org.contact.address.addressLocality}",
+                    "addressRegion": "${org.contact.address.addressRegion}",
+                    "postalCode": "${org.contact.address.postalCode}",
+                    "addressCountry": "${org.contact.address.addressCountry}"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 19.3248,
+                    "longitude": -99.0494
+                  },
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday"
+                    ],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  },
+                  "sameAs": [
+                    "https://wa.me/522291846751",
+                    "https://www.facebook.com/creativosespaciosmx",
+                    "https://www.instagram.com/creativosespaciosmx/",
+                    "https://www.linkedin.com/company/creativos-espacios/"
+                  ]
+                },
+                {
                   "@type": "WebSite",
-                  "@id": "https://www.creativosespacios.mx/#website",
-                  "url": "https://www.creativosespacios.mx/",
+                  "@id": "https://creativosespacios.mx/#website",
+                  "url": "https://creativosespacios.mx/",
                   "name": "Creativos Espacios",
                   "publisher": {
-                    "@id": "https://www.creativosespacios.mx/#organization"
+                    "@id": "https://creativosespacios.mx/#organization"
                   },
                   "inLanguage": "es-MX"
                 }
@@ -129,10 +172,10 @@ export const Layout: React.FC = () => {
           <div>
             <h3 className="font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-orange">Contacto</h3>
             <p className="text-brand-graphite text-sm md:text-base leading-relaxed font-sans">
-              ventas@creativosespacios.mx
+              {org.contact.email}
             </p>
             <p className="mt-2 text-brand-graphite text-sm md:text-base leading-relaxed font-sans">
-              55 5426 9941
+              {org.contact.telephone}
             </p>
             <a
               href="https://google.com/maps/place/Creativos+Espacios+%7C+Venta,+renta+y+adaptaci%C3%B3n+de+contenedores+mar%C3%ADtimos/data=!4m2!3m1!1s0x0:0xcf94e14da72b42e9?sa=X&ved=1t:2428&ictx=111"
@@ -140,7 +183,7 @@ export const Layout: React.FC = () => {
               rel="noopener noreferrer"
               className="mt-2 block text-sm leading-relaxed text-brand-graphite/60 font-sans transition-colors duration-200 hover:text-brand-orange focus-visible:outline-none focus-visible:text-brand-orange"
             >
-              Av. del Árbol 104-Lote 2, Lomas de San Lorenzo, Iztapalapa, 09790 Ciudad de México, CDMX
+              {org.contact.address.formattedAddress}
             </a>
           </div>
         </div>
@@ -148,6 +191,14 @@ export const Layout: React.FC = () => {
           <p className="text-brand-graphite/40 text-xs uppercase tracking-widest font-sans">
             © 2026 Creativos Espacios. Todos los derechos reservados.
           </p>
+          <div className="flex gap-8">
+            <Link to="/privacidad" className="text-brand-graphite/40 text-[10px] uppercase tracking-widest hover:text-brand-orange transition-colors">
+              Privacidad
+            </Link>
+            <Link to="/terminos" className="text-brand-graphite/40 text-[10px] uppercase tracking-widest hover:text-brand-orange transition-colors">
+              Términos
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

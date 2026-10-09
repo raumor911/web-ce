@@ -4,89 +4,107 @@ import { SEO } from '../components/SEO';
 import { CheckCircle2, Truck, ShieldCheck, Clock } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
-import faqData from '../data/faqData.json';
+import { SemanticSelectors } from '../semantic/selectors';
+import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 
 const VentaRenta: React.FC = () => {
+  const org = SemanticSelectors.getOrganization();
+  const serviceSale = SemanticSelectors.getServiceById('service:container-sale');
+  const serviceRental = SemanticSelectors.getServiceById('service:container-rental');
+  const products = SemanticSelectors.getProductsForService('service:container-sale');
+  const faqData = SemanticSelectors.getFaqByCategory('venta-renta');
+  const generalFaq = SemanticSelectors.getGeneralFaq();
+
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
 
-  const inventario = [
-    {
-      id: '20ft-std',
-      titulo: 'Contenedor 20 FT STD',
-      dimensiones: '6.06m x 2.44m x 2.59m / 2.89m',
-      uso: 'Solución para almacenamiento temporal, logística, operaciones y proyectos que requieren incorporar capacidad sin construir desde cero.',
-      features: [
-        'Fabricado en acero Corten de alta resistencia.',
-        'Reacondicionado para asegurar protección contra filtraciones de agua.',
-        'Disponible pintado o en acabado original, según disponibilidad.',
-      ],
-      img: '/images/venta-renta-contenedor-20ft.png',
-      fallbackImg: '/images/venta-renta-contenedor-20ft.svg'
-    },
-    {
-      id: '40ft-std',
-      titulo: 'Contenedor 40 FT HC/STD',
-      dimensiones: '12.19m x 2.44m x 2.89m',
-      uso: 'Solución de gran capacidad para almacenamiento, operación logística y resguardo de maquinaria, materiales o inventarios de alto volumen.',
-      features: [
-        'Acero Corten de alta resistencia.',
-        'Reacondicionado para asegurar protección contra filtraciones de agua.',
-        'Disponible pintado o en acabado original, sujeto a disponibilidad.',
-      ],
-      img: '/images/venta-renta-contenedor-40ft.png',
-      fallbackImg: '/images/venta-renta-contenedor-40ft.svg'
-    }
-  ];
+  // Combinar los datos del Semantic Core con las imágenes de la UI
+  const inventario = products.map(product => {
+    const is20ft = product.id.includes('20ft');
+    return {
+      id: product.id,
+      titulo: product.name,
+      dimensiones: product.dimensions,
+      uso: product.description,
+      features: product.features,
+      img: is20ft ? '/images/venta-renta-contenedor-20ft.png' : '/images/venta-renta-contenedor-40ft.png',
+      fallbackImg: is20ft ? '/images/venta-renta-contenedor-20ft.svg' : '/images/venta-renta-contenedor-40ft.svg'
+    };
+  });
+
+  const pageUrl = getCanonicalUrl('/soluciones/venta-renta');
+  const webpageId = getWebPageId('/soluciones/venta-renta');
+  const serviceId = getEntityId('/soluciones/venta-renta', 'service');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": webpageId,
+        "url": pageUrl,
+        "name": "Venta y Renta de Contenedores Industriales",
+        "isPartOf": { "@id": WEBSITE_ID },
+        "description": "Contenedores marítimos de 20 y 40 pies para almacenamiento y logística industrial en CDMX."
+      },
+      {
+        "@type": "Service",
+        "@id": serviceId,
+        "name": serviceSale?.name || "Venta de Contenedores",
+        "provider": { "@id": ORG_ID },
+        "description": serviceSale?.description || "Suministro de contenedores industriales de 20 y 40 pies.",
+        "areaServed": { "@type": "Country", "name": "México" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Catálogo de Contenedores",
+          "itemListElement": products.map(p => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": p.name,
+              "description": p.description
+            }
+          }))
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": getCanonicalUrl('/')
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Venta y Renta",
+            "item": pageUrl
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": getEntityId('/soluciones/venta-renta', 'faq'),
+        "mainEntity": [...faqData, ...generalFaq].map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
 
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
         title="Venta y Renta de Contenedores Industriales"
         description="Contenedores marítimos de 20 y 40 pies para almacenamiento y logística industrial en CDMX. Disponibilidad sujeta a inventario."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://www.creativosespacios.mx/soluciones/venta-renta/#webpage",
-              "url": "https://www.creativosespacios.mx/soluciones/venta-renta",
-              "name": "Venta y Renta de Contenedores Industriales",
-              "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-              "description": "Contenedores marítimos de 20 y 40 pies para almacenamiento y logística industrial en CDMX."
-            },
-            {
-              "@type": "Service",
-              "@id": "https://www.creativosespacios.mx/soluciones/venta-renta/#service",
-              "name": "Venta y Renta de Contenedores",
-              "provider": { "@id": "https://www.creativosespacios.mx/#organization" },
-              "description": "Suministro y renta de contenedores industriales de 20 y 40 pies.",
-              "areaServed": { "@type": "Country", "name": "México" },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Catálogo de Contenedores",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Product",
-                      "name": "Contenedor 20 FT STD",
-                      "description": "Contenedor de 20 pies para almacenamiento y logística."
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Product",
-                      "name": "Contenedor 40 FT HC/STD",
-                      "description": "Contenedor de 40 pies de gran capacidad."
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }}
+        jsonLd={jsonLd}
       />
       
       <header className="group relative overflow-hidden border-b border-[rgba(255,255,255,0.12)] bg-brand-petroleum py-20 md:py-32">
@@ -94,6 +112,8 @@ const VentaRenta: React.FC = () => {
           <motion.img
             src="/images/venta-renta-hero.png"
             alt="Contenedores industriales para almacenamiento y operación"
+            loading="eager"
+            {...({ fetchpriority: "high" } as any)}
             onError={(event) => {
               event.currentTarget.onerror = null;
               event.currentTarget.src = '/images/venta-renta-hero.svg';
@@ -221,7 +241,7 @@ const VentaRenta: React.FC = () => {
       </section>
 
       <FAQ 
-        items={[...faqData.ventaRenta, ...faqData.general]} 
+        items={[...faqData, ...generalFaq]} 
         title="Dudas sobre Venta y Renta"
         subtitle="Información clave para decidir la mejor opción de infraestructura para su operación."
       />

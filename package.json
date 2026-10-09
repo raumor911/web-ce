@@ -9,7 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "check": "tsc -b --noEmit",
-    "generate:ai": "node scripts/generate-ai-content.js",
+    "validate:knowledge": "node scripts/semantic-compiler/validate.js",
+    "compile:knowledge": "node scripts/semantic-compiler/compiler.js",
+    "validate:artifacts": "node scripts/semantic-compiler/validators/artifacts.js",
+    "diff:knowledge": "node scripts/semantic-compiler/diff.js",
+    "generate:ai": "echo 'LEGACY GENERATOR DISABLED. Use compile:knowledge instead.' && exit 1",
     "validate:ai": "grep -rE '\\[VALIDAR|TODO|TBD|example.com|correo@ejemplo|0000000000' public/ai public/*.txt || echo 'Validation passed'"
   },
   "dependencies": {

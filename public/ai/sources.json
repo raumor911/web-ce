@@ -1,49 +1,44 @@
-{
-  "organization": "Creativos Espacios",
-  "canonicalDomain": "https://www.creativosespacios.mx",
-  "lastReviewed": "2026-07-22T22:20:00Z",
-  "sources": [
-    {
-      "id": "homepage",
-      "type": "webpage",
-      "url": "https://www.creativosespacios.mx/",
-      "priority": 1,
-      "status": "canonical"
-    },
-    {
-      "id": "about",
-      "type": "webpage",
-      "url": "https://www.creativosespacios.mx/nosotros",
-      "priority": 1,
-      "status": "canonical"
-    },
-    {
-      "id": "solutions-renta",
-      "type": "webpage",
-      "url": "https://www.creativosespacios.mx/soluciones/venta-renta",
-      "priority": 1,
-      "status": "canonical"
-    },
-    {
-      "id": "solutions-oficinas",
-      "type": "webpage",
-      "url": "https://www.creativosespacios.mx/soluciones/oficinas",
-      "priority": 1,
-      "status": "canonical"
-    },
-    {
-      "id": "projects",
-      "type": "webpage",
-      "url": "https://www.creativosespacios.mx/proyectos",
-      "priority": 2,
-      "status": "canonical"
-    },
-    {
-      "id": "contact",
-      "type": "webpage",
-      "url": "https://www.creativosespacios.mx/contacto",
-      "priority": 1,
-      "status": "canonical"
-    }
-  ]
-}
+[
+  {
+    "id": "source:homepage",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/",
+    "name": "Creativos Espacios - Homepage",
+    "status": "canonical"
+  },
+  {
+    "id": "source:about",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/nosotros",
+    "name": "Nuestra Empresa",
+    "status": "canonical"
+  },
+  {
+    "id": "source:solutions-renta",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/soluciones/venta-renta",
+    "name": "Venta y Renta de Contenedores",
+    "status": "canonical"
+  },
+  {
+    "id": "source:solutions-oficinas",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/soluciones/oficinas",
+    "name": "Oficinas Reubicables",
+    "status": "canonical"
+  },
+  {
+    "id": "source:projects",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/proyectos",
+    "name": "Proyectos Modulares",
+    "status": "canonical"
+  },
+  {
+    "id": "source:contact",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/contacto",
+    "name": "Contacto",
+    "status": "canonical"
+  }
+]

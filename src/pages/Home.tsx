@@ -1,25 +1,92 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Box, CheckCircle2, Zap, Truck } from 'lucide-react';
+import { ArrowRight, Box, Building2, Warehouse, CheckCircle2, Zap, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { SemanticSelectors } from '../semantic/selectors';
+
+import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 
 const Home: React.FC = () => {
+  const org = SemanticSelectors.getOrganization();
+  const services = SemanticSelectors.getServices();
+  
+  const iconMap: Record<string, React.ReactNode> = {
+    'service:container-sale': <Box className="w-12 h-12 text-slate-800" />,
+    'service:relocatable-offices': <Building2 className="w-12 h-12 text-slate-800" />,
+    'service:modular-projects': <Warehouse className="w-12 h-12 text-slate-800" />
+  };
+
+  const soluciones = services
+    .filter(s => ['service:container-sale', 'service:relocatable-offices', 'service:modular-projects'].includes(s.id))
+    .map(s => ({
+      id: s.id,
+      titulo: s.name,
+      descripcion: s.description,
+      icono: iconMap[s.id] || <Box className="w-12 h-12 text-slate-800" />,
+      imagen: s.id === 'service:container-sale' 
+        ? '/images/home-solution-containers.png'
+        : s.id === 'service:relocatable-offices'
+        ? '/images/home-solution-offices.png'
+        : '/images/home-solution-projects.png',
+      href: s.canonicalPath
+    }));
+
   return (
     <div className="bg-brand-white">
       <SEO 
-        title="Capacidad Operativa Inmediata"
-        description="Infraestructura modular para empresas y proyectos industriales en CDMX. Venta y renta de contenedores y oficinas reubicables."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "@id": "https://www.creativosespacios.mx/#webpage",
-          "url": "https://www.creativosespacios.mx/",
-          "name": "Creativos Espacios | Capacidad Operativa Inmediata",
-          "isPartOf": { "@id": "https://www.creativosespacios.mx/#website" },
-          "about": { "@id": "https://www.creativosespacios.mx/#organization" },
-          "description": "Infraestructura modular para empresas y proyectos industriales en CDMX. Venta y renta de contenedores y oficinas reubicables."
-        }}
+      title="Capacidad Operativa Inmediata"
+      description={org.description}
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": getWebPageId(''),
+            "url": getCanonicalUrl(''),
+            "name": `Creativos Espacios | ${org.coreProposition}`,
+            "isPartOf": { "@id": WEBSITE_ID },
+            "about": { "@id": ORG_ID },
+            "description": org.description
+          },
+          {
+            "@type": "Organization",
+            "@id": ORG_ID,
+            "name": org.name,
+            "legalName": org.legalName,
+            "url": org.canonicalUrl,
+            "telephone": org.contact.telephone,
+            "email": org.contact.email,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": org.contact.address.streetAddress,
+              "addressLocality": org.contact.address.addressLocality,
+              "addressRegion": org.contact.address.addressRegion,
+              "postalCode": org.contact.address.postalCode,
+              "addressCountry": org.contact.address.addressCountry
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": WEBSITE_ID,
+            "url": org.canonicalUrl,
+            "name": org.name,
+            "publisher": { "@id": ORG_ID },
+            "inLanguage": org.language
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": getCanonicalUrl('')
+              }
+            ]
+          }
+        ]
+      }}
       />
 
       {/* Hero Section - Executive focus with High Legibility */}
@@ -28,6 +95,8 @@ const Home: React.FC = () => {
           <img 
             src="/images/home-hero-modular-infra.png" 
             alt="Infraestructura Modular" 
+            loading="eager"
+            {...({ fetchpriority: "high" } as any)}
             onError={(event) => {
               event.currentTarget.onerror = null;
               event.currentTarget.src = '/images/home-hero-modular-infra.svg';
@@ -45,12 +114,11 @@ const Home: React.FC = () => {
           >
             <span className="section-subtitle !text-brand-graphite">Infraestructura Modular</span>
             <h1 className="text-brand-graphite leading-[1.1] mb-6 md:mb-8">
-              Capacidad operativa <br className="hidden md:block" />
-              <span className="text-brand-orange">sin construir desde cero.</span>
+              {org.coreProposition}
             </h1>
             <p className="text-brand-graphite text-lg md:text-2xl font-sans mb-10 md:mb-12 max-w-3xl leading-relaxed">
-                Venta y renta de contenedores, oficinas reubicables y espacios modulares para empresas, industria y proyectos con cobertura nacional.
-              </p>
+              {org.description}
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
               <a href="https://wa.me/522291846751" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Solicitar Cotización

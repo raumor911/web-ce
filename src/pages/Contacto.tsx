@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { SEO } from "../components/SEO";
-import { Mail, MapPin, Phone, ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2, Mail, MapPin, Phone } from "lucide-react";
+import { SemanticSelectors } from "../semantic/selectors";
+import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from "../lib/canonical";
 
 const Contacto: React.FC = () => {
+  const org = SemanticSelectors.getOrganization();
+
   const [formData, setFormData] = useState({
     nombre: "",
     empresa: "",
@@ -90,33 +94,79 @@ const Contacto: React.FC = () => {
     }
   };
 
+  const pageUrl = getCanonicalUrl('/contacto');
+  const webpageId = getWebPageId('/contacto');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": webpageId,
+        "url": pageUrl,
+        "name": "Contacto y Cotización Técnica",
+        "isPartOf": { "@id": WEBSITE_ID },
+        "description": "Página de contacto de Creativos Espacios para cotizaciones técnicas."
+      },
+      {
+        "@type": "ContactPage",
+        "@id": `${pageUrl}/#contact`,
+        "url": pageUrl,
+        "mainEntity": {
+          "@id": ORG_ID
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": ORG_ID,
+        "name": org.name,
+        "legalName": org.legalName,
+        "url": org.canonicalUrl,
+        "telephone": org.contact.telephone,
+        "email": org.contact.email,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": org.contact.address.streetAddress,
+          "addressLocality": org.contact.address.addressLocality,
+          "addressRegion": org.contact.address.addressRegion,
+          "postalCode": org.contact.address.postalCode,
+          "addressCountry": org.contact.address.addressCountry
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": WEBSITE_ID,
+        "url": org.canonicalUrl,
+        "name": org.name,
+        "publisher": { "@id": ORG_ID },
+        "inLanguage": org.language
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": getCanonicalUrl('/')
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contacto",
+            "item": pageUrl
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO
         title="Contacto y Cotización Técnica"
         description="Inicie su proyecto de infraestructura modular. Solicite una cotización técnica para venta o renta de contenedores en CDMX."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://www.creativosespacios.mx/contacto/#webpage",
-              url: "https://www.creativosespacios.mx/contacto",
-              name: "Contacto y Cotización Técnica",
-              isPartOf: { "@id": "https://www.creativosespacios.mx/#website" },
-              description:
-                "Página de contacto de Creativos Espacios para cotizaciones técnicas.",
-            },
-            {
-              "@type": "ContactPage",
-              "@id": "https://www.creativosespacios.mx/contacto/#contact",
-              url: "https://www.creativosespacios.mx/contacto",
-              mainEntity: {
-                "@id": "https://www.creativosespacios.mx/#organization",
-              },
-            },
-          ],
-        }}
+        jsonLd={jsonLd}
       />
 
       <header className="bg-brand-gray/50 py-20 md:py-32 border-b border-brand-gray">
@@ -263,60 +313,59 @@ const Contacto: React.FC = () => {
                   Contacto Directo
                 </h3>
                 <div className="space-y-6 md:space-y-8">
-                  <a
-                    href="tel:5554269941"
-                    className="flex items-center gap-6 md:gap-8 group"
-                  >
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-gray flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all duration-300">
-                      <Phone size={20} className="md:w-6 md:h-6" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[10px] md:text-xs uppercase tracking-widest">
-                        TELÉFONO
-                      </h4>
-                      <p className="text-sm text-brand-graphite/60 font-sans mt-1">
-                        55 5426 9941
-                      </p>
-                    </div>
-                  </a>
-                  <div className="flex items-center gap-6 md:gap-8">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-gray flex items-center justify-center text-brand-graphite/30">
-                      <Mail size={20} className="md:w-6 md:h-6" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[10px] md:text-xs uppercase tracking-widest">
-                        EMAIL
-                      </h4>
-                      <p className="text-sm text-brand-graphite/60 font-sans mt-1">
-                        ventas@creativosespacios.mx
-                      </p>
-                    </div>
+                      <a
+                        href={`tel:${org.contact.telephone.replace(/\s/g, '')}`}
+                        className="flex items-center gap-6 md:gap-8 group"
+                      >
+                        <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-gray flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all duration-300">
+                          <Phone size={20} className="md:w-6 md:h-6" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-[10px] md:text-xs uppercase tracking-widest">
+                            TELÉFONO
+                          </h4>
+                          <p className="text-sm text-brand-graphite/60 font-sans mt-1">
+                            {org.contact.telephone}
+                          </p>
+                        </div>
+                      </a>
+                      <div className="flex items-center gap-6 md:gap-8">
+                        <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-gray flex items-center justify-center text-brand-graphite/30">
+                          <Mail size={20} className="md:w-6 md:h-6" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-[10px] md:text-xs uppercase tracking-widest">
+                            EMAIL
+                          </h4>
+                          <p className="text-sm text-brand-graphite/60 font-sans mt-1">
+                            {org.contact.email}
+                          </p>
+                        </div>
+                      </div>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <h3 className="text-xl md:text-2xl font-serif mb-6 md:mb-8 text-brand-petroleum">
-                  Ubicación y Cobertura
-                </h3>
-                <div className="flex items-start gap-6 md:gap-8">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-gray flex items-center justify-center text-brand-graphite/30">
-                    <MapPin size={20} className="md:w-6 md:h-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-[10px] md:text-xs uppercase tracking-widest">
-                      Centro Operativo
-                    </h4>
-                    <a
-                      href="https://google.com/maps/place/Creativos+Espacios+%7C+Venta,+renta+y+adaptaci%C3%B3n+de+contenedores+mar%C3%ADtimos/data=!4m2!3m1!1s0x0:0xcf94e14da72b42e9?sa=X&ved=1t:2428&ictx=111"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 block text-sm leading-relaxed text-brand-graphite/60 font-sans transition-colors duration-200 hover:text-brand-orange focus-visible:outline-none focus-visible:text-brand-orange"
-                    >
-                      Av. del Arbol 104-Lote 2, Lomas de San Lorenzo,
-                      Iztapalapa, 09790 Ciudad de Mexico, CDMX
-                    </a>
-                  </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-serif mb-6 md:mb-8 text-brand-petroleum">
+                    Ubicación y Cobertura
+                  </h3>
+                  <div className="flex items-start gap-6 md:gap-8">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-gray flex items-center justify-center text-brand-graphite/30">
+                      <MapPin size={20} className="md:w-6 md:h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[10px] md:text-xs uppercase tracking-widest">
+                        Centro Operativo
+                      </h4>
+                      <a
+                        href="https://google.com/maps/place/Creativos+Espacios+%7C+Venta,+renta+y+adaptaci%C3%B3n+de+contenedores+mar%C3%ADtimos/data=!4m2!3m1!1s0x0:0xcf94e14da72b42e9?sa=X&ved=1t:2428&ictx=111"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 block text-sm leading-relaxed text-brand-graphite/60 font-sans transition-colors duration-200 hover:text-brand-orange focus-visible:outline-none focus-visible:text-brand-orange"
+                      >
+                        {org.contact.address.formattedAddress}
+                      </a>
+                    </div>
                 </div>
               </div>
             </div>

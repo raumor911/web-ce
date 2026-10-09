@@ -21,7 +21,7 @@ export const SEO: React.FC<SEOProps> = ({
 }) => {
   const { pathname } = useLocation();
   const fullTitle = `${title} | Creativos Espacios - Infraestructura Modular`;
-  const siteUrl = 'https://www.creativosespacios.mx';
+  const siteUrl = 'https://creativosespacios.mx';
   const defaultOgImage = `${siteUrl}/images/social-preview.png`;
   
   // Construir la URL canónica basada en el pathname actual o el prop canonical
