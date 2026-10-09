@@ -13,6 +13,10 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import CompraContenedoresCDMX from './pages/CompraContenedoresCDMX';
 import RentaContenedoresCDMX from './pages/RentaContenedoresCDMX';
+import ContenedoresUsadosCDMX from './pages/ContenedoresUsadosCDMX';
+import Contenedor20PiesCDMX from './pages/Contenedor20PiesCDMX';
+import Contenedor40PiesCDMX from './pages/Contenedor40PiesCDMX';
+import Contenedor40HighCubeCDMX from './pages/Contenedor40HighCubeCDMX';
 import Privacidad from './pages/Privacidad';
 import Terminos from './pages/Terminos';
 import NotFound from './pages/NotFound';
@@ -37,6 +41,10 @@ const App: React.FC = () => {
             <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="compra-contenedores-cdmx" element={<CompraContenedoresCDMX />} />
             <Route path="renta-contenedores-cdmx" element={<RentaContenedoresCDMX />} />
+            <Route path="contenedores-usados-cdmx" element={<ContenedoresUsadosCDMX />} />
+            <Route path="contenedor-20-pies-cdmx" element={<Contenedor20PiesCDMX />} />
+            <Route path="contenedor-40-pies-cdmx" element={<Contenedor40PiesCDMX />} />
+            <Route path="contenedor-40-high-cube-cdmx" element={<Contenedor40HighCubeCDMX />} />
             <Route path="privacidad" element={<Privacidad />} />
             <Route path="terminos" element={<Terminos />} />
             <Route path="*" element={<NotFound />} />

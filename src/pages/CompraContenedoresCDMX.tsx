@@ -155,9 +155,14 @@ const CompraContenedoresCDMX: React.FC = () => {
               <p className="text-brand-graphite leading-relaxed mb-8 flex-1">
                 Una opción compacta para almacenamiento de materiales, herramientas, inventario o equipamiento cuando el espacio disponible es limitado.
               </p>
-              <a href="/contacto" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
-                Consultar 20 pies <ArrowRight className="h-4 w-4" />
-              </a>
+              <div className="flex flex-col gap-4">
+                <a href="/contenedor-20-pies-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
+                  Detalles 20 pies <ArrowRight className="h-4 w-4" />
+                </a>
+                <a href="/contacto" className="text-sm text-brand-petroleum hover:text-brand-orange transition-colors">
+                  Consultar disponibilidad
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -177,9 +182,14 @@ const CompraContenedoresCDMX: React.FC = () => {
               <p className="text-brand-graphite leading-relaxed mb-8 flex-1">
                 Mayor capacidad para operaciones que requieren ampliar almacenamiento o concentrar materiales y equipos en un solo espacio.
               </p>
-              <a href="/contacto" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
-                Consultar 40 pies <ArrowRight className="h-4 w-4" />
-              </a>
+              <div className="flex flex-col gap-4">
+                <a href="/contenedor-40-pies-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
+                  Detalles 40 pies <ArrowRight className="h-4 w-4" />
+                </a>
+                <a href="/contacto" className="text-sm text-brand-petroleum hover:text-brand-orange transition-colors">
+                  Consultar disponibilidad
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -272,8 +282,11 @@ const CompraContenedoresCDMX: React.FC = () => {
               </div>
             </div>
             
-            <div className="mt-12">
+            <div className="mt-12 flex flex-wrap gap-6">
               <a href="/contacto" className="btn-primary">Ayúdame a elegir</a>
+              <a href="/contenedores-usados-cdmx" className="btn-secondary flex items-center gap-2">
+                Ver contenedores usados <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
           

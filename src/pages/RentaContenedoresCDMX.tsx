@@ -200,9 +200,12 @@ const RentaContenedoresCDMX: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-brand-petroleum mb-3">Contenedor de 20 pies</h4>
-                  <p className="text-brand-graphite/70 text-sm leading-relaxed">
+                  <p className="text-brand-graphite/70 text-sm leading-relaxed mb-4">
                     Ideal para proyectos con restricciones de espacio o necesidades de almacenamiento moderadas. Fácil de posicionar en entornos urbanos o sitios de obra compactos.
                   </p>
+                  <a href="/contenedor-20-pies-cdmx" className="text-brand-orange text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                    Ver medidas y detalles <ArrowRight className="h-3 w-3" />
+                  </a>
                 </div>
               </div>
               
@@ -212,9 +215,12 @@ const RentaContenedoresCDMX: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-brand-petroleum mb-3">Contenedor de 40 pies</h4>
-                  <p className="text-brand-graphite/70 text-sm leading-relaxed">
+                  <p className="text-brand-graphite/70 text-sm leading-relaxed mb-4">
                     Maximiza la capacidad de almacenamiento en una sola unidad. Recomendado para inventarios a gran escala o proyectos que requieren concentrar gran volumen de materiales.
                   </p>
+                  <a href="/contenedor-40-pies-cdmx" className="text-brand-orange text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                    Ver medidas y detalles <ArrowRight className="h-3 w-3" />
+                  </a>
                 </div>
               </div>
             </div>

@@ -197,14 +197,25 @@ const VentaRenta: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-8 pt-8 border-t border-brand-gray/30">
-                    <div className="flex flex-col sm:flex-row gap-4 justify-between items-center text-sm">
-                      <a href="/compra-contenedores-cdmx" className="text-brand-petroleum hover:text-brand-orange transition-colors font-medium flex items-center gap-1">
-                        Compra de contenedores en CDMX <ArrowRight className="h-3 w-3" />
-                      </a>
-                      <a href="/renta-contenedores-cdmx" className="text-brand-petroleum hover:text-brand-orange transition-colors font-medium flex items-center gap-1">
-                        Renta de contenedores en CDMX <ArrowRight className="h-3 w-3" />
-                      </a>
+
+                  <div className="mt-auto pt-8 border-t border-brand-gray/30">
+                    <div className="flex flex-col gap-4">
+                      <div className="flex flex-col sm:flex-row gap-4 justify-between items-center text-sm">
+                        <a href="/compra-contenedores-cdmx" className="text-brand-petroleum hover:text-brand-orange transition-colors font-medium flex items-center gap-1">
+                          Compra de contenedores en CDMX <ArrowRight className="h-3 w-3" />
+                        </a>
+                        <a href="/renta-contenedores-cdmx" className="text-brand-petroleum hover:text-brand-orange transition-colors font-medium flex items-center gap-1">
+                          Renta de contenedores en CDMX <ArrowRight className="h-3 w-3" />
+                        </a>
+                      </div>
+                      <div className="flex flex-col sm:flex-row gap-4 justify-between items-center text-sm pt-4 border-t border-brand-gray/10">
+                        <a href={item.id.includes('20ft') ? "/contenedor-20-pies-cdmx" : "/contenedor-40-pies-cdmx"} className="text-brand-graphite/60 hover:text-brand-orange transition-colors flex items-center gap-1">
+                          Ver detalles del {item.titulo} <ArrowRight className="h-3 w-3" />
+                        </a>
+                        <a href="/contenedores-usados-cdmx" className="text-brand-graphite/60 hover:text-brand-orange transition-colors flex items-center gap-1">
+                          Contenedores usados <ArrowRight className="h-3 w-3" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -17,6 +17,10 @@ const staticRoutes = [
   { url: '/blog', priority: '0.8', changefreq: 'daily' },
   { url: '/compra-contenedores-cdmx', priority: '0.8', changefreq: 'monthly' },
   { url: '/renta-contenedores-cdmx', priority: '0.8', changefreq: 'monthly' },
+  { url: '/contenedores-usados-cdmx', priority: '0.8', changefreq: 'monthly' },
+  { url: '/contenedor-20-pies-cdmx', priority: '0.8', changefreq: 'monthly' },
+  { url: '/contenedor-40-pies-cdmx', priority: '0.8', changefreq: 'monthly' },
+  { url: '/contenedor-40-high-cube-cdmx', priority: '0.8', changefreq: 'monthly' },
 ];
 
 /**
