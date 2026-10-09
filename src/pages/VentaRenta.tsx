@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { CheckCircle2, Truck, ShieldCheck, Clock } from 'lucide-react';
+import { CheckCircle2, Truck, ShieldCheck, Clock, ArrowRight } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
@@ -196,6 +196,16 @@ const VentaRenta: React.FC = () => {
                         <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-orange" /> {feat}
                       </div>
                     ))}
+                  </div>
+                  <div className="mt-8 pt-8 border-t border-brand-gray/30">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-between items-center text-sm">
+                      <a href="/compra-contenedores-cdmx" className="text-brand-petroleum hover:text-brand-orange transition-colors font-medium flex items-center gap-1">
+                        Compra de contenedores en CDMX <ArrowRight className="h-3 w-3" />
+                      </a>
+                      <a href="/renta-contenedores-cdmx" className="text-brand-petroleum hover:text-brand-orange transition-colors font-medium flex items-center gap-1">
+                        Renta de contenedores en CDMX <ArrowRight className="h-3 w-3" />
+                      </a>
+                    </div>
                   </div>
                 </div>
 

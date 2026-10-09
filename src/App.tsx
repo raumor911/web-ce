@@ -11,6 +11,8 @@ import Nosotros from './pages/Nosotros';
 import Contacto from './pages/Contacto';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import CompraContenedoresCDMX from './pages/CompraContenedoresCDMX';
+import RentaContenedoresCDMX from './pages/RentaContenedoresCDMX';
 import Privacidad from './pages/Privacidad';
 import Terminos from './pages/Terminos';
 import NotFound from './pages/NotFound';
@@ -33,6 +35,8 @@ const App: React.FC = () => {
             <Route path="contacto" element={<Contacto />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPost />} />
+            <Route path="compra-contenedores-cdmx" element={<CompraContenedoresCDMX />} />
+            <Route path="renta-contenedores-cdmx" element={<RentaContenedoresCDMX />} />
             <Route path="privacidad" element={<Privacidad />} />
             <Route path="terminos" element={<Terminos />} />
             <Route path="*" element={<NotFound />} />

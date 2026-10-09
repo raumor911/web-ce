@@ -79,7 +79,7 @@ async function prerender() {
     process.exit(1);
   }
 
-  const staticRoutes = ['/', '/nosotros', '/soluciones/venta-renta', '/soluciones/oficinas', '/proyectos', '/contacto', '/blog', '/404'];
+  const staticRoutes = ['/', '/nosotros', '/soluciones/venta-renta', '/soluciones/oficinas', '/proyectos', '/contacto', '/blog', '/compra-contenedores-cdmx', '/renta-contenedores-cdmx', '/404'];
   const dynamicRoutes = await getAllPostSlugs();
   const routes = [...staticRoutes, ...dynamicRoutes];
   

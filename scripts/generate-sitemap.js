@@ -15,6 +15,8 @@ const staticRoutes = [
   { url: '/proyectos', priority: '0.9', changefreq: 'weekly' },
   { url: '/contacto', priority: '0.8', changefreq: 'monthly' },
   { url: '/blog', priority: '0.8', changefreq: 'daily' },
+  { url: '/compra-contenedores-cdmx', priority: '0.8', changefreq: 'monthly' },
+  { url: '/renta-contenedores-cdmx', priority: '0.8', changefreq: 'monthly' },
 ];
 
 /**
