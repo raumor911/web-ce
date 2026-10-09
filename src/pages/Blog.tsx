@@ -56,7 +56,7 @@ const Blog: React.FC = () => {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Inicio",
-                  "item": "https://creativosespacios.mx"
+                  "item": "https://creativosespacios.mx/"
                 },
                 {
                   "@type": "ListItem",

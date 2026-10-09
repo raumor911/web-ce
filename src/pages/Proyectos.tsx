@@ -51,7 +51,7 @@ const Proyectos: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Proyectos",
+            "name": "Proyectos Modulares Especiales",
             "item": pageUrl
           }
         ]

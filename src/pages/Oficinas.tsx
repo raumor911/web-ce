@@ -64,7 +64,7 @@ const Oficinas: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Oficinas Reubicables",
+            "name": "Oficinas Reubicables e Industriales",
             "item": pageUrl
           }
         ]

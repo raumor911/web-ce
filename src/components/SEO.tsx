@@ -2,6 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
+import { getCanonicalUrl } from '../lib/canonical';
+
 interface SEOProps {
   title: string;
   description: string;
@@ -24,9 +26,9 @@ export const SEO: React.FC<SEOProps> = ({
   const siteUrl = 'https://creativosespacios.mx';
   const defaultOgImage = `${siteUrl}/images/social-preview.png`;
   
-  // Construir la URL canónica basada en el pathname actual o el prop canonical
+  // Construir la URL canónica basada en el pathname actual o el prop canonical usando la lógica centralizada
   const path = canonical || pathname;
-  const canonicalUrl = `${siteUrl}${path === '/' ? '' : path.replace(/\/$/, '')}`;
+  const canonicalUrl = getCanonicalUrl(path);
   const finalOgImage = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`) : defaultOgImage;
 
   return (

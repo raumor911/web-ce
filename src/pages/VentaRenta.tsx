@@ -79,7 +79,7 @@ const VentaRenta: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Venta y Renta",
+            "name": "Venta y Renta de Contenedores",
             "item": pageUrl
           }
         ]

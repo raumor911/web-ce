@@ -92,12 +92,18 @@ async function generateSitemap() {
     
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allRoutes.map(route => `  <url>
-    <loc>${DOMAIN}${route.url}</loc>
+${allRoutes.map(route => {
+  // Centralized URL normalization for sitemap
+  const cleanPath = route.url.replace(/^\/|\/$/g, '');
+  const loc = cleanPath ? `${DOMAIN}/${cleanPath}` : `${DOMAIN}/`;
+  
+  return `  <url>
+    <loc>${loc}</loc>
     <lastmod>${route.lastmod || today}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
-  </url>`).join('\n')}
+  </url>`;
+}).join('\n')}
 </urlset>`;
 
     fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemap);

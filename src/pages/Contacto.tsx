@@ -153,7 +153,7 @@ const Contacto: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Contacto",
+            "name": "Contacto y Cotización",
             "item": pageUrl
           }
         ]

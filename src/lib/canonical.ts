@@ -6,7 +6,8 @@ export const WEBSITE_ID = `${CANONICAL_DOMAIN}/#website`;
 export function getCanonicalUrl(path: string): string {
   // Remove leading and trailing slashes for consistent generation
   const cleanPath = path.replace(/^\/|\/$/g, '');
-  return cleanPath ? `${CANONICAL_DOMAIN}/${cleanPath}` : CANONICAL_DOMAIN;
+  // Special case: home should have a trailing slash, internal routes should not
+  return cleanPath ? `${CANONICAL_DOMAIN}/${cleanPath}` : `${CANONICAL_DOMAIN}/`;
 }
 
 export function getWebPageId(path: string): string {

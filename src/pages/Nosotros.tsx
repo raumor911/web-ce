@@ -38,7 +38,7 @@ const Nosotros: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Nuestra Empresa",
+            "name": "Nuestra Empresa y Trayectoria",
             "item": pageUrl
           }
         ]

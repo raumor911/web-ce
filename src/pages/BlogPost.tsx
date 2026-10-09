@@ -66,6 +66,7 @@ const BlogPost: React.FC = () => {
     const author = post._embedded?.['author']?.[0];
     const description = getMetaDescription(post);
     const siteUrl = 'https://creativosespacios.mx';
+    const postUrl = `${siteUrl}/blog/${post.slug}`;
 
     return {
       "@context": "https://schema.org",
@@ -74,7 +75,7 @@ const BlogPost: React.FC = () => {
           "@type": "BlogPosting",
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `${siteUrl}/blog/${post.slug}`
+            "@id": postUrl
           },
           "headline": post.title.rendered,
           "description": description,
@@ -84,7 +85,7 @@ const BlogPost: React.FC = () => {
           "author": {
             "@type": "Organization",
             "name": org.name,
-            "url": siteUrl
+            "url": `${siteUrl}/`
           },
           "publisher": {
             "@id": `${siteUrl}/#organization`
@@ -97,7 +98,7 @@ const BlogPost: React.FC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Inicio",
-              "item": siteUrl
+              "item": `${siteUrl}/`
             },
             {
               "@type": "ListItem",
@@ -109,7 +110,7 @@ const BlogPost: React.FC = () => {
               "@type": "ListItem",
               "position": 3,
               "name": post.title.rendered,
-              "item": `${siteUrl}/blog/${post.slug}`
+              "item": postUrl
             }
           ]
         }
