@@ -4,132 +4,132 @@
   "language": "es-MX",
   "canonicalDomain": "https://creativosespacios.mx",
   "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd",
-  "generatedAt": "2026-10-09T19:05:46.407Z",
+  "generatedAt": "2026-10-09T19:15:54.625Z",
   "resources": [
     {
       "path": "/ai/canonical-answers.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/claims-register.json",
       "mediaType": "application/json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/company.json",
       "mediaType": "application/json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/company.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/faq.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/glossary.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/industries.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/intents.json",
       "mediaType": "application/json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/intents.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/knowledge-graph.json",
       "mediaType": "application/json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/schema/organization.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/schema/services.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/schema/website.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/services.json",
       "mediaType": "application/json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/services.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/sources.json",
       "mediaType": "application/json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/terminology.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/ai/use-cases.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/company.json",
       "mediaType": "application/json",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/llms-full.txt",
       "mediaType": "text/plain",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     },
     {
       "path": "/llms.txt",
       "mediaType": "text/plain",
-      "generated": "2026-10-09T19:05:46.407Z",
+      "generated": "2026-10-09T19:15:54.625Z",
       "knowledgeFingerprint": "e0af297424c9d23cc0430c1375b83d7090704a0fbb3115ac001ca684102f28cd"
     }
   ]

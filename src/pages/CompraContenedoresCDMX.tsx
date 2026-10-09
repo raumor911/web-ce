@@ -192,7 +192,7 @@ const CompraContenedoresCDMX: React.FC = () => {
             className="card-industrial group flex flex-col h-full !p-0 overflow-hidden shadow-lg border border-brand-gray/30"
           >
             <div className="aspect-video bg-brand-gray/10 p-8 flex items-center justify-center overflow-hidden border-b border-brand-gray/20">
-              <img src="/images/soluciones-oficinas.png" alt="Soluciones acondicionadas" className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+              <img src="/images/oficina-contenedor-creativos-espacios.png" alt="Soluciones acondicionadas" className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
             </div>
             <div className="p-8 flex flex-col flex-1">
               <h3 className="text-2xl font-serif text-brand-petroleum mb-4">Contenedores acondicionados</h3>
