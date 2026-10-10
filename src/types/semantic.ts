@@ -268,3 +268,21 @@ export interface TerminologyEntry {
   context: string;
   avoid?: string[];
 }
+
+export interface InventoryEntry {
+  id: ID;
+  productId: ID;
+  locationId: ID;
+  stockStatus: 'in_stock' | 'low_stock' | 'out_of_stock' | 'on_request';
+  quantityHint?: string;
+  lastVerifiedAt: string;
+}
+
+export interface PublicContainerOffer {
+  id: string; // Composite ID: serviceId + productId + condition
+  product: Product;
+  service: Service;
+  price?: PriceBookEntry;
+  inventory?: InventoryEntry;
+  location?: Location;
+}

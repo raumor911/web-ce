@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { FAQ } from '../components/FAQ';
@@ -7,6 +7,9 @@ import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { Link } from 'react-router-dom';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const ContenedoresObraCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -14,6 +17,20 @@ const ContenedoresObraCDMX: React.FC = () => {
   const baseLocation = SemanticSelectors.getLocationById(org.locationId);
   const useCase = SemanticSelectors.getUseCaseById('usecase:construction-site');
   const faqs = SemanticSelectors.getFaqByCategory('obra');
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -231,6 +248,57 @@ const ContenedoresObraCDMX: React.FC = () => {
         </div>
       </section>
 
+      {/* BLOQUE — OFERTA PÚBLICA (F4.0) */}
+      <section className="py-24 bg-brand-gray/20 border-y border-brand-gray">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="mb-16 max-w-3xl">
+            <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl">
+              Unidades para entrega inmediata en obra
+            </h2>
+            <p className="text-lg text-slate-600 font-sans">
+              Contenedores usados con garantía estructural, ideales para almacenamiento y resguardo de activos en proyectos de construcción.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {purchaseOffers.map((offer) => (
+              <ContainerOfferCard 
+                key={offer.id} 
+                offer={offer} 
+                onQuote={handleQuote} 
+              />
+            ))}
+
+            {/* Módulo Especial - Acondicionamiento */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-brand-petroleum text-white p-8 flex flex-col justify-between border border-white/10 group"
+            >
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-brand-orange text-[10px] font-bold uppercase tracking-widest">
+                  <Wrench className="h-3 w-3" />
+                  Servicios
+                </div>
+                <h3 className="text-2xl font-serif mb-4">Acondicionamiento</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-8 font-sans">
+                  Transformamos unidades en oficinas, bodegas móviles o áreas operativas directamente en el sitio de su proyecto.
+                </p>
+              </div>
+              <Link 
+                to="/soluciones/oficinas"
+                className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Oficinas</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* BLOQUE — ACCESO Y UBICACIÓN */}
       <section className="py-24 bg-brand-white">
         <div className="container mx-auto px-6 lg:px-12">
@@ -312,6 +380,14 @@ const ContenedoresObraCDMX: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* F4.0 - Drawer */}
+      <DeliveryQuoteDrawer 
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

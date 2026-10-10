@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { CheckCircle2, ArrowRight, HardHat, Package, Wrench, Maximize, Boxes, Info, Truck, Building2, Layout, Zap, Sun, DoorOpen, Wind, Palette, Split, Clock } from 'lucide-react';
+import { CheckCircle2, ArrowRight, HardHat, Package, Wrench, Maximize, Boxes, Info, Truck, Building2, Layout, Zap, Sun, DoorOpen, Wind, Palette, Split, Clock, MessageSquare } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { Link } from 'react-router-dom';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const OficinasMovilesCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -13,6 +16,20 @@ const OficinasMovilesCDMX: React.FC = () => {
   const baseLocation = SemanticSelectors.getLocationById(org.locationId);
   const useCase = SemanticSelectors.getUseCaseById('usecase:mobile-office');
   const faqs = SemanticSelectors.getFaqByCategory('oficina-movil');
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -246,44 +263,31 @@ const OficinasMovilesCDMX: React.FC = () => {
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl">
-              Tamaño y Configuración
+            <span className="section-subtitle">UNIDADES BASE</span>
+            <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl uppercase tracking-tight">
+              Contenedores para habilitar como oficina móvil
             </h2>
+            <p className="max-w-2xl mx-auto text-lg text-slate-600 font-sans">
+              Utilizamos contenedores marítimos estructuralmente íntegros como base para el acondicionamiento de su espacio de trabajo reubicable.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* 20ft Unit */}
-            {useCase?.supportedProductIds.includes('product:container-20ft') && (() => {
-              const product = SemanticSelectors.getProductById('product:container-20ft');
-              return (
-                <div className="p-10 bg-white border border-slate-100 rounded-sm hover:border-brand-orange transition-colors group">
-                  <h3 className="text-2xl font-bold text-brand-petroleum mb-4">Unidad de {product?.name || '20 Pies'}</h3>
-                  <p className="text-slate-600 font-sans mb-8">Oficina compacta ideal cuando el alcance del proyecto permite una superficie eficiente.</p>
-                  <Link to="/contenedor-20-pies-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold text-sm tracking-widest uppercase group-hover:gap-3 transition-all">
-                    VER UNIDAD <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              );
-            })()}
-            
-            {/* 40ft / 40HC Units */}
-            {(useCase?.supportedProductIds.includes('product:container-40ft') || useCase?.supportedProductIds.includes('product:container-40hc')) && (() => {
-              const p40ft = SemanticSelectors.getProductById('product:container-40ft');
-              const p40hc = SemanticSelectors.getProductById('product:container-40hc');
-              return (
-                <div className="p-10 bg-white border border-slate-100 rounded-sm hover:border-brand-orange transition-colors group">
-                  <h3 className="text-2xl font-bold text-brand-petroleum mb-4">{p40ft?.name || '40 Pies'} / {p40hc?.name.split(' ')[1] || 'High Cube'}</h3>
-                  <p className="text-slate-600 font-sans mb-8">Mayor espacio disponible para configuraciones que requieran superficie adicional de trabajo.</p>
-                  <div className="flex gap-6">
-                    {useCase?.supportedProductIds.includes('product:container-40ft') && (
-                      <Link to="/contenedor-40-pies-cdmx" className="text-brand-orange font-bold text-sm tracking-widest uppercase hover:underline uppercase">{p40ft?.name || '40 PIES'}</Link>
-                    )}
-                    {useCase?.supportedProductIds.includes('product:container-40hc') && (
-                      <Link to="/contenedor-40-high-cube-cdmx" className="text-brand-orange font-bold text-sm tracking-widest uppercase hover:underline uppercase">{p40hc?.name.split(' ')[1] || 'HIGH CUBE'}</Link>
-                    )}
-                  </div>
-                </div>
-              );
-            })()}
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {purchaseOffers
+              .filter(offer => useCase?.supportedProductIds.includes(offer.product.id))
+              .map((offer) => (
+                <ContainerOfferCard
+                  key={offer.product.id}
+                  offer={offer}
+                  onQuote={handleQuote}
+                />
+              ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <p className="text-sm text-slate-500 font-sans italic max-w-2xl mx-auto">
+              * Los precios corresponden a la unidad base. El costo final de la oficina móvil dependerá del nivel de acondicionamiento (aislamiento, acabados, clima, instalaciones) requerido para su operación.
+            </p>
           </div>
         </div>
       </section>
@@ -337,6 +341,14 @@ const OficinasMovilesCDMX: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* DELIVERY QUOTE DRAWER (F4.0) */}
+      <DeliveryQuoteDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

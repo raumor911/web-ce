@@ -1,5 +1,5 @@
 import { Knowledge } from './index';
-import { ID, Organization, Service, Product, Configuration, UseCase, FAQ, Claim, Source, CommercialPolicy, Coverage, Industry, Case, Terminology, CanonicalAnswer, Intent, Location, PriceBookEntry, Condition } from '../types/semantic';
+import { ID, Organization, Service, Product, Configuration, UseCase, FAQ, Claim, Source, CommercialPolicy, Coverage, Industry, Case, Terminology, CanonicalAnswer, Intent, Location, PriceBookEntry, Condition, InventoryEntry, PublicContainerOffer } from '../types/semantic';
 
 export const SemanticSelectors = {
   getOrganization: (): Organization => Knowledge.organization,
@@ -141,5 +141,40 @@ export const SemanticSelectors = {
       p.effectiveFrom <= now &&
       (!p.effectiveTo || p.effectiveTo >= now)
     );
+  },
+
+  // Inventory & Offers
+  getInventory: (): InventoryEntry[] => Knowledge.inventory,
+
+  getPublicOffers: (options: { serviceId: ID, condition: Condition, productId?: ID }): PublicContainerOffer[] => {
+    const service = SemanticSelectors.getServiceById(options.serviceId);
+    if (!service) return [];
+
+    let products = SemanticSelectors.getProductsForService(options.serviceId);
+    
+    if (options.productId) {
+      products = products.filter(p => p.id === options.productId);
+    }
+    
+    return products.map(product => {
+      const price = SemanticSelectors.getActivePrice({
+        productId: product.id,
+        serviceId: options.serviceId,
+        condition: options.condition
+      });
+
+      // Simple mapping: one inventory entry per product for now
+      const inventory = Knowledge.inventory.find(i => i.productId === product.id);
+      const location = inventory ? SemanticSelectors.getLocationById(inventory.locationId) : undefined;
+
+      return {
+        id: `${options.serviceId}-${product.id}-${options.condition}`,
+        product,
+        service,
+        price,
+        inventory,
+        location
+      };
+    });
   }
 };

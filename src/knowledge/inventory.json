@@ -1,0 +1,26 @@
+[
+  {
+    "id": "inventory:20ft-iztapalapa",
+    "productId": "product:container-20ft",
+    "locationId": "loc:iztapalapa",
+    "stockStatus": "in_stock",
+    "quantityHint": "2",
+    "lastVerifiedAt": "2026-10-09"
+  },
+  {
+    "id": "inventory:40ft-iztapalapa",
+    "productId": "product:container-40ft",
+    "locationId": "loc:iztapalapa",
+    "stockStatus": "in_stock",
+    "quantityHint": "6",
+    "lastVerifiedAt": "2026-10-09"
+  },
+  {
+    "id": "inventory:40hc-iztapalapa",
+    "productId": "product:container-40hc",
+    "locationId": "loc:iztapalapa",
+    "stockStatus": "out_of_stock",
+    "quantityHint": "0",
+    "lastVerifiedAt": "2026-10-09"
+  }
+]

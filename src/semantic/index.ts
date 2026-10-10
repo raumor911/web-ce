@@ -16,8 +16,9 @@ import canonicalAnswers from '../knowledge/canonical-answers.json';
 import intents from '../knowledge/intents.json';
 import locations from '../knowledge/locations.json';
 import pricebook from '../knowledge/pricebook.json';
+import inventory from '../knowledge/inventory.json';
 
-import { Organization, Service, Product, Configuration, UseCase, FAQ, Claim, Source, CommercialPolicy, Coverage, Industry, Case, Terminology, CanonicalAnswer, Intent, Location, PriceBookEntry } from '../types/semantic';
+import { Organization, Service, Product, Configuration, UseCase, FAQ, Claim, Source, CommercialPolicy, Coverage, Industry, Case, Terminology, CanonicalAnswer, Intent, Location, PriceBookEntry, InventoryEntry } from '../types/semantic';
 
 export const Knowledge = {
   organization: organization as unknown as Organization,
@@ -36,5 +37,6 @@ export const Knowledge = {
   canonicalAnswers: canonicalAnswers as unknown as CanonicalAnswer[],
   intents: intents as unknown as Intent[],
   locations: locations as unknown as Location[],
-  pricebook: pricebook as unknown as PriceBookEntry[]
+  pricebook: pricebook as unknown as PriceBookEntry[],
+  inventory: inventory as unknown as InventoryEntry[]
 };

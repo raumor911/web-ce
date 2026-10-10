@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Box, Building2, Warehouse, CheckCircle2, Zap, Truck } from 'lucide-react';
+import { ArrowRight, Box, Building2, Warehouse, CheckCircle2, Zap, Truck, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { SemanticSelectors } from '../semantic/selectors';
-
 import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const Home: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
   const services = SemanticSelectors.getServices();
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer?: PublicContainerOffer) => {
+    setSelectedOffer(offer || purchaseOffers[0] || null);
+    setIsDrawerOpen(true);
+  };
   
   const iconMap: Record<string, React.ReactNode> = {
     'service:container-sale': <Box className="w-12 h-12 text-slate-800" />,
@@ -120,10 +135,10 @@ const Home: React.FC = () => {
               {org.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-              <a href="https://wa.me/522291846751" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <button onClick={() => handleQuote()} className="btn-primary">
                 Solicitar Cotización
-              </a>
-              <Link to="/soluciones" className="btn-outline">
+              </button>
+              <Link to="/soluciones/venta-renta" className="btn-outline">
                 Ver Soluciones
               </Link>
             </div>
@@ -279,9 +294,9 @@ const Home: React.FC = () => {
             ¿Listo para incorporar capacidad <br />
             operativa en su proyecto?
           </h2>
-          <a href="https://wa.me/522291846751" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <button onClick={() => handleQuote()} className="btn-primary">
             Solicitar Cotización
-          </a>
+          </button>
           <div className="mt-12">
             <Link to="/proveedor-de-contenedores-cdmx" className="text-brand-orange font-bold text-[10px] uppercase tracking-[0.2em] hover:underline">
               Contenedores para empresas y proyectos en CDMX
@@ -289,6 +304,14 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* DELIVERY QUOTE DRAWER (F4.0) */}
+      <DeliveryQuoteDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { FAQ } from '../components/FAQ';
-import { CheckCircle2, ArrowRight, Server, ShieldCheck, Zap, Wind, Info, Database, Cpu, Lock, Activity, Settings } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Server, ShieldCheck, Zap, Wind, Info, Database, Cpu, Lock, Activity, Settings, Wrench } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID, getEntityId } from '../lib/canonical';
 import { coverageToAreaServed } from '../lib/semantic-schema';
 import { Link } from 'react-router-dom';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const ContenedoresDataCenterCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -17,6 +20,20 @@ const ContenedoresDataCenterCDMX: React.FC = () => {
   const configuration = SemanticSelectors.getConfigurationById('configuration:data-center');
   const faqs = SemanticSelectors.getFaqByCategory('data-center');
   const coverage = SemanticSelectors.getCoverageForService('service:modular-projects');
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -224,54 +241,29 @@ const ContenedoresDataCenterCDMX: React.FC = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl uppercase tracking-tight">
-              Unidades compatibles para el proyecto
+              Unidades base para el proyecto
             </h2>
             <p className="max-w-2xl mx-auto text-lg text-slate-600 font-sans">
-              La elección del tamaño depende de la escala de la infraestructura de TI y los requerimientos de potencia y enfriamiento.
+              Utilizamos contenedores marítimos de alta resistencia como estructura base para la integración de su infraestructura de datos.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {useCase?.supportedProductIds.map((productId) => {
-              const product = SemanticSelectors.getProductById(productId);
-              if (!product) return null;
-              
-              const imageMap: Record<string, string> = {
-                'product:container-20ft': '/images/venta-renta-contenedor-20ft.png',
-                'product:container-40ft': '/images/venta-renta-contenedor-40ft.png',
-                'product:container-40hc': '/images/venta-renta-contenedor-40ft.png'
-              };
-              const pathMap: Record<string, string> = {
-                'product:container-20ft': '/contenedor-20-pies-cdmx',
-                'product:container-40ft': '/contenedor-40-pies-cdmx',
-                'product:container-40hc': '/contenedor-40-high-cube-cdmx'
-              };
-              
-              return (
-                <div 
-                  key={product.id} 
-                  className="group p-8 border border-slate-100 bg-white rounded-sm hover:border-brand-orange transition-all shadow-sm flex flex-col"
-                >
-                  <div className="mb-8 flex justify-center overflow-hidden rounded-sm bg-slate-50 aspect-video relative">
-                    <img 
-                      src={imageMap[product.id]} 
-                      alt={product.name} 
-                      className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-brand-petroleum mb-4 uppercase tracking-tight">{product.name}</h3>
-                  <p className="text-slate-500 text-sm font-sans mb-8 flex-grow">
-                    {product.id === 'product:container-20ft' ? 'Ideal para data centers compactos o nodos de red en borde (Edge Computing).' : 'Capacidad máxima para centros de datos de gran escala con múltiples racks y sistemas redundantes.'}
-                  </p>
-                  <Link 
-                    to={pathMap[product.id]}
-                    className="inline-flex items-center gap-2 text-brand-orange font-bold text-xs tracking-widest uppercase group-hover:gap-3 transition-all"
-                  >
-                    DETALLES TÉCNICOS <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              );
-            })}
+            {purchaseOffers
+              .filter(offer => useCase?.supportedProductIds.includes(offer.product.id))
+              .map((offer) => (
+                <ContainerOfferCard
+                   key={offer.product.id}
+                   offer={offer}
+                   onQuote={handleQuote}
+                 />
+              ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <p className="text-sm text-slate-500 font-sans italic max-w-2xl mx-auto">
+              * Los precios mostrados son para unidades base sin acondicionamiento técnico. El costo final dependerá de la configuración de enfriamiento, potencia y blindaje requeridos.
+            </p>
           </div>
         </div>
       </section>
@@ -338,6 +330,14 @@ const ContenedoresDataCenterCDMX: React.FC = () => {
           </button>
         </div>
       </section>
+
+      {/* DELIVERY QUOTE DRAWER (F4.0) */}
+      <DeliveryQuoteDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

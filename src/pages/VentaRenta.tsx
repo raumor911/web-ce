@@ -1,38 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { CheckCircle2, Truck, ShieldCheck, Clock, ArrowRight } from 'lucide-react';
+import { Truck, ShieldCheck, Clock, ArrowRight } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 import { coverageToAreaServed } from '../lib/semantic-schema';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const VentaRenta: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
   const serviceSale = SemanticSelectors.getServiceById('service:container-sale');
-  const serviceRental = SemanticSelectors.getServiceById('service:container-rental');
   const products = SemanticSelectors.getProductsForService('service:container-sale');
   const faqData = SemanticSelectors.getFaqByCategory('venta-renta');
   const generalFaq = SemanticSelectors.getGeneralFaq();
   const coverage = SemanticSelectors.getCoverageForService('service:container-sale');
 
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
+
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
-
-  // Combinar los datos del Semantic Core con las imágenes de la UI
-  const inventario = products.map(product => {
-    const is20ft = product.id.includes('20ft');
-    return {
-      id: product.id,
-      titulo: product.name,
-      dimensiones: product.dimensions,
-      uso: product.description,
-      features: product.features,
-      img: is20ft ? '/images/venta-renta-contenedor-20ft.png' : '/images/venta-renta-contenedor-40ft.png',
-      fallbackImg: is20ft ? '/images/venta-renta-contenedor-20ft.svg' : '/images/venta-renta-contenedor-40ft.svg'
-    };
-  });
 
   const pageUrl = getCanonicalUrl('/soluciones/venta-renta');
   const webpageId = getWebPageId('/soluciones/venta-renta');
@@ -101,8 +103,7 @@ const VentaRenta: React.FC = () => {
     ]
   };
 
-  return (
-    <div className="bg-brand-white min-h-screen">
+  return (    <div className="bg-brand-white min-h-screen">
       <SEO 
         title="Venta y Renta de Contenedores Industriales"
         description="Contenedores marítimos de 20 y 40 pies para almacenamiento y logística industrial en CDMX. Disponibilidad sujeta a inventario."
@@ -116,10 +117,6 @@ const VentaRenta: React.FC = () => {
             alt="Contenedores industriales para almacenamiento y operación"
             loading="eager"
             {...({ fetchpriority: "high" } as any)}
-            onError={(event) => {
-              event.currentTarget.onerror = null;
-              event.currentTarget.src = '/images/venta-renta-hero.svg';
-            }}
             className="h-full w-full object-cover grayscale will-change-transform transition-transform duration-[1400ms] ease-out motion-reduce:transition-none md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
             initial="hidden"
@@ -127,13 +124,6 @@ const VentaRenta: React.FC = () => {
           />
           <div className="absolute inset-0 bg-[rgba(15,23,42,0.62)]"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[rgba(15,23,42,0.9)] via-[rgba(15,23,42,0.72)] to-[rgba(15,23,42,0.46)]"></div>
-          <motion.div
-            aria-hidden="true"
-            className="absolute inset-y-0 left-[-12%] w-[34%] bg-gradient-to-r from-white/0 via-white/10 to-white/0 mix-blend-screen will-change-transform"
-            variants={heroMotion.shimmer}
-            initial="hidden"
-            animate="visible"
-          />
         </div>
         <motion.div
           className="container relative z-10 mx-auto px-6 lg:px-12"
@@ -151,127 +141,77 @@ const VentaRenta: React.FC = () => {
       </header>
 
       <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20">
-          {inventario.map((item) => (
-            <motion.div 
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="card-industrial group flex h-full flex-col !p-0 overflow-hidden shadow-xl"
-            >
-              <div className="flex aspect-[4/3] items-center justify-center overflow-hidden border-b border-brand-gray/60 bg-brand-gray/10 p-6 sm:p-8 md:p-10">
-                <img
-                  src={item.img}
-                  alt={item.titulo}
-                  onError={(event) => {
-                    event.currentTarget.onerror = null;
-                    event.currentTarget.src = item.fallbackImg;
-                  }}
-                  className="h-full w-full object-contain object-center grayscale transition-all duration-1000 group-hover:grayscale-0 md:group-hover:scale-[1.02]"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6 sm:p-10 md:p-12">
-                <div className="mb-8 text-center md:mb-10">
-                  <h2 className="text-2xl md:text-4xl font-serif text-brand-petroleum">{item.titulo}</h2>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 mb-8 md:mb-12 pb-8 md:pb-10 border-b border-brand-gray">
-                  <div>
-                    <span className="block text-[10px] md:text-xs font-bold text-brand-orange uppercase mb-2 md:mb-3 tracking-widest">Dimensiones</span>
-                    <span className="text-base md:text-lg font-sans text-brand-graphite">{item.dimensiones}</span>
-                  </div>
-                  <div>
-                    <span className="block text-[10px] md:text-xs font-bold text-brand-orange uppercase mb-2 md:mb-3 tracking-widest">Disponibilidad</span>
-                    <span className="text-base md:text-lg font-sans text-brand-graphite">Venta / Renta</span>
-                  </div>
-                </div>
+        <div className="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-6">Equipamiento Disponible</h2>
+          <p className="text-brand-graphite text-lg font-sans">
+            Contenedores marítimos de 20 y 40 pies en excelentes condiciones estructurales, listos para entrega inmediata.
+          </p>
+        </div>
 
-                <div className="flex flex-1 flex-col">
-                  <p className="min-h-[120px] text-brand-graphite text-base leading-relaxed italic md:min-h-[144px] md:text-lg">
-                    "{item.uso}"
-                  </p>
-
-                  <div className="mb-10 space-y-4 md:mb-12 md:space-y-5">
-                    {item.features.map((feat) => (
-                      <div key={feat} className="flex items-start gap-4 text-sm text-brand-graphite font-medium">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-orange" /> {feat}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-auto pt-8 border-t border-brand-gray/30">
-                    <div className="flex flex-col gap-4">
-                      <div className="flex flex-col sm:flex-row gap-4 justify-between items-center text-sm">
-                        <a href="/compra-contenedores-cdmx" className="text-brand-petroleum hover:text-brand-orange transition-colors font-medium flex items-center gap-1">
-                          Compra de contenedores en CDMX <ArrowRight className="h-3 w-3" />
-                        </a>
-                        <a href="/renta-contenedores-cdmx" className="text-brand-petroleum hover:text-brand-orange transition-colors font-medium flex items-center gap-1">
-                          Renta de contenedores en CDMX <ArrowRight className="h-3 w-3" />
-                        </a>
-                      </div>
-                      <div className="flex flex-col sm:flex-row gap-4 justify-between items-center text-sm pt-4 border-t border-brand-gray/10">
-                        <a href={item.id.includes('20ft') ? "/contenedor-20-pies-cdmx" : "/contenedor-40-pies-cdmx"} className="text-brand-graphite/60 hover:text-brand-orange transition-colors flex items-center gap-1">
-                          Ver detalles del {item.titulo} <ArrowRight className="h-3 w-3" />
-                        </a>
-                        <a href="/contenedores-usados-cdmx" className="text-brand-graphite/60 hover:text-brand-orange transition-colors flex items-center gap-1">
-                          Contenedores usados <ArrowRight className="h-3 w-3" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <a 
-                  href="https://wa.me/522291846751" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="mt-auto block w-full text-center btn-primary"
-                >
-                  Solicitar Cotización
-                </a>
-              </div>
-            </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {purchaseOffers.map((offer) => (
+            <ContainerOfferCard 
+              key={offer.id} 
+              offer={offer} 
+              onQuote={handleQuote} 
+            />
           ))}
+        </div>
+
+        <div className="mt-16 pt-12 border-t border-brand-gray/30 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-xl">
+            <h3 className="text-2xl font-serif text-brand-petroleum mb-4">¿Buscas una opción de renta?</h3>
+            <p className="text-brand-graphite font-sans">
+              También contamos con esquemas de alquiler mensual para proyectos temporales o almacenamiento dinámico.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <a href="/renta-contenedores-cdmx" className="btn-primary uppercase tracking-widest text-xs font-bold px-10">
+              Ver opciones de renta
+            </a>
+            <a href="/compra-contenedores-cdmx" className="btn-secondary uppercase tracking-widest text-xs font-bold px-10">
+              Detalles de venta
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Logistics section - Improved Legibility */}
+      {/* Logistics section */}
       <section className="bg-brand-gray/20 border-t border-brand-gray py-20 md:py-32">
         <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
           <div className="flex flex-col items-center text-center gap-6 md:gap-8">
             <Truck className="w-12 h-12 md:w-14 md:h-14 text-brand-orange" />
-            <h3 className="text-2xl md:text-3xl font-serif text-brand-petroleum">Logística y Posicionamiento</h3>
-            <p className="text-base md:text-lg text-brand-graphite leading-relaxed font-sans">
+            <h3 className="text-2xl md:text-3xl font-serif text-brand-petroleum uppercase tracking-tight">Logística</h3>
+            <p className="text-base text-brand-graphite leading-relaxed font-sans">
               Contamos con equipo especializado para la entrega y el posicionamiento preciso de unidades en sitios de difícil acceso.
             </p>
           </div>
           <div className="flex flex-col items-center text-center gap-6 md:gap-8">
             <Clock className="w-12 h-12 md:w-14 md:h-14 text-brand-orange" />
-            <h3 className="text-2xl md:text-3xl font-serif text-brand-petroleum">Disponibilidad sujeta a inventario y ubicación</h3>
-            <p className="text-base md:text-lg text-brand-graphite leading-relaxed font-sans">
-              Tiempos definidos según disponibilidad y logística.
+            <h3 className="text-2xl md:text-3xl font-serif text-brand-petroleum uppercase tracking-tight">Disponibilidad</h3>
+            <p className="text-base text-brand-graphite leading-relaxed font-sans">
+              Tiempos de entrega optimizados según disponibilidad de inventario y ubicación del proyecto.
             </p>
           </div>
           <div className="flex flex-col items-center text-center gap-6 md:gap-8">
             <ShieldCheck className="w-12 h-12 md:w-14 md:h-14 text-brand-orange" />
-            <h3 className="text-2xl md:text-3xl font-serif text-brand-petroleum">Garantía Estructural</h3>
-            <p className="text-base md:text-lg text-brand-graphite leading-relaxed font-sans">
-              Cada unidad entregada pasa por un proceso de inspección técnica para asegurar su hermeticidad y estabilidad.
+            <h3 className="text-2xl md:text-3xl font-serif text-brand-petroleum uppercase tracking-tight">Garantía</h3>
+            <p className="text-base text-brand-graphite leading-relaxed font-sans">
+              Cada unidad entregada pasa por un proceso de inspección técnica para asegurar su hermeticidad y estabilidad estructural.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Use Cases Section - New P3 Links */}
+      {/* Use Cases Section */}
       <section className="py-20 md:py-32 bg-brand-white">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="mb-16 max-w-3xl">
-            <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl uppercase tracking-tight">
               ¿Para qué necesitas un contenedor?
             </h2>
             <p className="text-lg text-brand-graphite font-sans">
-              Los contenedores marítimos ofrecen soluciones versátiles para diversas necesidades operativas en la Ciudad de México.
+              Los contenedores marítimos ofrecen soluciones versátiles para diversas necesidades operativas.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -286,7 +226,7 @@ const VentaRenta: React.FC = () => {
                 href={useCase.path}
                 className="group p-8 border border-brand-gray/30 rounded-sm hover:border-brand-orange transition-all bg-slate-50/50"
               >
-                <h3 className="text-xl font-bold text-brand-petroleum mb-3 group-hover:text-brand-orange transition-colors">{useCase.title}</h3>
+                <h3 className="text-xl font-bold text-brand-petroleum mb-3 group-hover:text-brand-orange transition-colors uppercase tracking-tight">{useCase.title}</h3>
                 <p className="text-sm text-brand-graphite font-sans mb-6">{useCase.desc}</p>
                 <span className="text-xs font-bold text-brand-orange tracking-widest uppercase flex items-center gap-2">
                   EXPLORAR CASO <ArrowRight className="h-3 w-3" />
@@ -298,9 +238,17 @@ const VentaRenta: React.FC = () => {
       </section>
 
       <FAQ 
-        items={[...faqData, ...generalFaq]} 
+        items={[...faqData, ...generalFaq].map(f => ({ question: f.question, answer: f.answer }))} 
         title="Dudas sobre Venta y Renta"
         subtitle="Información clave para decidir la mejor opción de infraestructura para su operación."
+      />
+
+      {/* F4.0 - Drawer */}
+      <DeliveryQuoteDrawer 
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { FAQ } from '../components/FAQ';
@@ -17,7 +17,8 @@ import {
   Store,
   Factory,
   Compass,
-  Zap
+  Zap,
+  Wrench
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getHeroMotionConfig } from '../lib/heroMotion';
@@ -25,6 +26,9 @@ import { SemanticSelectors } from '../semantic/selectors';
 import { Knowledge } from '../semantic';
 import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 import { coverageToAreaServed } from '../lib/semantic-schema';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const ProveedorContenedoresCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -32,7 +36,21 @@ const ProveedorContenedoresCDMX: React.FC = () => {
   const baseLocation = SemanticSelectors.getOrganizationLocation();
   const faqs = SemanticSelectors.getFaqByCategory('proveedor-contenedores');
   
-  // Products
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
+  
+  // Products from Core (filtered)
   const product20ft = SemanticSelectors.getProductById('product:container-20ft');
   const product40ft = SemanticSelectors.getProductById('product:container-40ft');
   const product40hc = SemanticSelectors.getProductById('product:container-40hc');
@@ -333,6 +351,55 @@ const ProveedorContenedoresCDMX: React.FC = () => {
         </div>
       </section>
 
+      {/* SECCIÓN — OFERTA PÚBLICA (F4.0) */}
+      <section className="py-24 bg-brand-gray/20 border-y border-brand-gray">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="section-title mb-6">Unidades Disponibles para Entrega</h2>
+            <p className="text-lg text-slate-600 font-sans">
+              Contenedores marítimos usados verificados estructuralmente, listos para ser integrados a su operación empresarial.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {purchaseOffers.map((offer) => (
+              <ContainerOfferCard 
+                key={offer.id} 
+                offer={offer} 
+                onQuote={handleQuote} 
+              />
+            ))}
+
+            {/* Módulo Especial - Logística */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-brand-petroleum text-white p-8 flex flex-col justify-between border border-white/10 group"
+            >
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-brand-orange text-[10px] font-bold uppercase tracking-widest">
+                  <Truck className="h-3 w-3" />
+                  Servicios
+                </div>
+                <h3 className="text-2xl font-serif mb-4">Logística y Maniobra</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-8 font-sans">
+                  Como su proveedor integral, coordinamos la entrega y colocación de las unidades en su ubicación específica en CDMX y zona metropolitana.
+                </p>
+              </div>
+              <button 
+                onClick={ctaWhatsApp}
+                className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest text-white">Consultar Entrega</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
+              </button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* SECCIÓN — COMPRA O RENTA */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6 lg:px-12">
@@ -471,6 +538,14 @@ const ProveedorContenedoresCDMX: React.FC = () => {
           </div>
         </div>
       </nav>
+
+      {/* F4.0 - Drawer */}
+      <DeliveryQuoteDrawer 
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

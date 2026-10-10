@@ -202,6 +202,27 @@ function validateKnowledge() {
     });
   }
 
+  // 9. Inventory validation
+  if (data.inventory) {
+    data.inventory.forEach(inv => {
+      if (!inv.id.startsWith('inventory:')) {
+        reportError(`Inventory ID ${inv.id} must start with 'inventory:'`);
+      }
+      if (!allIds.has(inv.productId)) {
+        reportError(`Dangling productId reference: ${inv.productId} in inventory ${inv.id}`);
+      }
+      if (!allIds.has(inv.locationId)) {
+        reportError(`Dangling locationId reference: ${inv.locationId} in inventory ${inv.id}`);
+      }
+      if (!['in_stock', 'low_stock', 'out_of_stock', 'on_request'].includes(inv.stockStatus)) {
+        reportError(`Invalid stockStatus: ${inv.stockStatus} in ${inv.id}`);
+      }
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(inv.lastVerifiedAt)) {
+        reportError(`Invalid lastVerifiedAt date: ${inv.lastVerifiedAt} in ${inv.id}`);
+      }
+    });
+  }
+
   if (hasErrors) {
     console.error('❌ Validation failed.');
     process.exit(1);

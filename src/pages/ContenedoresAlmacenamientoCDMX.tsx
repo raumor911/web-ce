@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { FAQ } from '../components/FAQ';
@@ -7,6 +7,9 @@ import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { Link } from 'react-router-dom';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const ContenedoresAlmacenamientoCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -14,6 +17,20 @@ const ContenedoresAlmacenamientoCDMX: React.FC = () => {
   const baseLocation = SemanticSelectors.getLocationById(org.locationId);
   const useCase = SemanticSelectors.getUseCaseById('usecase:storage');
   const faqs = SemanticSelectors.getFaqByCategory('almacenamiento');
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -230,60 +247,53 @@ const ContenedoresAlmacenamientoCDMX: React.FC = () => {
         </div>
       </section>
 
-      {/* BLOQUE — TAMAÑO */}
-      <section className="py-24 bg-brand-white">
+      {/* BLOQUE — OFERTA PÚBLICA (F4.0) */}
+      <section className="py-24 bg-brand-gray/20 border-y border-brand-gray">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl">
-              Capacidad según lo que necesitas almacenar
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl uppercase tracking-tight">
+              Unidades para almacenamiento inmediato
             </h2>
             <p className="max-w-2xl mx-auto text-lg text-slate-600 font-sans">
-              Desde soluciones compactas hasta gran volumen, disponemos del tamaño adecuado para tu resguardo.
+              Contenedores usados con garantía estructural, ideales para ampliar capacidad de resguardo de forma rápida y segura.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {SemanticSelectors.getProductsForUseCase('usecase:storage').map((product) => {
-              const imageMap: Record<string, string> = {
-                'product:container-20ft': '/images/venta-renta-contenedor-20ft.png',
-                'product:container-40ft': '/images/venta-renta-contenedor-40ft.png',
-                'product:container-40hc': '/images/venta-renta-contenedor-40ft.png'
-              };
-              const pathMap: Record<string, string> = {
-                'product:container-20ft': '/contenedor-20-pies-cdmx',
-                'product:container-40ft': '/contenedor-40-pies-cdmx',
-                'product:container-40hc': '/contenedor-40-high-cube-cdmx'
-              };
-              
-              return (
-                <Link 
-                  key={product.id} 
-                  to={pathMap[product.id]}
-                  className="group p-10 border border-slate-200 text-center hover:border-brand-orange transition-colors"
-                >
-                  <div className="mb-6 flex justify-center overflow-hidden rounded-sm bg-slate-50">
-                    <img 
-                      src={imageMap[product.id]} 
-                      alt={product.name} 
-                      className="h-48 w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-brand-petroleum mb-4">{product.name}</h3>
-                  <span className="inline-flex items-center gap-2 text-brand-orange font-bold text-sm tracking-widest uppercase">
-                    VER DETALLES <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
+            {purchaseOffers.map((offer) => (
+              <ContainerOfferCard 
+                key={offer.id} 
+                offer={offer} 
+                onQuote={handleQuote} 
+              />
+            ))}
 
-          <div className="mt-16 text-center">
-            <Link 
-              to="/soluciones/venta-renta" 
-              className="inline-flex items-center gap-3 bg-brand-petroleum text-white px-10 py-4 text-sm font-bold tracking-widest hover:bg-brand-petroleum-light transition-colors"
+            {/* Módulo Especial - Renta */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-brand-petroleum text-white p-8 flex flex-col justify-between border border-white/10 group"
             >
-              COMPARAR TAMAÑOS
-            </Link>
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-brand-orange text-[10px] font-bold uppercase tracking-widest">
+                  <Clock className="h-3 w-3" />
+                  Temporalidad
+                </div>
+                <h3 className="text-2xl font-serif mb-4">Renta Mensual</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-8 font-sans">
+                  Si su necesidad es temporal, disponemos de planes de renta mensual para almacenamiento en sitio con entrega inmediata.
+                </p>
+              </div>
+              <Link 
+                to="/renta-contenedores-cdmx"
+                className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Renta</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -332,6 +342,14 @@ const ContenedoresAlmacenamientoCDMX: React.FC = () => {
           title="Preguntas frecuentes sobre almacenamiento"
         />
       )}
+
+      {/* F4.0 - Drawer */}
+      <DeliveryQuoteDrawer 
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

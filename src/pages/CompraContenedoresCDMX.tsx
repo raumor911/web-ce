@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { CheckCircle2, MapPin, Truck, ShieldCheck, Clock, MessageSquare, ArrowRight, Package, HardHat, LayoutGrid, Settings } from 'lucide-react';
+import { MapPin, MessageSquare, Package, HardHat, LayoutGrid, Settings, ArrowRight } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
-import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
+import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const CompraContenedoresCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
   const location = SemanticSelectors.getLocationById('loc:cdmx');
   const baseLocation = SemanticSelectors.getLocationById(org.locationId);
-  const service = SemanticSelectors.getServiceById('service:container-sale');
-  const product20ft = SemanticSelectors.getProductById('product:container-20ft');
-  const product40ft = SemanticSelectors.getProductById('product:container-40ft');
   const faqs = SemanticSelectors.getFaqByCategory('container-sale');
+  
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
 
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -119,84 +133,50 @@ const CompraContenedoresCDMX: React.FC = () => {
         </motion.div>
       </header>
 
-      {/* BLOQUE 2 — QUÉ PUEDES COMPRAR */}
+      {/* BLOQUE 2 — OFERTA PÚBLICA DE VENTA */}
       <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12">
-        <div className="mb-16 md:mb-24 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum">Contenedores según tu necesidad</h2>
+        <div className="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-6">Oferta de Venta en {location?.name || 'CDMX'}</h2>
+          <p className="text-brand-graphite text-lg font-sans">
+            Unidades marítimas usadas, verificadas estructuralmente y listas para entrega inmediata desde nuestro patio operativo.
+          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* 20 pies */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="card-industrial group flex flex-col h-full !p-0 overflow-hidden shadow-lg border border-brand-gray/30"
-          >
-            <div className="aspect-video bg-brand-gray/10 p-8 flex items-center justify-center overflow-hidden border-b border-brand-gray/20">
-              <img src="/images/venta-renta-contenedor-20ft.png" alt={product20ft?.name || 'Contenedor 20 pies'} className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
-            </div>
-            <div className="p-8 flex flex-col flex-1">
-              <h3 className="text-2xl font-serif text-brand-petroleum mb-4">{product20ft?.name || 'Contenedor de 20 pies'}</h3>
-              <p className="text-brand-graphite leading-relaxed mb-8 flex-1">
-                Una opción compacta para almacenamiento de materiales, herramientas, inventario o equipamiento cuando el espacio disponible es limitado.
-              </p>
-              <div className="flex flex-col gap-4">
-                <a href="/contenedor-20-pies-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
-                  Detalles 20 pies <ArrowRight className="h-4 w-4" />
-                </a>
-                <a href="/contacto" className="text-sm text-brand-petroleum hover:text-brand-orange transition-colors">
-                  Consultar disponibilidad
-                </a>
-              </div>
-            </div>
-          </motion.div>
+          {purchaseOffers.map((offer) => (
+            <ContainerOfferCard 
+              key={offer.id} 
+              offer={offer} 
+              onQuote={handleQuote} 
+            />
+          ))}
 
-          {/* 40 pies */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="card-industrial group flex flex-col h-full !p-0 overflow-hidden shadow-lg border border-brand-gray/30"
-          >
-            <div className="aspect-video bg-brand-gray/10 p-8 flex items-center justify-center overflow-hidden border-b border-brand-gray/20">
-              <img src="/images/venta-renta-contenedor-40ft.png" alt={product40ft?.name || 'Contenedor 40 pies'} className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
-            </div>
-            <div className="p-8 flex flex-col flex-1">
-              <h3 className="text-2xl font-serif text-brand-petroleum mb-4">{product40ft?.name || 'Contenedor de 40 pies'}</h3>
-              <p className="text-brand-graphite leading-relaxed mb-8 flex-1">
-                Mayor capacidad para operaciones que requieren ampliar almacenamiento o concentrar materiales y equipos en un solo espacio.
-              </p>
-              <div className="flex flex-col gap-4">
-                <a href="/contenedor-40-pies-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
-                  Detalles 40 pies <ArrowRight className="h-4 w-4" />
-                </a>
-                <a href="/contacto" className="text-sm text-brand-petroleum hover:text-brand-orange transition-colors">
-                  Consultar disponibilidad
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Acondicionados */}
+          {/* Módulo Especial / Acondicionados */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="card-industrial group flex flex-col h-full !p-0 overflow-hidden shadow-lg border border-brand-gray/30"
+            className="bg-brand-petroleum text-white p-8 flex flex-col justify-between border border-white/10 group"
           >
-            <div className="aspect-video bg-brand-gray/10 p-8 flex items-center justify-center overflow-hidden border-b border-brand-gray/20">
-              <img src="/images/oficina-contenedor-creativos-espacios.png" alt="Soluciones acondicionadas" className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-            </div>
-            <div className="p-8 flex flex-col flex-1">
-              <h3 className="text-2xl font-serif text-brand-petroleum mb-4">Contenedores acondicionados</h3>
-              <p className="text-brand-graphite leading-relaxed mb-8 flex-1">
-                Cuando el proyecto requiere algo más que almacenamiento, un contenedor puede convertirse en oficina, área operativa u otra solución acondicionada.
+            <div>
+              <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-brand-orange text-[10px] font-bold uppercase tracking-widest">
+                <Settings className="h-3 w-3" />
+                Acondicionados
+              </div>
+              <h3 className="text-2xl font-serif mb-4">Proyectos Especiales</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-8 font-sans">
+                Cuando el proyecto requiere algo más que almacenamiento, convertimos contenedores en oficinas, áreas operativas o infraestructura técnica a la medida.
               </p>
-              <a href="/soluciones/oficinas" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
-                Ver soluciones <ArrowRight className="h-4 w-4" />
+            </div>
+            <div className="space-y-4">
+              <a href="/soluciones/oficinas" className="flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group/link">
+                <span className="text-xs font-bold uppercase tracking-widest">Ver Oficinas</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1.5" />
+              </a>
+              <a href="/proyectos" className="flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group/link">
+                <span className="text-xs font-bold uppercase tracking-widest">Proyectos Especiales</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1.5" />
               </a>
             </div>
           </motion.div>
@@ -208,7 +188,9 @@ const CompraContenedoresCDMX: React.FC = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="mb-16 md:mb-24 max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-serif mb-6 text-white">¿Para qué necesitas el contenedor?</h2>
-            <p className="text-white/70 text-lg">Entendemos que la compra de un contenedor es una solución a una necesidad operativa específica.</p>
+            <p className="text-white/70 text-lg font-sans leading-relaxed text-justify">
+              Entendemos que la compra de un contenedor es una solución a una necesidad operativa específica. No solo vendemos cajas de acero; proveemos la infraestructura base para su proyecto.
+            </p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -221,139 +203,64 @@ const CompraContenedoresCDMX: React.FC = () => {
               <div key={idx} className="space-y-4 group">
                 <div className="h-1 w-12 bg-brand-orange group-hover:w-20 transition-all duration-500"></div>
                 <item.icon className="w-10 h-10 text-brand-orange/80 mb-2 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-serif">{item.title}</h3>
-                <p className="text-white/60 leading-relaxed">{item.text}</p>
+                <h3 className="text-xl font-serif uppercase tracking-tight">{item.title}</h3>
+                <p className="text-white/60 leading-relaxed text-sm font-sans">{item.text}</p>
               </div>
             ))}
           </div>
-          
-          <div className="mt-16 md:mt-24">
-            <a href="/contacto" className="btn-primary inline-block">Cuéntanos qué necesitas resolver</a>
-          </div>
         </div>
       </section>
 
-      {/* BLOQUE 4 — 20 O 40 PIES */}
-      <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-8">¿20 o 40 pies?</h2>
-            <p className="text-brand-graphite text-lg mb-10 font-sans">
-              La elección depende del volumen que necesitas almacenar, espacio disponible, acceso al sitio y uso previsto.
-            </p>
-            
-            <div className="space-y-8">
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange font-bold">20</div>
-                <div>
-                  <h4 className="text-xl font-serif text-brand-petroleum mb-2">{product20ft?.name || '20 pies'}</h4>
-                  <ul className="space-y-2 text-brand-graphite/80">
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> menor espacio requerido</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> necesidades de almacenamiento moderadas</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> proyectos con restricciones de ubicación</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange font-bold">40</div>
-                <div>
-                  <h4 className="text-xl font-serif text-brand-petroleum mb-2">{product40ft?.name || '40 pies'}</h4>
-                  <ul className="space-y-2 text-brand-graphite/80">
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> mayor volumen</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> inventario o materiales de mayor escala</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> operaciones que requieren más capacidad</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-12 flex flex-wrap gap-6">
-              <a href="/contacto" className="btn-primary">Ayúdame a elegir</a>
-              <a href="/contenedores-usados-cdmx" className="btn-secondary flex items-center gap-2">
-                Ver contenedores usados <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-          
-          <div className="lg:w-1/2 bg-brand-gray/10 p-12 rounded-lg border border-brand-gray/30">
-            <div className="aspect-[4/3] relative">
-              <img src="/images/venta-renta-hero.png" alt="Comparativa de contenedores" className="h-full w-full object-cover grayscale rounded shadow-2xl" />
-              <div className="absolute inset-0 bg-brand-petroleum/20 mix-blend-multiply"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* BLOQUE 5 — COMPRA EN CDMX */}
+      {/* BLOQUE 4 — UBICACIÓN ESTRATÉGICA */}
       <section className="bg-brand-gray/20 border-y border-brand-gray py-20 md:py-32">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <MapPin className="w-12 h-12 text-brand-orange mx-auto mb-8" />
-            <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-8">Contenedores con atención desde {location?.name || 'Ciudad de México'}</h2>
+            <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-8">Atención desde {location?.name || 'Ciudad de México'}</h2>
             <p className="text-lg md:text-xl text-brand-graphite leading-relaxed mb-10 font-sans">
-              Creativos Espacios opera desde {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}. Desde este punto coordinamos proyectos de compra, acondicionamiento y logística de contenedores para empresas y proyectos en la {location?.name || 'Ciudad de México'} y zona metropolitana.
+              Creativos Espacios opera desde su centro operativo en {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}. Desde este punto coordinamos proyectos de compra, acondicionamiento y logística de contenedores para empresas y proyectos en la {location?.name || 'Ciudad de México'} y zona metropolitana.
             </p>
-            <a href="/contacto" className="btn-secondary">Contactar con un asesor</a>
+            <a href="/contacto" className="btn-secondary uppercase tracking-widest text-xs font-bold">Contactar con un asesor</a>
           </div>
         </div>
       </section>
 
-      {/* BLOQUE 6 — CÓMO FUNCIONA */}
-      <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12">
-        <div className="mb-16 md:mb-24 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum">De la necesidad al contenedor</h2>
-          <p className="mt-4 text-brand-graphite/60">Nuestro proceso asegura que la solución responda a tu contexto real.</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          {[
-            { step: 1, title: "Consulta", text: "Cuéntanos qué necesitas almacenar o resolver" },
-            { step: 2, title: "Definición", text: "Definimos capacidad y configuración" },
-            { step: 3, title: "Sitio", text: "Revisamos las condiciones del sitio" },
-            { step: 4, title: "Propuesta", text: "Preparamos una propuesta según el alcance" },
-            { step: 5, title: "Logística", text: "Coordinamos logística y siguientes pasos" }
-          ].map((item, idx) => (
-            <div key={idx} className="relative">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-brand-petroleum text-white font-serif text-xl">
-                {item.step}
-              </div>
-              <h4 className="text-lg font-bold text-brand-petroleum mb-3">{item.title}</h4>
-              <p className="text-sm text-brand-graphite/70 leading-relaxed">{item.text}</p>
-              {idx < 4 && (
-                <div className="hidden md:block absolute top-6 left-12 w-full h-[1px] bg-brand-gray -z-10"></div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* BLOQUE 7 — FAQ COMPRA */}
+      {/* FAQ COMPRA */}
       <FAQ 
         items={faqs.map(faq => ({
           question: faq.question,
           answer: faq.answer
         }))} 
         title="Preguntas frecuentes sobre compra"
-        subtitle={`Información clave para orientar tu decisión de compra en ${location?.name || 'CDMX'}.`}
+        subtitle={`Información técnica y comercial para orientar su decisión de compra en ${location?.name || 'CDMX'}.`}
       />
 
-      {/* BLOQUE FINAL */}
+      {/* CTA FINAL */}
       <section className="bg-brand-petroleum py-20 md:py-32 text-white border-t border-white/10">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <h2 className="text-3xl md:text-5xl font-serif mb-8 text-white">¿Buscas comprar un contenedor en {location?.name || 'CDMX'}?</h2>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/70 mb-12 font-sans">
-            Cuéntanos qué necesitas almacenar, dónde estará el contenedor y qué uso tendrá. Con esa información podemos orientarte hacia una solución adecuada.
+            Solicite una cotización formal que incluya el costo de entrega y maniobras en su ubicación específica.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="/contacto" className="btn-primary">Solicitar información</a>
-            <button onClick={ctaWhatsApp} className="flex items-center gap-3 px-8 py-4 bg-transparent border border-white/30 text-white font-bold hover:bg-white/10 transition-all rounded">
-              <MessageSquare className="w-5 h-5 text-brand-orange" />
-              Hablar por WhatsApp
+            <button onClick={ctaWhatsApp} className="btn-primary flex items-center gap-3">
+              <MessageSquare className="w-5 h-5 text-brand-petroleum" />
+              Solicitar Cotización por WhatsApp
             </button>
+            <a href="/contacto" className="btn-secondary border-white/20 text-white hover:bg-white/10">
+              Formulario de Contacto
+            </a>
           </div>
         </div>
       </section>
+
+      {/* F4.0 - Drawer */}
+      <DeliveryQuoteDrawer 
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

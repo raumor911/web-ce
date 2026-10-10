@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { FAQ } from '../components/FAQ';
@@ -6,6 +6,9 @@ import { CheckCircle2, MapPin, MessageSquare, ArrowRight, Clock, ShieldCheck, Tr
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const Contenedor40HighCubeCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -13,6 +16,21 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
   const location = SemanticSelectors.getLocationById('loc:cdmx');
   const baseLocation = SemanticSelectors.getLocationById(org.locationId);
   const faqs = SemanticSelectors.getFaqByCategory('contenedor-40hc');
+
+  // F4.0 - Public Offers for this specific product
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used',
+    productId: 'product:container-40hc'
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -158,6 +176,55 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
         </div>
       </section>
 
+      {/* BLOQUE — OFERTA PÚBLICA (F4.0) */}
+      <section className="bg-brand-gray/20 py-20 md:py-32 border-y border-brand-gray">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-6">Unidades 40 HC disponibles</h2>
+            <p className="text-brand-graphite text-lg font-sans">
+              Contenedores marítimos de 40 pies High Cube usados, verificados estructuralmente y listos para entrega inmediata.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+            {purchaseOffers.map((offer) => (
+              <ContainerOfferCard 
+                key={offer.id} 
+                offer={offer} 
+                onQuote={handleQuote} 
+              />
+            ))}
+
+            {/* Módulo Especial - Acondicionamiento */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-brand-petroleum text-white p-8 flex flex-col justify-between border border-white/10 group"
+            >
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-brand-orange text-[10px] font-bold uppercase tracking-widest">
+                  <Wrench className="h-3 w-3" />
+                  Servicios
+                </div>
+                <h3 className="text-2xl font-serif mb-4">Acondicionamiento</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-8 font-sans">
+                  La altura extra del High Cube es ideal para proyectos que requieren plafones, instalaciones técnicas o mayor volumen interior.
+                </p>
+              </div>
+              <a 
+                href="/soluciones/oficinas"
+                className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Soluciones</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* BLOQUE — 40 STANDARD VS 40 HIGH CUBE */}
       <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
@@ -250,6 +317,14 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
           <a href="/contacto" className="btn-primary">Solicitar información</a>
         </div>
       </section>
+
+      {/* F4.0 - Drawer */}
+      <DeliveryQuoteDrawer 
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

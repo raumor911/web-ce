@@ -1,18 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 import { coverageToAreaServed } from '../lib/semantic-schema';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const Proyectos: React.FC = () => {
+  const org = SemanticSelectors.getOrganization();
   const serviceProjects = SemanticSelectors.getServiceById('service:modular-projects');
   const faqData = SemanticSelectors.getFaqByCategory('proyectos');
   const coverage = SemanticSelectors.getCoverageForService('service:modular-projects');
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
 
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -185,18 +203,37 @@ const Proyectos: React.FC = () => {
                   ))}
                 </ul>
                 <div className="mt-auto">
-                  <a 
-                    href="https://wa.me/522291846751" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <button 
+                    onClick={() => window.open(org.contact.whatsapp, '_blank')}
                     className="btn-primary w-full text-center py-4 md:py-5 text-[10px] md:text-xs block"
                   >
                     {sol.cta}
-                  </a>
+                  </button>
                 </div>
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* F4.0 - Unidades Base Section */}
+        <div className="mt-32 pt-20 border-t border-slate-100">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-brand-petroleum md:text-4xl uppercase tracking-tight">
+              Unidades base para su proyecto
+            </h2>
+            <p className="text-lg text-slate-600 font-sans leading-relaxed mt-6">
+              Seleccione la estructura marítima que servirá como base para el desarrollo de su solución modular.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {purchaseOffers.slice(0, 3).map((offer) => (
+              <ContainerOfferCard 
+                key={offer.id} 
+                offer={offer} 
+                onQuote={handleQuote} 
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -251,6 +288,14 @@ const Proyectos: React.FC = () => {
         title="Dudas sobre Proyectos Especiales"
         subtitle="Resolvemos las principales dudas antes de desarrollar una solución modular a la medida."
         eyebrow="ASESORÍA TÉCNICA"
+      />
+
+      {/* DELIVERY QUOTE DRAWER (F4.0) */}
+      <DeliveryQuoteDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
       />
     </div>
   );

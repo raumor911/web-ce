@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { ArrowRight, HardHat, Building2, Clock, Truck, Maximize, Layout, CheckCircle2, Info, Users, ClipboardCheck, MessageSquare } from 'lucide-react';
@@ -8,6 +8,9 @@ import { SemanticSelectors } from '../semantic/selectors';
 import { Knowledge } from '../semantic';
 import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 import { coverageToAreaServed } from '../lib/semantic-schema';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const OficinaSupervisionObraCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -19,6 +22,20 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
   const products = SemanticSelectors.getProductsForUseCase('usecase:site-supervision');
   const serviceOffices = SemanticSelectors.getServiceById('service:relocatable-offices');
   const coverage = SemanticSelectors.getCoverageForService('service:relocatable-offices');
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
 
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -228,28 +245,25 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <span className="section-subtitle">ESPACIO DISPONIBLE</span>
-            <h2 className="section-title mb-6">El tamaño depende de cómo trabajará tu equipo</h2>
+            <span className="section-subtitle">UNIDADES BASE</span>
+            <h2 className="section-title mb-6">Contenedores para habilitar como oficina</h2>
+            <p className="max-w-2xl mx-auto text-lg text-slate-600 font-sans">
+              La elección del tamaño depende del número de personas, distribución y funciones requeridas en sitio.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {products.map((product) => (
-              <div key={product.id} className="p-10 bg-white border border-slate-100 rounded-sm hover:border-brand-orange transition-colors group shadow-sm">
-                <h3 className="text-2xl font-bold text-brand-petroleum mb-2 uppercase tracking-tight">{product.name}</h3>
-                <div className="flex flex-col gap-1 mb-6 text-xs font-bold text-brand-orange tracking-widest uppercase">
-                  <span>Nominal: {product.nominalDimensions}</span>
-                  <span>Exterior: {product.externalDimensions?.lengthMm}mm × {product.externalDimensions?.widthMm}mm</span>
-                </div>
-                <p className="text-slate-600 font-sans mb-8 text-sm leading-relaxed">
-                  {product.description}
-                </p>
-                <Link to={product.id === 'product:container-20ft' ? '/contenedor-20-pies-cdmx' : '/contenedor-40-pies-cdmx'} className="inline-flex items-center gap-2 text-brand-orange font-bold text-xs tracking-widest uppercase group-hover:gap-3 transition-all">
-                  VER ESPECIFICACIONES <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {purchaseOffers
+              .filter(offer => useCase?.supportedProductIds.includes(offer.product.id))
+              .map((offer) => (
+                <ContainerOfferCard
+                  key={offer.product.id}
+                  offer={offer}
+                  onQuote={handleQuote}
+                />
+              ))}
           </div>
           <p className="mt-12 text-center text-slate-500 font-sans text-sm italic">
-            La elección del tamaño depende del número de personas, distribución y funciones requeridas.
+            * Los precios corresponden a la unidad base. El acondicionamiento como oficina (aislamiento, ventanas, puerta, instalación eléctrica, clima) se cotiza por separado según sus requerimientos.
           </p>
         </div>
       </section>
@@ -400,6 +414,14 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
           </div>
         </div>
       </nav>
+
+      {/* DELIVERY QUOTE DRAWER (F4.0) */}
+      <DeliveryQuoteDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

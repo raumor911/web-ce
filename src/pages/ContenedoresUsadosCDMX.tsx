@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { FAQ } from '../components/FAQ';
@@ -6,12 +6,29 @@ import { CheckCircle2, MapPin, MessageSquare, ArrowRight, Clock, ShieldCheck, Tr
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const ContenedoresUsadosCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
   const location = SemanticSelectors.getLocationById('loc:cdmx');
   const baseLocation = SemanticSelectors.getLocationById(org.locationId);
   const faqs = SemanticSelectors.getFaqByCategory('contenedor-usado');
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -141,33 +158,51 @@ const ContenedoresUsadosCDMX: React.FC = () => {
         </div>
       </section>
 
-      {/* BLOQUE — 20 O 40 PIES */}
+      {/* BLOQUE — OFERTA PÚBLICA (F4.0) */}
       <section className="bg-brand-gray/20 py-20 md:py-32 border-y border-brand-gray">
         <div className="container mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum text-center mb-16">Elige la capacidad según tu proyecto</h2>
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-6">Unidades Disponibles</h2>
+            <p className="text-brand-graphite text-lg font-sans">
+              Contenedores marítimos usados con garantía estructural, listos para entrega inmediata desde nuestro patio operativo.
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "20 pies", link: "/contenedor-20-pies-cdmx", desc: "Compacto y versátil para sitios con espacio limitado.", img: "/images/venta-renta-contenedor-20ft.png" },
-              { title: "40 pies", link: "/contenedor-40-pies-cdmx", desc: "Gran capacidad para inventarios y equipos de alto volumen.", img: "/images/venta-renta-contenedor-40ft.png" },
-              { title: "40 High Cube", link: "/contenedor-40-high-cube-cdmx", desc: "Altura adicional para mayor volumen vertical o acondicionamientos.", img: "/images/venta-renta-contenedor-40ft.png" }
-            ].map((item, idx) => (
-              <motion.div 
-                key={idx}
-                whileHover={{ y: -5 }}
-                className="bg-white border border-brand-gray shadow-sm hover:shadow-md transition-all group overflow-hidden flex flex-col"
-              >
-                <div className="aspect-video bg-brand-gray/10 p-6 flex items-center justify-center border-b border-brand-gray/20">
-                  <img src={item.img} alt={item.title} className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
-                </div>
-                <div className="p-8 flex flex-col flex-1">
-                  <h3 className="text-2xl font-serif text-brand-petroleum mb-4">{item.title}</h3>
-                  <p className="text-brand-graphite mb-8 flex-1">{item.desc}</p>
-                  <a href={item.link} className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
-                    Ver detalles <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </motion.div>
+            {purchaseOffers.map((offer) => (
+              <ContainerOfferCard 
+                key={offer.id} 
+                offer={offer} 
+                onQuote={handleQuote} 
+              />
             ))}
+
+            {/* Módulo Especial - Acondicionamiento */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-brand-petroleum text-white p-8 flex flex-col justify-between border border-white/10 group"
+            >
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 text-brand-orange text-[10px] font-bold uppercase tracking-widest">
+                  <Wrench className="h-3 w-3" />
+                  Servicios
+                </div>
+                <h3 className="text-2xl font-serif mb-4">Acondicionamiento</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-8 font-sans">
+                  Podemos transformar cualquier unidad usada en una oficina, bodega o espacio técnico según los requerimientos de su proyecto.
+                </p>
+              </div>
+              <a 
+                href="/proyectos"
+                className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Proyectos</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -220,6 +255,14 @@ const ContenedoresUsadosCDMX: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* F4.0 - Drawer */}
+      <DeliveryQuoteDrawer 
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
+      />
     </div>
   );
 };

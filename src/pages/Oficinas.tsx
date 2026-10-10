@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 import { coverageToAreaServed } from '../lib/semantic-schema';
+import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
+import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
+import { PublicContainerOffer } from '../types/semantic';
 
 const Oficinas: React.FC = () => {
+  const org = SemanticSelectors.getOrganization();
   const serviceOffices = SemanticSelectors.getServiceById('service:relocatable-offices');
   const configurations = SemanticSelectors.getConfigurationsForService('service:relocatable-offices');
   const faqData = SemanticSelectors.getFaqByCategory('oficinas');
   const generalFaq = SemanticSelectors.getGeneralFaq();
   const coverage = SemanticSelectors.getCoverageForService('service:relocatable-offices');
+
+  // F4.0 - Public Offers
+  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
+    serviceId: 'service:container-sale', 
+    condition: 'used' 
+  });
+
+  const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleQuote = (offer: PublicContainerOffer) => {
+    setSelectedOffer(offer);
+    setIsDrawerOpen(true);
+  };
 
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -204,16 +222,35 @@ const Oficinas: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-                <a 
-                  href="https://wa.me/522291846751" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <button 
+                  onClick={() => window.open(org.contact.whatsapp, '_blank')}
                   className="text-xs font-bold uppercase tracking-widest flex items-center gap-3 text-brand-petroleum hover:text-brand-orange transition-colors group"
                 >
                   Solicitar Cotización <ArrowRight size={18} className="text-brand-orange group-hover:translate-x-2 transition-transform" />
-                </a>
+                </button>
               </div>
             ))}
+          </div>
+
+          {/* F4.0 - Unidades Base Section */}
+          <div className="mt-32 pt-20 border-t border-brand-gray">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl font-bold text-brand-petroleum md:text-4xl uppercase tracking-tight">
+                Unidades base para su oficina
+              </h2>
+              <p className="text-lg text-brand-graphite leading-relaxed mt-6 font-sans">
+                Contenedores marítimos en excelentes condiciones estructurales para ser transformados en su próximo espacio de trabajo.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {purchaseOffers.slice(0, 3).map((offer) => (
+                <ContainerOfferCard 
+                  key={offer.id} 
+                  offer={offer} 
+                  onQuote={handleQuote} 
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -222,6 +259,14 @@ const Oficinas: React.FC = () => {
         items={[...faqData, ...generalFaq]} 
         title="Dudas sobre Oficinas Reubicables"
         subtitle="Todo lo que necesita saber para habilitar su espacio de trabajo en sitio."
+      />
+
+      {/* DELIVERY QUOTE DRAWER (F4.0) */}
+      <DeliveryQuoteDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        offer={selectedOffer}
+        whatsappNumber={org.contact.whatsapp}
       />
     </div>
   );
