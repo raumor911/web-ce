@@ -12,5 +12,8 @@ export function generateJSON(knowledge, kg, outDir) {
   }
   fs.writeFileSync(path.join(aiDir, 'claims-register.json'), JSON.stringify(knowledge.claims, null, 2));
   fs.writeFileSync(path.join(aiDir, 'sources.json'), JSON.stringify(knowledge.sources, null, 2));
+  if (knowledge.pricebook) {
+    fs.writeFileSync(path.join(aiDir, 'pricebook.json'), JSON.stringify(knowledge.pricebook, null, 2));
+  }
   fs.writeFileSync(path.join(aiDir, 'knowledge-graph.json'), JSON.stringify(kg, null, 2));
 }

@@ -24,3 +24,18 @@ Soluciones diseñadas específicamente para requerimientos únicos.
 ## Operaciones especializadas
 Módulos equipados para funciones industriales o comerciales específicas.
 
+## Almacenamiento en contenedor
+Capacidad adicional para materiales, herramientas, inventario o equipo.
+
+## Bodega en contenedor
+Uso del contenedor como espacio de resguardo operativo seguro y robusto.
+
+## Uso en obra
+Contenedor utilizado en proyectos de construcción para almacenamiento o apoyo operativo.
+
+## Oficina móvil
+Espacio acondicionable y reubicable para funciones administrativas u operativas.
+
+## Infraestructura para Data Center
+Módulos diseñados para el resguardo de servidores, equipos de red y sistemas de procesamiento de datos en entornos controlados.
+

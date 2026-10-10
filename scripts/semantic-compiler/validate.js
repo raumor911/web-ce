@@ -128,6 +128,80 @@ function validateKnowledge() {
   };
   Object.entries(data).forEach(([file, content]) => checkCanonicalPath(content, file));
 
+  // 6. Location validation
+  if (data.locations) {
+    data.locations.forEach(loc => {
+      if (!loc.id.startsWith('loc:')) {
+        reportError(`Location ID ${loc.id} must start with 'loc:'`);
+      }
+      if (!loc.slug) {
+        reportError(`Location ${loc.id} is missing slug`);
+      }
+      if (!loc.type) {
+        reportError(`Location ${loc.id} is missing type`);
+      }
+      if (loc.parentId && !allIds.has(loc.parentId)) {
+        reportError(`Dangling parent reference: ${loc.parentId} in location ${loc.id}`);
+      }
+    });
+  }
+
+  // 7. UseCase supportedProductIds validation
+  if (data['use-cases']) {
+    data['use-cases'].forEach(uc => {
+      if (uc.supportedProductIds) {
+        uc.supportedProductIds.forEach(pId => {
+          if (!allIds.has(pId)) {
+            reportError(`Dangling product reference: ${pId} in use-case ${uc.id}`);
+          }
+        });
+      }
+    });
+  }
+
+  // 8. PriceBook validation
+  if (data.pricebook) {
+    const activeCombo = new Set();
+    data.pricebook.forEach(price => {
+      if (!price.id.startsWith('price:')) {
+        reportError(`Price ID ${price.id} must start with 'price:'`);
+      }
+      if (!allIds.has(price.productId)) {
+        reportError(`Dangling productId reference: ${price.productId} in price ${price.id}`);
+      }
+      if (!allIds.has(price.serviceId)) {
+        reportError(`Dangling serviceId reference: ${price.serviceId} in price ${price.id}`);
+      }
+      if (price.amount <= 0) {
+        reportError(`Price amount must be greater than 0 in ${price.id}`);
+      }
+      if (!/^[A-Z]{3}$/.test(price.currency)) {
+        reportError(`Invalid ISO 4217 currency: ${price.currency} in ${price.id}`);
+      }
+      if (!['used', 'new', 'one-trip'].includes(price.condition)) {
+        reportError(`Invalid condition: ${price.condition} in ${price.id}`);
+      }
+      if (!['active', 'inactive'].includes(price.status)) {
+        reportError(`Invalid status: ${price.status} in ${price.id}`);
+      }
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(price.effectiveFrom)) {
+        reportError(`Invalid effectiveFrom date: ${price.effectiveFrom} in ${price.id}`);
+      }
+      if (price.effectiveTo && price.effectiveTo < price.effectiveFrom) {
+        reportError(`effectiveTo must be after effectiveFrom in ${price.id}`);
+      }
+
+      // Check for duplicate active combos
+      if (price.status === 'active') {
+        const combo = `${price.productId}|${price.serviceId}|${price.condition}|${price.currency}`;
+        if (activeCombo.has(combo)) {
+          reportError(`Duplicate ACTIVE price combination for ${combo} in ${price.id}`);
+        }
+        activeCombo.add(combo);
+      }
+    });
+  }
+
   if (hasErrors) {
     console.error('❌ Validation failed.');
     process.exit(1);

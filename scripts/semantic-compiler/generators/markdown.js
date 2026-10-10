@@ -100,4 +100,20 @@ export function generateMarkdown(knowledge, outDir) {
     });
     fs.writeFileSync(path.join(aiDir, 'intents.md'), intentsMd);
   }
+
+  // pricebook.md
+  if (knowledge.pricebook && knowledge.pricebook.length > 0) {
+    let pricesMd = `# Guía de Precios Comerciales (Referencia)\n\n`;
+    pricesMd += `| Producto | Condición | Servicio | Precio | Moneda | Vigencia |\n`;
+    pricesMd += `| :--- | :--- | :--- | :--- | :--- | :--- |\n`;
+    
+    knowledge.pricebook.filter(p => p.status === 'active').forEach(p => {
+      const product = knowledge.products.find(pr => pr.id === p.productId);
+      const service = knowledge.services.find(s => s.id === p.serviceId);
+      pricesMd += `| ${product?.name || p.productId} | ${p.condition} | ${service?.name || p.serviceId} | ${p.amount} | ${p.currency} | Desde ${p.effectiveFrom} |\n`;
+    });
+    
+    pricesMd += `\n*Nota: Los precios son referenciales y pueden variar según disponibilidad y ubicación.*\n`;
+    fs.writeFileSync(path.join(aiDir, 'pricebook.md'), pricesMd);
+  }
 }

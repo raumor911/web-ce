@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
+import { FAQ } from '../components/FAQ';
 import { CheckCircle2, MapPin, MessageSquare, ArrowRight, Clock, ShieldCheck, Truck, HardHat, Package, Wrench, Maximize, LayoutGrid, Boxes } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
@@ -8,6 +9,10 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 
 const ContenedoresUsadosCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
+  const location = SemanticSelectors.getLocationById('loc:cdmx');
+  const baseLocation = SemanticSelectors.getLocationById(org.locationId);
+  const faqs = SemanticSelectors.getFaqByCategory('contenedor-usado');
+  
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
 
@@ -21,9 +26,9 @@ const ContenedoresUsadosCDMX: React.FC = () => {
         "@type": "WebPage",
         "@id": webpageId,
         "url": pageUrl,
-        "name": "Contenedores usados en CDMX | Creativos Espacios",
+        "name": `Contenedores usados en ${location?.name || 'CDMX'} | Creativos Espacios`,
         "isPartOf": { "@id": WEBSITE_ID },
-        "description": "Consulta contenedores marítimos usados de 20 y 40 pies en Ciudad de México para almacenamiento, obra y necesidades operativas."
+        "description": `Consulta contenedores marítimos usados de 20 y 40 pies en ${location?.name || 'Ciudad de México'} para almacenamiento, obra y necesidades operativas.`
       },
       {
         "@type": "BreadcrumbList",
@@ -37,10 +42,21 @@ const ContenedoresUsadosCDMX: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Contenedores usados en CDMX",
+            "name": `Contenedores usados en ${location?.name || 'CDMX'}`,
             "item": pageUrl
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
       }
     ]
   };
@@ -62,7 +78,7 @@ const ContenedoresUsadosCDMX: React.FC = () => {
         <div className="pointer-events-none absolute inset-0">
           <motion.img
             src="/images/venta-renta-hero.png"
-            alt="Contenedores usados en Ciudad de México"
+            alt={`Contenedores usados en ${location?.name || 'Ciudad de México'}`}
             loading="eager"
             className="h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
@@ -79,10 +95,10 @@ const ContenedoresUsadosCDMX: React.FC = () => {
           animate="visible"
         >
           <motion.span variants={heroMotion.eyebrow} className="mb-4 block text-sm font-bold tracking-[0.2em] text-brand-orange uppercase">
-            CONTENEDORES MARÍTIMOS EN CDMX
+            CONTENEDORES MARÍTIMOS EN {location?.name || 'CDMX'}
           </motion.span>
           <motion.h1 variants={heroMotion.title} className="mb-8 leading-tight text-white max-w-4xl">
-            Contenedores usados en CDMX
+            Contenedores usados en {location?.name || 'CDMX'}
           </motion.h1>
           <motion.p variants={heroMotion.body} className="mb-10 max-w-2xl text-lg leading-relaxed text-white md:text-xl font-sans">
             Una alternativa para proyectos que necesitan capacidad de almacenamiento o infraestructura basada en contenedores sin requerir necesariamente una unidad nueva.
@@ -95,7 +111,7 @@ const ContenedoresUsadosCDMX: React.FC = () => {
           </motion.div>
           <motion.p variants={heroMotion.body} className="mt-8 flex items-center gap-2 text-sm text-white/70">
             <MapPin className="h-4 w-4 text-brand-orange" />
-            Atención desde Iztapalapa, Ciudad de México.
+            Atención desde {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}.
           </motion.p>
         </motion.div>
       </header>
@@ -179,6 +195,15 @@ const ContenedoresUsadosCDMX: React.FC = () => {
           Nota: El contenedor para acondicionamiento depende de su estado estructural y el tipo de modificación requerida.
         </p>
       </section>
+
+      {/* FAQ */}
+      {faqs.length > 0 && (
+        <FAQ 
+          items={faqs.map(f => ({ question: f.question, answer: f.answer }))}
+          eyebrow="ASESORÍA TÉCNICA"
+          title="Preguntas sobre contenedores usados"
+        />
+      )}
 
       {/* CTA FINAL */}
       <section className="bg-brand-petroleum py-20 md:py-32 text-white">

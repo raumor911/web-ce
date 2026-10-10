@@ -7,12 +7,14 @@ import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
+import { coverageToAreaServed } from '../lib/semantic-schema';
 
 const Oficinas: React.FC = () => {
   const serviceOffices = SemanticSelectors.getServiceById('service:relocatable-offices');
   const configurations = SemanticSelectors.getConfigurationsForService('service:relocatable-offices');
   const faqData = SemanticSelectors.getFaqByCategory('oficinas');
   const generalFaq = SemanticSelectors.getGeneralFaq();
+  const coverage = SemanticSelectors.getCoverageForService('service:relocatable-offices');
 
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -38,7 +40,7 @@ const Oficinas: React.FC = () => {
         "name": serviceOffices?.name || "Oficinas Reubicables",
         "provider": { "@id": ORG_ID },
         "description": serviceOffices?.description || "Diseño y suministro de oficinas modulares reubicables.",
-        "areaServed": { "@type": "Country", "name": "México" },
+        "areaServed": coverageToAreaServed(coverage),
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Configuraciones de Oficinas",
@@ -175,9 +177,14 @@ const Oficinas: React.FC = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center max-w-4xl mx-auto mb-16 md:mb-20">
             <h2 className="section-title">Configuraciones según las necesidades de tu operación</h2>
-            <p className="text-brand-graphite text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-sans">
+            <p className="text-brand-graphite text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-sans mb-8">
               Oficinas reubicables con distribución, equipamiento y servicios.
             </p>
+            <div className="flex justify-center">
+              <Link to="/oficinas-moviles-cdmx" className="text-brand-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 hover:gap-3 transition-all">
+                Explorar Oficinas Móviles en CDMX <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">

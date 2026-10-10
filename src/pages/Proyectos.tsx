@@ -1,17 +1,18 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
-import { Settings, Warehouse, Building2, Compass, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
+import { coverageToAreaServed } from '../lib/semantic-schema';
 
 const Proyectos: React.FC = () => {
   const serviceProjects = SemanticSelectors.getServiceById('service:modular-projects');
   const faqData = SemanticSelectors.getFaqByCategory('proyectos');
-  const generalFaq = SemanticSelectors.getGeneralFaq();
+  const coverage = SemanticSelectors.getCoverageForService('service:modular-projects');
 
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -37,7 +38,7 @@ const Proyectos: React.FC = () => {
         "name": serviceProjects?.name || "Proyectos Modulares",
         "provider": { "@id": ORG_ID },
         "description": serviceProjects?.description || "Desarrollo de proyectos modulares adaptados a requerimientos técnicos.",
-        "areaServed": { "@type": "Country", "name": "México" }
+        "areaServed": coverageToAreaServed(coverage)
       },
       {
         "@type": "BreadcrumbList",
@@ -59,7 +60,7 @@ const Proyectos: React.FC = () => {
       {
         "@type": "FAQPage",
         "@id": getEntityId('/proyectos', 'faq'),
-        "mainEntity": [...faqData, ...generalFaq].map(faq => ({
+        "mainEntity": faqData.map(faq => ({
           "@type": "Question",
           "name": faq.question,
           "acceptedAnswer": {
@@ -75,21 +76,21 @@ const Proyectos: React.FC = () => {
     {
       title: 'Almacenamiento y resguardo',
       desc: 'Espacios para proteger herramientas, materiales, equipos y suministros dentro de obras, plantas industriales y proyectos temporales.',
-      icon: <Warehouse className="w-10 h-10" />,
+      image: '/images/contenedor-para-almacenamiento-resguardo.jpg',
       features: ['Configuración según el uso', 'Ventilación', 'Iluminación', 'Opciones de seguridad'],
       cta: 'Conocer solución'
     },
     {
       title: 'Oficinas y espacios de operación',
       desc: 'Infraestructura para supervisión, administración, coordinación de contratistas y operación temporal.',
-      icon: <Building2 className="w-10 h-10" />,
+      image: '/images/oficina-contenedor-creativos-espacios.png',
       features: ['Distribución configurable', 'Instalación eléctrica', 'Climatización opcional', 'Preparación para voz y datos'],
       cta: 'Conocer solución'
     },
     {
       title: 'Proyectos especiales',
       desc: 'Espacios desarrollados bajo requerimientos específicos para procesos industriales, comerciales o de servicio.',
-      icon: <Compass className="w-10 h-10" />,
+      image: '/images/proyectos-especiales-container.jpg',
       features: ['Diseño personalizado', 'Integración de servicios', 'Adecuaciones especiales', 'Fabricación bajo proyecto'],
       cta: 'Consultar factibilidad'
     }
@@ -162,31 +163,37 @@ const Proyectos: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="card-industrial group shadow-xl flex flex-col text-center !p-8 md:!p-10 lg:!p-12"
+              className="card-industrial group shadow-xl flex flex-col text-center !p-0 overflow-hidden"
             >
-              <div className="text-brand-orange mb-8 md:mb-10 group-hover:scale-110 transition-transform duration-500 flex justify-center">
-                {sol.icon}
+              <div className="relative aspect-video overflow-hidden">
+                <img 
+                  src={sol.image} 
+                  alt={sol.title}
+                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                />
               </div>
-              <h3 className="text-2xl md:text-3xl font-serif mb-6 md:mb-8 text-brand-petroleum uppercase tracking-tight leading-tight md:min-h-[4rem] flex items-center justify-center">{sol.title}</h3>
-              <p className="text-brand-graphite text-base md:text-lg mb-8 md:mb-12 leading-relaxed font-sans md:min-h-[6rem] flex items-center justify-center">
-                {sol.desc}
-              </p>
-              <ul className="space-y-4 md:space-y-5 mb-10 md:mb-12 flex-grow flex flex-col items-center justify-center">
-                {sol.features.map((feat) => (
-                  <li key={feat} className="flex items-center gap-4 text-[10px] md:text-xs font-bold text-brand-graphite uppercase tracking-widest">
-                    <div className="w-2 h-2 bg-brand-orange flex-shrink-0"></div> {feat}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto">
-                <a 
-                  href="https://wa.me/522291846751" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-primary w-full text-center py-4 md:py-5 text-[10px] md:text-xs block"
-                >
-                  {sol.cta}
-                </a>
+              <div className="flex flex-col flex-grow p-8 md:p-10 lg:p-12">
+                <h3 className="text-2xl md:text-3xl font-serif mb-6 md:mb-8 text-brand-petroleum uppercase tracking-tight leading-tight md:min-h-[4rem] flex items-center justify-center">{sol.title}</h3>
+                <p className="text-brand-graphite text-base md:text-lg mb-8 md:mb-12 leading-relaxed font-sans md:min-h-[6rem] flex items-center justify-center">
+                  {sol.desc}
+                </p>
+                <ul className="space-y-4 md:space-y-5 mb-10 md:mb-12 flex-grow flex flex-col items-center justify-center">
+                  {sol.features.map((feat) => (
+                    <li key={feat} className="flex items-center gap-4 text-[10px] md:text-xs font-bold text-brand-graphite uppercase tracking-widest">
+                      <div className="w-2 h-2 bg-brand-orange flex-shrink-0"></div> {feat}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto">
+                  <a 
+                    href="https://wa.me/522291846751" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn-primary w-full text-center py-4 md:py-5 text-[10px] md:text-xs block"
+                  >
+                    {sol.cta}
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -214,6 +221,17 @@ const Proyectos: React.FC = () => {
             <p className="text-brand-graphite text-lg md:text-2xl leading-relaxed mb-10 md:mb-12 font-sans text-justify">
               Analizamos el uso, las condiciones del sitio y los requerimientos técnicos de cada proyecto. A partir de esta información, definimos la configuración, los servicios y las adecuaciones necesarias para entregar una solución preparada para su instalación y puesta en operación.
             </p>
+            <div className="mb-12 flex flex-wrap gap-x-8 gap-y-4">
+              <Link to="/oficina-para-supervision-de-obra-cdmx" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
+                SOLUCIÓN PARA SUPERVISIÓN DE OBRA <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/contenedores-para-data-center-cdmx" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
+                SOLUCIÓN DATA CENTER <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/proveedor-de-contenedores-cdmx" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
+                SOLUCIONES PARA EMPRESAS <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
             <div className="flex gap-10 md:gap-16">
               <div>
                 <span className="block font-serif text-4xl md:text-5xl text-brand-orange mb-2 md:mb-3">CAD</span>
@@ -229,9 +247,10 @@ const Proyectos: React.FC = () => {
       </section>
 
       <FAQ 
-        items={[...faqData, ...generalFaq]} 
+        items={faqData} 
         title="Dudas sobre Proyectos Especiales"
-        subtitle="Información sobre el desarrollo de soluciones de ingeniería modular a medida."
+        subtitle="Resolvemos las principales dudas antes de desarrollar una solución modular a la medida."
+        eyebrow="ASESORÍA TÉCNICA"
       />
     </div>
   );

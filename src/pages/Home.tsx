@@ -282,6 +282,11 @@ const Home: React.FC = () => {
           <a href="https://wa.me/522291846751" target="_blank" rel="noopener noreferrer" className="btn-primary">
             Solicitar Cotización
           </a>
+          <div className="mt-12">
+            <Link to="/proveedor-de-contenedores-cdmx" className="text-brand-orange font-bold text-[10px] uppercase tracking-[0.2em] hover:underline">
+              Contenedores para empresas y proyectos en CDMX
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -9,8 +9,12 @@ import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canoni
 
 const CompraContenedoresCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
-  const products = SemanticSelectors.getProductsForService('service:container-sale');
-  const generalFaq = SemanticSelectors.getGeneralFaq();
+  const location = SemanticSelectors.getLocationById('loc:cdmx');
+  const baseLocation = SemanticSelectors.getLocationById(org.locationId);
+  const service = SemanticSelectors.getServiceById('service:container-sale');
+  const product20ft = SemanticSelectors.getProductById('product:container-20ft');
+  const product40ft = SemanticSelectors.getProductById('product:container-40ft');
+  const faqs = SemanticSelectors.getFaqByCategory('container-sale');
 
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -25,9 +29,9 @@ const CompraContenedoresCDMX: React.FC = () => {
         "@type": "WebPage",
         "@id": webpageId,
         "url": pageUrl,
-        "name": "Compra de contenedores en CDMX | Creativos Espacios",
+        "name": `Compra de contenedores en ${location?.name || 'CDMX'} | Creativos Espacios`,
         "isPartOf": { "@id": WEBSITE_ID },
-        "description": "Compra contenedores marítimos de 20 y 40 pies en Ciudad de México. Soluciones para almacenamiento, obra y operación empresarial con atención desde Iztapalapa."
+        "description": `Compra contenedores marítimos de 20 y 40 pies en ${location?.name || 'Ciudad de México'}. Soluciones para almacenamiento, obra y operación empresarial con atención desde ${baseLocation?.name || 'Iztapalapa'}.`
       },
       {
         "@type": "BreadcrumbList",
@@ -41,39 +45,21 @@ const CompraContenedoresCDMX: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Compra de contenedores en CDMX",
+            "name": `Compra de contenedores en ${location?.name || 'CDMX'}`,
             "item": pageUrl
           }
         ]
       },
       {
         "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Qué tamaño de contenedor necesito?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "La elección depende del volumen que necesitas almacenar, el espacio disponible en tu sitio y el acceso para las maniobras de entrega. Un contenedor de 20 pies es ideal para espacios limitados, mientras que uno de 40 pies ofrece el doble de capacidad para inventarios mayores."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Puedo comprar un contenedor usado?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sí, en Creativos Espacios suministramos unidades verificadas estructuralmente para garantizar su hermeticidad y estabilidad, asegurando que sean aptas para almacenamiento u operación industrial."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿La entrega está incluida?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "El transporte, las maniobras y las condiciones de entrega dependen de la complejidad de cada proyecto y la ubicación exacta. Realizamos una evaluación para preparar una propuesta que incluya la logística necesaria hasta tu sitio en CDMX o zona metropolitana."
-            }
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
           }
-        ]
+        }))
       }
     ]
   };
@@ -85,8 +71,8 @@ const CompraContenedoresCDMX: React.FC = () => {
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
-        title="Compra de contenedores en CDMX"
-        description="Compra contenedores marítimos de 20 y 40 pies en Ciudad de México. Soluciones para almacenamiento, obra y operación empresarial con atención desde Iztapalapa."
+        title={`Compra de contenedores en ${location?.name || 'CDMX'}`}
+        description={`Compra contenedores marítimos de 20 y 40 pies en ${location?.name || 'Ciudad de México'}. Soluciones para almacenamiento, obra y operación empresarial con atención desde ${baseLocation?.name || 'Iztapalapa'}.`}
         jsonLd={jsonLd}
       />
       
@@ -95,7 +81,7 @@ const CompraContenedoresCDMX: React.FC = () => {
         <div className="pointer-events-none absolute inset-0">
           <motion.img
             src="/images/venta-renta-hero.png"
-            alt="Venta de contenedores en Ciudad de México"
+            alt={`Venta de contenedores en ${location?.name || 'Ciudad de México'}`}
             loading="eager"
             className="h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
@@ -112,10 +98,10 @@ const CompraContenedoresCDMX: React.FC = () => {
           animate="visible"
         >
           <motion.span variants={heroMotion.eyebrow} className="mb-4 block text-sm font-bold tracking-[0.2em] text-brand-orange uppercase">
-            CONTENEDORES EN CIUDAD DE MÉXICO
+            CONTENEDORES EN {location?.name.toUpperCase() || 'CIUDAD DE MÉXICO'}
           </motion.span>
           <motion.h1 variants={heroMotion.title} className="mb-8 leading-tight text-white max-w-4xl">
-            Compra contenedores marítimos en CDMX
+            Compra contenedores marítimos en {location?.name || 'CDMX'}
           </motion.h1>
           <motion.p variants={heroMotion.body} className="mb-10 max-w-2xl text-lg leading-relaxed text-white md:text-xl font-sans">
             Contenedores de 20 y 40 pies para almacenamiento, obra, operación empresarial y proyectos que requieren espacio adicional.
@@ -128,7 +114,7 @@ const CompraContenedoresCDMX: React.FC = () => {
           </motion.div>
           <motion.p variants={heroMotion.body} className="mt-8 flex items-center gap-2 text-sm text-white/70">
             <MapPin className="h-4 w-4 text-brand-orange" />
-            Atención desde nuestro centro operativo en Iztapalapa, Ciudad de México.
+            Atención desde nuestro centro operativo en {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}.
           </motion.p>
         </motion.div>
       </header>
@@ -148,10 +134,10 @@ const CompraContenedoresCDMX: React.FC = () => {
             className="card-industrial group flex flex-col h-full !p-0 overflow-hidden shadow-lg border border-brand-gray/30"
           >
             <div className="aspect-video bg-brand-gray/10 p-8 flex items-center justify-center overflow-hidden border-b border-brand-gray/20">
-              <img src="/images/venta-renta-contenedor-20ft.png" alt="Contenedor 20 pies" className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
+              <img src="/images/venta-renta-contenedor-20ft.png" alt={product20ft?.name || 'Contenedor 20 pies'} className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
             </div>
             <div className="p-8 flex flex-col flex-1">
-              <h3 className="text-2xl font-serif text-brand-petroleum mb-4">Contenedor de 20 pies</h3>
+              <h3 className="text-2xl font-serif text-brand-petroleum mb-4">{product20ft?.name || 'Contenedor de 20 pies'}</h3>
               <p className="text-brand-graphite leading-relaxed mb-8 flex-1">
                 Una opción compacta para almacenamiento de materiales, herramientas, inventario o equipamiento cuando el espacio disponible es limitado.
               </p>
@@ -175,10 +161,10 @@ const CompraContenedoresCDMX: React.FC = () => {
             className="card-industrial group flex flex-col h-full !p-0 overflow-hidden shadow-lg border border-brand-gray/30"
           >
             <div className="aspect-video bg-brand-gray/10 p-8 flex items-center justify-center overflow-hidden border-b border-brand-gray/20">
-              <img src="/images/venta-renta-contenedor-40ft.png" alt="Contenedor 40 pies" className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
+              <img src="/images/venta-renta-contenedor-40ft.png" alt={product40ft?.name || 'Contenedor 40 pies'} className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
             </div>
             <div className="p-8 flex flex-col flex-1">
-              <h3 className="text-2xl font-serif text-brand-petroleum mb-4">Contenedor de 40 pies</h3>
+              <h3 className="text-2xl font-serif text-brand-petroleum mb-4">{product40ft?.name || 'Contenedor de 40 pies'}</h3>
               <p className="text-brand-graphite leading-relaxed mb-8 flex-1">
                 Mayor capacidad para operaciones que requieren ampliar almacenamiento o concentrar materiales y equipos en un solo espacio.
               </p>
@@ -260,7 +246,7 @@ const CompraContenedoresCDMX: React.FC = () => {
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange font-bold">20</div>
                 <div>
-                  <h4 className="text-xl font-serif text-brand-petroleum mb-2">20 pies</h4>
+                  <h4 className="text-xl font-serif text-brand-petroleum mb-2">{product20ft?.name || '20 pies'}</h4>
                   <ul className="space-y-2 text-brand-graphite/80">
                     <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> menor espacio requerido</li>
                     <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> necesidades de almacenamiento moderadas</li>
@@ -272,7 +258,7 @@ const CompraContenedoresCDMX: React.FC = () => {
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange font-bold">40</div>
                 <div>
-                  <h4 className="text-xl font-serif text-brand-petroleum mb-2">40 pies</h4>
+                  <h4 className="text-xl font-serif text-brand-petroleum mb-2">{product40ft?.name || '40 pies'}</h4>
                   <ul className="space-y-2 text-brand-graphite/80">
                     <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> mayor volumen</li>
                     <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-orange"></div> inventario o materiales de mayor escala</li>
@@ -304,9 +290,9 @@ const CompraContenedoresCDMX: React.FC = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <MapPin className="w-12 h-12 text-brand-orange mx-auto mb-8" />
-            <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-8">Contenedores con atención desde Ciudad de México</h2>
+            <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-8">Contenedores con atención desde {location?.name || 'Ciudad de México'}</h2>
             <p className="text-lg md:text-xl text-brand-graphite leading-relaxed mb-10 font-sans">
-              Creativos Espacios opera desde Iztapalapa, Ciudad de México. Desde este punto coordinamos proyectos de compra, acondicionamiento y logística de contenedores para empresas y proyectos en la Ciudad de México y zona metropolitana.
+              Creativos Espacios opera desde {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}. Desde este punto coordinamos proyectos de compra, acondicionamiento y logística de contenedores para empresas y proyectos en la {location?.name || 'Ciudad de México'} y zona metropolitana.
             </p>
             <a href="/contacto" className="btn-secondary">Contactar con un asesor</a>
           </div>
@@ -344,40 +330,18 @@ const CompraContenedoresCDMX: React.FC = () => {
 
       {/* BLOQUE 7 — FAQ COMPRA */}
       <FAQ 
-        items={[
-          {
-            question: "¿Qué tamaño de contenedor necesito?",
-            answer: "La elección depende del volumen que necesitas almacenar, espacio disponible, acceso al sitio y uso previsto. Un contenedor de 20 pies es ideal para espacios compactos, mientras que uno de 40 pies duplica la capacidad."
-          },
-          {
-            question: "¿Puedo comprar un contenedor usado?",
-            answer: "Sí, suministramos unidades verificadas estructuralmente para garantizar su hermeticidad y estabilidad estructural."
-          },
-          {
-            question: "¿Qué diferencia hay entre un contenedor de 20 y 40 pies?",
-            answer: "Principalmente el volumen de carga y el espacio que ocupan en sitio. El de 20 pies mide aproximadamente 6 metros de largo, mientras que el de 40 pies mide 12 metros."
-          },
-          {
-            question: "¿Un contenedor puede utilizarse como bodega?",
-            answer: "Es uno de sus usos más comunes. Su estructura de acero corten los hace extremadamente resistentes y seguros para el resguardo de materiales, herramientas e inventario."
-          },
-          {
-            question: "¿Pueden acondicionar el contenedor?",
-            answer: "Sí, podemos transformar contenedores en oficinas, talleres o áreas operativas personalizadas según los requerimientos de tu proyecto."
-          },
-          {
-            question: "¿La entrega está incluida?",
-            answer: "El transporte, las maniobras y las condiciones de entrega dependen del proyecto y la ubicación exacta. Cada caso se evalúa individualmente para garantizar una logística exitosa."
-          }
-        ]} 
+        items={faqs.map(faq => ({
+          question: faq.question,
+          answer: faq.answer
+        }))} 
         title="Preguntas frecuentes sobre compra"
-        subtitle="Información clave para orientar tu decisión de compra en CDMX."
+        subtitle={`Información clave para orientar tu decisión de compra en ${location?.name || 'CDMX'}.`}
       />
 
       {/* BLOQUE FINAL */}
       <section className="bg-brand-petroleum py-20 md:py-32 text-white border-t border-white/10">
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif mb-8 text-white">¿Buscas comprar un contenedor en CDMX?</h2>
+          <h2 className="text-3xl md:text-5xl font-serif mb-8 text-white">¿Buscas comprar un contenedor en {location?.name || 'CDMX'}?</h2>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/70 mb-12 font-sans">
             Cuéntanos qué necesitas almacenar, dónde estará el contenedor y qué uso tendrá. Con esa información podemos orientarte hacia una solución adecuada.
           </p>

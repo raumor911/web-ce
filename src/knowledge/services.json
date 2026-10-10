@@ -8,10 +8,10 @@
     "canonicalPath": "/soluciones/venta-renta",
     "availability": "subject-to-confirmation",
     "requiresAssessment": true,
-    "productIds": ["product:container-20ft", "product:container-40ft"],
+    "productIds": ["product:container-20ft", "product:container-40ft", "product:container-40hc"],
     "useCaseIds": ["usecase:b2b-temporary-storage", "usecase:material-storage", "usecase:inventory-storage"],
     "industryIds": ["industry:construction", "industry:logistics", "industry:manufacturing", "industry:industrial", "industry:commerce", "industry:temporary-projects"],
-    "coverageIds": ["coverage:national-mx"]
+    "coverageIds": ["coverage:national-mx", "coverage:zmvm", "coverage:edomex"]
   },
   {
     "id": "service:container-rental",
@@ -22,10 +22,10 @@
     "canonicalPath": "/soluciones/venta-renta",
     "availability": "subject-to-confirmation",
     "requiresAssessment": true,
-    "productIds": ["product:container-20ft", "product:container-40ft"],
+    "productIds": ["product:container-20ft", "product:container-40ft", "product:container-40hc"],
     "useCaseIds": ["usecase:b2b-temporary-storage", "usecase:material-storage", "usecase:inventory-storage"],
     "industryIds": ["industry:construction", "industry:logistics", "industry:manufacturing", "industry:industrial", "industry:commerce", "industry:temporary-projects"],
-    "coverageIds": ["coverage:national-mx"]
+    "coverageIds": ["coverage:national-mx", "coverage:zmvm", "coverage:edomex"]
   },
   {
     "id": "service:relocatable-offices",
@@ -39,7 +39,7 @@
     "configurationIds": ["configuration:office-supervision", "configuration:office-operation", "configuration:office-personal"],
     "useCaseIds": ["usecase:site-supervision", "usecase:temporary-administration"],
     "industryIds": ["industry:construction", "industry:infrastructure", "industry:energy", "industry:telecommunications", "industry:maintenance", "industry:services", "industry:temporary-projects"],
-    "coverageIds": ["coverage:national-mx"]
+    "coverageIds": ["coverage:national-mx", "coverage:zmvm", "coverage:edomex"]
   },
   {
     "id": "service:modular-projects",
@@ -52,6 +52,6 @@
     "requiresAssessment": true,
     "useCaseIds": ["usecase:custom-infrastructure", "usecase:specialized-operations"],
     "industryIds": ["industry:construction", "industry:logistics", "industry:manufacturing", "industry:industrial", "industry:maintenance", "industry:commerce", "industry:infrastructure", "industry:telecommunications", "industry:energy", "industry:services", "industry:temporary-projects"],
-    "coverageIds": ["coverage:national-mx"]
+    "coverageIds": ["coverage:national-mx", "coverage:zmvm", "coverage:edomex"]
   }
 ]

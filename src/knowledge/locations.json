@@ -1,0 +1,93 @@
+[
+  {
+    "id": "loc:mexico",
+    "name": "México",
+    "slug": "mexico",
+    "type": "country",
+    "countryCode": "MX",
+    "status": "active"
+  },
+  {
+    "id": "loc:cdmx",
+    "name": "Ciudad de México",
+    "slug": "cdmx",
+    "type": "federal_entity",
+    "countryCode": "MX",
+    "stateCode": "CMX",
+    "parentId": "loc:mexico",
+    "status": "active",
+    "aliases": ["CDMX", "Distrito Federal", "DF"]
+  },
+  {
+    "id": "loc:iztapalapa",
+    "name": "Iztapalapa",
+    "slug": "iztapalapa",
+    "type": "borough",
+    "countryCode": "MX",
+    "stateCode": "CMX",
+    "parentId": "loc:cdmx",
+    "status": "active"
+  },
+  {
+    "id": "loc:zmvm",
+    "name": "Zona Metropolitana del Valle de México",
+    "slug": "zmvm",
+    "type": "metropolitan_area",
+    "countryCode": "MX",
+    "parentId": "loc:mexico",
+    "status": "active",
+    "aliases": ["Valle de México", "ZMVM"]
+  },
+  {
+    "id": "loc:edomex",
+    "name": "Estado de México",
+    "slug": "edomex",
+    "type": "federal_entity",
+    "countryCode": "MX",
+    "stateCode": "MEX",
+    "parentId": "loc:mexico",
+    "status": "active",
+    "aliases": ["Edomex", "México State"]
+  },
+  {
+    "id": "loc:ecatepec",
+    "name": "Ecatepec de Morelos",
+    "slug": "ecatepec",
+    "type": "city",
+    "countryCode": "MX",
+    "stateCode": "MEX",
+    "parentId": "loc:edomex",
+    "status": "active"
+  },
+  {
+    "id": "loc:nezahualcoyotl",
+    "name": "Ciudad Nezahualcóyotl",
+    "slug": "nezahualcoyotl",
+    "type": "city",
+    "countryCode": "MX",
+    "stateCode": "MEX",
+    "parentId": "loc:edomex",
+    "status": "active",
+    "aliases": ["Neza"]
+  },
+  {
+    "id": "loc:naucalpan",
+    "name": "Naucalpan de Juárez",
+    "slug": "naucalpan",
+    "type": "city",
+    "countryCode": "MX",
+    "stateCode": "MEX",
+    "parentId": "loc:edomex",
+    "status": "active"
+  },
+  {
+    "id": "loc:tlalnepantla",
+    "name": "Tlalnepantla de Baz",
+    "slug": "tlalnepantla",
+    "type": "city",
+    "countryCode": "MX",
+    "stateCode": "MEX",
+    "parentId": "loc:edomex",
+    "status": "active"
+  }
+]

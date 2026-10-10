@@ -7,21 +7,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(__dirname, '../public');
 const DOMAIN = 'https://creativosespacios.mx';
 
-const staticRoutes = [
-  { url: '/', priority: '1.0', changefreq: 'weekly' },
-  { url: '/nosotros', priority: '0.8', changefreq: 'monthly' },
-  { url: '/soluciones/venta-renta', priority: '0.9', changefreq: 'weekly' },
-  { url: '/soluciones/oficinas', priority: '0.9', changefreq: 'weekly' },
-  { url: '/proyectos', priority: '0.9', changefreq: 'weekly' },
-  { url: '/contacto', priority: '0.8', changefreq: 'monthly' },
-  { url: '/blog', priority: '0.8', changefreq: 'daily' },
-  { url: '/compra-contenedores-cdmx', priority: '0.8', changefreq: 'monthly' },
-  { url: '/renta-contenedores-cdmx', priority: '0.8', changefreq: 'monthly' },
-  { url: '/contenedores-usados-cdmx', priority: '0.8', changefreq: 'monthly' },
-  { url: '/contenedor-20-pies-cdmx', priority: '0.8', changefreq: 'monthly' },
-  { url: '/contenedor-40-pies-cdmx', priority: '0.8', changefreq: 'monthly' },
-  { url: '/contenedor-40-high-cube-cdmx', priority: '0.8', changefreq: 'monthly' },
-];
+const routesConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/config/routes.json'), 'utf-8'));
+const staticRoutes = routesConfig.filter(r => r.sitemap).map(r => ({
+  url: r.path,
+  priority: r.priority || '0.8',
+  changefreq: r.changefreq || 'monthly'
+}));
 
 /**
  * Fetch all posts from WordPress with pagination support

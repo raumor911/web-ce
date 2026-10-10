@@ -28,6 +28,7 @@ export interface Organization {
   language: string;
   contact: ContactInfo;
   canonicalUrl: string;
+  locationId?: ID;
 }
 
 export type TransactionType = 'sale' | 'rental' | 'sale-or-rental' | 'custom-project';
@@ -56,12 +57,54 @@ export interface Product {
   name: string;
   description: string;
   category: string;
-  dimensions: string;
+  dimensions: string; // Legacy field for compatibility
+  classification?: {
+    series: string;
+    purpose: string;
+    type: string;
+    height: string;
+  };
+  isoSizeTypeCode?: string;
+  externalDimensions?: {
+    lengthMm: number;
+    widthMm: number;
+    heightMm: number;
+  };
+  nominalDimensions?: string;
+  referenceInternalDimensions?: {
+    lengthMm: number;
+    widthMm: number;
+    heightMm: number;
+    note?: string;
+  };
+  referenceDoorOpening?: {
+    widthMm: number;
+    heightMm: number;
+  };
+  referenceVolumeM3?: number;
   features: string[];
   serviceIds?: ID[];
   useCaseIds?: ID[];
   claimIds?: ID[];
   sourceIds?: ID[];
+}
+
+export type Condition = 'used' | 'new' | 'one-trip';
+export type PriceType = 'current' | 'promotional' | 'estimate';
+
+export interface PriceBookEntry {
+  id: ID;
+  productId: ID;
+  serviceId: ID;
+  condition: Condition;
+  currency: string; // ISO 4217
+  amount: number;
+  priceType: PriceType;
+  unit: string;
+  effectiveFrom: string; // YYYY-MM-DD
+  effectiveTo: string | null; // YYYY-MM-DD or null
+  lastReviewedAt: string; // YYYY-MM-DD
+  status: 'active' | 'inactive';
 }
 
 export interface Configuration {
@@ -79,6 +122,21 @@ export interface UseCase {
   description: string;
   serviceIds?: ID[];
   productIds?: ID[];
+  supportedProductIds?: ID[];
+}
+
+export type LocationType = 'country' | 'federal_entity' | 'city' | 'borough' | 'metropolitan_area';
+
+export interface Location {
+  id: ID;
+  name: string;
+  slug: string;
+  type: LocationType;
+  countryCode: string;
+  stateCode?: string;
+  parentId?: ID;
+  status: 'active' | 'deprecated';
+  aliases?: string[];
 }
 
 export interface CommercialPolicy {

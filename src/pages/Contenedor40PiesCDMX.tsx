@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
+import { FAQ } from '../components/FAQ';
 import { CheckCircle2, MapPin, MessageSquare, ArrowRight, Clock, ShieldCheck, Truck, HardHat, Package, Wrench, Maximize, LayoutGrid, Boxes } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
@@ -8,7 +9,10 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 
 const Contenedor40PiesCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
-  const product40ft = SemanticSelectors.getProductsForService('service:container-sale').find(p => p.id === 'product:container-40ft');
+  const product40ft = SemanticSelectors.getProductById('product:container-40ft');
+  const location = SemanticSelectors.getLocationById('loc:cdmx');
+  const baseLocation = SemanticSelectors.getLocationById(org.locationId);
+  const faqs = SemanticSelectors.getFaqByCategory('contenedor-40ft');
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -23,9 +27,9 @@ const Contenedor40PiesCDMX: React.FC = () => {
         "@type": "WebPage",
         "@id": webpageId,
         "url": pageUrl,
-        "name": "Contenedor de 40 pies en CDMX | Creativos Espacios",
+        "name": `Contenedor de 40 pies en ${location?.name || 'CDMX'} | Creativos Espacios`,
         "isPartOf": { "@id": WEBSITE_ID },
-        "description": "Conoce opciones y usos de contenedores marítimos de 40 pies en Ciudad de México para almacenamiento, obra y proyectos operativos."
+        "description": `Conoce opciones y usos de contenedores marítimos de 40 pies en ${location?.name || 'Ciudad de México'} para almacenamiento, obra y proyectos operativos.`
       },
       {
         "@type": "BreadcrumbList",
@@ -39,10 +43,21 @@ const Contenedor40PiesCDMX: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Contenedor de 40 pies en CDMX",
+            "name": `Contenedor de 40 pies en ${location?.name || 'CDMX'}`,
             "item": pageUrl
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
       }
     ]
   };
@@ -64,7 +79,7 @@ const Contenedor40PiesCDMX: React.FC = () => {
         <div className="pointer-events-none absolute inset-0">
           <motion.img
             src="/images/venta-renta-hero.png"
-            alt="Contenedor de 40 pies en Ciudad de México"
+            alt={`Contenedor de 40 pies en ${location?.name || 'Ciudad de México'}`}
             loading="eager"
             className="h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
@@ -81,10 +96,10 @@ const Contenedor40PiesCDMX: React.FC = () => {
           animate="visible"
         >
           <motion.span variants={heroMotion.eyebrow} className="mb-4 block text-sm font-bold tracking-[0.2em] text-brand-orange uppercase">
-            MAYOR CAPACIDAD
+            {product40ft?.category || 'MAYOR CAPACIDAD'}
           </motion.span>
           <motion.h1 variants={heroMotion.title} className="mb-8 leading-tight text-white max-w-4xl">
-            Contenedor de 40 pies en CDMX
+            Contenedor de 40 pies en {location?.name || 'CDMX'}
           </motion.h1>
           <motion.p variants={heroMotion.body} className="mb-10 max-w-2xl text-lg leading-relaxed text-white md:text-xl font-sans">
             Mayor longitud y capacidad para operaciones que requieren almacenar más materiales, inventario o equipamiento dentro de una misma unidad.
@@ -97,7 +112,7 @@ const Contenedor40PiesCDMX: React.FC = () => {
           </motion.div>
           <motion.p variants={heroMotion.body} className="mt-8 flex items-center gap-2 text-sm text-white/70">
             <MapPin className="h-4 w-4 text-brand-orange" />
-            Atención desde Iztapalapa para toda la Ciudad de México.
+            Atención desde {baseLocation?.name || 'Iztapalapa'} para toda la {location?.name || 'Ciudad de México'}.
           </motion.p>
         </motion.div>
       </header>
@@ -229,6 +244,15 @@ const Contenedor40PiesCDMX: React.FC = () => {
           </a>
         </div>
       </section>
+
+      {/* FAQ */}
+      {faqs.length > 0 && (
+        <FAQ 
+          items={faqs.map(f => ({ question: f.question, answer: f.answer }))}
+          eyebrow="ASESORÍA TÉCNICA"
+          title={`Preguntas sobre el contenedor de 40 pies`}
+        />
+      )}
 
       {/* CTA FINAL */}
       <section className="bg-brand-petroleum py-20 md:py-32 text-white text-center">

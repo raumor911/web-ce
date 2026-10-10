@@ -1,0 +1,203 @@
+[
+  {
+    "id": "home",
+    "path": "/",
+    "component": "Home",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "1.0",
+    "changefreq": "weekly"
+  },
+  {
+    "id": "nosotros",
+    "path": "/nosotros",
+    "component": "Nosotros",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "venta-renta",
+    "path": "/soluciones/venta-renta",
+    "component": "VentaRenta",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.9",
+    "changefreq": "weekly"
+  },
+  {
+    "id": "oficinas",
+    "path": "/soluciones/oficinas",
+    "component": "Oficinas",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.9",
+    "changefreq": "weekly"
+  },
+  {
+    "id": "proyectos",
+    "path": "/proyectos",
+    "component": "Proyectos",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.9",
+    "changefreq": "weekly"
+  },
+  {
+    "id": "contacto",
+    "path": "/contacto",
+    "component": "Contacto",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "blog",
+    "path": "/blog",
+    "component": "Blog",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "daily"
+  },
+  {
+    "id": "compra-cdmx",
+    "path": "/compra-contenedores-cdmx",
+    "component": "CompraContenedoresCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "renta-cdmx",
+    "path": "/renta-contenedores-cdmx",
+    "component": "RentaContenedoresCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "usados-cdmx",
+    "path": "/contenedores-usados-cdmx",
+    "component": "ContenedoresUsadosCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "20ft-cdmx",
+    "path": "/contenedor-20-pies-cdmx",
+    "component": "Contenedor20PiesCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "40ft-cdmx",
+    "path": "/contenedor-40-pies-cdmx",
+    "component": "Contenedor40PiesCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "40hc-cdmx",
+    "path": "/contenedor-40-high-cube-cdmx",
+    "component": "Contenedor40HighCubeCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "almacenamiento-cdmx",
+    "path": "/contenedores-para-almacenamiento-cdmx",
+    "component": "ContenedoresAlmacenamientoCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "bodega-cdmx",
+    "path": "/contenedores-para-bodega-cdmx",
+    "component": "ContenedoresBodegaCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "obra-cdmx",
+    "path": "/contenedores-para-obra-cdmx",
+    "component": "ContenedoresObraCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "oficinas-moviles-cdmx",
+    "path": "/oficinas-moviles-cdmx",
+    "component": "OficinasMovilesCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "supervision-obra-cdmx",
+    "path": "/oficina-para-supervision-de-obra-cdmx",
+    "component": "OficinaSupervisionObraCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "proveedor-cdmx",
+    "path": "/proveedor-de-contenedores-cdmx",
+    "component": "ProveedorContenedoresCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.9",
+    "changefreq": "weekly"
+  },
+  {
+    "id": "data-center-cdmx",
+    "path": "/contenedores-para-data-center-cdmx",
+    "component": "ContenedoresDataCenterCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "privacidad",
+    "path": "/privacidad",
+    "component": "Privacidad",
+    "prerender": true,
+    "sitemap": false
+  },
+  {
+    "id": "terminos",
+    "path": "/terminos",
+    "component": "Terminos",
+    "prerender": true,
+    "sitemap": false
+  },
+  {
+    "id": "not-found",
+    "path": "/404",
+    "component": "NotFound",
+    "prerender": true,
+    "sitemap": false
+  }
+]

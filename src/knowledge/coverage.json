@@ -4,5 +4,17 @@
     "name": "Cobertura Nacional México",
     "type": "national",
     "countryCode": "MX"
+  },
+  {
+    "id": "coverage:zmvm",
+    "name": "Zona Metropolitana del Valle de México",
+    "type": "regional",
+    "countryCode": "MX"
+  },
+  {
+    "id": "coverage:edomex",
+    "name": "Estado de México",
+    "type": "regional",
+    "countryCode": "MX"
   }
 ]

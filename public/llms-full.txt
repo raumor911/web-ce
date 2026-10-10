@@ -23,19 +23,27 @@ Soluciones a la medida que integran múltiples módulos o especificaciones espec
 
 ## Productos
 
-### Contenedor 20 FT STD
+### Contenedor marítimo 20 FT Standard
 Solución para almacenamiento temporal, logística, operaciones y proyectos que requieren incorporar capacidad sin construir desde cero.
-Dimensiones: 6.06m x 2.44m x 2.59m / 2.89m
+Dimensiones: 20 ft × 8 ft × 8 ft 6 in
 - Fabricado en acero Corten de alta resistencia.
 - Reacondicionado para asegurar protección contra filtraciones de agua.
 - Disponible pintado o en acabado original, según disponibilidad.
 
-### Contenedor 40 FT HC/STD
+### Contenedor marítimo 40 FT Standard
 Solución de gran capacidad para almacenamiento, operación logística y resguardo de maquinaria, materiales o inventarios de alto volumen.
-Dimensiones: 12.19m x 2.44m x 2.89m
+Dimensiones: 40 ft × 8 ft × 8 ft 6 in
 - Acero Corten de alta resistencia.
 - Reacondicionado para asegurar protección contra filtraciones de agua.
 - Disponible pintado o en acabado original, sujeto a disponibilidad.
+
+### Contenedor marítimo 40 FT High Cube
+Configuración de 40 pies con mayor altura (High Cube) que aporta capacidad vertical adicional para proyectos de almacenamiento y acondicionamiento.
+Dimensiones: 40 ft × 8 ft × 9 ft 6 in
+- Mayor altura libre interior (9' 6").
+- Acero Corten de alta resistencia.
+- Potencial para acondicionamiento con instalaciones ocultas.
+- Reacondicionado para asegurar protección contra filtraciones.
 
 ## Configuraciones
 
@@ -59,6 +67,13 @@ Para equipos de trabajo, ampliaciones temporales, contingencias o remodelaciones
 - Instalaciones eléctricas
 - Preparación de servicios
 - Acabados según uso
+
+### Módulo Data Center
+Habilitación técnica para infraestructura de cómputo y resguardo de datos.
+- Climatización de precisión
+- Instalaciones eléctricas redundantes
+- Seguridad y control de acceso
+- Aislamiento térmico y acústico
 
 ## Aplicaciones
 
@@ -85,6 +100,21 @@ Soluciones diseñadas específicamente para requerimientos únicos.
 
 ### Operaciones especializadas
 Módulos equipados para funciones industriales o comerciales específicas.
+
+### Almacenamiento en contenedor
+Capacidad adicional para materiales, herramientas, inventario o equipo.
+
+### Bodega en contenedor
+Uso del contenedor como espacio de resguardo operativo seguro y robusto.
+
+### Uso en obra
+Contenedor utilizado en proyectos de construcción para almacenamiento o apoyo operativo.
+
+### Oficina móvil
+Espacio acondicionable y reubicable para funciones administrativas u operativas.
+
+### Infraestructura para Data Center
+Módulos diseñados para el resguardo de servidores, equipos de red y sistemas de procesamiento de datos en entornos controlados.
 
 ## Industrias
 
@@ -120,6 +150,16 @@ Servicios de entrega y posicionamiento de unidades.
 ## Cobertura
 
 - Cobertura Nacional México (MX)
+- Zona Metropolitana del Valle de México (MX)
+- Estado de México (MX)
+
+## Guía de Precios Referenciales
+
+- **Contenedor marítimo 20 FT Standard** (used, Venta de contenedores): USD 2600 por unit. Vigente desde 2026-10-09.
+- **Contenedor marítimo 40 FT Standard** (used, Venta de contenedores): USD 3100 por unit. Vigente desde 2026-10-09.
+- **Contenedor marítimo 40 FT High Cube** (used, Venta de contenedores): USD 3600 por unit. Vigente desde 2026-10-09.
+
+*Los montos son referenciales y pueden variar.*
 
 ## Preguntas frecuentes
 
@@ -150,14 +190,182 @@ Están diseñadas específicamente para ser reubicables. Su estructura modular p
 **¿Cuentan con aislamiento térmico?**
 Sí, incorporamos soluciones de aislamiento y climatización para garantizar un entorno de trabajo confortable y productivo en distintos climas.
 
-**¿Realizan proyectos personalizados?**
-Sí. Desarrollamos soluciones de ingeniería modular adaptadas a requerimientos técnicos, funcionales y de operación específicos de cada cliente.
+**¿Qué consideran un proyecto modular especial?**
+Es un espacio que requiere una configuración distinta a una solución estándar. Puede involucrar distribución interior, instalaciones, acondicionamiento o adecuaciones definidas a partir del uso que tendrá el espacio y de las condiciones donde será instalado.
 
-**¿Qué tipo de adecuaciones pueden realizar?**
-Desde modificaciones estructurales e integración de servicios especializados hasta acabados arquitectónicos y equipamiento industrial a medida.
+**¿Qué información necesitan para evaluar mi proyecto?**
+El punto de partida es entender qué función debe cumplir el espacio, dónde se utilizará, sus requerimientos operativos y las condiciones generales del sitio. Con esa información podemos revisar la factibilidad y definir qué aspectos necesitan mayor detalle.
 
-**¿Sus soluciones sustituyen a la construcción tradicional?**
-Son una alternativa estratégica en proyectos donde la velocidad de despliegue, la modularidad o la necesidad de reubicación son factores críticos para el éxito operativo.
+**¿Cómo saben si un proyecto es viable?**
+Revisamos el uso previsto, las condiciones del sitio y los requerimientos técnicos del proyecto. A partir de esa información se define si la solución puede desarrollarse y qué configuración, servicios o adecuaciones serían necesarios.
+
+**¿El proyecto puede incluir instalaciones y acondicionamiento?**
+Sí, cuando el alcance lo requiere pueden integrarse distintos elementos de acondicionamiento. La configuración final depende de la función del espacio y de los requerimientos técnicos definidos para cada proyecto.
+
+**¿Pueden desarrollar el proyecto a partir de una necesidad y no de un diseño terminado?**
+Sí. La asesoría puede comenzar a partir de la necesidad operativa. Primero identificamos qué debe resolver el espacio y posteriormente se define la configuración adecuada para el proyecto.
+
+**¿Cuánto tiempo tarda un proyecto especial?**
+El tiempo depende del alcance, nivel de acondicionamiento y requerimientos de cada proyecto. Una vez definidos estos elementos es posible establecer una programación más precisa.
+
+**¿Cómo puedo comenzar a revisar mi proyecto?**
+Compártenos qué espacio necesitas, qué función tendrá, dónde se instalará y los requerimientos que ya tengas identificados. Con esa información podemos iniciar una revisión de factibilidad.
+
+**¿Qué puedo almacenar dentro de un contenedor?**
+Los contenedores son ideales para resguardar materiales de construcción, herramientas, inventario operativo, mobiliario y equipo diverso. La compatibilidad depende del tipo de material y requerimientos específicos de resguardo.
+
+**¿Puedo comprarlo o rentarlo?**
+Sí, el uso de contenedores para almacenamiento puede resolverse mediante compra o renta, dependiendo de la duración del proyecto, frecuencia de uso y ubicación de la operación.
+
+**¿Qué tamaño necesito?**
+Ofrecemos opciones de 20 pies, 40 pies y 40 High Cube. La elección depende del volumen de lo que necesites almacenar y el espacio disponible en tu ubicación.
+
+**¿Puede utilizarse temporalmente?**
+Totalmente. Los contenedores son una solución flexible perfecta para necesidades de almacenamiento temporal en obras, patios o expansiones operativas provisionales.
+
+**¿Puede un contenedor funcionar como bodega?**
+Definitivamente. Los contenedores son una alternativa excelente para crear espacio de resguardo robusto y seguro cerca de la operación, especialmente cuando una bodega convencional no es práctica.
+
+**¿Qué debo considerar antes de instalarlo?**
+Es importante evaluar el tipo de material, el espacio disponible en sitio, el acceso para el transporte, las maniobras necesarias, la ventilación requerida y la frecuencia con la que se accederá al inventario.
+
+**¿Conviene comprar o rentar?**
+Si la necesidad es para un proyecto temporal, la renta es ideal. Para operaciones recurrentes o de larga duración, la compra suele ser la opción más rentable a largo plazo.
+
+**¿Qué tamaño puede utilizarse?**
+Disponemos de unidades de 20 pies para espacios compactos y 40 pies (estándar o High Cube) para necesidades de mayor volumen de almacenamiento.
+
+**¿Para qué se utiliza un contenedor dentro de una obra?**
+Se utilizan principalmente para el resguardo seguro de materiales y herramientas, así como base operativa para el personal del proyecto.
+
+**¿Puede utilizarse para guardar herramientas?**
+Sí, proporcionan un espacio cercano y robusto para proteger herramientas y equipo de trabajo contra la intemperie y accesos no autorizados.
+
+**¿Puedo rentarlo durante la duración del proyecto?**
+Totalmente. La renta es una de las modalidades más comunes para obras, permitiendo contar con la infraestructura solo durante el tiempo que dura el proyecto.
+
+**¿Puede acondicionarse posteriormente?**
+Sí, un contenedor puede ser el punto de partida para configuraciones más complejas como oficinas móviles o áreas de trabajo especializadas.
+
+**¿Qué es una oficina móvil en contenedor?**
+Es un espacio de trabajo reubicable basado en la estructura de un contenedor marítimo, acondicionado con instalaciones y acabados para cumplir funciones administrativas u operativas.
+
+**¿Puede comprarse o rentarse?**
+Sí, disponemos de ambas modalidades. La renta es ideal para proyectos temporales, mientras que la compra se recomienda para operaciones de largo plazo.
+
+**¿Qué puede incluir el acondicionamiento?**
+El acondicionamiento puede integrar instalaciones eléctricas, iluminación, ventanas, puertas, climatización, acabados interiores y divisiones según los requerimientos del proyecto.
+
+**¿Puede utilizarse en obra?**
+Es uno de sus usos principales, proporcionando un punto administrativo o de supervisión directamente en el sitio de trabajo con la ventaja de ser móvil.
+
+**¿Qué tamaño puede utilizarse?**
+Se pueden utilizar unidades de 20 pies para oficinas compactas o 40 pies (estándar o High Cube) cuando se requiere mayor superficie de trabajo.
+
+**¿Cuándo elegir un contenedor de 20 pies?**
+Es la unidad estándar más versátil para proyectos que requieren movilidad y optimización de superficie. Ideal para espacios limitados, almacenamiento moderado de herramientas o inventario, proyectos ágiles y como base de acondicionamiento para oficinas compactas o casetas.
+
+**¿Cuándo elegir un contenedor de 40 pies?**
+Es el estándar para proyectos de gran escala que necesitan maximizar la superficie útil. Recomendado para mayor volumen de inventario, resguardo de materiales extensos o maquinaria voluminosa, y como base para centros de operación amplios o talleres.
+
+**¿Cuándo elegir un contenedor 40 High Cube?**
+Se recomienda cuando el requerimiento principal es la altura libre interior adicional (aprox. 30 cm más que el estándar). Es ideal para estiba alta de materiales, proyectos que integran instalaciones en techo o plafones, y donde cada metro cúbico de volumen extra es relevante.
+
+**¿Qué implica comprar un contenedor usado?**
+Implica verificar su condición estructural íntegra, hermeticidad, que las puertas sean operativas con sellado correcto y que el piso sea apto para carga. La conveniencia depende del uso previsto, ya sea para almacén básico o como base para un proyecto de acondicionamiento.
+
+**¿Qué tamaño de contenedor necesito?**
+La elección depende del volumen que necesitas almacenar, el espacio disponible en tu sitio y el acceso para las maniobras de entrega. Un contenedor de 20 pies es ideal para espacios limitados, mientras que uno de 40 pies ofrece el doble de capacidad para inventarios mayores.
+
+**¿Puedo comprar un contenedor usado?**
+Sí, en Creativos Espacios suministramos unidades verificadas estructuralmente para garantizar su hermeticidad y estabilidad, asegurando que sean aptas para almacenamiento u operación industrial.
+
+**¿Qué diferencia hay entre un contenedor de 20 y 40 pies?**
+Principalmente el volumen de carga y el espacio que ocupan en sitio. El de 20 pies mide aproximadamente 6 metros de largo, mientras que el de 40 pies mide 12 metros.
+
+**¿Un contenedor puede utilizarse como bodega?**
+Es uno de sus usos más comunes. Su estructura de acero corten los hace extremadamente resistentes y seguros para el resguardo de materiales, herramientas e inventario.
+
+**¿Pueden acondicionar el contenedor?**
+Sí, podemos transformar contenedores en oficinas, talleres o áreas operativas personalizadas según los requerimientos de tu proyecto.
+
+**¿La entrega está incluida?**
+El transporte, las maniobras y las condiciones de entrega dependen de la complejidad de cada proyecto y la ubicación exacta. Realizamos una evaluación para preparar una propuesta que incluya la logística necesaria hasta tu sitio en CDMX o zona metropolitana.
+
+**¿Por cuánto tiempo puedo rentar un contenedor?**
+La duración de la renta es flexible y se adapta a la etapa o periodo operativo de tu proyecto. Evaluamos cada caso para ofrecerte una solución que cubra tu necesidad temporal de almacenamiento.
+
+**¿Qué tamaño puedo rentar?**
+Contamos con unidades de 20 y 40 pies disponibles para renta. La elección depende del volumen de materiales o inventario que necesites resguardar y del espacio disponible en tu ubicación.
+
+**¿Puedo utilizarlo como bodega temporal?**
+Sí, es una de las aplicaciones principales para resguardo seguro de activos en sitios sin infraestructura permanente.
+
+**¿Sirve para almacenar materiales de obra?**
+Totalmente. Su estructura de acero proporciona seguridad contra intemperie y robos en entornos de construcción.
+
+**¿El transporte está incluido?**
+La logística se cotiza de forma independiente según la ubicación y complejidad de las maniobras requeridas.
+
+**¿Qué condiciones debe tener el lugar donde se colocará?**
+El sitio debe contar con terreno firme y nivelado, además de espacio suficiente para las maniobras del camión que realizará la entrega y el posicionamiento de la unidad.
+
+**¿Qué implica comprar un contenedor usado?**
+Comprar un contenedor usado implica verificar su condición estructural íntegra, que las puertas sean operativas y tengan sellado correcto, que el piso esté en condiciones para carga, evaluar el nivel de acondicionamiento requerido según el uso previsto (almacén vs proyecto) y asegurar su hermeticidad verificada.
+
+**¿Qué es una oficina para supervisión de obra?**
+Es un espacio modular diseñado específicamente para proporcionar un punto de trabajo operativo en sitio. Permite al personal técnico y administrativo coordinar actividades, revisar documentación y supervisar el avance del proyecto desde un entorno controlado.
+
+**¿Qué tamaño de oficina necesito para mi proyecto?**
+La elección depende del número de personas y la función del espacio. Un contenedor de 20 pies es ideal para una oficina de supervisión compacta, mientras que uno de 40 pies permite integrar áreas de reunión y mayor personal operativo.
+
+**¿Puedo comprar o rentar la oficina?**
+Sí. La renta es la opción más común para proyectos con una duración definida, mientras que la compra se recomienda para empresas que planean reutilizar la infraestructura en múltiples frentes de obra.
+
+**¿La oficina puede configurarse según el número de personas?**
+Sí, la distribución interior y el equipamiento se definen a partir del personal que operará en el sitio, asegurando que el espacio sea funcional para las tareas de supervisión y coordinación.
+
+**¿Qué información necesitan para cotizarla?**
+Necesitamos conocer el número de personas, la ubicación del proyecto, el tiempo estimado de uso y si requiere alguna configuración especial de instalaciones o acabados.
+
+**¿Pueden desarrollar la solución a partir de una necesidad operativa?**
+Sí. Nuestro enfoque parte de entender cómo necesita trabajar su equipo en la obra para proponer la configuración modular que mejor resuelva esa necesidad de supervisión y control.
+
+**¿Para qué puede utilizar una empresa un contenedor?**
+Las empresas utilizan contenedores para resolver necesidades de almacenamiento de inventario, resguardo de materiales en obra, habilitación de oficinas temporales, talleres móviles o bases operativas. Su principal ventaja es la rapidez de implementación y su naturaleza reubicable.
+
+**¿Qué tipo de contenedor necesito para mi empresa?**
+La elección depende del volumen de carga, el espacio disponible en sitio y la función. Un contenedor de 20 pies es ideal para almacenamiento compacto, mientras que uno de 40 pies (estándar o High Cube) maximiza la capacidad operativa para grandes inventarios o proyectos.
+
+**¿Puedo comprar o rentar los contenedores?**
+Sí. Ofrecemos ambas modalidades. La renta es preferible para proyectos con duración definida o necesidades estacionales, mientras que la compra se recomienda cuando la infraestructura formará parte permanente de los activos de la empresa.
+
+**¿Pueden atender un requerimiento de varias unidades?**
+Sí, evaluamos requerimientos de múltiples contenedores para proyectos que necesitan una escala operativa mayor, ya sea en una sola ubicación o distribuidos en diferentes frentes de trabajo.
+
+**¿Los contenedores pueden utilizarse para almacenamiento temporal?**
+Es uno de sus usos corporativos más comunes. Permiten añadir capacidad de resguardo seguro para inventarios, herramientas o insumos de forma inmediata sin necesidad de trámites de construcción permanentes.
+
+**¿Qué información necesitan para preparar una cotización?**
+Necesitamos conocer el uso previsto (almacén, oficina, taller), la cantidad de unidades, el tiempo estimado (para renta) y la ubicación exacta de entrega para evaluar la factibilidad logística.
+
+**¿Qué pasa si no sé qué tamaño de contenedor necesito?**
+No es necesario llegar con una definición técnica. Cuéntenos qué necesita resguardar o cómo operará su equipo, y nosotros le propondremos el tamaño y configuración que mejor resuelva su requerimiento.
+
+**¿Qué es un contenedor para data center?**
+Es un módulo diseñado específicamente para albergar infraestructura de cómputo, servidores y equipos de red. Proporciona un entorno controlado con climatización de precisión, seguridad y redundancia eléctrica.
+
+**¿Qué ventajas tiene sobre un centro de datos convencional?**
+Su principal ventaja es la rapidez de implementación y su naturaleza modular, lo que permite escalar la infraestructura según crezca la demanda, además de ser reubicable y eficiente en términos de espacio y energía.
+
+**¿Incluye sistemas de climatización?**
+Sí, los módulos para data center se habilitan con sistemas de climatización de precisión diseñados para mantener las condiciones de temperatura y humedad requeridas por los equipos tecnológicos.
+
+**¿Es seguro el resguardo de los servidores?**
+La estructura de acero del contenedor, combinada con sistemas de control de acceso y monitoreo, proporciona un nivel de seguridad física robusto para la protección de activos críticos de TI.
+
+**¿Qué información necesitan para evaluar mi proyecto de data center?**
+Necesitamos conocer el volumen de equipos a albergar, los requerimientos de potencia eléctrica, las condiciones de climatización necesarias y el sitio donde se instalará el módulo.
 
 ## Respuestas canónicas
 
@@ -221,6 +429,27 @@ Determinar el esquema comercial más adecuado para un requerimiento de infraestr
 - **Etapa**: exploration
 
 Habilitar un espacio de trabajo en sitio para la dirección y control de proyectos.
+
+### Necesidad de bodega operativa
+- **Objetivo**: Contar con una bodega física segura en sitio
+- **Necesidad**: Espacio de resguardo operativo
+- **Etapa**: discovery
+
+Utilizar un contenedor como espacio de resguardo seguro y robusto para operaciones recurrentes.
+
+### Apoyo operativo en obra
+- **Objetivo**: Optimizar la logística y resguardo en el sitio de obra
+- **Necesidad**: Infraestructura de soporte para construcción
+- **Etapa**: discovery
+
+Infraestructura temporal para dar soporte a las actividades de un proyecto de construcción.
+
+### Necesidad de oficina móvil
+- **Objetivo**: Establecer un punto de trabajo funcional en cualquier ubicación
+- **Necesidad**: Espacio administrativo reubicable
+- **Etapa**: exploration
+
+Habilitar un espacio de trabajo acondicionado y reubicable para funciones administrativas.
 
 ## Limitaciones de precisión
 

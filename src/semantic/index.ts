@@ -14,8 +14,10 @@ import cases from '../knowledge/cases.json';
 import terminology from '../knowledge/terminology.json';
 import canonicalAnswers from '../knowledge/canonical-answers.json';
 import intents from '../knowledge/intents.json';
+import locations from '../knowledge/locations.json';
+import pricebook from '../knowledge/pricebook.json';
 
-import { Organization, Service, Product, Configuration, UseCase, FAQ, Claim, Source, CommercialPolicy, Coverage, Industry, Case, Terminology, CanonicalAnswer, Intent } from '../types/semantic';
+import { Organization, Service, Product, Configuration, UseCase, FAQ, Claim, Source, CommercialPolicy, Coverage, Industry, Case, Terminology, CanonicalAnswer, Intent, Location, PriceBookEntry } from '../types/semantic';
 
 export const Knowledge = {
   organization: organization as unknown as Organization,
@@ -32,5 +34,7 @@ export const Knowledge = {
   cases: cases as unknown as Case[],
   terminology: terminology as unknown as Terminology[],
   canonicalAnswers: canonicalAnswers as unknown as CanonicalAnswer[],
-  intents: intents as unknown as Intent[]
+  intents: intents as unknown as Intent[],
+  locations: locations as unknown as Location[],
+  pricebook: pricebook as unknown as PriceBookEntry[]
 };

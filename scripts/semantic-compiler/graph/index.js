@@ -50,12 +50,26 @@ export function buildKnowledgeGraph(knowledge, fingerprint) {
   if (knowledge.organization) {
     addNode(knowledge.organization, 'Organization');
     
+    if (knowledge.organization.locationId) {
+      addEdge(knowledge.organization.id, knowledge.organization.locationId, 'basedIn');
+    }
+
     knowledge.services.forEach(s => {
       addEdge(knowledge.organization.id, s.id, 'offers');
     });
     
     knowledge.coverage.forEach(c => {
       addEdge(knowledge.organization.id, c.id, 'servesArea');
+    });
+  }
+
+  // Locations
+  if (knowledge.locations) {
+    knowledge.locations.forEach(loc => {
+      addNode(loc, 'Location');
+      if (loc.parentId) {
+        addEdge(loc.id, loc.parentId, 'partOf');
+      }
     });
   }
 
@@ -82,7 +96,12 @@ export function buildKnowledgeGraph(knowledge, fingerprint) {
   });
 
   // UseCases
-  knowledge['use-cases'].forEach(u => addNode(u, 'UseCase'));
+  knowledge['use-cases'].forEach(u => {
+    addNode(u, 'UseCase');
+    if (u.supportedProductIds) {
+      u.supportedProductIds.forEach(pId => addEdge(u.id, pId, 'isSupportedByProduct'));
+    }
+  });
   
   // Industries
   knowledge.industries.forEach(i => addNode(i, 'Industry'));
@@ -128,6 +147,15 @@ export function buildKnowledgeGraph(knowledge, fingerprint) {
     if (i.coverageIds) i.coverageIds.forEach(cId => addEdge(i.id, cId, 'appliesTo'));
     if (i.sourceIds) i.sourceIds.forEach(sId => addEdge(i.id, sId, 'supportedBy'));
   });
+
+  // PriceBook
+  if (knowledge.pricebook) {
+    knowledge.pricebook.forEach(price => {
+      addNode(price, 'Price');
+      if (price.productId) addEdge(price.id, price.productId, 'appliesToProduct');
+      if (price.serviceId) addEdge(price.id, price.serviceId, 'appliesToService');
+    });
+  }
 
   return {
     name: "Creativos Espacios Knowledge Graph",

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
+import { FAQ } from '../components/FAQ';
 import { CheckCircle2, MapPin, MessageSquare, ArrowRight, Clock, ShieldCheck, Truck, HardHat, Package, Wrench, Maximize, LayoutGrid, Boxes } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
@@ -8,7 +9,10 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 
 const Contenedor40HighCubeCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
-  const product40ft = SemanticSelectors.getProductsForService('service:container-sale').find(p => p.id === 'product:container-40ft');
+  const product40hc = SemanticSelectors.getProductById('product:container-40hc');
+  const location = SemanticSelectors.getLocationById('loc:cdmx');
+  const baseLocation = SemanticSelectors.getLocationById(org.locationId);
+  const faqs = SemanticSelectors.getFaqByCategory('contenedor-40hc');
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -23,9 +27,9 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
         "@type": "WebPage",
         "@id": webpageId,
         "url": pageUrl,
-        "name": "Contenedor 40 High Cube en CDMX | Creativos Espacios",
+        "name": `Contenedor 40 High Cube en ${location?.name || 'CDMX'} | Creativos Espacios`,
         "isPartOf": { "@id": WEBSITE_ID },
-        "description": "Conoce el contenedor marítimo 40 High Cube en CDMX y cuándo su mayor altura interior puede ser útil para almacenamiento o proyectos acondicionados."
+        "description": `Conoce el contenedor marítimo 40 High Cube en ${location?.name || 'CDMX'} y cuándo su mayor altura interior puede ser útil para almacenamiento o proyectos acondicionados.`
       },
       {
         "@type": "BreadcrumbList",
@@ -39,10 +43,21 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Contenedor 40 High Cube en CDMX",
+            "name": `Contenedor 40 High Cube en ${location?.name || 'CDMX'}`,
             "item": pageUrl
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
       }
     ]
   };
@@ -64,7 +79,7 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
         <div className="pointer-events-none absolute inset-0">
           <motion.img
             src="/images/venta-renta-hero.png"
-            alt="Contenedor 40 High Cube en Ciudad de México"
+            alt={`Contenedor 40 High Cube en ${location?.name || 'Ciudad de México'}`}
             loading="eager"
             className="h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
@@ -81,10 +96,10 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
           animate="visible"
         >
           <motion.span variants={heroMotion.eyebrow} className="mb-4 block text-sm font-bold tracking-[0.2em] text-brand-orange uppercase">
-            40 HIGH CUBE
+            {product40hc?.name || '40 HIGH CUBE'}
           </motion.span>
           <motion.h1 variants={heroMotion.title} className="mb-8 leading-tight text-white max-w-4xl">
-            Contenedor 40 High Cube en CDMX
+            Contenedor 40 High Cube en {location?.name || 'CDMX'}
           </motion.h1>
           <motion.p variants={heroMotion.body} className="mb-10 max-w-2xl text-lg leading-relaxed text-white md:text-xl font-sans">
             Una configuración de 40 pies con mayor altura que puede aportar capacidad adicional para determinados proyectos de almacenamiento y acondicionamiento.
@@ -97,7 +112,7 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
           </motion.div>
           <motion.p variants={heroMotion.body} className="mt-8 flex items-center gap-2 text-sm text-white/70">
             <MapPin className="h-4 w-4 text-brand-orange" />
-            Atención desde Iztapalapa, Ciudad de México.
+            Atención desde {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}.
           </motion.p>
         </motion.div>
       </header>
@@ -145,6 +160,28 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
 
       {/* BLOQUE — 40 STANDARD VS 40 HIGH CUBE */}
       <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
+          <div className="lg:w-1/2">
+            <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-8 text-left">Dimensiones High Cube</h2>
+            <p className="text-brand-graphite text-lg mb-10 font-sans">
+              La unidad 40 High Cube mantiene la longitud de 12 metros pero incrementa la altura total a 2.89 metros (9' 6").
+            </p>
+            {product40hc?.dimensions && (
+              <div className="bg-brand-gray/10 p-8 border border-brand-gray rounded">
+                <div className="grid grid-cols-2 gap-8">
+                  <div>
+                    <span className="block text-brand-orange font-bold uppercase tracking-wider text-xs mb-2">Medidas Exteriores</span>
+                    <span className="text-2xl font-serif text-brand-petroleum">{product40hc.dimensions}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="lg:w-1/2 bg-brand-gray/5 p-8 rounded border border-brand-gray">
+            <img src="/images/venta-renta-contenedor-40ft.png" alt="Esquema contenedor 40 High Cube" className="w-full grayscale brightness-110" />
+          </div>
+        </div>
+
         <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum text-center mb-16">Standard vs High Cube</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           <div className="space-y-6">
@@ -193,6 +230,15 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
           </a>
         </div>
       </section>
+
+      {/* FAQ */}
+      {faqs.length > 0 && (
+        <FAQ 
+          items={faqs.map(f => ({ question: f.question, answer: f.answer }))}
+          eyebrow="ASESORÍA TÉCNICA"
+          title={`Preguntas sobre el contenedor 40 High Cube`}
+        />
+      )}
 
       {/* CTA FINAL */}
       <section className="bg-brand-petroleum py-20 md:py-32 text-white text-center border-t border-white/10">

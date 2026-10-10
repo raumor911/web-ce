@@ -11,12 +11,14 @@ interface FAQProps {
   items: FAQItem[];
   title?: string;
   subtitle?: string;
+  eyebrow?: string;
 }
 
 export const FAQ: React.FC<FAQProps> = ({ 
   items, 
   title = "Preguntas Frecuentes",
-  subtitle = "Información técnica y operativa para su proyecto."
+  subtitle = "Información técnica y operativa para su proyecto.",
+  eyebrow = "Soporte Técnico"
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -24,7 +26,7 @@ export const FAQ: React.FC<FAQProps> = ({
     <section className="py-20 md:py-32 bg-brand-white">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="mx-auto mb-16 max-w-3xl text-center md:mb-24">
-          <span className="section-subtitle">Soporte Técnico</span>
+          <span className="section-subtitle">{eyebrow}</span>
           <h2 className="section-title mb-6">{title}</h2>
           <p className="text-brand-graphite text-lg md:text-xl font-sans leading-relaxed">
             {subtitle}

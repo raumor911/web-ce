@@ -1,0 +1,44 @@
+[
+  {
+    "id": "price:container-20ft-used-sale",
+    "productId": "product:container-20ft",
+    "serviceId": "service:container-sale",
+    "condition": "used",
+    "currency": "USD",
+    "amount": 2600,
+    "priceType": "current",
+    "unit": "unit",
+    "effectiveFrom": "2026-10-09",
+    "effectiveTo": null,
+    "lastReviewedAt": "2026-10-09",
+    "status": "active"
+  },
+  {
+    "id": "price:container-40ft-used-sale",
+    "productId": "product:container-40ft",
+    "serviceId": "service:container-sale",
+    "condition": "used",
+    "currency": "USD",
+    "amount": 3100,
+    "priceType": "current",
+    "unit": "unit",
+    "effectiveFrom": "2026-10-09",
+    "effectiveTo": null,
+    "lastReviewedAt": "2026-10-09",
+    "status": "active"
+  },
+  {
+    "id": "price:container-40hc-used-sale",
+    "productId": "product:container-40hc",
+    "serviceId": "service:container-sale",
+    "condition": "used",
+    "currency": "USD",
+    "amount": 3600,
+    "priceType": "current",
+    "unit": "unit",
+    "effectiveFrom": "2026-10-09",
+    "effectiveTo": null,
+    "lastReviewedAt": "2026-10-09",
+    "status": "active"
+  }
+]

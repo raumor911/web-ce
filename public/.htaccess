@@ -69,8 +69,14 @@
     RewriteRule ^(.+)/$ https://creativosespacios.mx/$1 [R=301,L]
 
     # ===================================================== 
-    # 3. SERVIR ARCHIVOS Y DIRECTORIOS FÍSICOS 
+    # 3. SERVIR ARCHIVOS PRERENDERIZADOS Y FÍSICOS 
     # ===================================================== 
+    # 
+    # Si pides /ruta y existe /ruta/index.html, sírvelo internamente.
+    # Esto permite URLs slashless con carpetas físicas de prerender.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+    RewriteRule ^(.*)/?$ $1/index.html [L]
 
     RewriteCond %{REQUEST_FILENAME} -f [OR] 
     RewriteCond %{REQUEST_FILENAME} -d 

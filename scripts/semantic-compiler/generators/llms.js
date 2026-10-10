@@ -22,6 +22,9 @@ export function generateLLMS(knowledge, outDir) {
   content += `- [Casos de Uso](/ai/use-cases.md)\n`;
   content += `- [Terminología Preferida](/ai/terminology.md)\n`;
   content += `- [Respuestas Canónicas](/ai/canonical-answers.md)\n`;
+  if (knowledge.pricebook && knowledge.pricebook.length > 0) {
+    content += `- [Guía de Precios de Referencia](/ai/pricebook.md)\n`;
+  }
   
   if (knowledge.faq && knowledge.faq.length > 0) {
     content += `- [Preguntas Frecuentes](/ai/faq.md)\n`;

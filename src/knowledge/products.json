@@ -1,10 +1,34 @@
 [
   {
     "id": "product:container-20ft",
-    "name": "Contenedor 20 FT STD",
+    "name": "Contenedor marítimo 20 FT Standard",
     "category": "Contenedor Marítimo",
     "description": "Solución para almacenamiento temporal, logística, operaciones y proyectos que requieren incorporar capacidad sin construir desde cero.",
-    "dimensions": "6.06m x 2.44m x 2.59m / 2.89m",
+    "dimensions": "20 ft × 8 ft × 8 ft 6 in",
+    "classification": {
+      "series": "Series 1",
+      "purpose": "General Purpose",
+      "type": "Dry Container",
+      "height": "Standard Height"
+    },
+    "isoSizeTypeCode": "22G1",
+    "externalDimensions": {
+      "lengthMm": 6058,
+      "widthMm": 2438,
+      "heightMm": 2591
+    },
+    "nominalDimensions": "20 ft × 8 ft × 8 ft 6 in",
+    "referenceInternalDimensions": {
+      "lengthMm": 5900,
+      "widthMm": 2352,
+      "heightMm": 2395,
+      "note": "Las dimensiones interiores pueden variar según fabricante y unidad."
+    },
+    "referenceDoorOpening": {
+      "widthMm": 2340,
+      "heightMm": 2292
+    },
+    "referenceVolumeM3": 33.2,
     "features": [
       "Fabricado en acero Corten de alta resistencia.",
       "Reacondicionado para asegurar protección contra filtraciones de agua.",
@@ -14,14 +38,76 @@
   },
   {
     "id": "product:container-40ft",
-    "name": "Contenedor 40 FT HC/STD",
+    "name": "Contenedor marítimo 40 FT Standard",
     "category": "Contenedor Marítimo",
     "description": "Solución de gran capacidad para almacenamiento, operación logística y resguardo de maquinaria, materiales o inventarios de alto volumen.",
-    "dimensions": "12.19m x 2.44m x 2.89m",
+    "dimensions": "40 ft × 8 ft × 8 ft 6 in",
+    "classification": {
+      "series": "Series 1",
+      "purpose": "General Purpose",
+      "type": "Dry Container",
+      "height": "Standard Height"
+    },
+    "isoSizeTypeCode": "42G1",
+    "externalDimensions": {
+      "lengthMm": 12192,
+      "widthMm": 2438,
+      "heightMm": 2591
+    },
+    "nominalDimensions": "40 ft × 8 ft × 8 ft 6 in",
+    "referenceInternalDimensions": {
+      "lengthMm": 12032,
+      "widthMm": 2352,
+      "heightMm": 2395,
+      "note": "Las dimensiones interiores pueden variar según fabricante y unidad."
+    },
+    "referenceDoorOpening": {
+      "widthMm": 2340,
+      "heightMm": 2292
+    },
+    "referenceVolumeM3": 67.7,
     "features": [
       "Acero Corten de alta resistencia.",
       "Reacondicionado para asegurar protección contra filtraciones de agua.",
       "Disponible pintado o en acabado original, sujeto a disponibilidad."
+    ],
+    "serviceIds": ["service:container-sale", "service:container-rental"]
+  },
+  {
+    "id": "product:container-40hc",
+    "name": "Contenedor marítimo 40 FT High Cube",
+    "category": "Contenedor Marítimo",
+    "description": "Configuración de 40 pies con mayor altura (High Cube) que aporta capacidad vertical adicional para proyectos de almacenamiento y acondicionamiento.",
+    "dimensions": "40 ft × 8 ft × 9 ft 6 in",
+    "classification": {
+      "series": "Series 1",
+      "purpose": "General Purpose",
+      "type": "Dry Container",
+      "height": "High Cube"
+    },
+    "isoSizeTypeCode": "45G1",
+    "externalDimensions": {
+      "lengthMm": 12192,
+      "widthMm": 2438,
+      "heightMm": 2896
+    },
+    "nominalDimensions": "40 ft × 8 ft × 9 ft 6 in",
+    "referenceInternalDimensions": {
+      "lengthMm": 12032,
+      "widthMm": 2350,
+      "heightMm": 2700,
+      "note": "Las dimensiones interiores pueden variar según fabricante y unidad."
+    },
+    "referenceDoorOpening": {
+      "widthMm": 2340,
+      "heightMm": 2597
+    },
+    "referenceVolumeM3": 76.3,
+    "features": [
+      "Mayor altura libre interior (9' 6\").",
+      "Acero Corten de alta resistencia.",
+      "Potencial para acondicionamiento con instalaciones ocultas.",
+      "Reacondicionado para asegurar protección contra filtraciones."
     ],
     "serviceIds": ["service:container-sale", "service:container-rental"]
   }

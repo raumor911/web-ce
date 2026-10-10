@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { SEO } from '../components/SEO';
+import { FAQ } from '../components/FAQ';
 import { CheckCircle2, MapPin, MessageSquare, ArrowRight, Clock, ShieldCheck, Truck, HardHat, Package, Wrench, Maximize, LayoutGrid, Boxes } from 'lucide-react';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { SemanticSelectors } from '../semantic/selectors';
@@ -8,7 +9,10 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 
 const Contenedor20PiesCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
-  const product20ft = SemanticSelectors.getProductsForService('service:container-sale').find(p => p.id === 'product:container-20ft');
+  const product20ft = SemanticSelectors.getProductById('product:container-20ft');
+  const location = SemanticSelectors.getLocationById('loc:cdmx');
+  const baseLocation = SemanticSelectors.getLocationById(org.locationId);
+  const faqs = SemanticSelectors.getFaqByCategory('contenedor-20ft');
   
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -23,9 +27,9 @@ const Contenedor20PiesCDMX: React.FC = () => {
         "@type": "WebPage",
         "@id": webpageId,
         "url": pageUrl,
-        "name": "Contenedor de 20 pies en CDMX | Creativos Espacios",
+        "name": `Contenedor de 20 pies en ${location?.name || 'CDMX'} | Creativos Espacios`,
         "isPartOf": { "@id": WEBSITE_ID },
-        "description": "Conoce las características y usos de un contenedor marítimo de 20 pies en CDMX para almacenamiento, obra y proyectos empresariales."
+        "description": `Conoce las características y usos de un contenedor marítimo de 20 pies en ${location?.name || 'CDMX'} para almacenamiento, obra y proyectos empresariales.`
       },
       {
         "@type": "BreadcrumbList",
@@ -39,10 +43,21 @@ const Contenedor20PiesCDMX: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Contenedor de 20 pies en CDMX",
+            "name": `Contenedor de 20 pies en ${location?.name || 'CDMX'}`,
             "item": pageUrl
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
       }
     ]
   };
@@ -64,7 +79,7 @@ const Contenedor20PiesCDMX: React.FC = () => {
         <div className="pointer-events-none absolute inset-0">
           <motion.img
             src="/images/venta-renta-hero.png"
-            alt="Contenedor de 20 pies en Ciudad de México"
+            alt={`Contenedor de 20 pies en ${location?.name || 'Ciudad de México'}`}
             loading="eager"
             className="h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
@@ -81,10 +96,10 @@ const Contenedor20PiesCDMX: React.FC = () => {
           animate="visible"
         >
           <motion.span variants={heroMotion.eyebrow} className="mb-4 block text-sm font-bold tracking-[0.2em] text-brand-orange uppercase">
-            CONTENEDOR MARÍTIMO
+            {product20ft?.category || 'CONTENEDOR MARÍTIMO'}
           </motion.span>
           <motion.h1 variants={heroMotion.title} className="mb-8 leading-tight text-white max-w-4xl">
-            Contenedor de 20 pies en CDMX
+            Contenedor de 20 pies en {location?.name || 'CDMX'}
           </motion.h1>
           <motion.p variants={heroMotion.body} className="mb-10 max-w-2xl text-lg leading-relaxed text-white md:text-xl font-sans">
             Una configuración compacta para proyectos donde se necesita capacidad de almacenamiento o una base para soluciones acondicionadas sin ocupar el espacio de una unidad de mayor longitud.
@@ -97,7 +112,7 @@ const Contenedor20PiesCDMX: React.FC = () => {
           </motion.div>
           <motion.p variants={heroMotion.body} className="mt-8 flex items-center gap-2 text-sm text-white/70">
             <MapPin className="h-4 w-4 text-brand-orange" />
-            Atención en Ciudad de México y zona metropolitana.
+            Atención en {location?.name || 'Ciudad de México'} y zona metropolitana.
           </motion.p>
         </motion.div>
       </header>
@@ -188,6 +203,15 @@ const Contenedor20PiesCDMX: React.FC = () => {
           </a>
         </div>
       </section>
+
+      {/* FAQ */}
+      {faqs.length > 0 && (
+        <FAQ 
+          items={faqs.map(f => ({ question: f.question, answer: f.answer }))}
+          eyebrow="ASESORÍA TÉCNICA"
+          title={`Preguntas sobre el contenedor de 20 pies`}
+        />
+      )}
 
       {/* CTA FINAL */}
       <section className="bg-brand-petroleum py-20 md:py-32 text-white text-center">

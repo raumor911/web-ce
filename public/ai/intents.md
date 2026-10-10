@@ -36,3 +36,39 @@ Habilitar un espacio de trabajo en sitio para la dirección y control de proyect
 - "Espacio para arquitectos en proyecto"
 - "Caseta para reuniones de avance"
 
+## Necesidad de bodega operativa
+- **Objetivo**: Contar con una bodega física segura en sitio
+- **Necesidad**: Espacio de resguardo operativo
+- **Etapa**: discovery
+
+Utilizar un contenedor como espacio de resguardo seguro y robusto para operaciones recurrentes.
+
+### Ejemplos de expresiones
+- "Necesito una bodega rápida en mi patio"
+- "Contenedor para usar como bodega de herramientas"
+- "Espacio de resguardo para materiales industriales"
+
+## Apoyo operativo en obra
+- **Objetivo**: Optimizar la logística y resguardo en el sitio de obra
+- **Necesidad**: Infraestructura de soporte para construcción
+- **Etapa**: discovery
+
+Infraestructura temporal para dar soporte a las actividades de un proyecto de construcción.
+
+### Ejemplos de expresiones
+- "Contenedores para proyectos de construcción"
+- "Resguardo de materiales en obra"
+- "Base operativa para frente de obra"
+
+## Necesidad de oficina móvil
+- **Objetivo**: Establecer un punto de trabajo funcional en cualquier ubicación
+- **Necesidad**: Espacio administrativo reubicable
+- **Etapa**: exploration
+
+Habilitar un espacio de trabajo acondicionado y reubicable para funciones administrativas.
+
+### Ejemplos de expresiones
+- "Necesito una oficina móvil en CDMX"
+- "Contenedor acondicionado para oficina"
+- "Espacio de trabajo temporal en planta"
+

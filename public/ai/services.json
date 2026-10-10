@@ -10,7 +10,8 @@
     "requiresAssessment": true,
     "productIds": [
       "product:container-20ft",
-      "product:container-40ft"
+      "product:container-40ft",
+      "product:container-40hc"
     ],
     "useCaseIds": [
       "usecase:b2b-temporary-storage",
@@ -26,7 +27,9 @@
       "industry:temporary-projects"
     ],
     "coverageIds": [
-      "coverage:national-mx"
+      "coverage:national-mx",
+      "coverage:zmvm",
+      "coverage:edomex"
     ]
   },
   {
@@ -40,7 +43,8 @@
     "requiresAssessment": true,
     "productIds": [
       "product:container-20ft",
-      "product:container-40ft"
+      "product:container-40ft",
+      "product:container-40hc"
     ],
     "useCaseIds": [
       "usecase:b2b-temporary-storage",
@@ -56,7 +60,9 @@
       "industry:temporary-projects"
     ],
     "coverageIds": [
-      "coverage:national-mx"
+      "coverage:national-mx",
+      "coverage:zmvm",
+      "coverage:edomex"
     ]
   },
   {
@@ -87,7 +93,9 @@
       "industry:temporary-projects"
     ],
     "coverageIds": [
-      "coverage:national-mx"
+      "coverage:national-mx",
+      "coverage:zmvm",
+      "coverage:edomex"
     ]
   },
   {
@@ -117,7 +125,9 @@
       "industry:temporary-projects"
     ],
     "coverageIds": [
-      "coverage:national-mx"
+      "coverage:national-mx",
+      "coverage:zmvm",
+      "coverage:edomex"
     ]
   }
 ]

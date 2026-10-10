@@ -34,5 +34,17 @@
       "Acabados según uso"
     ],
     "serviceIds": ["service:relocatable-offices"]
+  },
+  {
+    "id": "configuration:data-center",
+    "name": "Módulo Data Center",
+    "description": "Habilitación técnica para infraestructura de cómputo y resguardo de datos.",
+    "features": [
+      "Climatización de precisión",
+      "Instalaciones eléctricas redundantes",
+      "Seguridad y control de acceso",
+      "Aislamiento térmico y acústico"
+    ],
+    "serviceIds": ["service:modular-projects"]
   }
 ]

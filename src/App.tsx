@@ -3,23 +3,9 @@ import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-d
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
 import { ScrollToTop } from './components/ScrollToTop';
-import Home from './pages/Home';
-import VentaRenta from './pages/VentaRenta';
-import Oficinas from './pages/Oficinas';
-import Proyectos from './pages/Proyectos';
-import Nosotros from './pages/Nosotros';
-import Contacto from './pages/Contacto';
-import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
-import CompraContenedoresCDMX from './pages/CompraContenedoresCDMX';
-import RentaContenedoresCDMX from './pages/RentaContenedoresCDMX';
-import ContenedoresUsadosCDMX from './pages/ContenedoresUsadosCDMX';
-import Contenedor20PiesCDMX from './pages/Contenedor20PiesCDMX';
-import Contenedor40PiesCDMX from './pages/Contenedor40PiesCDMX';
-import Contenedor40HighCubeCDMX from './pages/Contenedor40HighCubeCDMX';
-import Privacidad from './pages/Privacidad';
-import Terminos from './pages/Terminos';
-import NotFound from './pages/NotFound';
+import routesConfig from './config/routes.json';
+import { componentRegistry } from './config/routeRegistry';
 
 const App: React.FC = () => {
   return (
@@ -28,26 +14,29 @@ const App: React.FC = () => {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="soluciones">
-              <Route index element={<Navigate to="/soluciones/venta-renta" replace />} />
-              <Route path="venta-renta" element={<VentaRenta />} />
-              <Route path="oficinas" element={<Oficinas />} />
-            </Route>
-            <Route path="proyectos" element={<Proyectos />} />
-            <Route path="nosotros" element={<Nosotros />} />
-            <Route path="contacto" element={<Contacto />} />
-            <Route path="blog" element={<Blog />} />
+            {/* Static Routes from Manifest */}
+            {routesConfig.map((route) => {
+              const Component = componentRegistry[route.component];
+              if (!Component) return null;
+
+              if (route.path === '/') {
+                return <Route key={route.id} index element={<Component />} />;
+              }
+
+              return <Route key={route.id} path={route.path.replace(/^\//, '')} element={<Component />} />;
+            })}
+
+            {/* Special Redirects */}
+            <Route path="soluciones" element={<Navigate to="/soluciones/venta-renta" replace />} />
+
+            {/* Dynamic Routes */}
             <Route path="blog/:slug" element={<BlogPost />} />
-            <Route path="compra-contenedores-cdmx" element={<CompraContenedoresCDMX />} />
-            <Route path="renta-contenedores-cdmx" element={<RentaContenedoresCDMX />} />
-            <Route path="contenedores-usados-cdmx" element={<ContenedoresUsadosCDMX />} />
-            <Route path="contenedor-20-pies-cdmx" element={<Contenedor20PiesCDMX />} />
-            <Route path="contenedor-40-pies-cdmx" element={<Contenedor40PiesCDMX />} />
-            <Route path="contenedor-40-high-cube-cdmx" element={<Contenedor40HighCubeCDMX />} />
-            <Route path="privacidad" element={<Privacidad />} />
-            <Route path="terminos" element={<Terminos />} />
-            <Route path="*" element={<NotFound />} />
+
+            {/* Fallback */}
+            <Route path="*" element={(() => {
+              const NotFound = componentRegistry['NotFound'];
+              return NotFound ? <NotFound /> : <div>Not Found</div>;
+            })()} />
           </Route>
         </Routes>
       </Router>

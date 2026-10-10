@@ -56,6 +56,16 @@ export function generateLLMSFull(knowledge, outDir) {
   });
   content += `\n`;
   
+  if (knowledge.pricebook && knowledge.pricebook.length > 0) {
+    content += `## Guía de Precios Referenciales\n\n`;
+    knowledge.pricebook.filter(p => p.status === 'active').forEach(p => {
+      const product = knowledge.products.find(pr => pr.id === p.productId);
+      const service = knowledge.services.find(s => s.id === p.serviceId);
+      content += `- **${product?.name || p.productId}** (${p.condition}, ${service?.name || p.serviceId}): ${p.currency} ${p.amount} por ${p.unit}. Vigente desde ${p.effectiveFrom}.\n`;
+    });
+    content += `\n*Los montos son referenciales y pueden variar.*\n\n`;
+  }
+  
   if (knowledge.faq.length > 0) {
     content += `## Preguntas frecuentes\n\n`;
     knowledge.faq.forEach(f => {

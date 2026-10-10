@@ -79,7 +79,8 @@ async function prerender() {
     process.exit(1);
   }
 
-  const staticRoutes = ['/', '/nosotros', '/soluciones/venta-renta', '/soluciones/oficinas', '/proyectos', '/contacto', '/blog', '/compra-contenedores-cdmx', '/renta-contenedores-cdmx', '/contenedores-usados-cdmx', '/contenedor-20-pies-cdmx', '/contenedor-40-pies-cdmx', '/contenedor-40-high-cube-cdmx', '/404'];
+  const routesConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/config/routes.json'), 'utf-8'));
+  const staticRoutes = routesConfig.filter(r => r.prerender).map(r => r.path);
   const dynamicRoutes = await getAllPostSlugs();
   const routes = [...staticRoutes, ...dynamicRoutes];
   

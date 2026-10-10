@@ -6,6 +6,7 @@ import { getHeroMotionConfig } from '../lib/heroMotion';
 import { FAQ } from '../components/FAQ';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, getEntityId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
+import { coverageToAreaServed } from '../lib/semantic-schema';
 
 const VentaRenta: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -14,6 +15,7 @@ const VentaRenta: React.FC = () => {
   const products = SemanticSelectors.getProductsForService('service:container-sale');
   const faqData = SemanticSelectors.getFaqByCategory('venta-renta');
   const generalFaq = SemanticSelectors.getGeneralFaq();
+  const coverage = SemanticSelectors.getCoverageForService('service:container-sale');
 
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
@@ -53,7 +55,7 @@ const VentaRenta: React.FC = () => {
         "name": serviceSale?.name || "Venta de Contenedores",
         "provider": { "@id": ORG_ID },
         "description": serviceSale?.description || "Suministro de contenedores industriales de 20 y 40 pies.",
-        "areaServed": { "@type": "Country", "name": "México" },
+        "areaServed": coverageToAreaServed(coverage),
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Catálogo de Contenedores",
@@ -257,6 +259,40 @@ const VentaRenta: React.FC = () => {
             <p className="text-base md:text-lg text-brand-graphite leading-relaxed font-sans">
               Cada unidad entregada pasa por un proceso de inspección técnica para asegurar su hermeticidad y estabilidad.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Section - New P3 Links */}
+      <section className="py-20 md:py-32 bg-brand-white">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="mb-16 max-w-3xl">
+            <h2 className="mb-6 text-3xl font-bold text-brand-petroleum md:text-4xl">
+              ¿Para qué necesitas un contenedor?
+            </h2>
+            <p className="text-lg text-brand-graphite font-sans">
+              Los contenedores marítimos ofrecen soluciones versátiles para diversas necesidades operativas en la Ciudad de México.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Almacenamiento", path: "/contenedores-para-almacenamiento-cdmx", desc: "Resguardo seguro de materiales y equipo." },
+              { title: "Bodega Temporal", path: "/contenedores-para-bodega-cdmx", desc: "Espacio adicional cerca de su operación." },
+              { title: "Apoyo en Obra", path: "/contenedores-para-obra-cdmx", desc: "Infraestructura operativa en sitio." },
+              { title: "Oficina Móvil", path: "/oficinas-moviles-cdmx", desc: "Espacios de trabajo reubicables." }
+            ].map((useCase) => (
+              <a 
+                key={useCase.path}
+                href={useCase.path}
+                className="group p-8 border border-brand-gray/30 rounded-sm hover:border-brand-orange transition-all bg-slate-50/50"
+              >
+                <h3 className="text-xl font-bold text-brand-petroleum mb-3 group-hover:text-brand-orange transition-colors">{useCase.title}</h3>
+                <p className="text-sm text-brand-graphite font-sans mb-6">{useCase.desc}</p>
+                <span className="text-xs font-bold text-brand-orange tracking-widest uppercase flex items-center gap-2">
+                  EXPLORAR CASO <ArrowRight className="h-3 w-3" />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>

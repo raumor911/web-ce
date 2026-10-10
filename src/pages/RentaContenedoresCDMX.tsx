@@ -9,6 +9,13 @@ import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canoni
 
 const RentaContenedoresCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
+  const location = SemanticSelectors.getLocationById('loc:cdmx');
+  const baseLocation = SemanticSelectors.getLocationById(org.locationId);
+  const service = SemanticSelectors.getServiceById('service:container-rental');
+  const product20ft = SemanticSelectors.getProductById('product:container-20ft');
+  const product40ft = SemanticSelectors.getProductById('product:container-40ft');
+  const faqs = SemanticSelectors.getFaqByCategory('container-rental');
+
   const reducedMotion = useReducedMotion();
   const heroMotion = getHeroMotionConfig(Boolean(reducedMotion));
 
@@ -22,9 +29,9 @@ const RentaContenedoresCDMX: React.FC = () => {
         "@type": "WebPage",
         "@id": webpageId,
         "url": pageUrl,
-        "name": "Renta de contenedores en CDMX | Creativos Espacios",
+        "name": `Renta de contenedores en ${location?.name || 'CDMX'} | Creativos Espacios`,
         "isPartOf": { "@id": WEBSITE_ID },
-        "description": "Renta contenedores para almacenamiento, obra y necesidades temporales en Ciudad de México. Soluciones de 20 y 40 pies según el alcance del proyecto."
+        "description": `Renta contenedores para almacenamiento, obra y necesidades temporales en ${location?.name || 'Ciudad de México'}. Soluciones de 20 y 40 pies según el alcance del proyecto.`
       },
       {
         "@type": "BreadcrumbList",
@@ -38,39 +45,21 @@ const RentaContenedoresCDMX: React.FC = () => {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Renta de contenedores en CDMX",
+            "name": `Renta de contenedores en ${location?.name || 'CDMX'}`,
             "item": pageUrl
           }
         ]
       },
       {
         "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Por cuánto tiempo puedo rentar un contenedor?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "La duración de la renta es flexible y se adapta a la etapa o periodo operativo de tu proyecto. Evaluamos cada caso para ofrecerte una solución que cubra tu necesidad temporal de almacenamiento."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué tamaño puedo rentar?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Contamos con unidades de 20 y 40 pies disponibles para renta. La elección depende del volumen de materiales o inventario que necesites resguardar y del espacio disponible en tu ubicación."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué condiciones debe tener el lugar donde se colocará?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "El sitio debe contar con terreno firme y nivelado, además de espacio suficiente para las maniobras del camión que realizará la entrega y el posicionamiento de la unidad."
-            }
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
           }
-        ]
+        }))
       }
     ]
   };
@@ -82,8 +71,8 @@ const RentaContenedoresCDMX: React.FC = () => {
   return (
     <div className="bg-brand-white min-h-screen">
       <SEO 
-        title="Renta de contenedores en CDMX"
-        description="Renta contenedores para almacenamiento, obra y necesidades temporales en Ciudad de México. Soluciones de 20 y 40 pies según el alcance del proyecto."
+        title={`Renta de contenedores en ${location?.name || 'CDMX'}`}
+        description={`Renta contenedores para almacenamiento, obra y necesidades temporales en ${location?.name || 'Ciudad de México'}. Soluciones de 20 y 40 pies según el alcance del proyecto.`}
         jsonLd={jsonLd}
       />
       
@@ -92,7 +81,7 @@ const RentaContenedoresCDMX: React.FC = () => {
         <div className="pointer-events-none absolute inset-0">
           <motion.img
             src="/images/venta-renta-hero.png"
-            alt="Renta de contenedores en Ciudad de México"
+            alt={`Renta de contenedores en ${location?.name || 'Ciudad de México'}`}
             loading="eager"
             className="h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out md:group-hover:scale-[1.02]"
             variants={heroMotion.background}
@@ -109,10 +98,10 @@ const RentaContenedoresCDMX: React.FC = () => {
           animate="visible"
         >
           <motion.span variants={heroMotion.eyebrow} className="mb-4 block text-sm font-bold tracking-[0.2em] text-brand-orange uppercase">
-            ALMACENAMIENTO TEMPORAL EN CDMX
+            ALMACENAMIENTO TEMPORAL EN {location?.name.toUpperCase() || 'CDMX'}
           </motion.span>
           <motion.h1 variants={heroMotion.title} className="mb-8 leading-tight text-white max-w-4xl">
-            Renta contenedores en CDMX
+            Renta contenedores en {location?.name || 'CDMX'}
           </motion.h1>
           <motion.p variants={heroMotion.body} className="mb-10 max-w-2xl text-lg leading-relaxed text-white md:text-xl font-sans">
             Obtén espacio adicional para materiales, inventario, herramientas o proyectos sin convertir una necesidad temporal en infraestructura permanente.
@@ -125,7 +114,7 @@ const RentaContenedoresCDMX: React.FC = () => {
           </motion.div>
           <motion.p variants={heroMotion.body} className="mt-8 flex items-center gap-2 text-sm text-white/70">
             <MapPin className="h-4 w-4 text-brand-orange" />
-            Atención desde Iztapalapa, Ciudad de México.
+            Atención desde {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}.
           </motion.p>
         </motion.div>
       </header>
@@ -196,10 +185,10 @@ const RentaContenedoresCDMX: React.FC = () => {
             <div className="space-y-12">
               <div className="flex gap-8">
                 <div className="flex-shrink-0 w-20 h-20 bg-brand-gray/30 flex items-center justify-center rounded">
-                  <img src="/images/venta-renta-contenedor-20ft.png" alt="20 pies" className="h-12 w-auto grayscale" />
+                  <img src="/images/venta-renta-contenedor-20ft.png" alt={product20ft?.name || '20 pies'} className="h-12 w-auto grayscale" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-brand-petroleum mb-3">Contenedor de 20 pies</h4>
+                  <h4 className="text-xl font-bold text-brand-petroleum mb-3">{product20ft?.name || 'Contenedor de 20 pies'}</h4>
                   <p className="text-brand-graphite/70 text-sm leading-relaxed mb-4">
                     Ideal para proyectos con restricciones de espacio o necesidades de almacenamiento moderadas. Fácil de posicionar en entornos urbanos o sitios de obra compactos.
                   </p>
@@ -211,10 +200,10 @@ const RentaContenedoresCDMX: React.FC = () => {
               
               <div className="flex gap-8">
                 <div className="flex-shrink-0 w-20 h-20 bg-brand-gray/30 flex items-center justify-center rounded">
-                  <img src="/images/venta-renta-contenedor-40ft.png" alt="40 pies" className="h-12 w-auto grayscale" />
+                  <img src="/images/venta-renta-contenedor-40ft.png" alt={product40ft?.name || '40 pies'} className="h-12 w-auto grayscale" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-brand-petroleum mb-3">Contenedor de 40 pies</h4>
+                  <h4 className="text-xl font-bold text-brand-petroleum mb-3">{product40ft?.name || 'Contenedor de 40 pies'}</h4>
                   <p className="text-brand-graphite/70 text-sm leading-relaxed mb-4">
                     Maximiza la capacidad de almacenamiento en una sola unidad. Recomendado para inventarios a gran escala o proyectos que requieren concentrar gran volumen de materiales.
                   </p>
@@ -247,9 +236,9 @@ const RentaContenedoresCDMX: React.FC = () => {
       <section className="bg-brand-petroleum py-20 md:py-32 text-white">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-serif mb-8">Renta de contenedores desde Ciudad de México</h2>
+            <h2 className="text-3xl md:text-5xl font-serif mb-8">Renta de contenedores desde {location?.name || 'Ciudad de México'}</h2>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 font-sans">
-              Nuestra operación se encuentra en Iztapalapa, desde donde atendemos necesidades de infraestructura temporal y almacenamiento para proyectos en Ciudad de México y otras zonas según su alcance.
+              Nuestra operación se encuentra en {baseLocation?.name || 'Iztapalapa'}, desde donde atendemos necesidades de infraestructura temporal y almacenamiento para proyectos en {location?.name || 'Ciudad de México'} y otras zonas según su alcance.
             </p>
             <div className="h-1 w-20 bg-brand-orange mx-auto"></div>
           </div>
@@ -310,40 +299,18 @@ const RentaContenedoresCDMX: React.FC = () => {
 
       {/* FAQ RENTA */}
       <FAQ 
-        items={[
-          {
-            question: "¿Por cuánto tiempo puedo rentar un contenedor?",
-            answer: "La duración es flexible y se define según las etapas de tu proyecto o necesidades operativas temporales."
-          },
-          {
-            question: "¿Qué tamaño puedo rentar?",
-            answer: "Disponemos de unidades de 20 y 40 pies. Evaluamos cuál se adapta mejor a tu volumen de carga y espacio disponible."
-          },
-          {
-            question: "¿Puedo utilizarlo como bodega temporal?",
-            answer: "Sí, es una de las aplicaciones principales para resguardo seguro de activos en sitios sin infraestructura permanente."
-          },
-          {
-            question: "¿Sirve para almacenar materiales de obra?",
-            answer: "Totalmente. Su estructura de acero proporciona seguridad contra intemperie y robos en entornos de construcción."
-          },
-          {
-            question: "¿El transporte está incluido?",
-            answer: "La logística se cotiza de forma independiente según la ubicación y complejidad de las maniobras requeridas."
-          },
-          {
-            question: "¿Qué condiciones debe tener el lugar donde se colocará?",
-            answer: "Se requiere un suelo firme, nivelado y espacio libre para el despliegue del equipo de transporte y descarga."
-          }
-        ]} 
+        items={faqs.map(faq => ({
+          question: faq.question,
+          answer: faq.answer
+        }))} 
         title="Preguntas frecuentes sobre renta"
-        subtitle="Todo lo que necesitas saber para gestionar infraestructura temporal en CDMX."
+        subtitle={`Todo lo que necesitas saber para gestionar infraestructura temporal en ${location?.name || 'CDMX'}.`}
       />
 
       {/* BLOQUE FINAL RENTA */}
       <section className="bg-brand-petroleum py-20 md:py-32 text-white border-t border-white/10">
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif mb-8 text-white">¿Necesitas espacio temporal en CDMX?</h2>
+          <h2 className="text-3xl md:text-5xl font-serif mb-8 text-white">¿Necesitas espacio temporal en {location?.name || 'CDMX'}?</h2>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/70 mb-12 font-sans">
             Dinos qué necesitas almacenar, dónde estará el contenedor y durante cuánto tiempo lo necesitas.
           </p>

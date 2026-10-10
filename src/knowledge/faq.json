@@ -69,27 +69,476 @@
     "status": "published"
   },
   {
-    "id": "faq:custom-projects",
-    "question": "¿Realizan proyectos personalizados?",
-    "answer": "Sí. Desarrollamos soluciones de ingeniería modular adaptadas a requerimientos técnicos, funcionales y de operación específicos de cada cliente.",
+    "id": "faq:proyectos-what-is-special",
+    "question": "¿Qué consideran un proyecto modular especial?",
+    "answer": "Es un espacio que requiere una configuración distinta a una solución estándar. Puede involucrar distribución interior, instalaciones, acondicionamiento o adecuaciones definidas a partir del uso que tendrá el espacio y de las condiciones donde será instalado.",
     "category": "proyectos",
     "serviceIds": ["service:modular-projects"],
     "status": "published"
   },
   {
-    "id": "faq:custom-modifications",
-    "question": "¿Qué tipo de adecuaciones pueden realizar?",
-    "answer": "Desde modificaciones estructurales e integración de servicios especializados hasta acabados arquitectónicos y equipamiento industrial a medida.",
+    "id": "faq:proyectos-info-needed",
+    "question": "¿Qué información necesitan para evaluar mi proyecto?",
+    "answer": "El punto de partida es entender qué función debe cumplir el espacio, dónde se utilizará, sus requerimientos operativos y las condiciones generales del sitio. Con esa información podemos revisar la factibilidad y definir qué aspectos necesitan mayor detalle.",
     "category": "proyectos",
     "serviceIds": ["service:modular-projects"],
     "status": "published"
   },
   {
-    "id": "faq:modular-vs-traditional",
-    "question": "¿Sus soluciones sustituyen a la construcción tradicional?",
-    "answer": "Son una alternativa estratégica en proyectos donde la velocidad de despliegue, la modularidad o la necesidad de reubicación son factores críticos para el éxito operativo.",
+    "id": "faq:proyectos-viability",
+    "question": "¿Cómo saben si un proyecto es viable?",
+    "answer": "Revisamos el uso previsto, las condiciones del sitio y los requerimientos técnicos del proyecto. A partir de esa información se define si la solución puede desarrollarse y qué configuración, servicios o adecuaciones serían necesarios.",
     "category": "proyectos",
     "serviceIds": ["service:modular-projects"],
+    "status": "published"
+  },
+  {
+    "id": "faq:proyectos-installations",
+    "question": "¿El proyecto puede incluir instalaciones y acondicionamiento?",
+    "answer": "Sí, cuando el alcance lo requiere pueden integrarse distintos elementos de acondicionamiento. La configuración final depende de la función del espacio y de los requerimientos técnicos definidos para cada proyecto.",
+    "category": "proyectos",
+    "serviceIds": ["service:modular-projects"],
+    "status": "published"
+  },
+  {
+    "id": "faq:proyectos-need-vs-design",
+    "question": "¿Pueden desarrollar el proyecto a partir de una necesidad y no de un diseño terminado?",
+    "answer": "Sí. La asesoría puede comenzar a partir de la necesidad operativa. Primero identificamos qué debe resolver el espacio y posteriormente se define la configuración adecuada para el proyecto.",
+    "category": "proyectos",
+    "serviceIds": ["service:modular-projects"],
+    "status": "published"
+  },
+  {
+    "id": "faq:proyectos-timeframe",
+    "question": "¿Cuánto tiempo tarda un proyecto especial?",
+    "answer": "El tiempo depende del alcance, nivel de acondicionamiento y requerimientos de cada proyecto. Una vez definidos estos elementos es posible establecer una programación más precisa.",
+    "category": "proyectos",
+    "serviceIds": ["service:modular-projects"],
+    "status": "published"
+  },
+  {
+    "id": "faq:proyectos-how-to-start",
+    "question": "¿Cómo puedo comenzar a revisar mi proyecto?",
+    "answer": "Compártenos qué espacio necesitas, qué función tendrá, dónde se instalará y los requerimientos que ya tengas identificados. Con esa información podemos iniciar una revisión de factibilidad.",
+    "category": "proyectos",
+    "serviceIds": ["service:modular-projects"],
+    "status": "published"
+  },
+  {
+    "id": "faq:almacenamiento-what-to-store",
+    "question": "¿Qué puedo almacenar dentro de un contenedor?",
+    "answer": "Los contenedores son ideales para resguardar materiales de construcción, herramientas, inventario operativo, mobiliario y equipo diverso. La compatibilidad depende del tipo de material y requerimientos específicos de resguardo.",
+    "category": "almacenamiento",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:almacenamiento-buy-or-rent",
+    "question": "¿Puedo comprarlo o rentarlo?",
+    "answer": "Sí, el uso de contenedores para almacenamiento puede resolverse mediante compra o renta, dependiendo de la duración del proyecto, frecuencia de uso y ubicación de la operación.",
+    "category": "almacenamiento",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:almacenamiento-size",
+    "question": "¿Qué tamaño necesito?",
+    "answer": "Ofrecemos opciones de 20 pies, 40 pies y 40 High Cube. La elección depende del volumen de lo que necesites almacenar y el espacio disponible en tu ubicación.",
+    "category": "almacenamiento",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:almacenamiento-temporary",
+    "question": "¿Puede utilizarse temporalmente?",
+    "answer": "Totalmente. Los contenedores son una solución flexible perfecta para necesidades de almacenamiento temporal en obras, patios o expansiones operativas provisionales.",
+    "category": "almacenamiento",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:bodega-container-as-warehouse",
+    "question": "¿Puede un contenedor funcionar como bodega?",
+    "answer": "Definitivamente. Los contenedores son una alternativa excelente para crear espacio de resguardo robusto y seguro cerca de la operación, especialmente cuando una bodega convencional no es práctica.",
+    "category": "bodega",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:bodega-considerations",
+    "question": "¿Qué debo considerar antes de instalarlo?",
+    "answer": "Es importante evaluar el tipo de material, el espacio disponible en sitio, el acceso para el transporte, las maniobras necesarias, la ventilación requerida y la frecuencia con la que se accederá al inventario.",
+    "category": "bodega",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:bodega-buy-or-rent",
+    "question": "¿Conviene comprar o rentar?",
+    "answer": "Si la necesidad es para un proyecto temporal, la renta es ideal. Para operaciones recurrentes o de larga duración, la compra suele ser la opción más rentable a largo plazo.",
+    "category": "bodega",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:bodega-sizes",
+    "question": "¿Qué tamaño puede utilizarse?",
+    "answer": "Disponemos de unidades de 20 pies para espacios compactos y 40 pies (estándar o High Cube) para necesidades de mayor volumen de almacenamiento.",
+    "category": "bodega",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:obra-uses",
+    "question": "¿Para qué se utiliza un contenedor dentro de una obra?",
+    "answer": "Se utilizan principalmente para el resguardo seguro de materiales y herramientas, así como base operativa para el personal del proyecto.",
+    "category": "obra",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:obra-tool-storage",
+    "question": "¿Puede utilizarse para guardar herramientas?",
+    "answer": "Sí, proporcionan un espacio cercano y robusto para proteger herramientas y equipo de trabajo contra la intemperie y accesos no autorizados.",
+    "category": "obra",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:obra-rental-duration",
+    "question": "¿Puedo rentarlo durante la duración del proyecto?",
+    "answer": "Totalmente. La renta es una de las modalidades más comunes para obras, permitiendo contar con la infraestructura solo durante el tiempo que dura el proyecto.",
+    "category": "obra",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:obra-acondicionamiento",
+    "question": "¿Puede acondicionarse posteriormente?",
+    "answer": "Sí, un contenedor puede ser el punto de partida para configuraciones más complejas como oficinas móviles o áreas de trabajo especializadas.",
+    "category": "obra",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:oficina-movil-what-is",
+    "question": "¿Qué es una oficina móvil en contenedor?",
+    "answer": "Es un espacio de trabajo reubicable basado en la estructura de un contenedor marítimo, acondicionado con instalaciones y acabados para cumplir funciones administrativas u operativas.",
+    "category": "oficina-movil",
+    "serviceIds": ["service:relocatable-offices"],
+    "status": "published"
+  },
+  {
+    "id": "faq:oficina-movil-buy-or-rent",
+    "question": "¿Puede comprarse o rentarse?",
+    "answer": "Sí, disponemos de ambas modalidades. La renta es ideal para proyectos temporales, mientras que la compra se recomienda para operaciones de largo plazo.",
+    "category": "oficina-movil",
+    "serviceIds": ["service:relocatable-offices"],
+    "status": "published"
+  },
+  {
+    "id": "faq:oficina-movil-acondicionamiento",
+    "question": "¿Qué puede incluir el acondicionamiento?",
+    "answer": "El acondicionamiento puede integrar instalaciones eléctricas, iluminación, ventanas, puertas, climatización, acabados interiores y divisiones según los requerimientos del proyecto.",
+    "category": "oficina-movil",
+    "serviceIds": ["service:relocatable-offices"],
+    "status": "published"
+  },
+  {
+    "id": "faq:oficina-movil-obra-use",
+    "question": "¿Puede utilizarse en obra?",
+    "answer": "Es uno de sus usos principales, proporcionando un punto administrativo o de supervisión directamente en el sitio de trabajo con la ventaja de ser móvil.",
+    "category": "oficina-movil",
+    "serviceIds": ["service:relocatable-offices"],
+    "status": "published"
+  },
+  {
+    "id": "faq:oficina-movil-sizes",
+    "question": "¿Qué tamaño puede utilizarse?",
+    "answer": "Se pueden utilizar unidades de 20 pies para oficinas compactas o 40 pies (estándar o High Cube) cuando se requiere mayor superficie de trabajo.",
+    "category": "oficina-movil",
+    "serviceIds": ["service:relocatable-offices"],
+    "status": "published"
+  },
+  {
+    "id": "faq:20ft-when-to-choose",
+    "question": "¿Cuándo elegir un contenedor de 20 pies?",
+    "answer": "Es la unidad estándar más versátil para proyectos que requieren movilidad y optimización de superficie. Ideal para espacios limitados, almacenamiento moderado de herramientas o inventario, proyectos ágiles y como base de acondicionamiento para oficinas compactas o casetas.",
+    "category": "contenedor-20ft",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:40ft-when-to-choose",
+    "question": "¿Cuándo elegir un contenedor de 40 pies?",
+    "answer": "Es el estándar para proyectos de gran escala que necesitan maximizar la superficie útil. Recomendado para mayor volumen de inventario, resguardo de materiales extensos o maquinaria voluminosa, y como base para centros de operación amplios o talleres.",
+    "category": "contenedor-40ft",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:40hc-when-to-choose",
+    "question": "¿Cuándo elegir un contenedor 40 High Cube?",
+    "answer": "Se recomienda cuando el requerimiento principal es la altura libre interior adicional (aprox. 30 cm más que el estándar). Es ideal para estiba alta de materiales, proyectos que integran instalaciones en techo o plafones, y donde cada metro cúbico de volumen extra es relevante.",
+    "category": "contenedor-40hc",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:usado-what-to-check",
+    "question": "¿Qué implica comprar un contenedor usado?",
+    "answer": "Implica verificar su condición estructural íntegra, hermeticidad, que las puertas sean operativas con sellado correcto y que el piso sea apto para carga. La conveniencia depende del uso previsto, ya sea para almacén básico o como base para un proyecto de acondicionamiento.",
+    "category": "contenedor-usado",
+    "serviceIds": ["service:container-sale"],
+    "status": "published"
+  },
+  {
+    "id": "faq:compra-size",
+    "question": "¿Qué tamaño de contenedor necesito?",
+    "answer": "La elección depende del volumen que necesitas almacenar, el espacio disponible en tu sitio y el acceso para las maniobras de entrega. Un contenedor de 20 pies es ideal para espacios limitados, mientras que uno de 40 pies ofrece el doble de capacidad para inventarios mayores.",
+    "category": "container-sale",
+    "serviceIds": ["service:container-sale"],
+    "status": "published"
+  },
+  {
+    "id": "faq:compra-used",
+    "question": "¿Puedo comprar un contenedor usado?",
+    "answer": "Sí, en Creativos Espacios suministramos unidades verificadas estructuralmente para garantizar su hermeticidad y estabilidad, asegurando que sean aptas para almacenamiento u operación industrial.",
+    "category": "contenedor-usado",
+    "serviceIds": ["service:container-sale"],
+    "status": "published"
+  },
+  {
+    "id": "faq:compra-diff-20-40",
+    "question": "¿Qué diferencia hay entre un contenedor de 20 y 40 pies?",
+    "answer": "Principalmente el volumen de carga y el espacio que ocupan en sitio. El de 20 pies mide aproximadamente 6 metros de largo, mientras que el de 40 pies mide 12 metros.",
+    "category": "container-sale",
+    "serviceIds": ["service:container-sale"],
+    "status": "published"
+  },
+  {
+    "id": "faq:compra-bodega",
+    "question": "¿Un contenedor puede utilizarse como bodega?",
+    "answer": "Es uno de sus usos más comunes. Su estructura de acero corten los hace extremadamente resistentes y seguros para el resguardo de materiales, herramientas e inventario.",
+    "category": "container-sale",
+    "serviceIds": ["service:container-sale"],
+    "status": "published"
+  },
+  {
+    "id": "faq:compra-acondicionamiento",
+    "question": "¿Pueden acondicionar el contenedor?",
+    "answer": "Sí, podemos transformar contenedores en oficinas, talleres o áreas operativas personalizadas según los requerimientos de tu proyecto.",
+    "category": "container-sale",
+    "serviceIds": ["service:container-sale"],
+    "status": "published"
+  },
+  {
+    "id": "faq:compra-entrega",
+    "question": "¿La entrega está incluida?",
+    "answer": "El transporte, las maniobras y las condiciones de entrega dependen de la complejidad de cada proyecto y la ubicación exacta. Realizamos una evaluación para preparar una propuesta que incluya la logística necesaria hasta tu sitio en CDMX o zona metropolitana.",
+    "category": "container-sale",
+    "serviceIds": ["service:container-sale"],
+    "status": "published"
+  },
+  {
+    "id": "faq:renta-time",
+    "question": "¿Por cuánto tiempo puedo rentar un contenedor?",
+    "answer": "La duración de la renta es flexible y se adapta a la etapa o periodo operativo de tu proyecto. Evaluamos cada caso para ofrecerte una solución que cubra tu necesidad temporal de almacenamiento.",
+    "category": "container-rental",
+    "serviceIds": ["service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:renta-size",
+    "question": "¿Qué tamaño puedo rentar?",
+    "answer": "Contamos con unidades de 20 y 40 pies disponibles para renta. La elección depende del volumen de materiales o inventario que necesites resguardar y del espacio disponible en tu ubicación.",
+    "category": "container-rental",
+    "serviceIds": ["service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:renta-bodega",
+    "question": "¿Puedo utilizarlo como bodega temporal?",
+    "answer": "Sí, es una de las aplicaciones principales para resguardo seguro de activos en sitios sin infraestructura permanente.",
+    "category": "container-rental",
+    "serviceIds": ["service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:renta-obra",
+    "question": "¿Sirve para almacenar materiales de obra?",
+    "answer": "Totalmente. Su estructura de acero proporciona seguridad contra intemperie y robos en entornos de construcción.",
+    "category": "container-rental",
+    "serviceIds": ["service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:renta-transporte",
+    "question": "¿El transporte está incluido?",
+    "answer": "La logística se cotiza de forma independiente según la ubicación y complejidad de las maniobras requeridas.",
+    "category": "container-rental",
+    "serviceIds": ["service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:renta-sitio",
+    "question": "¿Qué condiciones debe tener el lugar donde se colocará?",
+    "answer": "El sitio debe contar con terreno firme y nivelado, además de espacio suficiente para las maniobras del camión que realizará la entrega y el posicionamiento de la unidad.",
+    "category": "container-rental",
+    "serviceIds": ["service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:usado-implicaciones",
+    "question": "¿Qué implica comprar un contenedor usado?",
+    "answer": "Comprar un contenedor usado implica verificar su condición estructural íntegra, que las puertas sean operativas y tengan sellado correcto, que el piso esté en condiciones para carga, evaluar el nivel de acondicionamiento requerido según el uso previsto (almacén vs proyecto) y asegurar su hermeticidad verificada.",
+    "category": "contenedor-usado",
+    "serviceIds": ["service:container-sale"],
+    "status": "published"
+  },
+  {
+    "id": "faq:supervision-obra-what-is",
+    "question": "¿Qué es una oficina para supervisión de obra?",
+    "answer": "Es un espacio modular diseñado específicamente para proporcionar un punto de trabajo operativo en sitio. Permite al personal técnico y administrativo coordinar actividades, revisar documentación y supervisar el avance del proyecto desde un entorno controlado.",
+    "category": "supervision-obra",
+    "useCaseIds": ["usecase:site-supervision"],
+    "configurationId": "configuration:office-supervision",
+    "status": "published"
+  },
+  {
+    "id": "faq:supervision-obra-size",
+    "question": "¿Qué tamaño de oficina necesito para mi proyecto?",
+    "answer": "La elección depende del número de personas y la función del espacio. Un contenedor de 20 pies es ideal para una oficina de supervisión compacta, mientras que uno de 40 pies permite integrar áreas de reunión y mayor personal operativo.",
+    "category": "supervision-obra",
+    "useCaseIds": ["usecase:site-supervision"],
+    "status": "published"
+  },
+  {
+    "id": "faq:supervision-obra-buy-or-rent",
+    "question": "¿Puedo comprar o rentar la oficina?",
+    "answer": "Sí. La renta es la opción más común para proyectos con una duración definida, mientras que la compra se recomienda para empresas que planean reutilizar la infraestructura en múltiples frentes de obra.",
+    "category": "supervision-obra",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "useCaseIds": ["usecase:site-supervision"],
+    "status": "published"
+  },
+  {
+    "id": "faq:supervision-obra-personnel",
+    "question": "¿La oficina puede configurarse según el número de personas?",
+    "answer": "Sí, la distribución interior y el equipamiento se definen a partir del personal que operará en el sitio, asegurando que el espacio sea funcional para las tareas de supervisión y coordinación.",
+    "category": "supervision-obra",
+    "useCaseIds": ["usecase:site-supervision"],
+    "configurationId": "configuration:office-supervision",
+    "status": "published"
+  },
+  {
+    "id": "faq:supervision-obra-info-needed",
+    "question": "¿Qué información necesitan para cotizarla?",
+    "answer": "Necesitamos conocer el número de personas, la ubicación del proyecto, el tiempo estimado de uso y si requiere alguna configuración especial de instalaciones o acabados.",
+    "category": "supervision-obra",
+    "useCaseIds": ["usecase:site-supervision"],
+    "status": "published"
+  },
+  {
+    "id": "faq:supervision-obra-need-vs-product",
+    "question": "¿Pueden desarrollar la solución a partir de una necesidad operativa?",
+    "answer": "Sí. Nuestro enfoque parte de entender cómo necesita trabajar su equipo en la obra para proponer la configuración modular que mejor resuelva esa necesidad de supervisión y control.",
+    "category": "supervision-obra",
+    "useCaseIds": ["usecase:site-supervision"],
+    "status": "published"
+  },
+  {
+    "id": "faq:proveedor-enterprise-why-container",
+    "question": "¿Para qué puede utilizar una empresa un contenedor?",
+    "answer": "Las empresas utilizan contenedores para resolver necesidades de almacenamiento de inventario, resguardo de materiales en obra, habilitación de oficinas temporales, talleres móviles o bases operativas. Su principal ventaja es la rapidez de implementación y su naturaleza reubicable.",
+    "category": "proveedor-contenedores",
+    "status": "published"
+  },
+  {
+    "id": "faq:proveedor-enterprise-how-to-choose",
+    "question": "¿Qué tipo de contenedor necesito para mi empresa?",
+    "answer": "La elección depende del volumen de carga, el espacio disponible en sitio y la función. Un contenedor de 20 pies es ideal para almacenamiento compacto, mientras que uno de 40 pies (estándar o High Cube) maximiza la capacidad operativa para grandes inventarios o proyectos.",
+    "category": "proveedor-contenedores",
+    "status": "published"
+  },
+  {
+    "id": "faq:proveedor-enterprise-buy-or-rent",
+    "question": "¿Puedo comprar o rentar los contenedores?",
+    "answer": "Sí. Ofrecemos ambas modalidades. La renta es preferible para proyectos con duración definida o necesidades estacionales, mientras que la compra se recomienda cuando la infraestructura formará parte permanente de los activos de la empresa.",
+    "category": "proveedor-contenedores",
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "status": "published"
+  },
+  {
+    "id": "faq:proveedor-enterprise-multiple-units",
+    "question": "¿Pueden atender un requerimiento de varias unidades?",
+    "answer": "Sí, evaluamos requerimientos de múltiples contenedores para proyectos que necesitan una escala operativa mayor, ya sea en una sola ubicación o distribuidos en diferentes frentes de trabajo.",
+    "category": "proveedor-contenedores",
+    "status": "published"
+  },
+  {
+    "id": "faq:proveedor-enterprise-storage-use",
+    "question": "¿Los contenedores pueden utilizarse para almacenamiento temporal?",
+    "answer": "Es uno de sus usos corporativos más comunes. Permiten añadir capacidad de resguardo seguro para inventarios, herramientas o insumos de forma inmediata sin necesidad de trámites de construcción permanentes.",
+    "category": "proveedor-contenedores",
+    "useCaseIds": ["usecase:b2b-temporary-storage"],
+    "status": "published"
+  },
+  {
+    "id": "faq:proveedor-enterprise-info-needed",
+    "question": "¿Qué información necesitan para preparar una cotización?",
+    "answer": "Necesitamos conocer el uso previsto (almacén, oficina, taller), la cantidad de unidades, el tiempo estimado (para renta) y la ubicación exacta de entrega para evaluar la factibilidad logística.",
+    "category": "proveedor-contenedores",
+    "status": "published"
+  },
+  {
+    "id": "faq:proveedor-enterprise-uncertain-size",
+    "question": "¿Qué pasa si no sé qué tamaño de contenedor necesito?",
+    "answer": "No es necesario llegar con una definición técnica. Cuéntenos qué necesita resguardar o cómo operará su equipo, y nosotros le propondremos el tamaño y configuración que mejor resuelva su requerimiento.",
+    "category": "proveedor-contenedores",
+    "status": "published"
+  },
+  {
+    "id": "faq:data-center-what-is",
+    "question": "¿Qué es un contenedor para data center?",
+    "answer": "Es un módulo diseñado específicamente para albergar infraestructura de cómputo, servidores y equipos de red. Proporciona un entorno controlado con climatización de precisión, seguridad y redundancia eléctrica.",
+    "category": "data-center",
+    "useCaseIds": ["usecase:data-center"],
+    "configurationId": "configuration:data-center",
+    "status": "published"
+  },
+  {
+    "id": "faq:data-center-advantages",
+    "question": "¿Qué ventajas tiene sobre un centro de datos convencional?",
+    "answer": "Su principal ventaja es la rapidez de implementación y su naturaleza modular, lo que permite escalar la infraestructura según crezca la demanda, además de ser reubicable y eficiente en términos de espacio y energía.",
+    "category": "data-center",
+    "useCaseIds": ["usecase:data-center"],
+    "status": "published"
+  },
+  {
+    "id": "faq:data-center-climatizacion",
+    "question": "¿Incluye sistemas de climatización?",
+    "answer": "Sí, los módulos para data center se habilitan con sistemas de climatización de precisión diseñados para mantener las condiciones de temperatura y humedad requeridas por los equipos tecnológicos.",
+    "category": "data-center",
+    "useCaseIds": ["usecase:data-center"],
+    "configurationId": "configuration:data-center",
+    "status": "published"
+  },
+  {
+    "id": "faq:data-center-seguridad",
+    "question": "¿Es seguro el resguardo de los servidores?",
+    "answer": "La estructura de acero del contenedor, combinada con sistemas de control de acceso y monitoreo, proporciona un nivel de seguridad física robusto para la protección de activos críticos de TI.",
+    "category": "data-center",
+    "useCaseIds": ["usecase:data-center"],
+    "configurationId": "configuration:data-center",
+    "status": "published"
+  },
+  {
+    "id": "faq:data-center-info-needed",
+    "question": "¿Qué información necesitan para evaluar mi proyecto de data center?",
+    "answer": "Necesitamos conocer el volumen de equipos a albergar, los requerimientos de potencia eléctrica, las condiciones de climatización necesarias y el sitio donde se instalará el módulo.",
+    "category": "data-center",
+    "useCaseIds": ["usecase:data-center"],
     "status": "published"
   }
 ]

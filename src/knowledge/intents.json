@@ -7,7 +7,8 @@
     "need": "Espacio seguro y temporal",
     "transactionStage": "discovery",
     "useCaseIds": [
-      "usecase:b2b-temporary-storage"
+      "usecase:b2b-temporary-storage",
+      "usecase:storage"
     ],
     "serviceIds": [
       "service:container-rental",
@@ -77,6 +78,58 @@
     ],
     "sourceIds": [
       "source:solutions-oficinas"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:need-container-warehouse",
+    "name": "Necesidad de bodega operativa",
+    "description": "Utilizar un contenedor como espacio de resguardo seguro y robusto para operaciones recurrentes.",
+    "goal": "Contar con una bodega física segura en sitio",
+    "need": "Espacio de resguardo operativo",
+    "transactionStage": "discovery",
+    "useCaseIds": ["usecase:warehouse"],
+    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "exampleExpressions": [
+      "Necesito una bodega rápida en mi patio",
+      "Contenedor para usar como bodega de herramientas",
+      "Espacio de resguardo para materiales industriales"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:need-construction-site-support",
+    "name": "Apoyo operativo en obra",
+    "description": "Infraestructura temporal para dar soporte a las actividades de un proyecto de construcción.",
+    "goal": "Optimizar la logística y resguardo en el sitio de obra",
+    "need": "Infraestructura de soporte para construcción",
+    "transactionStage": "discovery",
+    "useCaseIds": ["usecase:construction-site"],
+    "serviceIds": ["service:container-rental", "service:container-sale"],
+    "industryIds": ["industry:construction"],
+    "exampleExpressions": [
+      "Contenedores para proyectos de construcción",
+      "Resguardo de materiales en obra",
+      "Base operativa para frente de obra"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:need-mobile-office",
+    "name": "Necesidad de oficina móvil",
+    "description": "Habilitar un espacio de trabajo acondicionado y reubicable para funciones administrativas.",
+    "goal": "Establecer un punto de trabajo funcional en cualquier ubicación",
+    "need": "Espacio administrativo reubicable",
+    "transactionStage": "exploration",
+    "useCaseIds": ["usecase:mobile-office"],
+    "serviceIds": ["service:relocatable-offices"],
+    "exampleExpressions": [
+      "Necesito una oficina móvil en CDMX",
+      "Contenedor acondicionado para oficina",
+      "Espacio de trabajo temporal en planta"
     ],
     "status": "published",
     "visibility": "public"
