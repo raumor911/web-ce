@@ -172,5 +172,118 @@
     ],
     "status": "published",
     "visibility": "public"
+  },
+  {
+    "id": "intent:container-one-trip-20ft",
+    "name": "Compra de contenedor 20 FT One Trip",
+    "description": "Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde importan la condición superficial y una huella compacta.",
+    "goal": "Comprar un 20 FT Standard One Trip",
+    "need": "Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración",
+    "transactionStage": "transactional",
+    "serviceIds": [
+      "service:container-sale"
+    ],
+    "productIds": [
+      "product:container-20ft"
+    ],
+    "exampleExpressions": [
+      "contenedor one trip 20 pies",
+      "contenedor nuevo 20 pies",
+      "comprar 20 ft one trip",
+      "20 ft standard nuevo"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:container-one-trip-40hc",
+    "name": "Compra de contenedor 40 FT High Cube One Trip",
+    "description": "Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor volumen y altura interior.",
+    "goal": "Comprar un 40 FT High Cube One Trip",
+    "need": "Unidad High Cube de mínimo uso y mayor capacidad",
+    "transactionStage": "transactional",
+    "serviceIds": [
+      "service:container-sale"
+    ],
+    "productIds": [
+      "product:container-40hc"
+    ],
+    "exampleExpressions": [
+      "contenedor 40 high cube one trip",
+      "contenedor nuevo 40 hc",
+      "comprar high cube nuevo",
+      "40 ft high cube nuevo"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:container-one-trip-architecture",
+    "name": "One Trip para proyecto arquitectónico",
+    "description": "Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visible o intervenido.",
+    "goal": "Seleccionar una base física adecuada para intervención arquitectónica",
+    "need": "Unidad con menor desgaste acumulado y condición superficial más predecible",
+    "transactionStage": "comparison",
+    "serviceIds": [
+      "service:container-sale"
+    ],
+    "productIds": [
+      "product:container-20ft",
+      "product:container-40hc"
+    ],
+    "exampleExpressions": [
+      "contenedor nuevo para proyecto arquitectónico",
+      "contenedor para modificar con buen acabado",
+      "container one trip para arquitectura",
+      "contenedor nuevo para diseño modular"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:container-one-trip-education",
+    "name": "One Trip para proyecto educativo",
+    "description": "Buscar una unidad de mínimo uso como base para aulas, administración u otros espacios de una institución educativa.",
+    "goal": "Seleccionar una base física adecuada para un espacio educativo",
+    "need": "Unidad visible y de mínimo uso para acondicionamiento posterior",
+    "transactionStage": "comparison",
+    "serviceIds": [
+      "service:container-sale"
+    ],
+    "productIds": [
+      "product:container-20ft",
+      "product:container-40hc"
+    ],
+    "exampleExpressions": [
+      "contenedor nuevo para escuela",
+      "contenedor para aula modular",
+      "one trip para universidad",
+      "contenedor para ampliación escolar"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:container-one-trip-corporate",
+    "name": "One Trip para proyecto corporativo",
+    "description": "Buscar una unidad de mínimo uso para oficinas, recepciones, showrooms o módulos visibles de una empresa.",
+    "goal": "Seleccionar una base física alineada con presentación y uso corporativo",
+    "need": "Unidad de mínimo uso para proyecto visible y acondicionamiento posterior",
+    "transactionStage": "comparison",
+    "serviceIds": [
+      "service:container-sale"
+    ],
+    "productIds": [
+      "product:container-20ft",
+      "product:container-40hc"
+    ],
+    "exampleExpressions": [
+      "contenedor nuevo para oficina corporativa",
+      "one trip para showroom",
+      "contenedor para centro de ventas",
+      "contenedor nuevo para recepción"
+    ],
+    "status": "published",
+    "visibility": "public"
   }
 ]

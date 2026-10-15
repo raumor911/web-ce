@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Building2, GraduationCap, Landmark, Package, Ruler, ShoppingBag, Sparkles } from 'lucide-react';
+import { ArrowRight, Building2, GraduationCap, Landmark, Ruler, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { FAQ } from '../components/FAQ';
@@ -111,22 +111,26 @@ const ContenedoresOneTripCDMX: React.FC = () => {
     {
       icon: Landmark,
       title: 'Proyectos arquitectónicos',
-      text: 'Para proyectos donde el contenedor será intervenido, integrado al diseño o permanecerá visible como parte de la solución.'
+      text: 'Para proyectos donde el contenedor será intervenido, integrado al diseño o permanecerá visible como parte de la solución.',
+      href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx'
     },
     {
       icon: GraduationCap,
       title: 'Proyectos educativos',
-      text: 'Para aulas, módulos administrativos, espacios de atención y ampliaciones donde también importa la presentación del espacio.'
+      text: 'Para aulas, módulos administrativos, espacios de atención y ampliaciones donde también importa la presentación del espacio.',
+      href: '/contenedores-one-trip-para-escuelas-cdmx'
     },
     {
       icon: Building2,
       title: 'Proyectos corporativos',
-      text: 'Para oficinas, recepciones, showrooms, centros de ventas y espacios de representación.'
+      text: 'Para oficinas, recepciones, showrooms, centros de ventas y espacios de representación.',
+      href: '/contenedores-one-trip-para-proyectos-corporativos-cdmx'
     },
     {
       icon: ShoppingBag,
       title: 'Proyectos comerciales',
-      text: 'Para puntos de venta, cafeterías, módulos de atención, exhibición o conceptos donde la superficie exterior forma parte de la experiencia.'
+      text: 'Para puntos de venta, cafeterías, módulos de atención, exhibición o conceptos donde la superficie exterior forma parte de la experiencia.',
+      href: null
     }
   ];
 
@@ -203,13 +207,30 @@ const ContenedoresOneTripCDMX: React.FC = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {useCases.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="bg-white border border-brand-gray/40 p-8">
-                <Icon className="h-9 w-9 text-brand-orange mb-6" />
-                <h3 className="text-xl font-serif text-brand-petroleum mb-4">{title}</h3>
-                <p className="text-sm leading-relaxed text-brand-graphite font-sans">{text}</p>
-              </article>
-            ))}
+            {useCases.map(({ icon: Icon, title, text, href }) => {
+              const content = (
+                <>
+                  <Icon className="h-9 w-9 text-brand-orange mb-6" />
+                  <h3 className="text-xl font-serif text-brand-petroleum mb-4">{title}</h3>
+                  <p className="text-sm leading-relaxed text-brand-graphite font-sans">{text}</p>
+                  {href && (
+                    <span className="mt-6 inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-orange">
+                      Ver intención específica
+                    </span>
+                  )}
+                </>
+              );
+
+              return href ? (
+                <Link key={title} to={href} className="bg-white border border-brand-gray/40 p-8 hover:border-brand-orange transition-colors">
+                  {content}
+                </Link>
+              ) : (
+                <article key={title} className="bg-white border border-brand-gray/40 p-8">
+                  {content}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -236,7 +257,7 @@ const ContenedoresOneTripCDMX: React.FC = () => {
                       {offer.product.name}
                     </h3>
                   </div>
-                  <Package className="h-10 w-10 text-brand-orange shrink-0" />
+
                 </div>
 
                 <div className="flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-brand-orange mb-6">
@@ -254,15 +275,23 @@ const ContenedoresOneTripCDMX: React.FC = () => {
                   <p className="text-xs text-slate-500 font-sans mb-6">
                     Precio y disponibilidad se confirman al momento de cotizar.
                   </p>
-                  <button
-                    onClick={() => openProductQuote(offer)}
-                    className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-brand-orange text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-orange-dark transition-all group"
-                  >
-                    {offer.product.id === 'product:container-20ft'
-                      ? 'Cotizar 20 FT One Trip'
-                      : 'Cotizar 40 FT High Cube One Trip'}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <Link
+                      to={offer.product.id === 'product:container-20ft'
+                        ? '/contenedor-one-trip-20-pies-cdmx'
+                        : '/contenedor-one-trip-40-high-cube-cdmx'}
+                      className="btn-secondary text-center"
+                    >
+                      Ver detalle
+                    </Link>
+                    <button
+                      onClick={() => openProductQuote(offer)}
+                      className="flex items-center justify-center gap-3 px-6 py-4 bg-brand-orange text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-orange-dark transition-all group"
+                    >
+                      Cotizar
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </div>
                 </div>
               </article>
             ))}
@@ -328,7 +357,6 @@ const ContenedoresOneTripCDMX: React.FC = () => {
       <section className="py-20 md:py-32 bg-brand-white">
         <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <Sparkles className="h-10 w-10 text-brand-orange mb-6" />
             <span className="section-subtitle">BASE PARA DESARROLLO</span>
             <h2 className="section-title">Una mejor base para desarrollar su proyecto</h2>
           </div>
