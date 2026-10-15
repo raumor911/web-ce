@@ -72,6 +72,15 @@
     "changefreq": "monthly"
   },
   {
+    "id": "one-trip-cdmx",
+    "path": "/contenedores-nuevos-one-trip-cdmx",
+    "component": "ContenedoresOneTripCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
     "id": "renta-cdmx",
     "path": "/renta-contenedores-cdmx",
     "component": "RentaContenedoresCDMX",

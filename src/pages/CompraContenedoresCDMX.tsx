@@ -183,6 +183,29 @@ const CompraContenedoresCDMX: React.FC = () => {
         </div>
       </section>
 
+      {/* ONE TRIP — ALTERNATIVA DE VENTA */}
+      <section className="py-16 md:py-24 bg-brand-gray/10 border-y border-brand-gray">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center">
+            <div>
+              <span className="section-subtitle">NUEVO / ONE TRIP</span>
+              <h2 className="text-3xl md:text-4xl font-serif text-brand-petroleum mb-5">
+                ¿Tu proyecto requiere una unidad con mínimo uso?
+              </h2>
+              <p className="text-brand-graphite text-lg font-sans leading-relaxed">
+                Conoce nuestros contenedores One Trip en formatos 20 FT Standard y 40 FT High Cube para proyectos donde la condición superficial, la presentación y la intervención posterior son parte importante del resultado.
+              </p>
+            </div>
+            <a
+              href="/contenedores-nuevos-one-trip-cdmx"
+              className="btn-primary whitespace-nowrap"
+            >
+              Ver contenedores One Trip
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* BLOQUE 3 — COMPRA POR PROBLEMA */}
       <section className="bg-brand-petroleum py-20 md:py-32 text-white">
         <div className="container mx-auto px-6 lg:px-12">

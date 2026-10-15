@@ -171,10 +171,40 @@ export const SemanticSelectors = {
         id: `${options.serviceId}-${product.id}-${options.condition}`,
         product,
         service,
+        condition: options.condition,
         price,
         inventory,
         location
       };
     });
-  }
+  },
+
+  getOneTripSaleOffers: (): PublicContainerOffer[] => {
+    const policy = Knowledge.commercial.find(p => p.id === 'commercial:one-trip-sale');
+    const serviceId = policy?.serviceIds?.[0] || 'service:container-sale';
+    const service = SemanticSelectors.getServiceById(serviceId);
+    if (!service || !policy?.productIds || !policy.conditions?.includes('one-trip')) return [];
+
+    return policy.productIds
+      .map(productId => SemanticSelectors.getProductById(productId))
+      .filter((product): product is Product => Boolean(product))
+      .map(product => ({
+        id: `${serviceId}-${product.id}-one-trip`,
+        product,
+        service,
+        condition: 'one-trip' as Condition
+      }));
+  },
+
+  getGeneralContainerQuoteOffers: (): PublicContainerOffer[] => [
+    ...SemanticSelectors.getPublicOffers({
+      serviceId: 'service:container-sale',
+      condition: 'used'
+    }),
+    ...SemanticSelectors.getPublicOffers({
+      serviceId: 'service:container-rental',
+      condition: 'used'
+    }),
+    ...SemanticSelectors.getOneTripSaleOffers()
+  ]
 };

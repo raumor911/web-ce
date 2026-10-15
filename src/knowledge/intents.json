@@ -89,8 +89,13 @@
     "goal": "Contar con una bodega física segura en sitio",
     "need": "Espacio de resguardo operativo",
     "transactionStage": "discovery",
-    "useCaseIds": ["usecase:warehouse"],
-    "serviceIds": ["service:container-sale", "service:container-rental"],
+    "useCaseIds": [
+      "usecase:warehouse"
+    ],
+    "serviceIds": [
+      "service:container-sale",
+      "service:container-rental"
+    ],
     "exampleExpressions": [
       "Necesito una bodega rápida en mi patio",
       "Contenedor para usar como bodega de herramientas",
@@ -106,9 +111,16 @@
     "goal": "Optimizar la logística y resguardo en el sitio de obra",
     "need": "Infraestructura de soporte para construcción",
     "transactionStage": "discovery",
-    "useCaseIds": ["usecase:construction-site"],
-    "serviceIds": ["service:container-rental", "service:container-sale"],
-    "industryIds": ["industry:construction"],
+    "useCaseIds": [
+      "usecase:construction-site"
+    ],
+    "serviceIds": [
+      "service:container-rental",
+      "service:container-sale"
+    ],
+    "industryIds": [
+      "industry:construction"
+    ],
     "exampleExpressions": [
       "Contenedores para proyectos de construcción",
       "Resguardo de materiales en obra",
@@ -124,12 +136,39 @@
     "goal": "Establecer un punto de trabajo funcional en cualquier ubicación",
     "need": "Espacio administrativo reubicable",
     "transactionStage": "exploration",
-    "useCaseIds": ["usecase:mobile-office"],
-    "serviceIds": ["service:relocatable-offices"],
+    "useCaseIds": [
+      "usecase:mobile-office"
+    ],
+    "serviceIds": [
+      "service:relocatable-offices"
+    ],
     "exampleExpressions": [
       "Necesito una oficina móvil en CDMX",
       "Contenedor acondicionado para oficina",
       "Espacio de trabajo temporal en planta"
+    ],
+    "status": "published",
+    "visibility": "public"
+  },
+  {
+    "id": "intent:container-one-trip-sale",
+    "name": "Compra de contenedor One Trip",
+    "description": "Adquirir un contenedor con mínimo uso para un proyecto donde la condición superficial y la presentación de la unidad son relevantes.",
+    "goal": "Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial",
+    "need": "Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible",
+    "transactionStage": "transactional",
+    "serviceIds": [
+      "service:container-sale"
+    ],
+    "productIds": [
+      "product:container-20ft",
+      "product:container-40hc"
+    ],
+    "exampleExpressions": [
+      "Busco un contenedor nuevo de 20 pies",
+      "Necesito un contenedor One Trip",
+      "Quiero un 40 High Cube nuevo para un proyecto",
+      "Contenedor nuevo para proyecto arquitectónico"
     ],
     "status": "published",
     "visibility": "public"

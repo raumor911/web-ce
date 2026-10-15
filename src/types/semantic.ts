@@ -144,6 +144,9 @@ export interface CommercialPolicy {
   name: string;
   description: string;
   rules: string[];
+  serviceIds?: ID[];
+  productIds?: ID[];
+  conditions?: Condition[];
   originType?: 'explicit' | 'derived' | 'internal';
   sourceIds?: ID[];
 }
@@ -282,6 +285,7 @@ export interface PublicContainerOffer {
   id: string; // Composite ID: serviceId + productId + condition
   product: Product;
   service: Service;
+  condition: Condition;
   price?: PriceBookEntry;
   inventory?: InventoryEntry;
   location?: Location;

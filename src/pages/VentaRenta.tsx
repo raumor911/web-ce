@@ -158,11 +158,27 @@ const VentaRenta: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-16 pt-12 border-t border-brand-gray/30 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="mt-16 p-8 md:p-10 bg-brand-petroleum text-white grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="max-w-2xl">
+            <span className="text-brand-orange text-[10px] font-bold uppercase tracking-[0.2em]">VENTA · ONE TRIP</span>
+            <h3 className="text-2xl md:text-3xl font-serif text-white mt-3 mb-4">Contenedores One Trip para proyectos de mayor exigencia superficial</h3>
+            <p className="text-white/70 font-sans leading-relaxed">
+              CE ofrece 20 FT Standard y 40 FT High Cube One Trip para venta. Precio y disponibilidad se confirman al momento de cotizar.
+            </p>
+          </div>
+          <a
+            href="/contenedores-nuevos-one-trip-cdmx"
+            className="btn-primary whitespace-nowrap"
+          >
+            Ver contenedores One Trip
+          </a>
+        </div>
+
+        <div className="mt-12 pt-12 border-t border-brand-gray/30 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-xl">
             <h3 className="text-2xl font-serif text-brand-petroleum mb-4">¿Buscas una opción de renta?</h3>
             <p className="text-brand-graphite font-sans">
-              También contamos con esquemas de alquiler mensual para proyectos temporales o almacenamiento dinámico.
+              También contamos con esquemas de alquiler mensual para proyectos temporales o almacenamiento dinámico. La renta se realiza con unidades usadas; los contenedores One Trip están disponibles únicamente para venta.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
