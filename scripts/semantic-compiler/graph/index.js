@@ -136,6 +136,35 @@ export function buildKnowledgeGraph(knowledge, fingerprint) {
     }
   });
 
+  // Commercial policies and explicit offer conditions
+  const conditionIds = new Set();
+  (knowledge.commercial || []).forEach(policy => {
+    addNode(policy, 'CommercialPolicy');
+
+    if (policy.serviceIds) {
+      policy.serviceIds.forEach(serviceId => addEdge(policy.id, serviceId, 'appliesToService'));
+    }
+    if (policy.productIds) {
+      policy.productIds.forEach(productId => addEdge(policy.id, productId, 'appliesToProduct'));
+    }
+    if (policy.conditions) {
+      policy.conditions.forEach(condition => {
+        const conditionId = `condition:${condition}`;
+        if (!conditionIds.has(conditionId)) {
+          conditionIds.add(conditionId);
+          addNode({
+            id: conditionId,
+            name: condition === 'one-trip' ? 'One Trip' : condition
+          }, 'Condition');
+        }
+        addEdge(policy.id, conditionId, 'permitsCondition');
+      });
+    }
+    if (policy.intentIds) {
+      policy.intentIds.forEach(intentId => addEdge(policy.id, intentId, 'addressesIntent'));
+    }
+  });
+
   // Intents
   knowledge.intents.forEach(i => {
     addNode(i, 'Intent');
@@ -146,6 +175,7 @@ export function buildKnowledgeGraph(knowledge, fingerprint) {
     if (i.industryIds) i.industryIds.forEach(iId => addEdge(i.id, iId, 'occursIn'));
     if (i.coverageIds) i.coverageIds.forEach(cId => addEdge(i.id, cId, 'appliesTo'));
     if (i.sourceIds) i.sourceIds.forEach(sId => addEdge(i.id, sId, 'supportedBy'));
+    if (i.commercialPolicyIds) i.commercialPolicyIds.forEach(pId => addEdge(i.id, pId, 'governedBy'));
   });
 
   // PriceBook
@@ -159,7 +189,7 @@ export function buildKnowledgeGraph(knowledge, fingerprint) {
 
   return {
     name: "Creativos Espacios Knowledge Graph",
-    version: "2.0.0",
+    version: "2.1.0",
     knowledgeFingerprint: fingerprint,
     generatedAt: new Date().toISOString(),
     nodes,
