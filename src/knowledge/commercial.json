@@ -8,7 +8,9 @@
       "Venta aplicable a unidades estándar y proyectos a la medida."
     ],
     "originType": "derived",
-    "sourceIds": ["source:solutions-renta"]
+    "sourceIds": [
+      "source:solutions-renta"
+    ]
   },
   {
     "id": "commercial:rental",
@@ -19,7 +21,9 @@
       "Ideal para proyectos temporales o almacenamiento estacional."
     ],
     "originType": "derived",
-    "sourceIds": ["source:solutions-renta"]
+    "sourceIds": [
+      "source:solutions-renta"
+    ]
   },
   {
     "id": "commercial:logistics",
@@ -30,6 +34,31 @@
       "Requiere terreno nivelado y firme para maniobras."
     ],
     "originType": "derived",
-    "sourceIds": ["source:solutions-renta"]
+    "sourceIds": [
+      "source:solutions-renta"
+    ]
+  },
+  {
+    "id": "commercial:one-trip-sale",
+    "name": "Venta de Contenedores One Trip",
+    "description": "Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.",
+    "rules": [
+      "Disponible únicamente para venta.",
+      "Formatos soportados: 20 FT Standard y 40 FT High Cube.",
+      "40 FT Standard no se ofrece como One Trip.",
+      "Precio y disponibilidad se confirman al momento de cotizar.",
+      "No existe renta de contenedores One Trip."
+    ],
+    "serviceIds": [
+      "service:container-sale"
+    ],
+    "productIds": [
+      "product:container-20ft",
+      "product:container-40hc"
+    ],
+    "conditions": [
+      "one-trip"
+    ],
+    "originType": "explicit"
   }
 ]
