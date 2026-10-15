@@ -12,17 +12,14 @@ const Home: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
   const services = SemanticSelectors.getServices();
 
-  // F4.0 - Public Offers
-  const purchaseOffers = SemanticSelectors.getPublicOffers({ 
-    serviceId: 'service:container-sale', 
-    condition: 'used' 
-  });
+  // General quote entry points on Home: all supported commercial container offers.
+  const generalQuoteOffers = SemanticSelectors.getGeneralContainerQuoteOffers();
 
   const [selectedOffer, setSelectedOffer] = useState<PublicContainerOffer | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const handleQuote = (offer?: PublicContainerOffer) => {
-    setSelectedOffer(offer || purchaseOffers[0] || null);
+  const handleGeneralQuote = () => {
+    setSelectedOffer(null);
     setIsDrawerOpen(true);
   };
   
@@ -135,7 +132,7 @@ const Home: React.FC = () => {
               {org.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-              <button onClick={() => handleQuote()} className="btn-primary">
+              <button onClick={handleGeneralQuote} className="btn-primary">
                 Solicitar Cotización
               </button>
               <Link to="/soluciones/venta-renta" className="btn-outline">
@@ -294,7 +291,7 @@ const Home: React.FC = () => {
             ¿Listo para incorporar capacidad <br />
             operativa en su proyecto?
           </h2>
-          <button onClick={() => handleQuote()} className="btn-primary">
+          <button onClick={handleGeneralQuote} className="btn-primary">
             Solicitar Cotización
           </button>
           <div className="mt-12">
@@ -311,6 +308,8 @@ const Home: React.FC = () => {
         onClose={() => setIsDrawerOpen(false)}
         offer={selectedOffer}
         whatsappNumber={org.contact.whatsapp}
+        mode="general"
+        availableOffers={generalQuoteOffers}
       />
     </div>
   );
