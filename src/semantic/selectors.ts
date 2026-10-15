@@ -180,19 +180,16 @@ export const SemanticSelectors = {
   },
 
   getOneTripSaleOffers: (): PublicContainerOffer[] => {
-    const service = SemanticSelectors.getServiceById('service:container-sale');
-    if (!service) return [];
+    const policy = Knowledge.commercial.find(p => p.id === 'commercial:one-trip-sale');
+    const serviceId = policy?.serviceIds?.[0] || 'service:container-sale';
+    const service = SemanticSelectors.getServiceById(serviceId);
+    if (!service || !policy?.productIds || !policy.conditions?.includes('one-trip')) return [];
 
-    const allowedProductIds: ID[] = [
-      'product:container-20ft',
-      'product:container-40hc'
-    ];
-
-    return allowedProductIds
+    return policy.productIds
       .map(productId => SemanticSelectors.getProductById(productId))
       .filter((product): product is Product => Boolean(product))
       .map(product => ({
-        id: `service:container-sale-${product.id}-one-trip`,
+        id: `${serviceId}-${product.id}-one-trip`,
         product,
         service,
         condition: 'one-trip' as Condition
