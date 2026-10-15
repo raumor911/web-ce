@@ -171,10 +171,43 @@ export const SemanticSelectors = {
         id: `${options.serviceId}-${product.id}-${options.condition}`,
         product,
         service,
+        condition: options.condition,
         price,
         inventory,
         location
       };
     });
-  }
+  },
+
+  getOneTripSaleOffers: (): PublicContainerOffer[] => {
+    const service = SemanticSelectors.getServiceById('service:container-sale');
+    if (!service) return [];
+
+    const allowedProductIds: ID[] = [
+      'product:container-20ft',
+      'product:container-40hc'
+    ];
+
+    return allowedProductIds
+      .map(productId => SemanticSelectors.getProductById(productId))
+      .filter((product): product is Product => Boolean(product))
+      .map(product => ({
+        id: `service:container-sale-${product.id}-one-trip`,
+        product,
+        service,
+        condition: 'one-trip' as Condition
+      }));
+  },
+
+  getGeneralContainerQuoteOffers: (): PublicContainerOffer[] => [
+    ...SemanticSelectors.getPublicOffers({
+      serviceId: 'service:container-sale',
+      condition: 'used'
+    }),
+    ...SemanticSelectors.getPublicOffers({
+      serviceId: 'service:container-rental',
+      condition: 'used'
+    }),
+    ...SemanticSelectors.getOneTripSaleOffers()
+  ]
 };
