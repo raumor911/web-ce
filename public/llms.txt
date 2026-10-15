@@ -29,6 +29,26 @@ https://creativosespacios.mx
 - Oficina móvil: Espacio acondicionable y reubicable para funciones administrativas u operativas.
 - Infraestructura para Data Center: Módulos diseñados para el resguardo de servidores, equipos de red y sistemas de procesamiento de datos en entornos controlados.
 
+## Contenedores One Trip
+
+Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.
+
+- [Oferta One Trip](/contenedores-nuevos-one-trip-cdmx)
+- [Compra de contenedor 20 FT One Trip](/contenedor-one-trip-20-pies-cdmx)
+- [Compra de contenedor 40 FT High Cube One Trip](/contenedor-one-trip-40-high-cube-cdmx)
+- [One Trip para proyecto arquitectónico](/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx)
+- [One Trip para proyecto educativo](/contenedores-one-trip-para-escuelas-cdmx)
+- [One Trip para proyecto corporativo](/contenedores-one-trip-para-proyectos-corporativos-cdmx)
+
+**Formatos soportados:** Contenedor marítimo 20 FT Standard, Contenedor marítimo 40 FT High Cube.
+
+**Reglas comerciales:**
+- Disponible únicamente para venta.
+- Formatos soportados: 20 FT Standard y 40 FT High Cube.
+- 40 FT Standard no se ofrece como One Trip.
+- Precio y disponibilidad se confirman al momento de cotizar.
+- No existe renta de contenedores One Trip.
+
 ## Información ampliada
 
 - [Manifiesto de Contenido](/ai/content-manifest.json)
@@ -37,6 +57,9 @@ https://creativosespacios.mx
 - [Casos de Uso](/ai/use-cases.md)
 - [Terminología Preferida](/ai/terminology.md)
 - [Respuestas Canónicas](/ai/canonical-answers.md)
+- [Intenciones de Usuario](/ai/intents.md)
+- [Guía One Trip para IA](/ai/one-trip.md)
+- [Oferta One Trip estructurada](/ai/one-trip.json)
 - [Guía de Precios de Referencia](/ai/pricebook.md)
 - [Preguntas Frecuentes](/ai/faq.md)
 
