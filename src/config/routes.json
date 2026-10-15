@@ -81,6 +81,51 @@
     "changefreq": "monthly"
   },
   {
+    "id": "one-trip-20ft-cdmx",
+    "path": "/contenedor-one-trip-20-pies-cdmx",
+    "component": "ContenedorOneTrip20PiesCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "one-trip-40hc-cdmx",
+    "path": "/contenedor-one-trip-40-high-cube-cdmx",
+    "component": "ContenedorOneTrip40HighCubeCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "one-trip-architecture-cdmx",
+    "path": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx",
+    "component": "ContenedoresOneTripArquitecturaCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "one-trip-schools-cdmx",
+    "path": "/contenedores-one-trip-para-escuelas-cdmx",
+    "component": "ContenedoresOneTripEscuelasCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
+    "id": "one-trip-corporate-cdmx",
+    "path": "/contenedores-one-trip-para-proyectos-corporativos-cdmx",
+    "component": "ContenedoresOneTripCorporativosCDMX",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
     "id": "renta-cdmx",
     "path": "/renta-contenedores-cdmx",
     "component": "RentaContenedoresCDMX",
