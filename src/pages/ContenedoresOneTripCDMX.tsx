@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Building2, GraduationCap, Landmark, Package, Ruler, ShoppingBag, Sparkles } from 'lucide-react';
+import { ArrowRight, Building2, GraduationCap, Landmark, Ruler, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { FAQ } from '../components/FAQ';
@@ -236,7 +236,6 @@ const ContenedoresOneTripCDMX: React.FC = () => {
                       {offer.product.name}
                     </h3>
                   </div>
-                  <Package className="h-10 w-10 text-brand-orange shrink-0" />
                 </div>
 
                 <div className="flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-brand-orange mb-6">
@@ -328,7 +327,6 @@ const ContenedoresOneTripCDMX: React.FC = () => {
       <section className="py-20 md:py-32 bg-brand-white">
         <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <Sparkles className="h-10 w-10 text-brand-orange mb-6" />
             <span className="section-subtitle">BASE PARA DESARROLLO</span>
             <h2 className="section-title">Una mejor base para desarrollar su proyecto</h2>
           </div>
