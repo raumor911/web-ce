@@ -26,6 +26,9 @@ Su objetivo es reducir ambigüedad y facilitar que motores de búsqueda, modelos
 - glossary.md: definiciones.
 - faq.md: preguntas frecuentes.
 - canonical-answers.md: respuestas recomendadas.
+- intents.md / intents.json: intenciones de usuario y sus rutas canónicas.
+- one-trip.md / one-trip.json: oferta, restricciones e intenciones específicas de contenedores One Trip.
+- knowledge-graph.json: grafo de entidades, intenciones, condiciones y reglas comerciales.
 - claims-register.json: control de afirmaciones.
 - sources.json: fuentes canónicas.
 - content-manifest.json: índice de recursos.
