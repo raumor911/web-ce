@@ -20,6 +20,11 @@ import OficinaSupervisionObraCDMX from '../pages/OficinaSupervisionObraCDMX';
 import ProveedorContenedoresCDMX from '../pages/ProveedorContenedoresCDMX';
 import ContenedoresDataCenterCDMX from '../pages/ContenedoresDataCenterCDMX';
 import ContenedoresOneTripCDMX from '../pages/ContenedoresOneTripCDMX';
+import ContenedorOneTrip20PiesCDMX from '../pages/ContenedorOneTrip20PiesCDMX';
+import ContenedorOneTrip40HighCubeCDMX from '../pages/ContenedorOneTrip40HighCubeCDMX';
+import ContenedoresOneTripArquitecturaCDMX from '../pages/ContenedoresOneTripArquitecturaCDMX';
+import ContenedoresOneTripEscuelasCDMX from '../pages/ContenedoresOneTripEscuelasCDMX';
+import ContenedoresOneTripCorporativosCDMX from '../pages/ContenedoresOneTripCorporativosCDMX';
 import Privacidad from '../pages/Privacidad';
 import Terminos from '../pages/Terminos';
 import NotFound from '../pages/NotFound';
@@ -46,6 +51,11 @@ export const componentRegistry: Record<string, React.ComponentType> = {
   ProveedorContenedoresCDMX,
   ContenedoresDataCenterCDMX,
   ContenedoresOneTripCDMX,
+  ContenedorOneTrip20PiesCDMX,
+  ContenedorOneTrip40HighCubeCDMX,
+  ContenedoresOneTripArquitecturaCDMX,
+  ContenedoresOneTripEscuelasCDMX,
+  ContenedoresOneTripCorporativosCDMX,
   Privacidad,
   Terminos,
   NotFound
