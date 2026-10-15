@@ -282,6 +282,7 @@ export interface PublicContainerOffer {
   id: string; // Composite ID: serviceId + productId + condition
   product: Product;
   service: Service;
+  condition: Condition;
   price?: PriceBookEntry;
   inventory?: InventoryEntry;
   location?: Location;
