@@ -144,6 +144,9 @@ export interface CommercialPolicy {
   name: string;
   description: string;
   rules: string[];
+  serviceIds?: ID[];
+  productIds?: ID[];
+  conditions?: Condition[];
   originType?: 'explicit' | 'derived' | 'internal';
   sourceIds?: ID[];
 }
