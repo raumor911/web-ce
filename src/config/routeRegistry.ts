@@ -19,6 +19,7 @@ import OficinasMovilesCDMX from '../pages/OficinasMovilesCDMX';
 import OficinaSupervisionObraCDMX from '../pages/OficinaSupervisionObraCDMX';
 import ProveedorContenedoresCDMX from '../pages/ProveedorContenedoresCDMX';
 import ContenedoresDataCenterCDMX from '../pages/ContenedoresDataCenterCDMX';
+import ContenedoresOneTripCDMX from '../pages/ContenedoresOneTripCDMX';
 import Privacidad from '../pages/Privacidad';
 import Terminos from '../pages/Terminos';
 import NotFound from '../pages/NotFound';
@@ -44,6 +45,7 @@ export const componentRegistry: Record<string, React.ComponentType> = {
   OficinaSupervisionObraCDMX,
   ProveedorContenedoresCDMX,
   ContenedoresDataCenterCDMX,
+  ContenedoresOneTripCDMX,
   Privacidad,
   Terminos,
   NotFound
