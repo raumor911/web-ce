@@ -68,6 +68,8 @@
     RewriteCond %{REQUEST_URI} !^/blog-admin [NC]
     RewriteRule ^(.+)/$ https://creativosespacios.mx/$1 [R=301,L]
 
+    RewriteRule ^soluciones/?$ index.html [L]
+
     # ===================================================== 
     # 3. SERVIR ARCHIVOS PRERENDERIZADOS Y FÍSICOS 
     # ===================================================== 
@@ -75,7 +77,7 @@
     # Si pides /ruta y existe /ruta/index.html, sírvelo internamente.
     # Esto permite URLs slashless con carpetas físicas de prerender.
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
     RewriteRule ^(.*)/?$ $1/index.html [L]
 
     RewriteCond %{REQUEST_FILENAME} -f [OR] 
@@ -89,8 +91,10 @@
     # Solo las rutas virtuales del frontend llegan aquí. 
     # WordPress ya quedó excluido en el bloque 1. 
 
-    RewriteRule ^ index.html [L] 
+    RewriteRule ^ - [R=404,L]
 </IfModule> 
+
+ErrorDocument 404 /404.html
 
 # ========================================================= 
 # 4.1 ENCODING PARA ARCHIVOS SEMÁNTICOS Y DE TEXTO
