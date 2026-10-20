@@ -13,7 +13,7 @@ const argv = process.argv.slice(2);
 const root = path.resolve(argv.find(v => !v.startsWith('--')) || process.cwd());
 const dist = path.join(root, 'dist');
 const origin = 'https://creativosespacios.mx';
-const minBlog = Number((argv.find(v => v.startsWith('--min-blog=')) || '--min-blog=0').split('=')[1]);
+const minBlog = Number((argv.find(v => v.startsWith('--min-blog=')) || '--min-blog=1').split('=')[1]);
 const manifestWanted = argv.includes('--manifest');
 const problems = [];
 const results = [];
