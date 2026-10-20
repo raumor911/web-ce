@@ -70,3 +70,9 @@ test('manifiesto SHA256 solamente tras éxito', t => {
   assert.equal(run(root,'--manifest').status,0); assert.ok(fs.existsSync(out));
   assert.match(fs.readFileSync(out,'utf8'),/assets\/site\.js/);
 });
+
+test('rechaza un sitemap que pierde todos los artículos', t => {
+  const root=fixture(t);
+  write(root,'dist/sitemap.xml','<urlset><url><loc>' + domain + '/</loc></url><url><loc>' + domain + '/compra-contenedores-cdmx</loc></url></urlset>');
+  const r=run(root); assert.equal(r.status,1); assert.match(r.stderr,/Blog incompleto/);
+});
