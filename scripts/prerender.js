@@ -130,6 +130,7 @@ async function prerender() {
 
   const port = 8090;
   const failedRoutes = [];
+  const savedRoutes = [];
   let browser;
 
   try {
@@ -212,6 +213,7 @@ async function prerender() {
           fs.mkdirSync(dirPath, { recursive: true });
         }
         fs.writeFileSync(filePath, content);
+        savedRoutes.push(route);
         console.log(`\u2713 Saved ${route} (${Date.now() - startTime}ms)`);
       } catch (err) {
         failedRoutes.push({ route, reason: err.message });
@@ -242,7 +244,7 @@ async function prerender() {
     }
   }
 
-  console.log(`--- Prerender summary: ${routes.length - failedRoutes.length}/${routes.length} saved; ${failedRoutes.length} failed ---`);
+  console.log(`--- Prerender summary: ${savedRoutes.length}/${routes.length} saved; ${failedRoutes.length} failed ---`);
   if (failedRoutes.length > 0) {
     throw new Error(`Prerender incomplete: ${failedRoutes.length} route(s) failed (${failedRoutes.map(item => item.route).join(', ')})`);
   }
