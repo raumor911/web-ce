@@ -1,8 +1,8 @@
 {
   "name": "Creativos Espacios Knowledge Graph",
   "version": "2.0.0",
-  "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7",
-  "generatedAt": "2026-10-10T02:44:56.208Z",
+  "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9",
+  "generatedAt": "2026-10-19T23:40:26.864Z",
   "nodes": [
     {
       "id": "org:creativos-espacios",
@@ -1542,6 +1542,330 @@
       "status": "published"
     },
     {
+      "id": "faq:one-trip-definition",
+      "type": "FAQ",
+      "name": "¿Qué significa que un contenedor sea One Trip?",
+      "question": "¿Qué significa que un contenedor sea One Trip?",
+      "answer": "Un contenedor One Trip es una unidad de fabricación reciente que normalmente ha realizado un único viaje de posicionamiento. Por ello presenta un nivel de uso considerablemente menor que una unidad usada.",
+      "category": "one-trip",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-marks",
+      "type": "FAQ",
+      "name": "¿Un contenedor One Trip está completamente libre de marcas?",
+      "question": "¿Un contenedor One Trip está completamente libre de marcas?",
+      "answer": "No necesariamente. Puede presentar marcas menores propias del transporte, la manipulación o el posicionamiento, aunque su nivel de uso es considerablemente menor que el de una unidad usada.",
+      "category": "one-trip",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-sizes",
+      "type": "FAQ",
+      "name": "¿Qué tamaños One Trip ofrece Creativos Espacios?",
+      "question": "¿Qué tamaños One Trip ofrece Creativos Espacios?",
+      "answer": "Creativos Espacios comercializa actualmente contenedores One Trip en formatos 20 FT Standard y 40 FT High Cube. La disponibilidad de cada formato se confirma al momento de solicitar la cotización.",
+      "category": "one-trip",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-rental",
+      "type": "FAQ",
+      "name": "¿Puedo rentar un contenedor One Trip?",
+      "question": "¿Puedo rentar un contenedor One Trip?",
+      "answer": "No. Creativos Espacios ofrece actualmente contenedores One Trip únicamente para venta. La renta de contenedores se realiza con unidades usadas y está sujeta a disponibilidad.",
+      "category": "one-trip",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-vs-used",
+      "type": "FAQ",
+      "name": "¿Cuándo conviene elegir One Trip en lugar de un contenedor usado?",
+      "question": "¿Cuándo conviene elegir One Trip en lugar de un contenedor usado?",
+      "answer": "One Trip resulta especialmente útil cuando la condición superficial, la presentación de la unidad o la intervención posterior forman parte importante del proyecto. Cuando predominan funcionalidad y costo, una unidad usada puede ser una alternativa adecuada.",
+      "category": "one-trip",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-logistics",
+      "type": "FAQ",
+      "name": "¿El precio incluye transporte, descarga y maniobras?",
+      "question": "¿El precio incluye transporte, descarga y maniobras?",
+      "answer": "No se asume incluido. El transporte, la descarga y las maniobras dependen del destino y de las condiciones del sitio, por lo que se cotizan para cada proyecto.",
+      "category": "one-trip",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-architecture",
+      "type": "FAQ",
+      "name": "¿Puede utilizarse un One Trip como base para un proyecto arquitectónico?",
+      "question": "¿Puede utilizarse un One Trip como base para un proyecto arquitectónico?",
+      "answer": "Sí. Puede utilizarse como base para proyectos arquitectónicos y de acondicionamiento. El alcance de las modificaciones y acabados se define de acuerdo con los requerimientos específicos de cada proyecto.",
+      "category": "one-trip",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-20ft-condition",
+      "type": "FAQ",
+      "name": "¿Qué significa One Trip en un contenedor de 20 pies?",
+      "question": "¿Qué significa One Trip en un contenedor de 20 pies?",
+      "answer": "Significa que la unidad es de fabricación reciente y normalmente ha realizado un único viaje de posicionamiento. Presenta un nivel de uso considerablemente menor que un contenedor usado, aunque puede conservar marcas menores de transporte o manipulación.",
+      "category": "one-trip-20ft",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-20ft-price",
+      "type": "FAQ",
+      "name": "¿Cuál es el precio de un 20 FT Standard One Trip?",
+      "question": "¿Cuál es el precio de un 20 FT Standard One Trip?",
+      "answer": "El precio y la disponibilidad se confirman al momento de cotizar. Creativos Espacios no publica un precio fijo de One Trip hasta contar con una condición comercial confirmada para el requerimiento.",
+      "category": "one-trip-20ft",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-20ft-rental",
+      "type": "FAQ",
+      "name": "¿Se puede rentar un 20 FT Standard One Trip?",
+      "question": "¿Se puede rentar un 20 FT Standard One Trip?",
+      "answer": "No. Creativos Espacios ofrece contenedores One Trip únicamente para venta. La renta de contenedores se realiza con unidades usadas y está sujeta a disponibilidad.",
+      "category": "one-trip-20ft",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-20ft-logistics",
+      "type": "FAQ",
+      "name": "¿La cotización del 20 FT One Trip incluye transporte y maniobras?",
+      "question": "¿La cotización del 20 FT One Trip incluye transporte y maniobras?",
+      "answer": "El transporte, la descarga y las maniobras dependen de la ubicación y de las condiciones del sitio, por lo que se cotizan específicamente para cada proyecto.",
+      "category": "one-trip-20ft",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-40hc-height",
+      "type": "FAQ",
+      "name": "¿Qué diferencia tiene un 40 FT High Cube One Trip frente a un 40 FT Standard?",
+      "question": "¿Qué diferencia tiene un 40 FT High Cube One Trip frente a un 40 FT Standard?",
+      "answer": "El 40 FT High Cube ofrece mayor altura exterior e interior que un 40 FT Standard. Esa altura adicional puede resultar útil cuando el proyecto requiere más volumen o una configuración interior con mayor margen vertical.",
+      "category": "one-trip-40hc",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-40hc-price",
+      "type": "FAQ",
+      "name": "¿Cuál es el precio de un 40 FT High Cube One Trip?",
+      "question": "¿Cuál es el precio de un 40 FT High Cube One Trip?",
+      "answer": "El precio y la disponibilidad se confirman al momento de cotizar. Creativos Espacios no publica un precio fijo One Trip hasta validar la condición comercial vigente.",
+      "category": "one-trip-40hc",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-40hc-rental",
+      "type": "FAQ",
+      "name": "¿Se puede rentar un 40 FT High Cube One Trip?",
+      "question": "¿Se puede rentar un 40 FT High Cube One Trip?",
+      "answer": "No. La oferta One Trip de Creativos Espacios es únicamente para venta. Las opciones de renta corresponden a contenedores usados.",
+      "category": "one-trip-40hc",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-40hc-logistics",
+      "type": "FAQ",
+      "name": "¿Cómo se cotiza la entrega de un 40 FT High Cube One Trip?",
+      "question": "¿Cómo se cotiza la entrega de un 40 FT High Cube One Trip?",
+      "answer": "La logística se determina según destino, acceso al sitio, descarga y maniobras requeridas. Esos conceptos se confirman con la información del proyecto.",
+      "category": "one-trip-40hc",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-architecture-why",
+      "type": "FAQ",
+      "name": "¿Cuándo tiene sentido usar One Trip en un proyecto arquitectónico?",
+      "question": "¿Cuándo tiene sentido usar One Trip en un proyecto arquitectónico?",
+      "answer": "Cuando la unidad será visible, recibirá acabados de mayor exigencia o será intervenida de forma relevante, comenzar con una base de mínimo uso puede reducir incertidumbre respecto del desgaste acumulado de una unidad usada.",
+      "category": "one-trip-architecture",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-architecture-format",
+      "type": "FAQ",
+      "name": "¿Qué formato One Trip conviene para un proyecto arquitectónico?",
+      "question": "¿Qué formato One Trip conviene para un proyecto arquitectónico?",
+      "answer": "Creativos Espacios ofrece 20 FT Standard y 40 FT High Cube One Trip. La elección depende de la huella disponible, el volumen, la altura y la configuración prevista para el proyecto.",
+      "category": "one-trip-architecture",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-architecture-finished",
+      "type": "FAQ",
+      "name": "¿Un contenedor One Trip ya es un espacio arquitectónico terminado?",
+      "question": "¿Un contenedor One Trip ya es un espacio arquitectónico terminado?",
+      "answer": "No. One Trip describe la condición de la unidad base. El diseño, las aperturas, instalaciones, acabados y demás intervenciones deben definirse según el alcance específico del proyecto.",
+      "category": "one-trip-architecture",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-architecture-perfect",
+      "type": "FAQ",
+      "name": "¿One Trip garantiza una superficie completamente perfecta?",
+      "question": "¿One Trip garantiza una superficie completamente perfecta?",
+      "answer": "No. Puede presentar marcas menores propias del transporte, manejo o posicionamiento. La condición One Trip implica mínimo uso, no perfección cosmética absoluta.",
+      "category": "one-trip-architecture",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-education-use",
+      "type": "FAQ",
+      "name": "¿Puede utilizarse un One Trip como base para un proyecto educativo?",
+      "question": "¿Puede utilizarse un One Trip como base para un proyecto educativo?",
+      "answer": "Sí, puede evaluarse como base física para aulas, administración, atención u otros espacios de apoyo. El acondicionamiento y los requisitos del espacio educativo deben definirse por separado.",
+      "category": "one-trip-education",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-education-format",
+      "type": "FAQ",
+      "name": "¿Qué formato One Trip puede utilizar una escuela?",
+      "question": "¿Qué formato One Trip puede utilizar una escuela?",
+      "answer": "Creativos Espacios ofrece 20 FT Standard y 40 FT High Cube One Trip. La elección depende del uso previsto, capacidad requerida, sitio disponible y configuración del proyecto.",
+      "category": "one-trip-education",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-education-classroom",
+      "type": "FAQ",
+      "name": "¿El contenedor One Trip se entrega automáticamente listo como aula?",
+      "question": "¿El contenedor One Trip se entrega automáticamente listo como aula?",
+      "answer": "No. One Trip describe la condición de la unidad. Para convertirla en un espacio educativo deben definirse el alcance, acondicionamiento, instalaciones, acabados y criterios aplicables al proyecto.",
+      "category": "one-trip-education",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-education-rental",
+      "type": "FAQ",
+      "name": "¿Las escuelas pueden rentar contenedores One Trip?",
+      "question": "¿Las escuelas pueden rentar contenedores One Trip?",
+      "answer": "No. Creativos Espacios comercializa One Trip únicamente para venta. Para necesidades de renta se utilizan contenedores usados, sujetos a disponibilidad.",
+      "category": "one-trip-education",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-corporate-use",
+      "type": "FAQ",
+      "name": "¿Para qué proyectos corporativos puede evaluarse un One Trip?",
+      "question": "¿Para qué proyectos corporativos puede evaluarse un One Trip?",
+      "answer": "Puede evaluarse como base para oficinas, recepciones, showrooms, centros de ventas, módulos de atención y otros espacios visibles donde la condición inicial de la unidad tenga relevancia.",
+      "category": "one-trip-corporate",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-corporate-format",
+      "type": "FAQ",
+      "name": "¿Qué formato One Trip ofrece CE para proyectos corporativos?",
+      "question": "¿Qué formato One Trip ofrece CE para proyectos corporativos?",
+      "answer": "Creativos Espacios ofrece 20 FT Standard y 40 FT High Cube One Trip para venta. La selección depende del espacio, capacidad y configuración prevista.",
+      "category": "one-trip-corporate",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-corporate-branding",
+      "type": "FAQ",
+      "name": "¿One Trip incluye pintura, branding o acabados corporativos?",
+      "question": "¿One Trip incluye pintura, branding o acabados corporativos?",
+      "answer": "No se asume incluido. One Trip describe la condición de la unidad base. Pintura, branding, acabados y otras intervenciones se definen según el alcance del proyecto.",
+      "category": "one-trip-corporate",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "faq:one-trip-corporate-availability",
+      "type": "FAQ",
+      "name": "¿Existe disponibilidad inmediata de One Trip para proyectos corporativos?",
+      "question": "¿Existe disponibilidad inmediata de One Trip para proyectos corporativos?",
+      "answer": "La disponibilidad se confirma al momento de cotizar. Creativos Espacios no publica inventario One Trip no verificado.",
+      "category": "one-trip-corporate",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "status": "published"
+    },
+    {
       "id": "claim:company-country",
       "type": "Claim",
       "name": "Es empresa mexicana",
@@ -1762,6 +2086,148 @@
         "Necesito una oficina móvil en CDMX",
         "Contenedor acondicionado para oficina",
         "Espacio de trabajo temporal en planta"
+      ],
+      "status": "published",
+      "visibility": "public"
+    },
+    {
+      "id": "intent:container-one-trip-sale",
+      "type": "Intent",
+      "name": "Compra de contenedor One Trip",
+      "description": "Adquirir un contenedor con mínimo uso para un proyecto donde la condición superficial y la presentación de la unidad son relevantes.",
+      "goal": "Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial",
+      "need": "Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible",
+      "transactionStage": "transactional",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "productIds": [
+        "product:container-20ft",
+        "product:container-40hc"
+      ],
+      "exampleExpressions": [
+        "Busco un contenedor nuevo de 20 pies",
+        "Necesito un contenedor One Trip",
+        "Quiero un 40 High Cube nuevo para un proyecto",
+        "Contenedor nuevo para proyecto arquitectónico"
+      ],
+      "status": "published",
+      "visibility": "public"
+    },
+    {
+      "id": "intent:container-one-trip-20ft",
+      "type": "Intent",
+      "name": "Compra de contenedor 20 FT One Trip",
+      "description": "Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde importan la condición superficial y una huella compacta.",
+      "goal": "Comprar un 20 FT Standard One Trip",
+      "need": "Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración",
+      "transactionStage": "transactional",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "productIds": [
+        "product:container-20ft"
+      ],
+      "exampleExpressions": [
+        "contenedor one trip 20 pies",
+        "contenedor nuevo 20 pies",
+        "comprar 20 ft one trip",
+        "20 ft standard nuevo"
+      ],
+      "status": "published",
+      "visibility": "public"
+    },
+    {
+      "id": "intent:container-one-trip-40hc",
+      "type": "Intent",
+      "name": "Compra de contenedor 40 FT High Cube One Trip",
+      "description": "Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor volumen y altura interior.",
+      "goal": "Comprar un 40 FT High Cube One Trip",
+      "need": "Unidad High Cube de mínimo uso y mayor capacidad",
+      "transactionStage": "transactional",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "productIds": [
+        "product:container-40hc"
+      ],
+      "exampleExpressions": [
+        "contenedor 40 high cube one trip",
+        "contenedor nuevo 40 hc",
+        "comprar high cube nuevo",
+        "40 ft high cube nuevo"
+      ],
+      "status": "published",
+      "visibility": "public"
+    },
+    {
+      "id": "intent:container-one-trip-architecture",
+      "type": "Intent",
+      "name": "One Trip para proyecto arquitectónico",
+      "description": "Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visible o intervenido.",
+      "goal": "Seleccionar una base física adecuada para intervención arquitectónica",
+      "need": "Unidad con menor desgaste acumulado y condición superficial más predecible",
+      "transactionStage": "comparison",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "productIds": [
+        "product:container-20ft",
+        "product:container-40hc"
+      ],
+      "exampleExpressions": [
+        "contenedor nuevo para proyecto arquitectónico",
+        "contenedor para modificar con buen acabado",
+        "container one trip para arquitectura",
+        "contenedor nuevo para diseño modular"
+      ],
+      "status": "published",
+      "visibility": "public"
+    },
+    {
+      "id": "intent:container-one-trip-education",
+      "type": "Intent",
+      "name": "One Trip para proyecto educativo",
+      "description": "Buscar una unidad de mínimo uso como base para aulas, administración u otros espacios de una institución educativa.",
+      "goal": "Seleccionar una base física adecuada para un espacio educativo",
+      "need": "Unidad visible y de mínimo uso para acondicionamiento posterior",
+      "transactionStage": "comparison",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "productIds": [
+        "product:container-20ft",
+        "product:container-40hc"
+      ],
+      "exampleExpressions": [
+        "contenedor nuevo para escuela",
+        "contenedor para aula modular",
+        "one trip para universidad",
+        "contenedor para ampliación escolar"
+      ],
+      "status": "published",
+      "visibility": "public"
+    },
+    {
+      "id": "intent:container-one-trip-corporate",
+      "type": "Intent",
+      "name": "One Trip para proyecto corporativo",
+      "description": "Buscar una unidad de mínimo uso para oficinas, recepciones, showrooms o módulos visibles de una empresa.",
+      "goal": "Seleccionar una base física alineada con presentación y uso corporativo",
+      "need": "Unidad de mínimo uso para proyecto visible y acondicionamiento posterior",
+      "transactionStage": "comparison",
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "productIds": [
+        "product:container-20ft",
+        "product:container-40hc"
+      ],
+      "exampleExpressions": [
+        "contenedor nuevo para oficina corporativa",
+        "one trip para showroom",
+        "contenedor para centro de ventas",
+        "contenedor nuevo para recepción"
       ],
       "status": "published",
       "visibility": "public"
@@ -2717,6 +3183,141 @@
       "relation": "about"
     },
     {
+      "source": "faq:one-trip-definition",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-marks",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-sizes",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-rental",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-vs-used",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-logistics",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-architecture",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-20ft-condition",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-20ft-price",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-20ft-rental",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-20ft-logistics",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-40hc-height",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-40hc-price",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-40hc-rental",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-40hc-logistics",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-architecture-why",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-architecture-format",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-architecture-finished",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-architecture-perfect",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-education-use",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-education-format",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-education-classroom",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-education-rental",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-corporate-use",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-corporate-format",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-corporate-branding",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
+      "source": "faq:one-trip-corporate-availability",
+      "target": "service:container-sale",
+      "relation": "about"
+    },
+    {
       "source": "claim:company-country",
       "target": "org:creativos-espacios",
       "relation": "about"
@@ -2860,6 +3461,86 @@
       "source": "intent:need-mobile-office",
       "target": "service:relocatable-offices",
       "relation": "mayRequire"
+    },
+    {
+      "source": "intent:container-one-trip-sale",
+      "target": "service:container-sale",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:container-one-trip-sale",
+      "target": "product:container-20ft",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-sale",
+      "target": "product:container-40hc",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-20ft",
+      "target": "service:container-sale",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:container-one-trip-20ft",
+      "target": "product:container-20ft",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-40hc",
+      "target": "service:container-sale",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:container-one-trip-40hc",
+      "target": "product:container-40hc",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-architecture",
+      "target": "service:container-sale",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:container-one-trip-architecture",
+      "target": "product:container-20ft",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-architecture",
+      "target": "product:container-40hc",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-education",
+      "target": "service:container-sale",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:container-one-trip-education",
+      "target": "product:container-20ft",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-education",
+      "target": "product:container-40hc",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-corporate",
+      "target": "service:container-sale",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:container-one-trip-corporate",
+      "target": "product:container-20ft",
+      "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-corporate",
+      "target": "product:container-40hc",
+      "relation": "mayUseProduct"
     },
     {
       "source": "price:container-20ft-used-sale",

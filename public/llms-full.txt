@@ -147,6 +147,14 @@ Servicios de entrega y posicionamiento de unidades.
 - Tiempos definidos según disponibilidad y ubicación.
 - Requiere terreno nivelado y firme para maniobras.
 
+### Venta de Contenedores One Trip
+Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.
+- Disponible únicamente para venta.
+- Formatos soportados: 20 FT Standard y 40 FT High Cube.
+- 40 FT Standard no se ofrece como One Trip.
+- Precio y disponibilidad se confirman al momento de cotizar.
+- No existe renta de contenedores One Trip.
+
 ## Cobertura
 
 - Cobertura Nacional México (MX)
@@ -367,6 +375,87 @@ La estructura de acero del contenedor, combinada con sistemas de control de acce
 **¿Qué información necesitan para evaluar mi proyecto de data center?**
 Necesitamos conocer el volumen de equipos a albergar, los requerimientos de potencia eléctrica, las condiciones de climatización necesarias y el sitio donde se instalará el módulo.
 
+**¿Qué significa que un contenedor sea One Trip?**
+Un contenedor One Trip es una unidad de fabricación reciente que normalmente ha realizado un único viaje de posicionamiento. Por ello presenta un nivel de uso considerablemente menor que una unidad usada.
+
+**¿Un contenedor One Trip está completamente libre de marcas?**
+No necesariamente. Puede presentar marcas menores propias del transporte, la manipulación o el posicionamiento, aunque su nivel de uso es considerablemente menor que el de una unidad usada.
+
+**¿Qué tamaños One Trip ofrece Creativos Espacios?**
+Creativos Espacios comercializa actualmente contenedores One Trip en formatos 20 FT Standard y 40 FT High Cube. La disponibilidad de cada formato se confirma al momento de solicitar la cotización.
+
+**¿Puedo rentar un contenedor One Trip?**
+No. Creativos Espacios ofrece actualmente contenedores One Trip únicamente para venta. La renta de contenedores se realiza con unidades usadas y está sujeta a disponibilidad.
+
+**¿Cuándo conviene elegir One Trip en lugar de un contenedor usado?**
+One Trip resulta especialmente útil cuando la condición superficial, la presentación de la unidad o la intervención posterior forman parte importante del proyecto. Cuando predominan funcionalidad y costo, una unidad usada puede ser una alternativa adecuada.
+
+**¿El precio incluye transporte, descarga y maniobras?**
+No se asume incluido. El transporte, la descarga y las maniobras dependen del destino y de las condiciones del sitio, por lo que se cotizan para cada proyecto.
+
+**¿Puede utilizarse un One Trip como base para un proyecto arquitectónico?**
+Sí. Puede utilizarse como base para proyectos arquitectónicos y de acondicionamiento. El alcance de las modificaciones y acabados se define de acuerdo con los requerimientos específicos de cada proyecto.
+
+**¿Qué significa One Trip en un contenedor de 20 pies?**
+Significa que la unidad es de fabricación reciente y normalmente ha realizado un único viaje de posicionamiento. Presenta un nivel de uso considerablemente menor que un contenedor usado, aunque puede conservar marcas menores de transporte o manipulación.
+
+**¿Cuál es el precio de un 20 FT Standard One Trip?**
+El precio y la disponibilidad se confirman al momento de cotizar. Creativos Espacios no publica un precio fijo de One Trip hasta contar con una condición comercial confirmada para el requerimiento.
+
+**¿Se puede rentar un 20 FT Standard One Trip?**
+No. Creativos Espacios ofrece contenedores One Trip únicamente para venta. La renta de contenedores se realiza con unidades usadas y está sujeta a disponibilidad.
+
+**¿La cotización del 20 FT One Trip incluye transporte y maniobras?**
+El transporte, la descarga y las maniobras dependen de la ubicación y de las condiciones del sitio, por lo que se cotizan específicamente para cada proyecto.
+
+**¿Qué diferencia tiene un 40 FT High Cube One Trip frente a un 40 FT Standard?**
+El 40 FT High Cube ofrece mayor altura exterior e interior que un 40 FT Standard. Esa altura adicional puede resultar útil cuando el proyecto requiere más volumen o una configuración interior con mayor margen vertical.
+
+**¿Cuál es el precio de un 40 FT High Cube One Trip?**
+El precio y la disponibilidad se confirman al momento de cotizar. Creativos Espacios no publica un precio fijo One Trip hasta validar la condición comercial vigente.
+
+**¿Se puede rentar un 40 FT High Cube One Trip?**
+No. La oferta One Trip de Creativos Espacios es únicamente para venta. Las opciones de renta corresponden a contenedores usados.
+
+**¿Cómo se cotiza la entrega de un 40 FT High Cube One Trip?**
+La logística se determina según destino, acceso al sitio, descarga y maniobras requeridas. Esos conceptos se confirman con la información del proyecto.
+
+**¿Cuándo tiene sentido usar One Trip en un proyecto arquitectónico?**
+Cuando la unidad será visible, recibirá acabados de mayor exigencia o será intervenida de forma relevante, comenzar con una base de mínimo uso puede reducir incertidumbre respecto del desgaste acumulado de una unidad usada.
+
+**¿Qué formato One Trip conviene para un proyecto arquitectónico?**
+Creativos Espacios ofrece 20 FT Standard y 40 FT High Cube One Trip. La elección depende de la huella disponible, el volumen, la altura y la configuración prevista para el proyecto.
+
+**¿Un contenedor One Trip ya es un espacio arquitectónico terminado?**
+No. One Trip describe la condición de la unidad base. El diseño, las aperturas, instalaciones, acabados y demás intervenciones deben definirse según el alcance específico del proyecto.
+
+**¿One Trip garantiza una superficie completamente perfecta?**
+No. Puede presentar marcas menores propias del transporte, manejo o posicionamiento. La condición One Trip implica mínimo uso, no perfección cosmética absoluta.
+
+**¿Puede utilizarse un One Trip como base para un proyecto educativo?**
+Sí, puede evaluarse como base física para aulas, administración, atención u otros espacios de apoyo. El acondicionamiento y los requisitos del espacio educativo deben definirse por separado.
+
+**¿Qué formato One Trip puede utilizar una escuela?**
+Creativos Espacios ofrece 20 FT Standard y 40 FT High Cube One Trip. La elección depende del uso previsto, capacidad requerida, sitio disponible y configuración del proyecto.
+
+**¿El contenedor One Trip se entrega automáticamente listo como aula?**
+No. One Trip describe la condición de la unidad. Para convertirla en un espacio educativo deben definirse el alcance, acondicionamiento, instalaciones, acabados y criterios aplicables al proyecto.
+
+**¿Las escuelas pueden rentar contenedores One Trip?**
+No. Creativos Espacios comercializa One Trip únicamente para venta. Para necesidades de renta se utilizan contenedores usados, sujetos a disponibilidad.
+
+**¿Para qué proyectos corporativos puede evaluarse un One Trip?**
+Puede evaluarse como base para oficinas, recepciones, showrooms, centros de ventas, módulos de atención y otros espacios visibles donde la condición inicial de la unidad tenga relevancia.
+
+**¿Qué formato One Trip ofrece CE para proyectos corporativos?**
+Creativos Espacios ofrece 20 FT Standard y 40 FT High Cube One Trip para venta. La selección depende del espacio, capacidad y configuración prevista.
+
+**¿One Trip incluye pintura, branding o acabados corporativos?**
+No se asume incluido. One Trip describe la condición de la unidad base. Pintura, branding, acabados y otras intervenciones se definen según el alcance del proyecto.
+
+**¿Existe disponibilidad inmediata de One Trip para proyectos corporativos?**
+La disponibilidad se confirma al momento de cotizar. Creativos Espacios no publica inventario One Trip no verificado.
+
 ## Respuestas canónicas
 
 **Respuesta de una oración**
@@ -450,6 +539,48 @@ Infraestructura temporal para dar soporte a las actividades de un proyecto de co
 - **Etapa**: exploration
 
 Habilitar un espacio de trabajo acondicionado y reubicable para funciones administrativas.
+
+### Compra de contenedor One Trip
+- **Objetivo**: Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial
+- **Necesidad**: Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible
+- **Etapa**: transactional
+
+Adquirir un contenedor con mínimo uso para un proyecto donde la condición superficial y la presentación de la unidad son relevantes.
+
+### Compra de contenedor 20 FT One Trip
+- **Objetivo**: Comprar un 20 FT Standard One Trip
+- **Necesidad**: Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración
+- **Etapa**: transactional
+
+Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde importan la condición superficial y una huella compacta.
+
+### Compra de contenedor 40 FT High Cube One Trip
+- **Objetivo**: Comprar un 40 FT High Cube One Trip
+- **Necesidad**: Unidad High Cube de mínimo uso y mayor capacidad
+- **Etapa**: transactional
+
+Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor volumen y altura interior.
+
+### One Trip para proyecto arquitectónico
+- **Objetivo**: Seleccionar una base física adecuada para intervención arquitectónica
+- **Necesidad**: Unidad con menor desgaste acumulado y condición superficial más predecible
+- **Etapa**: comparison
+
+Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visible o intervenido.
+
+### One Trip para proyecto educativo
+- **Objetivo**: Seleccionar una base física adecuada para un espacio educativo
+- **Necesidad**: Unidad visible y de mínimo uso para acondicionamiento posterior
+- **Etapa**: comparison
+
+Buscar una unidad de mínimo uso como base para aulas, administración u otros espacios de una institución educativa.
+
+### One Trip para proyecto corporativo
+- **Objetivo**: Seleccionar una base física alineada con presentación y uso corporativo
+- **Necesidad**: Unidad de mínimo uso para proyecto visible y acondicionamiento posterior
+- **Etapa**: comparison
+
+Buscar una unidad de mínimo uso para oficinas, recepciones, showrooms o módulos visibles de una empresa.
 
 ## Limitaciones de precisión
 

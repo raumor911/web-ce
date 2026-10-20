@@ -3,146 +3,140 @@
   "version": "2.0.0",
   "language": "es-MX",
   "canonicalDomain": "https://creativosespacios.mx",
-  "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7",
-  "generatedAt": "2026-10-10T02:44:56.214Z",
+  "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9",
+  "generatedAt": "2026-10-19T23:40:26.870Z",
   "resources": [
     {
       "path": "/ai/canonical-answers.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/claims-register.json",
       "mediaType": "application/json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/company.json",
       "mediaType": "application/json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/company.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/faq.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/glossary.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/industries.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/intents.json",
       "mediaType": "application/json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/intents.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/knowledge-graph.json",
       "mediaType": "application/json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/pricebook.json",
       "mediaType": "application/json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/pricebook.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/schema/organization.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/schema/services.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/schema/website.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/services.json",
       "mediaType": "application/json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/services.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/sources.json",
       "mediaType": "application/json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/terminology.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/ai/use-cases.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
-    },
-    {
-      "path": "/company.json",
-      "mediaType": "application/json",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/llms-full.txt",
       "mediaType": "text/plain",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     },
     {
       "path": "/llms.txt",
       "mediaType": "text/plain",
-      "generated": "2026-10-10T02:44:56.214Z",
-      "knowledgeFingerprint": "9cfdfa8991223f130c302bc39a2d68d165c0895b3fef5e7fb672474c06331ee7"
+      "generated": "2026-10-19T23:40:26.870Z",
+      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
     }
   ]
 }
