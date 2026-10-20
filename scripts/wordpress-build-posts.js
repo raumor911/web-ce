@@ -15,6 +15,9 @@ export async function fetchWordPressPage(page, fetchImpl = fetch) {
     const totalHeader = response.headers.get('x-wp-total');
     const pagesHeader = response.headers.get('x-wp-totalpages');
     if (totalHeader === null || pagesHeader === null) throw new Error('Missing WordPress pagination headers');
+    if (!/^\d+$/.test(totalHeader) || !/^\d+$/.test(pagesHeader)) {
+      throw new Error('Invalid WordPress pagination headers');
+    }
     const posts = await response.json();
     return {
       posts,
