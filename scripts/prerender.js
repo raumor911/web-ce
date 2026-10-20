@@ -128,71 +128,130 @@ async function prerender() {
     });
   });
 
-  const port = 8090; 
-  server.listen(port);
-  console.log(`Prerender server running at http://localhost:${port}`);
+  const port = 8090;
+  const failedRoutes = [];
+  const savedRoutes = [];
+  let browser;
 
-  const browser = await puppeteer.launch({
-    headless: "new",
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
-  });
+  try {
+    // Wait for the temporary server to be ready before Puppeteer navigates.
+    await new Promise((resolve, reject) => {
+      const onError = (error) => {
+        server.off('listening', onListening);
+        reject(error);
+      };
+      const onListening = () => {
+        server.off('error', onError);
+        resolve();
+      };
+      server.once('error', onError);
+      server.once('listening', onListening);
+      server.listen(port);
+    });
+    console.log(`Prerender server running at http://localhost:${port}`);
 
-  for (const route of routes) {
-    const startTime = Date.now();
-    const page = await browser.newPage();
-    
-    // Log browser errors and console
-    page.on('console', msg => console.log(`BROWSER [${msg.type()}]:`, msg.text()));
-    page.on('pageerror', err => console.log('BROWSER PAGE ERROR:', err.message));
-    page.on('requestfailed', request => console.log('BROWSER REQ FAILED:', request.url(), request.failure().errorText));
+    browser = await puppeteer.launch({
+      headless: "new",
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+    });
 
-    await page.setViewport({ width: 1440, height: 900 });
+    for (const route of routes) {
+      const startTime = Date.now();
+      let page;
 
+      try {
+        page = await browser.newPage();
+        page.on('console', msg => console.log(`BROWSER [${msg.type()}]:`, msg.text()));
+        page.on('pageerror', err => console.log('BROWSER PAGE ERROR:', err.message));
+        page.on('requestfailed', request => console.log('BROWSER REQ FAILED:', request.url(), request.failure().errorText));
+        await page.setViewport({ width: 1440, height: 900 });
+
+        console.log(`Rendering: ${route}...`);
+        const response = await page.goto(`http://localhost:${port}${route}`, {
+          waitUntil: 'networkidle2',
+          timeout: 90000
+        });
+        const status = response && response.status();
+        if (typeof status !== 'number' || status < 200 || status >= 300) {
+          throw new Error(`Invalid HTTP response: ${status ?? 'none'}`);
+        }
+
+        // Preserve the current render wait; reject only clearly incomplete captures.
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        const metadata = await page.evaluate(() => {
+          const h1 = document.querySelector('h1');
+          const canonical = document.querySelector('link[rel="canonical"]');
+          return {
+            title: (document.title || '').trim(),
+            h1: h1 ? (h1.textContent || '').trim() : '',
+            canonical: canonical ? canonical.getAttribute('href') || '' : ''
+          };
+        });
+        const expectedCanonical = new URL(
+          route === '/' ? '/' : route.replace(/\/+$/, ''),
+          'https://creativosespacios.mx/'
+        ).toString();
+        if (!metadata.h1) {
+          throw new Error('Missing or empty H1');
+        }
+        if (metadata.canonical !== expectedCanonical) {
+          throw new Error(`Invalid canonical: ${metadata.canonical || 'missing'} (expected ${expectedCanonical})`);
+        }
+        if (!metadata.title || metadata.title === 'Creativos Espacios | Infraestructura Modular') {
+          throw new Error('Generic or missing document title');
+        }
+        if (route !== '/404' && /^404(?:\s|\b)/i.test(metadata.title)) {
+          throw new Error('Rendered the 404 page instead of the requested route');
+        }
+
+        const content = await page.content();
+        const filePath = route === '/404'
+          ? path.join(DIST_DIR, '404.html')
+          : path.join(DIST_DIR, route === '/' ? '' : route, 'index.html');
+        const dirPath = path.dirname(filePath);
+        if (!fs.existsSync(dirPath)) {
+          fs.mkdirSync(dirPath, { recursive: true });
+        }
+        fs.writeFileSync(filePath, content);
+        savedRoutes.push(route);
+        console.log(`\u2713 Saved ${route} (${Date.now() - startTime}ms)`);
+      } catch (err) {
+        failedRoutes.push({ route, reason: err.message });
+        console.error(`\u2717 Failed to prerender ${route}:`, err.message);
+      } finally {
+        if (page && !page.isClosed()) {
+          try {
+            await page.close();
+          } catch (err) {
+            if (!failedRoutes.some(item => item.route === route)) {
+              failedRoutes.push({ route, reason: `Page close failed: ${err.message}` });
+            }
+            console.error(`\u2717 Failed to close ${route}:`, err.message);
+          }
+        }
+      }
+    }
+  } finally {
+    // Always release the browser and the temporary server, including on startup errors.
     try {
-      console.log(`Rendering: ${route}...`);
-      
-      // Navigate to the route
-      await page.goto(`http://localhost:${port}${route}`, { 
-        waitUntil: 'networkidle2', 
-        timeout: 90000 
-      });
-      
-      // Wait for React to mount - try a different selector or just wait
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      
-      const content = await page.content();
-      
-      let filePath;
-      if (route === '/404') {
-        filePath = path.join(DIST_DIR, '404.html');
-      } else {
-        const routePath = route === '/' ? '' : route;
-        filePath = path.join(DIST_DIR, routePath, 'index.html');
-      }
-      
-      const dirPath = path.dirname(filePath);
-      if (!fs.existsSync(dirPath)) {
-        fs.mkdirSync(dirPath, { recursive: true });
-      }
-      
-      fs.writeFileSync(filePath, content);
-      const duration = Date.now() - startTime;
-      console.log(`✓ Saved ${route} (${duration}ms)`);
-    } catch (err) {
-      console.error(`✗ Failed to prerender ${route}:`, err.message);
+      if (browser) await browser.close();
     } finally {
-      if (!page.isClosed()) {
-        await page.close();
+      if (server.listening) {
+        await new Promise((resolve, reject) => {
+          server.close(error => error ? reject(error) : resolve());
+        });
       }
     }
   }
 
-  await browser.close();
-  server.close();
+  console.log(`--- Prerender summary: ${savedRoutes.length}/${routes.length} saved; ${failedRoutes.length} failed ---`);
+  if (failedRoutes.length > 0) {
+    throw new Error(`Prerender incomplete: ${failedRoutes.length} route(s) failed (${failedRoutes.map(item => item.route).join(', ')})`);
+  }
   console.log('--- Prerender pipeline finished successfully ---');
 }
 
 prerender().catch(err => {
   console.error('Prerender pipeline critical failure:', err);
-  process.exit(1);
+  process.exitCode = 1;
 });
