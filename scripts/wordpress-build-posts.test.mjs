@@ -69,3 +69,8 @@ test('valid empty snapshot generates only static URLs',t=>{
   assert.equal(r.status,0,r.stderr);
   assert.doesNotMatch(fs.readFileSync(path.join(root,'dist/sitemap.xml'),'utf8'),/\/blog\/post-/);
 });
+
+test('blank pagination headers are not a legitimate zero posts response',async()=>{
+  await assert.rejects(fetchWordPressPage(1,async()=>
+    new Response('[]',{status:200,headers:{'X-WP-Total':'','X-WP-TotalPages':''}})),/Invalid WordPress pagination headers/);
+});
