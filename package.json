@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run validate:knowledge && npm run compile:knowledge && tsc -b && vite build && node scripts/prerender.js && node scripts/generate-sitemap.js",
+    "build": "npm run validate:knowledge && npm run compile:knowledge && tsc -b && vite build && node scripts/prerender.js && node scripts/generate-sitemap.js && node scripts/verify-dist.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "check": "tsc -b --noEmit",
@@ -14,7 +14,9 @@
     "validate:artifacts": "node scripts/semantic-compiler/validators/artifacts.js",
     "diff:knowledge": "node scripts/semantic-compiler/diff.js",
     "generate:ai": "echo 'LEGACY GENERATOR DISABLED. Use compile:knowledge instead.' && exit 1",
-    "validate:ai": "grep -rE '\\[VALIDAR|TODO|TBD|example.com|correo@ejemplo|0000000000' public/ai public/*.txt || echo 'Validation passed'"
+    "validate:ai": "grep -rE '\\[VALIDAR|TODO|TBD|example.com|correo@ejemplo|0000000000' public/ai public/*.txt || echo 'Validation passed'",
+    "verify:dist": "node scripts/verify-dist.mjs",
+    "test:verify-dist": "node --test scripts/verify-dist.test.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
