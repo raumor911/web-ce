@@ -67,7 +67,7 @@ test('WordPress 403 no implica avería', async () => {
   const r = await probe({ path: '/blog-admin/', kind: 'wordpress' }, {
     request: makeFetch({ '/blog-admin/': { status: 403 } })
   });
-  assert.equal(r.state, 'OK');
+  assert.equal(r.state, 'OBSERVAR');
 });
 test('genera variantes sin barra y caso de blog según sitemap', () => {
   const c = buildCases([{ path:'/',prerender:true },{ path:'/blog',prerender:true },
