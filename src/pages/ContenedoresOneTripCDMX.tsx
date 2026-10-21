@@ -257,7 +257,6 @@ const ContenedoresOneTripCDMX: React.FC = () => {
                       {offer.product.name}
                     </h3>
                   </div>
-
                 </div>
 
                 <div className="flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-brand-orange mb-6">

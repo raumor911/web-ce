@@ -1,0 +1,135 @@
+{
+  "id": "commercial:one-trip-sale",
+  "name": "Venta de Contenedores One Trip",
+  "description": "Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.",
+  "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+  "condition": "one-trip",
+  "transactionType": "sale",
+  "supportedProducts": [
+    {
+      "id": "product:container-20ft",
+      "name": "Contenedor marítimo 20 FT Standard",
+      "dimensions": "20 ft × 8 ft × 8 ft 6 in",
+      "condition": "one-trip",
+      "serviceId": "service:container-sale"
+    },
+    {
+      "id": "product:container-40hc",
+      "name": "Contenedor marítimo 40 FT High Cube",
+      "dimensions": "40 ft × 8 ft × 9 ft 6 in",
+      "condition": "one-trip",
+      "serviceId": "service:container-sale"
+    }
+  ],
+  "rules": [
+    "Disponible únicamente para venta.",
+    "Formatos soportados: 20 FT Standard y 40 FT High Cube.",
+    "40 FT Standard no se ofrece como One Trip.",
+    "Precio y disponibilidad se confirman al momento de cotizar.",
+    "No existe renta de contenedores One Trip."
+  ],
+  "unsupported": [
+    {
+      "productId": "product:container-40ft",
+      "condition": "one-trip"
+    },
+    {
+      "serviceId": "service:container-rental",
+      "condition": "one-trip"
+    }
+  ],
+  "pricing": {
+    "publicPriceAvailable": false,
+    "guidance": "Precio y disponibilidad se confirman al momento de cotizar."
+  },
+  "logistics": {
+    "includedInPublishedProductPrice": false,
+    "guidance": "Transporte, descarga y maniobras se cotizan según destino y condiciones del sitio."
+  },
+  "intents": [
+    {
+      "id": "intent:container-one-trip-sale",
+      "name": "Compra de contenedor One Trip",
+      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+      "transactionStage": "transactional",
+      "goal": "Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial",
+      "need": "Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible",
+      "exampleExpressions": [
+        "Busco un contenedor nuevo de 20 pies",
+        "Necesito un contenedor One Trip",
+        "Quiero un 40 High Cube nuevo para un proyecto",
+        "Contenedor nuevo para proyecto arquitectónico"
+      ]
+    },
+    {
+      "id": "intent:container-one-trip-20ft",
+      "name": "Compra de contenedor 20 FT One Trip",
+      "canonicalPath": "/contenedor-one-trip-20-pies-cdmx",
+      "transactionStage": "transactional",
+      "goal": "Comprar un 20 FT Standard One Trip",
+      "need": "Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración",
+      "exampleExpressions": [
+        "contenedor one trip 20 pies",
+        "contenedor nuevo 20 pies",
+        "comprar 20 ft one trip",
+        "20 ft standard nuevo"
+      ]
+    },
+    {
+      "id": "intent:container-one-trip-40hc",
+      "name": "Compra de contenedor 40 FT High Cube One Trip",
+      "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx",
+      "transactionStage": "transactional",
+      "goal": "Comprar un 40 FT High Cube One Trip",
+      "need": "Unidad High Cube de mínimo uso y mayor capacidad",
+      "exampleExpressions": [
+        "contenedor 40 high cube one trip",
+        "contenedor nuevo 40 hc",
+        "comprar high cube nuevo",
+        "40 ft high cube nuevo"
+      ]
+    },
+    {
+      "id": "intent:container-one-trip-architecture",
+      "name": "One Trip para proyecto arquitectónico",
+      "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx",
+      "transactionStage": "comparison",
+      "goal": "Seleccionar una base física adecuada para intervención arquitectónica",
+      "need": "Unidad con menor desgaste acumulado y condición superficial más predecible",
+      "exampleExpressions": [
+        "contenedor nuevo para proyecto arquitectónico",
+        "contenedor para modificar con buen acabado",
+        "container one trip para arquitectura",
+        "contenedor nuevo para diseño modular"
+      ]
+    },
+    {
+      "id": "intent:container-one-trip-education",
+      "name": "One Trip para proyecto educativo",
+      "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx",
+      "transactionStage": "comparison",
+      "goal": "Seleccionar una base física adecuada para un espacio educativo",
+      "need": "Unidad visible y de mínimo uso para acondicionamiento posterior",
+      "exampleExpressions": [
+        "contenedor nuevo para escuela",
+        "contenedor para aula modular",
+        "one trip para universidad",
+        "contenedor para ampliación escolar"
+      ]
+    },
+    {
+      "id": "intent:container-one-trip-corporate",
+      "name": "One Trip para proyecto corporativo",
+      "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx",
+      "transactionStage": "comparison",
+      "goal": "Seleccionar una base física alineada con presentación y uso corporativo",
+      "need": "Unidad de mínimo uso para proyecto visible y acondicionamiento posterior",
+      "exampleExpressions": [
+        "contenedor nuevo para oficina corporativa",
+        "one trip para showroom",
+        "contenedor para centro de ventas",
+        "contenedor nuevo para recepción"
+      ]
+    }
+  ]
+}

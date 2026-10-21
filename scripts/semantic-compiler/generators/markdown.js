@@ -88,8 +88,9 @@ export function generateMarkdown(knowledge, outDir) {
       intentsMd += `## ${i.name}\n`;
       intentsMd += `- **Objetivo**: ${i.goal}\n`;
       intentsMd += `- **Necesidad**: ${i.need}\n`;
-      intentsMd += `- **Etapa**: ${i.transactionStage}\n\n`;
-      intentsMd += `${i.description}\n\n`;
+      intentsMd += `- **Etapa**: ${i.transactionStage}\n`;
+      if (i.canonicalPath) intentsMd += `- **Ruta canónica**: ${i.canonicalPath}\n`;
+      intentsMd += `\n${i.description}\n\n`;
       if (i.exampleExpressions && i.exampleExpressions.length > 0) {
         intentsMd += `### Ejemplos de expresiones\n`;
         i.exampleExpressions.forEach(e => {
@@ -99,6 +100,49 @@ export function generateMarkdown(knowledge, outDir) {
       }
     });
     fs.writeFileSync(path.join(aiDir, 'intents.md'), intentsMd);
+  }
+
+
+  // one-trip.md
+  const oneTripPolicy = knowledge.commercial?.find(c => c.id === 'commercial:one-trip-sale');
+  if (oneTripPolicy) {
+    const oneTripIntents = (knowledge.intents || []).filter(i =>
+      i.commercialPolicyIds?.includes('commercial:one-trip-sale')
+    );
+    const supportedProducts = (oneTripPolicy.productIds || [])
+      .map(id => knowledge.products.find(p => p.id === id))
+      .filter(Boolean);
+
+    let oneTrip = `# Contenedores One Trip — Guía para sistemas de IA\n\n`;
+    oneTrip += `${oneTripPolicy.description}\n\n`;
+    if (oneTripPolicy.canonicalPath) {
+      oneTrip += `## Hub canónico\n${oneTripPolicy.canonicalPath}\n\n`;
+    }
+
+    oneTrip += `## Oferta soportada\n\n`;
+    supportedProducts.forEach(p => {
+      oneTrip += `- **${p.name}** — ${p.nominalDimensions || p.dimensions} — condición One Trip — venta.\n`;
+    });
+    oneTrip += `\n`;
+
+    oneTrip += `## Reglas comerciales\n\n`;
+    oneTripPolicy.rules.forEach(rule => oneTrip += `- ${rule}\n`);
+    oneTrip += `- No inferir precio, inventario o disponibilidad inmediata cuando no exista una fuente publicada que lo confirme.\n`;
+    oneTrip += `- Transporte, descarga y maniobras se cotizan según destino y condiciones del sitio.\n\n`;
+
+    oneTrip += `## Intenciones y rutas canónicas\n\n`;
+    oneTripIntents.forEach(i => {
+      oneTrip += `### ${i.name}\n`;
+      oneTrip += `- Etapa: ${i.transactionStage}\n`;
+      if (i.canonicalPath) oneTrip += `- Ruta: ${i.canonicalPath}\n`;
+      oneTrip += `- Objetivo: ${i.goal}\n`;
+      oneTrip += `- Necesidad: ${i.need}\n\n`;
+    });
+
+    oneTrip += `## Interpretación recomendada\n\n`;
+    oneTrip += `One Trip describe la condición comercial de la unidad, no un proyecto terminado. CE ofrece One Trip únicamente en 20 FT Standard y 40 FT High Cube para venta. No existe 40 FT Standard One Trip ni renta One Trip en la oferta actual.\n`;
+
+    fs.writeFileSync(path.join(aiDir, 'one-trip.md'), oneTrip);
   }
 
   // pricebook.md

@@ -202,7 +202,42 @@ function validateKnowledge() {
     });
   }
 
-  // 9. Inventory validation
+  // 9. One Trip commercial policy validation
+  if (data.commercial) {
+    const oneTripPolicy = data.commercial.find(p => p.id === 'commercial:one-trip-sale');
+    if (oneTripPolicy) {
+      const allowedProducts = new Set(['product:container-20ft', 'product:container-40hc']);
+      const products = new Set(oneTripPolicy.productIds || []);
+      const services = new Set(oneTripPolicy.serviceIds || []);
+      const conditions = new Set(oneTripPolicy.conditions || []);
+
+      if (!services.has('service:container-sale') || services.size !== 1) {
+        reportError('commercial:one-trip-sale must apply only to service:container-sale');
+      }
+      if (!conditions.has('one-trip') || conditions.size !== 1) {
+        reportError('commercial:one-trip-sale must use only condition one-trip');
+      }
+      if (products.size !== allowedProducts.size || [...products].some(id => !allowedProducts.has(id))) {
+        reportError('commercial:one-trip-sale must support only product:container-20ft and product:container-40hc');
+      }
+      if (!oneTripPolicy.canonicalPath) {
+        reportError('commercial:one-trip-sale is missing canonicalPath');
+      }
+
+      (oneTripPolicy.intentIds || []).forEach(intentId => {
+        const intent = data.intents?.find(i => i.id === intentId);
+        if (!intent) return;
+        if (!intent.canonicalPath) {
+          reportError(`One Trip intent ${intentId} is missing canonicalPath`);
+        }
+        if (!intent.commercialPolicyIds?.includes('commercial:one-trip-sale')) {
+          reportError(`One Trip intent ${intentId} must reference commercial:one-trip-sale`);
+        }
+      });
+    }
+  }
+
+  // 10. Inventory validation
   if (data.inventory) {
     data.inventory.forEach(inv => {
       if (!inv.id.startsWith('inventory:')) {

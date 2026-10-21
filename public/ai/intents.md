@@ -76,6 +76,7 @@ Habilitar un espacio de trabajo acondicionado y reubicable para funciones admini
 - **Objetivo**: Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial
 - **Necesidad**: Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible
 - **Etapa**: transactional
+- **Ruta canónica**: /contenedores-nuevos-one-trip-cdmx
 
 Adquirir un contenedor con mínimo uso para un proyecto donde la condición superficial y la presentación de la unidad son relevantes.
 
@@ -89,6 +90,7 @@ Adquirir un contenedor con mínimo uso para un proyecto donde la condición supe
 - **Objetivo**: Comprar un 20 FT Standard One Trip
 - **Necesidad**: Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración
 - **Etapa**: transactional
+- **Ruta canónica**: /contenedor-one-trip-20-pies-cdmx
 
 Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde importan la condición superficial y una huella compacta.
 
@@ -102,6 +104,7 @@ Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde imp
 - **Objetivo**: Comprar un 40 FT High Cube One Trip
 - **Necesidad**: Unidad High Cube de mínimo uso y mayor capacidad
 - **Etapa**: transactional
+- **Ruta canónica**: /contenedor-one-trip-40-high-cube-cdmx
 
 Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor volumen y altura interior.
 
@@ -115,6 +118,7 @@ Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor 
 - **Objetivo**: Seleccionar una base física adecuada para intervención arquitectónica
 - **Necesidad**: Unidad con menor desgaste acumulado y condición superficial más predecible
 - **Etapa**: comparison
+- **Ruta canónica**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx
 
 Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visible o intervenido.
 
@@ -128,6 +132,7 @@ Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visi
 - **Objetivo**: Seleccionar una base física adecuada para un espacio educativo
 - **Necesidad**: Unidad visible y de mínimo uso para acondicionamiento posterior
 - **Etapa**: comparison
+- **Ruta canónica**: /contenedores-one-trip-para-escuelas-cdmx
 
 Buscar una unidad de mínimo uso como base para aulas, administración u otros espacios de una institución educativa.
 
@@ -141,6 +146,7 @@ Buscar una unidad de mínimo uso como base para aulas, administración u otros e
 - **Objetivo**: Seleccionar una base física alineada con presentación y uso corporativo
 - **Necesidad**: Unidad de mínimo uso para proyecto visible y acondicionamiento posterior
 - **Etapa**: comparison
+- **Ruta canónica**: /contenedores-one-trip-para-proyectos-corporativos-cdmx
 
 Buscar una unidad de mínimo uso para oficinas, recepciones, showrooms o módulos visibles de una empresa.
 

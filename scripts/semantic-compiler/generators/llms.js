@@ -5,6 +5,8 @@ export function generateLLMS(knowledge, outDir) {
   const org = knowledge.organization;
   const services = knowledge.services.map(s => `- [${s.name}](${s.canonicalPath}): ${s.description}`).join('\n');
   const useCases = knowledge['use-cases'].map(u => `- ${u.name}: ${u.description}`).join('\n');
+  const oneTripPolicy = knowledge.commercial?.find(c => c.id === 'commercial:one-trip-sale');
+  const oneTripIntents = (knowledge.intents || []).filter(i => i.commercialPolicyIds?.includes('commercial:one-trip-sale'));
   
   let content = `# ${org.name}\n\n`;
   content += `> ${org.preferredPositioning}\n\n`;
@@ -14,6 +16,25 @@ export function generateLLMS(knowledge, outDir) {
   
   content += `## Soluciones principales\n\n${services}\n\n`;
   content += `## Aplicaciones principales\n\n${useCases}\n\n`;
+
+  if (oneTripPolicy) {
+    const supportedProducts = (oneTripPolicy.productIds || [])
+      .map(id => knowledge.products.find(p => p.id === id)?.name)
+      .filter(Boolean);
+
+    content += `## Contenedores One Trip\n\n`;
+    content += `${oneTripPolicy.description}\n\n`;
+    if (oneTripPolicy.canonicalPath) {
+      content += `- [Oferta One Trip](${oneTripPolicy.canonicalPath})\n`;
+    }
+    oneTripIntents
+      .filter(i => i.canonicalPath && i.canonicalPath !== oneTripPolicy.canonicalPath)
+      .forEach(i => content += `- [${i.name}](${i.canonicalPath})\n`);
+    content += `\n**Formatos soportados:** ${supportedProducts.join(', ')}.\n\n`;
+    content += `**Reglas comerciales:**\n`;
+    oneTripPolicy.rules.forEach(rule => content += `- ${rule}\n`);
+    content += `\n`;
+  }
   
   content += `## Información ampliada\n\n`;
   content += `- [Manifiesto de Contenido](/ai/content-manifest.json)\n`;
@@ -22,6 +43,11 @@ export function generateLLMS(knowledge, outDir) {
   content += `- [Casos de Uso](/ai/use-cases.md)\n`;
   content += `- [Terminología Preferida](/ai/terminology.md)\n`;
   content += `- [Respuestas Canónicas](/ai/canonical-answers.md)\n`;
+  content += `- [Intenciones de Usuario](/ai/intents.md)\n`;
+  if (oneTripPolicy) {
+    content += `- [Guía One Trip para IA](/ai/one-trip.md)\n`;
+    content += `- [Oferta One Trip estructurada](/ai/one-trip.json)\n`;
+  }
   if (knowledge.pricebook && knowledge.pricebook.length > 0) {
     content += `- [Guía de Precios de Referencia](/ai/pricebook.md)\n`;
   }

@@ -50,6 +50,32 @@ export function generateLLMSFull(knowledge, outDir) {
     content += `\n`;
   });
   
+  const oneTripPolicy = knowledge.commercial?.find(c => c.id === 'commercial:one-trip-sale');
+  const oneTripIntents = (knowledge.intents || []).filter(i => i.commercialPolicyIds?.includes('commercial:one-trip-sale'));
+
+  if (oneTripPolicy) {
+    content += `## Oferta One Trip\n\n`;
+    content += `${oneTripPolicy.description}\n\n`;
+    if (oneTripPolicy.canonicalPath) {
+      content += `- **Hub canónico**: ${oneTripPolicy.canonicalPath}\n`;
+    }
+    const supportedProducts = (oneTripPolicy.productIds || [])
+      .map(id => knowledge.products.find(p => p.id === id)?.name)
+      .filter(Boolean);
+    content += `- **Condición**: One Trip\n`;
+    content += `- **Modalidad**: Venta únicamente\n`;
+    content += `- **Formatos soportados**: ${supportedProducts.join(', ')}\n`;
+    content += `- **No soportado**: 40 FT Standard One Trip; renta de contenedores One Trip\n\n`;
+    content += `### Reglas comerciales One Trip\n`;
+    oneTripPolicy.rules.forEach(r => content += `- ${r}\n`);
+    content += `\n### Rutas por intención\n`;
+    oneTripIntents.forEach(i => {
+      if (i.canonicalPath) content += `- **${i.name}**: ${i.canonicalPath}\n`;
+    });
+    content += `\n### Regla de precisión\n`;
+    content += `No inferir precio, inventario ni disponibilidad inmediata para One Trip si no existe una fuente publicada que lo confirme. Transporte, descarga y maniobras se cotizan según destino y condiciones del sitio.\n\n`;
+  }
+
   content += `## Cobertura\n\n`;
   knowledge.coverage.forEach(c => {
     content += `- ${c.name} (${c.countryCode})\n`;
@@ -102,8 +128,9 @@ export function generateLLMSFull(knowledge, outDir) {
       content += `### ${i.name}\n`;
       content += `- **Objetivo**: ${i.goal}\n`;
       content += `- **Necesidad**: ${i.need}\n`;
-      content += `- **Etapa**: ${i.transactionStage}\n\n`;
-      content += `${i.description}\n\n`;
+      content += `- **Etapa**: ${i.transactionStage}\n`;
+      if (i.canonicalPath) content += `- **Ruta canónica**: ${i.canonicalPath}\n`;
+      content += `\n${i.description}\n\n`;
     });
   }
 

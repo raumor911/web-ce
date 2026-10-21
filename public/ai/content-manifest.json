@@ -3,140 +3,152 @@
   "version": "2.0.0",
   "language": "es-MX",
   "canonicalDomain": "https://creativosespacios.mx",
-  "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9",
-  "generatedAt": "2026-10-19T23:40:26.870Z",
+  "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1",
+  "generatedAt": "2026-10-21T22:57:28.250Z",
   "resources": [
     {
       "path": "/ai/canonical-answers.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.249Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/claims-register.json",
       "mediaType": "application/json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.249Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/company.json",
       "mediaType": "application/json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/company.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/faq.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/glossary.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/industries.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/intents.json",
       "mediaType": "application/json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/intents.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/knowledge-graph.json",
       "mediaType": "application/json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
+    },
+    {
+      "path": "/ai/one-trip.json",
+      "mediaType": "application/json",
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
+    },
+    {
+      "path": "/ai/one-trip.md",
+      "mediaType": "text/markdown",
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/pricebook.json",
       "mediaType": "application/json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/pricebook.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/schema/organization.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/schema/services.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/schema/website.jsonld",
       "mediaType": "application/ld+json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/services.json",
       "mediaType": "application/json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/services.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/sources.json",
       "mediaType": "application/json",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/terminology.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/ai/use-cases.md",
       "mediaType": "text/markdown",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/llms-full.txt",
       "mediaType": "text/plain",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     },
     {
       "path": "/llms.txt",
       "mediaType": "text/plain",
-      "generated": "2026-10-19T23:40:26.870Z",
-      "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9"
+      "generated": "2026-10-21T22:57:28.250Z",
+      "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1"
     }
   ]
 }
