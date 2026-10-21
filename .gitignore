@@ -11,6 +11,7 @@ node_modules
 # Build and temp directories
 dist
 dist-ssr
+release-artifacts/
 .tmp/
 .backup-legacy/
 *.local

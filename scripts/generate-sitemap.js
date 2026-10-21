@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import https from 'https';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(__dirname, '../public');
+const DIST_DIR = path.join(__dirname, '../dist');
+const BLOG_SNAPSHOT = path.join(DIST_DIR, '.ce-build-posts.json');
 const DOMAIN = 'https://creativosespacios.mx';
 
 const routesConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/config/routes.json'), 'utf-8'));
@@ -14,75 +15,33 @@ const staticRoutes = routesConfig.filter(r => r.sitemap).map(r => ({
   changefreq: r.changefreq || 'monthly'
 }));
 
-/**
- * Fetch all posts from WordPress with pagination support
- */
-async function getAllPosts() {
-  const allPosts = [];
-  let page = 1;
-  let totalPages = 1;
-
-  async function fetchPage(p) {
-    return new Promise((resolve) => {
-      const options = {
-        hostname: 'creativosespacios.mx',
-        port: 443,
-        path: `/blog-admin/index.php?rest_route=/wp/v2/posts&per_page=100&page=${p}&status=publish`,
-        method: 'GET',
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-          'Accept': 'application/json'
-        }
-      };
-
-      https.get(options, (res) => {
-        let data = '';
-        res.on('data', (chunk) => data += chunk);
-        res.on('end', () => {
-          try {
-            if (res.statusCode !== 200) {
-              console.error(`HTTP ${res.statusCode} on page ${p}`);
-              resolve({ posts: [], totalPages: 1 });
-              return;
-            }
-            const totalP = parseInt(res.headers['x-wp-totalpages'] || '1', 10);
-            const posts = JSON.parse(data);
-            resolve({ posts, totalPages: totalP });
-          } catch (e) {
-            console.error(`Error parsing posts for sitemap on page ${p}:`, e.message);
-            resolve({ posts: [], totalPages: 1 });
-          }
-        });
-      }).on('error', (e) => {
-        console.error(`Error fetching posts for sitemap on page ${p}:`, e.message);
-        resolve({ posts: [], totalPages: 1 });
-      });
-    });
-  }
-
-  const firstResult = await fetchPage(1);
-  allPosts.push(...firstResult.posts);
-  totalPages = firstResult.totalPages;
-
-  for (let p = 2; p <= totalPages; p++) {
-    const result = await fetchPage(p);
-    allPosts.push(...result.posts);
-  }
-
-  return allPosts;
-}
-
 async function generateSitemap() {
   console.log('--- Generating dynamic sitemap ---');
   
   try {
-    const posts = await getAllPosts();
-    const dynamicRoutes = posts.map(post => ({
+    // Use exactly the posts captured for prerendering; never query WordPress twice.
+    const snapshot = JSON.parse(fs.readFileSync(BLOG_SNAPSHOT, 'utf-8'));
+    if (!snapshot || !Array.isArray(snapshot.posts)) {
+      throw new Error('Missing or invalid WordPress build snapshot');
+    }
+    const posts = snapshot.posts;
+    const dynamicRoutes = posts.map(post => {
+      if (!post || typeof post.slug !== 'string' ||
+          !post.slug || /[\\/?#\s]/.test(post.slug) || /^\.+$/.test(post.slug) ||
+          typeof post.modified !== 'string' || !/^\d{4}-\d{2}-\d{2}T/.test(post.modified)) {
+        throw new Error('Invalid WordPress post in build snapshot');
+      }
+      const htmlPath = path.join(DIST_DIR, 'blog', post.slug, 'index.html');
+      if (!fs.existsSync(htmlPath)) {
+        throw new Error(`Missing prerendered article: /blog/${post.slug}`);
+      }
+      return {
       url: `/blog/${post.slug}`,
       priority: '0.7',
       changefreq: 'monthly',
       lastmod: post.modified.split('T')[0]
-    }));
+      };
+    });
 
     const allRoutes = [...staticRoutes, ...dynamicRoutes];
     const today = new Date().toISOString().split('T')[0];
@@ -105,12 +64,10 @@ ${allRoutes.map(route => {
 
     fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemap);
     // Also write to dist if it exists, to ensure it's available after build
-    const DIST_DIR = path.join(__dirname, '../dist');
-    if (fs.existsSync(DIST_DIR)) {
-      fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);
-    }
+    fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);
+    fs.rmSync(BLOG_SNAPSHOT);
     
-    console.log(`✓ Sitemap generated successfully with ${allRoutes.length} URLs.`);
+    console.log(`✓ Sitemap generated successfully with ${allRoutes.length} URLs (${posts.length} WordPress articles).`);
   } catch (error) {
     console.error('✗ Sitemap generation failed:', error.message);
     process.exit(1);
