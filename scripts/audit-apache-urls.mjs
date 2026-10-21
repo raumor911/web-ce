@@ -90,7 +90,7 @@ export async function probe(testCase, { origin = ORIGIN, request = fetch, timeou
       if (!ok || redirects.length === 0 || noSlash(urlPath) !== noSlash(testCase.expected)) issues.push('Missing/incorrect redirect');
       if (urlPath !== testCase.expected) warnings.push('Redirect target ends with a trailing slash');
     } else if (testCase.kind === 'wordpress') {
-      if (response.status === 404 || response.status >= 500) warnings.push('WordPress route requires hosting-level verification');
+      if (response.status === 401 || response.status === 403 || response.status === 404 || response.status >= 500) warnings.push('WordPress route requires hosting-level verification');
       // Access controls may legitimately return 401/403. Never parse or log the CMS response body.
     }
     return {
