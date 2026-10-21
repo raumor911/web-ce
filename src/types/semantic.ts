@@ -144,9 +144,11 @@ export interface CommercialPolicy {
   name: string;
   description: string;
   rules: string[];
+  canonicalPath?: string;
   serviceIds?: ID[];
   productIds?: ID[];
   conditions?: Condition[];
+  intentIds?: ID[];
   originType?: 'explicit' | 'derived' | 'internal';
   sourceIds?: ID[];
 }
@@ -208,6 +210,8 @@ export interface Intent {
   description: string;
   goal: string;
   need: string;
+  canonicalPath?: string;
+  commercialPolicyIds?: ID[];
   transactionStage: TransactionStage;
   timeHorizon?: string;
   useCaseIds?: ID[];

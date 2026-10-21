@@ -1,8 +1,8 @@
 {
   "name": "Creativos Espacios Knowledge Graph",
-  "version": "2.0.0",
-  "knowledgeFingerprint": "e05a69d157a6062a41e9ee02820155963cdc8cf9df73743c0bd69a83ff8385d9",
-  "generatedAt": "2026-10-19T23:40:26.864Z",
+  "version": "2.1.0",
+  "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1",
+  "generatedAt": "2026-10-21T22:57:28.245Z",
   "nodes": [
     {
       "id": "org:creativos-espacios",
@@ -1934,6 +1934,86 @@
       "status": "canonical"
     },
     {
+      "id": "commercial:sales",
+      "type": "CommercialPolicy",
+      "name": "Venta de Equipos",
+      "description": "Venta de contenedores y oficinas modulares como activos permanentes.",
+      "rules": [
+        "Sujeto a disponibilidad de inventario.",
+        "Venta aplicable a unidades estándar y proyectos a la medida."
+      ],
+      "originType": "derived",
+      "sourceIds": [
+        "source:solutions-renta"
+      ]
+    },
+    {
+      "id": "commercial:rental",
+      "type": "CommercialPolicy",
+      "name": "Renta de Equipos",
+      "description": "Arrendamiento temporal de contenedores y oficinas.",
+      "rules": [
+        "Sujeto a disponibilidad de inventario.",
+        "Ideal para proyectos temporales o almacenamiento estacional."
+      ],
+      "originType": "derived",
+      "sourceIds": [
+        "source:solutions-renta"
+      ]
+    },
+    {
+      "id": "commercial:logistics",
+      "type": "CommercialPolicy",
+      "name": "Coordinación Logística",
+      "description": "Servicios de entrega y posicionamiento de unidades.",
+      "rules": [
+        "Tiempos definidos según disponibilidad y ubicación.",
+        "Requiere terreno nivelado y firme para maniobras."
+      ],
+      "originType": "derived",
+      "sourceIds": [
+        "source:solutions-renta"
+      ]
+    },
+    {
+      "id": "commercial:one-trip-sale",
+      "type": "CommercialPolicy",
+      "name": "Venta de Contenedores One Trip",
+      "description": "Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.",
+      "rules": [
+        "Disponible únicamente para venta.",
+        "Formatos soportados: 20 FT Standard y 40 FT High Cube.",
+        "40 FT Standard no se ofrece como One Trip.",
+        "Precio y disponibilidad se confirman al momento de cotizar.",
+        "No existe renta de contenedores One Trip."
+      ],
+      "serviceIds": [
+        "service:container-sale"
+      ],
+      "productIds": [
+        "product:container-20ft",
+        "product:container-40hc"
+      ],
+      "conditions": [
+        "one-trip"
+      ],
+      "originType": "explicit",
+      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+      "intentIds": [
+        "intent:container-one-trip-sale",
+        "intent:container-one-trip-20ft",
+        "intent:container-one-trip-40hc",
+        "intent:container-one-trip-architecture",
+        "intent:container-one-trip-education",
+        "intent:container-one-trip-corporate"
+      ]
+    },
+    {
+      "id": "condition:one-trip",
+      "type": "Condition",
+      "name": "One Trip"
+    },
+    {
       "id": "intent:need-temporary-storage",
       "type": "Intent",
       "name": "Necesidad de almacenamiento temporal",
@@ -2112,7 +2192,11 @@
         "Contenedor nuevo para proyecto arquitectónico"
       ],
       "status": "published",
-      "visibility": "public"
+      "visibility": "public",
+      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+      "commercialPolicyIds": [
+        "commercial:one-trip-sale"
+      ]
     },
     {
       "id": "intent:container-one-trip-20ft",
@@ -2135,7 +2219,11 @@
         "20 ft standard nuevo"
       ],
       "status": "published",
-      "visibility": "public"
+      "visibility": "public",
+      "canonicalPath": "/contenedor-one-trip-20-pies-cdmx",
+      "commercialPolicyIds": [
+        "commercial:one-trip-sale"
+      ]
     },
     {
       "id": "intent:container-one-trip-40hc",
@@ -2158,7 +2246,11 @@
         "40 ft high cube nuevo"
       ],
       "status": "published",
-      "visibility": "public"
+      "visibility": "public",
+      "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx",
+      "commercialPolicyIds": [
+        "commercial:one-trip-sale"
+      ]
     },
     {
       "id": "intent:container-one-trip-architecture",
@@ -2182,7 +2274,11 @@
         "contenedor nuevo para diseño modular"
       ],
       "status": "published",
-      "visibility": "public"
+      "visibility": "public",
+      "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx",
+      "commercialPolicyIds": [
+        "commercial:one-trip-sale"
+      ]
     },
     {
       "id": "intent:container-one-trip-education",
@@ -2206,7 +2302,11 @@
         "contenedor para ampliación escolar"
       ],
       "status": "published",
-      "visibility": "public"
+      "visibility": "public",
+      "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx",
+      "commercialPolicyIds": [
+        "commercial:one-trip-sale"
+      ]
     },
     {
       "id": "intent:container-one-trip-corporate",
@@ -2230,7 +2330,11 @@
         "contenedor nuevo para recepción"
       ],
       "status": "published",
-      "visibility": "public"
+      "visibility": "public",
+      "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx",
+      "commercialPolicyIds": [
+        "commercial:one-trip-sale"
+      ]
     },
     {
       "id": "price:container-20ft-used-sale",
@@ -3338,6 +3442,56 @@
       "relation": "supportedBy"
     },
     {
+      "source": "commercial:one-trip-sale",
+      "target": "service:container-sale",
+      "relation": "appliesToService"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "product:container-20ft",
+      "relation": "appliesToProduct"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "product:container-40hc",
+      "relation": "appliesToProduct"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "condition:one-trip",
+      "relation": "permitsCondition"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "intent:container-one-trip-sale",
+      "relation": "addressesIntent"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "intent:container-one-trip-20ft",
+      "relation": "addressesIntent"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "intent:container-one-trip-40hc",
+      "relation": "addressesIntent"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "intent:container-one-trip-architecture",
+      "relation": "addressesIntent"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "intent:container-one-trip-education",
+      "relation": "addressesIntent"
+    },
+    {
+      "source": "commercial:one-trip-sale",
+      "target": "intent:container-one-trip-corporate",
+      "relation": "addressesIntent"
+    },
+    {
       "source": "intent:need-temporary-storage",
       "target": "usecase:b2b-temporary-storage",
       "relation": "resolvesTo"
@@ -3478,6 +3632,11 @@
       "relation": "mayUseProduct"
     },
     {
+      "source": "intent:container-one-trip-sale",
+      "target": "commercial:one-trip-sale",
+      "relation": "governedBy"
+    },
+    {
       "source": "intent:container-one-trip-20ft",
       "target": "service:container-sale",
       "relation": "mayRequire"
@@ -3486,6 +3645,11 @@
       "source": "intent:container-one-trip-20ft",
       "target": "product:container-20ft",
       "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-20ft",
+      "target": "commercial:one-trip-sale",
+      "relation": "governedBy"
     },
     {
       "source": "intent:container-one-trip-40hc",
@@ -3498,6 +3662,11 @@
       "relation": "mayUseProduct"
     },
     {
+      "source": "intent:container-one-trip-40hc",
+      "target": "commercial:one-trip-sale",
+      "relation": "governedBy"
+    },
+    {
       "source": "intent:container-one-trip-architecture",
       "target": "service:container-sale",
       "relation": "mayRequire"
@@ -3511,6 +3680,11 @@
       "source": "intent:container-one-trip-architecture",
       "target": "product:container-40hc",
       "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-architecture",
+      "target": "commercial:one-trip-sale",
+      "relation": "governedBy"
     },
     {
       "source": "intent:container-one-trip-education",
@@ -3528,6 +3702,11 @@
       "relation": "mayUseProduct"
     },
     {
+      "source": "intent:container-one-trip-education",
+      "target": "commercial:one-trip-sale",
+      "relation": "governedBy"
+    },
+    {
       "source": "intent:container-one-trip-corporate",
       "target": "service:container-sale",
       "relation": "mayRequire"
@@ -3541,6 +3720,11 @@
       "source": "intent:container-one-trip-corporate",
       "target": "product:container-40hc",
       "relation": "mayUseProduct"
+    },
+    {
+      "source": "intent:container-one-trip-corporate",
+      "target": "commercial:one-trip-sale",
+      "relation": "governedBy"
     },
     {
       "source": "price:container-20ft-used-sale",

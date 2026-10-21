@@ -59,6 +59,15 @@
     "conditions": [
       "one-trip"
     ],
-    "originType": "explicit"
+    "originType": "explicit",
+    "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+    "intentIds": [
+      "intent:container-one-trip-sale",
+      "intent:container-one-trip-20ft",
+      "intent:container-one-trip-40hc",
+      "intent:container-one-trip-architecture",
+      "intent:container-one-trip-education",
+      "intent:container-one-trip-corporate"
+    ]
   }
 ]

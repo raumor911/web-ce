@@ -171,7 +171,11 @@
       "Contenedor nuevo para proyecto arquitectónico"
     ],
     "status": "published",
-    "visibility": "public"
+    "visibility": "public",
+    "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+    "commercialPolicyIds": [
+      "commercial:one-trip-sale"
+    ]
   },
   {
     "id": "intent:container-one-trip-20ft",
@@ -193,7 +197,11 @@
       "20 ft standard nuevo"
     ],
     "status": "published",
-    "visibility": "public"
+    "visibility": "public",
+    "canonicalPath": "/contenedor-one-trip-20-pies-cdmx",
+    "commercialPolicyIds": [
+      "commercial:one-trip-sale"
+    ]
   },
   {
     "id": "intent:container-one-trip-40hc",
@@ -215,7 +223,11 @@
       "40 ft high cube nuevo"
     ],
     "status": "published",
-    "visibility": "public"
+    "visibility": "public",
+    "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx",
+    "commercialPolicyIds": [
+      "commercial:one-trip-sale"
+    ]
   },
   {
     "id": "intent:container-one-trip-architecture",
@@ -238,7 +250,11 @@
       "contenedor nuevo para diseño modular"
     ],
     "status": "published",
-    "visibility": "public"
+    "visibility": "public",
+    "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx",
+    "commercialPolicyIds": [
+      "commercial:one-trip-sale"
+    ]
   },
   {
     "id": "intent:container-one-trip-education",
@@ -261,7 +277,11 @@
       "contenedor para ampliación escolar"
     ],
     "status": "published",
-    "visibility": "public"
+    "visibility": "public",
+    "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx",
+    "commercialPolicyIds": [
+      "commercial:one-trip-sale"
+    ]
   },
   {
     "id": "intent:container-one-trip-corporate",
@@ -284,6 +304,10 @@
       "contenedor nuevo para recepción"
     ],
     "status": "published",
-    "visibility": "public"
+    "visibility": "public",
+    "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx",
+    "commercialPolicyIds": [
+      "commercial:one-trip-sale"
+    ]
   }
 ]
