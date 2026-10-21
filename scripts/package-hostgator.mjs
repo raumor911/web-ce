@@ -75,7 +75,9 @@ export function createRelease({ root = ROOT, stamp = new Date(), commit = 'unver
   fs.mkdirSync(out, { recursive: true });
   const name = `ce-hostgator-${stamp.toISOString().replace(/[:.]/g, '-').replace('Z','Z')}-${commit.slice(0,8)}`;
   const archive = path.join(out, name + '.zip');
-  if (fs.existsSync(archive)) throw Error('Release artifact already exists: ' + archive);
+  for (const output of [archive, path.join(out, name + '.manifest.json'), path.join(out, name + '.sha256')]) {
+    if (fs.existsSync(output)) throw Error('Release artifact already exists: ' + output);
+  }
   const files = selected.map(relative => {
     const buffer = fs.readFileSync(path.join(dist, ...relative.split('/')));
     return { path: relative, size: buffer.length, sha256: hex(buffer) };
@@ -93,7 +95,7 @@ export function createRelease({ root = ROOT, stamp = new Date(), commit = 'unver
     const listedUrls = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(m => m[1]);
     const manifest = {
       format: 'ce-hostgator-release-v1',
-      createdAt: stamp.toISOString(), sourceCommit: comit,
+      createdAt: stamp.toISOString(), sourceCommit: commit,
       archive: path.basename(archive), archiveSha256: hex(fs.readFileSync(archive)),
       instructions: 'Extract the archive CONTENTS into public_html after selective backup. Never delete existing host files.',
       excluded, routeCount: routeConfig.filter(r => r.prerender).length,
