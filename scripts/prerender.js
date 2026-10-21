@@ -5,71 +5,11 @@ import { fileURLToPath } from 'url';
 import http from 'http';
 import https from 'https';
 import handler from 'serve-handler';
+import { getPublishedPosts } from './wordpress-build-posts.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, '../dist');
-
-/**
- * Fetch all post slugs from WordPress with pagination support
- */
-async function getAllPostSlugs() {
-  const slugs = [];
-  let page = 1;
-  let totalPages = 1;
-
-  async function fetchPage(p) {
-    return new Promise((resolve) => {
-      const options = {
-        hostname: 'creativosespacios.mx',
-        port: 443,
-        path: `/blog-admin/index.php?rest_route=/wp/v2/posts&per_page=100&page=${p}&status=publish`,
-        method: 'GET',
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-          'Accept': 'application/json'
-        }
-      };
-
-      https.get(options, (res) => {
-        let data = '';
-        res.on('data', (chunk) => data += chunk);
-        res.on('end', () => {
-          try {
-            if (res.statusCode !== 200) {
-              console.error(`HTTP ${res.statusCode} on page ${p}`);
-              resolve({ posts: [], totalPages: 1 });
-              return;
-            }
-            const totalP = parseInt(res.headers['x-wp-totalpages'] || '1', 10);
-            const posts = JSON.parse(data);
-            resolve({ posts, totalPages: totalP });
-          } catch (e) {
-            console.error(`Error parsing posts on page ${p}:`, e.message);
-            resolve({ posts: [], totalPages: 1 });
-          }
-        });
-      }).on('error', (e) => {
-        console.error(`Error fetching posts on page ${p}:`, e.message);
-        resolve({ posts: [], totalPages: 1 });
-      });
-    });
-  }
-
-  const firstResult = await fetchPage(1);
-  if (Array.isArray(firstResult.posts)) {
-    slugs.push(...firstResult.posts.map(post => `/blog/${post.slug}`));
-  }
-  totalPages = firstResult.totalPages || 1;
-
-  for (let p = 2; p <= totalPages; p++) {
-    const result = await fetchPage(p);
-    if (Array.isArray(result.posts)) {
-      slugs.push(...result.posts.map(post => `/blog/${post.slug}`));
-    }
-  }
-
-  return slugs;
-}
+const BLOG_SNAPSHOT = path.join(DIST_DIR, '.ce-build-posts.json');
 
 async function prerender() {
   console.log('--- Starting manual prerender pipeline ---');
@@ -79,10 +19,15 @@ async function prerender() {
     process.exit(1);
   }
 
+  // One validated WordPress snapshot drives prerender and sitemap during this build.
+  fs.rmSync(BLOG_SNAPSHOT, { force: true });
+  const posts = await getPublishedPosts();
   const routesConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/config/routes.json'), 'utf-8'));
   const staticRoutes = routesConfig.filter(r => r.prerender).map(r => r.path);
-  const dynamicRoutes = await getAllPostSlugs();
+  const dynamicRoutes = posts.map(post => `/blog/${post.slug}`);
   const routes = [...staticRoutes, ...dynamicRoutes];
+  fs.writeFileSync(BLOG_SNAPSHOT, JSON.stringify({ posts }, null, 2));
+  console.log(`WordPress snapshot: ${posts.length} published posts`);
   
   console.log(`Routes identified for prerendering: ${routes.length}`);
   
@@ -178,6 +123,14 @@ async function prerender() {
 
         // Preserve the current render wait; reject only clearly incomplete captures.
         await new Promise(resolve => setTimeout(resolve, 3000));
+        if (route.startsWith('/blog/')) {
+          // Wait for the article before inspecting metadata absent from its loading skeleton.
+          await page.waitForFunction(() => {
+            const body = document.querySelector('article [itemprop="articleBody"]');
+            return Boolean(body && (body.textContent || '').trim());
+          }, { timeout: 15000 });
+        }
+
         const metadata = await page.evaluate(() => {
           const h1 = document.querySelector('h1');
           const canonical = document.querySelector('link[rel="canonical"]');
