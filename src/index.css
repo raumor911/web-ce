@@ -81,3 +81,120 @@
     border-color: theme('colors.brand.gray');
   }
 }
+
+/* ---------- Editorial article body (WordPress content) ---------- */
+@layer components {
+  .article-body {
+    @apply font-sans text-slate-700 text-[1.0625rem] md:text-[1.1875rem] leading-[1.85];
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  .article-body > * + * { margin-top: 1.5em; }
+  .article-body > :first-child { margin-top: 0; }
+
+  .article-body p { text-align: justify; margin: 0 0 1.5em; }
+  .article-body p:last-child { margin-bottom: 0; }
+  .article-body div { margin: 0; }
+  .article-body ul, .article-body ol { margin: 0 0 1.5em; }
+  .article-body .article-callout p { margin: 0 0 1em; }
+  .article-body .article-callout p:last-child { margin-bottom: 0; }
+  /* Drop cap on first real paragraph */
+  .article-body > p:first-of-type:not(.article-byline)::first-letter {
+    @apply font-serif text-slate-900;
+    float: left;
+    font-size: 4.2em;
+    line-height: 0.85;
+    padding: 0.08em 0.12em 0 0;
+  }
+
+  .article-body h2,
+  .article-body h3,
+  .article-body h4 {
+    @apply font-serif text-slate-900 tracking-tight;
+    line-height: 1.15;
+    font-weight: 400;
+  }
+  .article-body h2 {
+    @apply text-3xl md:text-4xl;
+    margin-top: 2.5em;
+    padding-top: 1.25em;
+    border-top: 1px solid #e2e8f0;
+    margin-bottom: 0.9em;
+  }
+  .article-body h3 { @apply text-2xl md:text-[1.75rem]; margin-top: 2.25em; margin-bottom: 0.6em; }
+  .article-body h4 { @apply text-xl; margin-top: 2em; margin-bottom: 0.5em; }
+
+  .article-body strong { @apply font-semibold text-slate-900; }
+  .article-body em { @apply italic; }
+
+  .article-body a {
+    @apply text-slate-900 font-medium;
+    text-decoration: underline;
+    text-decoration-color: #F97316;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: color .2s;
+  }
+  .article-body a:hover { color: #F97316; }
+
+  .article-body ul, .article-body ol { padding-left: 1.5em; }
+  .article-body ul { list-style: none; padding-left: 0; }
+  .article-body ul > li { position: relative; padding-left: 1.75em; }
+  .article-body ul > li::before {
+    content: '';
+    position: absolute; left: 0.2em; top: 0.8em;
+    width: 0.5em; height: 0.5em; border-radius: 9999px; background: #F97316;
+  }
+  .article-body ol { list-style: decimal; }
+  .article-body ol > li::marker { @apply font-bold text-orange-500; }
+  .article-body li { margin: 0.6em 0 0; text-align: justify; }
+  .article-body li > ul, .article-body li > ol { margin-top: 0.6em; }
+
+  .article-body blockquote {
+    @apply font-serif text-slate-900 text-2xl md:text-[1.75rem];
+    border-left: 3px solid #F97316;
+    padding: 0.25em 0 0.25em 1.5em;
+    margin: 2.5em 0;
+    line-height: 1.4;
+  }
+  .article-body blockquote p { margin: 0; }
+
+  .article-body img {
+    @apply rounded-lg shadow-md w-full h-auto;
+    margin-top: 2.5em; margin-bottom: 2.5em;
+  }
+  .article-body figure { margin: 2.5em 0; }
+  .article-body figure img { margin: 0; }
+  .article-body figcaption { @apply text-sm text-slate-500 text-center mt-3; }
+
+  .article-body hr { border: 0; border-top: 1px solid #e2e8f0; margin: 3em 0; }
+
+  .article-body .article-table { overflow-x: auto; margin: 2.5em 0; border: 1px solid #e2e8f0; border-radius: 0.5rem; }
+  .article-body table { @apply w-full text-base border-collapse; min-width: 32rem; }
+  .article-body th { @apply bg-slate-900 text-white text-left text-xs uppercase tracking-widest font-bold; padding: 0.9em 1.1em; }
+  .article-body td { padding: 0.9em 1.1em; border-top: 1px solid #e2e8f0; vertical-align: top; }
+  .article-body tbody tr:nth-child(even) td { @apply bg-slate-50; }
+
+  .article-body .article-byline {
+    @apply text-sm text-slate-500 italic;
+    margin-top: 2.5em !important;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .article-body .article-callout {
+    @apply bg-slate-50 rounded-lg;
+    border-left: 4px solid #F97316;
+    padding: 1.75rem 2rem;
+    margin: 2.5em 0;
+  }
+  .article-body .article-callout > * + * { margin-top: 1em; }
+  .article-body .article-callout p:first-of-type::first-letter { all: unset; }
+  .article-body .article-callout-label {
+    @apply block text-[11px] font-bold uppercase text-orange-500;
+    letter-spacing: 0.3em;
+    margin-bottom: 1em;
+  }
+  .article-body .article-callout p:first-of-type { @apply text-slate-900 font-medium; }
+  .article-body .article-callout + h2 { margin-top: 2.5em; }
+}

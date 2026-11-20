@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { SemanticSelectors } from '../semantic/selectors';
 import { Calendar, ArrowLeft, Clock, Share2, Facebook, Linkedin } from 'lucide-react';
+import { formatArticleHtml } from '../lib/formatArticle';
 import { getPostBySlug, WordPressPost } from '../services/wordpress';
 
 const BlogPost: React.FC = () => {
@@ -175,6 +176,7 @@ const BlogPost: React.FC = () => {
   }
 
   const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
+  const postTags = (post._embedded?.['wp:term']?.flat() || []).filter((t) => t.taxonomy === 'post_tag');
 
   return (
     <div className="bg-white pb-24">
@@ -215,7 +217,7 @@ const BlogPost: React.FC = () => {
 
             <h1 
               itemProp="headline"
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-8"
+              className="!text-3xl md:!text-5xl lg:!text-6xl text-slate-900 leading-[1.1] tracking-tight mb-8"
               dangerouslySetInnerHTML={{ __html: post.title.rendered }}
             />
             
@@ -258,20 +260,25 @@ const BlogPost: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="prose prose-slate prose-lg max-w-none 
-              prose-headings:font-bold prose-headings:text-slate-900 prose-headings:tracking-tight
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-              prose-p:text-slate-700 prose-p:leading-relaxed prose-p:mb-6
-              prose-p:text-left
-              prose-strong:text-slate-900 prose-strong:font-bold
-              prose-ul:my-6 prose-li:my-2
-              prose-img:rounded-lg prose-img:shadow-md"
-            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+            className="article-body"
+            dangerouslySetInnerHTML={{ __html: formatArticleHtml(post.content.rendered) }}
           />
 
-          
-          <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-8">
+          {postTags.length > 0 && (
+            <div className="mt-16 flex flex-wrap items-center gap-3">
+              <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400">Temas</span>
+              {postTags.map((t) => (
+                <Link
+                  key={t.id}
+                  to={`/blog?tag=${t.slug}`}
+                  className="px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest border border-slate-200 text-slate-600 hover:border-orange-500 hover:text-orange-500 transition-colors"
+                  dangerouslySetInnerHTML={{ __html: t.name }}
+                />
+              ))}
+            </div>
+          )}
+
+          <div className="mt-12 pt-10 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-6">
               <div className="relative" ref={shareMenuRef}>
                 <button 
