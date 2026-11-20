@@ -82,8 +82,9 @@ async function fetchWithTimeout(endpoint: string, options: RequestInit = {}, tim
 /**
  * Get a list of posts with pagination support
  */
-export async function getPosts(perPage = 10, page = 1): Promise<{ posts: WordPressPost[], total: number, totalPages: number }> {
-  const endpoint = `/wp/v2/posts&_embed&per_page=${perPage}&page=${page}&status=publish`;
+export async function getPosts(perPage = 10, page = 1, tagId?: number): Promise<{ posts: WordPressPost[], total: number, totalPages: number }> {
+  const tagParam = tagId ? `&tags=${tagId}` : '';
+  const endpoint = `/wp/v2/posts&_embed&per_page=${perPage}&page=${page}&status=publish${tagParam}`;
   
   try {
     const response = await fetchWithTimeout(endpoint);
@@ -102,6 +103,34 @@ export async function getPosts(perPage = 10, page = 1): Promise<{ posts: WordPre
     console.error('Error fetching WordPress posts:', error);
     throw error;
   }
+}
+
+export interface WordPressTag {
+  id: number;
+  name: string;
+  slug: string;
+  count: number;
+}
+
+let tagsCache: Promise<WordPressTag[]> | null = null;
+
+/**
+ * Get tags (most used first). Cached in memory for the session.
+ */
+export function getTags(): Promise<WordPressTag[]> {
+  if (!tagsCache) {
+    tagsCache = (async () => {
+      const response = await fetchWithTimeout(
+        '/wp/v2/tags&per_page=100&orderby=count&order=desc&hide_empty=true&_fields=id,name,slug,count'
+      );
+      if (!response.ok) throw new Error(`WordPress API Error: ${response.status}`);
+      return (await response.json()) as WordPressTag[];
+    })().catch((err) => {
+      tagsCache = null;
+      throw err;
+    });
+  }
+  return tagsCache;
 }
 
 /**

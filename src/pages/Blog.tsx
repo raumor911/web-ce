@@ -1,29 +1,121 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { ArrowRight, Calendar, User, Clock } from 'lucide-react';
-import { getPosts, WordPressPost } from '../services/wordpress';
+import { getPosts, getTags, WordPressPost, WordPressTag } from '../services/wordpress';
+
+const PAGE_SIZE = 12;
+const PRIMARY_TAGS = 8;
+const MIN_TAG_COUNT = 3;
 
 const Blog: React.FC = () => {
   const [posts, setPosts] = useState<WordPressPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [loadMoreError, setLoadMoreError] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [tags, setTags] = useState<WordPressTag[]>([]);
+  const [showAllTags, setShowAllTags] = useState(false);
+  const [tagsReady, setTagsReady] = useState(false);
+  const tagSlug = searchParams.get('tag');
+  const activeTag = tags.find((t) => t.slug === tagSlug) || null;
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const loadingRef = useRef(false);
+
+  const hasMore = page < totalPages;
+
+  const loadPage = useCallback(async (pageToLoad: number, tagId?: number) => {
+    if (loadingRef.current) return;
+    loadingRef.current = true;
+    const isFirst = pageToLoad === 1;
+    if (!isFirst) setIsLoadingMore(true);
+    try {
+      const result = await getPosts(PAGE_SIZE, pageToLoad, tagId);
+      setPosts((prev) => {
+        const seen = new Set(prev.map((p) => p.id));
+        return [...prev, ...result.posts.filter((p) => !seen.has(p.id))];
+      });
+      setTotalPages(result.totalPages || 1);
+      setPage(pageToLoad);
+      setLoadMoreError(false);
+    } catch (err) {
+      if (isFirst) {
+        setError(err instanceof Error ? err.message : 'Error desconocido');
+      } else {
+        setLoadMoreError(true);
+      }
+    } finally {
+      loadingRef.current = false;
+      setIsLoading(false);
+      setIsLoadingMore(false);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const { posts } = await getPosts(12, 1);
-        setPosts(posts);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Error desconocido');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchPosts();
+    let cancelled = false;
+    getTags()
+      .then((t) => { if (!cancelled) setTags(t); })
+      .catch(() => { /* filters are optional: fail silently */ })
+      .finally(() => { if (!cancelled) setTagsReady(true); });
+    return () => { cancelled = true; };
   }, []);
+
+  // (Re)load the first page whenever the active filter changes
+  useEffect(() => {
+    if (!tagsReady) return;
+    let cancelled = false;
+    const run = async () => {
+      // wait for any in-flight request of the previous filter
+      while (loadingRef.current) await new Promise((r) => setTimeout(r, 50));
+      if (cancelled) return;
+      setPosts([]);
+      setPage(1);
+      setTotalPages(1);
+      setError(null);
+      setLoadMoreError(false);
+      setIsLoading(true);
+      if (tagSlug && !activeTag) {
+        // unknown tag: show empty state
+        setIsLoading(false);
+        return;
+      }
+      loadPage(1, activeTag?.id);
+    };
+    run();
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tagsReady, tagSlug, activeTag?.id]);
+
+  const selectTag = (slug: string | null) => {
+    const next = new URLSearchParams(searchParams);
+    if (slug) next.set('tag', slug); else next.delete('tag');
+    setSearchParams(next);
+  };
+
+  const filterableTags = tags.filter((t) => t.count >= MIN_TAG_COUNT || t.slug === tagSlug);
+  const primaryTags = filterableTags.slice(0, PRIMARY_TAGS);
+  const extraTags = filterableTags.slice(PRIMARY_TAGS);
+  const visibleTags = showAllTags || (activeTag && extraTags.includes(activeTag))
+    ? filterableTags
+    : primaryTags;
+
+  // Infinite scroll: load next page when the sentinel approaches the viewport
+  useEffect(() => {
+    const node = sentinelRef.current;
+    if (!node || !hasMore || loadMoreError) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) loadPage(page + 1, activeTag?.id);
+      },
+      { rootMargin: '400px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [hasMore, page, loadMoreError, loadPage, posts.length, activeTag?.id]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('es-MX', {
@@ -36,7 +128,7 @@ const Blog: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Blog e Insights"
+        title={activeTag ? `${activeTag.name} | Blog e Insights` : "Blog e Insights"}
         description="Noticias, guías y tendencias sobre infraestructura modular, contenedores marítimos y soluciones de espacio en México."
         jsonLd={{
           "@context": "https://schema.org",
@@ -99,6 +191,61 @@ const Blog: React.FC = () => {
 
       {/* Posts Grid */}
       <section className="py-24 max-w-7xl mx-auto px-6 lg:px-12">
+        {filterableTags.length > 0 && (
+          <nav aria-label="Filtrar por tema" className="mb-16">
+            <div className="flex flex-wrap gap-3">
+              <button
+                onClick={() => selectTag(null)}
+                aria-pressed={!activeTag}
+                className={`px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest border transition-colors ${
+                  !activeTag
+                    ? 'bg-slate-900 text-white border-slate-900'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-orange-500 hover:text-orange-500'
+                }`}
+              >
+                Todos
+              </button>
+              {visibleTags.map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => selectTag(t.slug)}
+                  aria-pressed={activeTag?.id === t.id}
+                  className={`px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest border transition-colors ${
+                    activeTag?.id === t.id
+                      ? 'bg-slate-900 text-white border-slate-900'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-orange-500 hover:text-orange-500'
+                  }`}
+                >
+                  <span dangerouslySetInnerHTML={{ __html: t.name }} />
+                  <span className="ml-2 opacity-50">{t.count}</span>
+                </button>
+              ))}
+              {extraTags.length > 0 && !showAllTags && !(activeTag && extraTags.includes(activeTag)) && (
+                <button
+                  onClick={() => setShowAllTags(true)}
+                  className="px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest border border-dashed border-slate-300 text-slate-500 hover:border-orange-500 hover:text-orange-500 transition-colors"
+                >
+                  + {extraTags.length} temas
+                </button>
+              )}
+              {showAllTags && extraTags.length > 0 && (
+                <button
+                  onClick={() => setShowAllTags(false)}
+                  className="px-5 py-2.5 text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-orange-500 transition-colors"
+                >
+                  Ver menos
+                </button>
+              )}
+            </div>
+            {activeTag && !isLoading && !error && (
+              <p className="mt-6 text-sm text-slate-500">
+                Mostrando {activeTag.count} {activeTag.count === 1 ? 'artículo' : 'artículos'} sobre{' '}
+                <strong className="text-slate-900" dangerouslySetInnerHTML={{ __html: activeTag.name }} />
+              </p>
+            )}
+          </nav>
+        )}
+
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[1, 2, 3].map((n) => (
@@ -120,6 +267,16 @@ const Blog: React.FC = () => {
               Reintentar carga
             </button>
           </div>
+        ) : posts.length === 0 ? (
+          <div className="text-center py-20 bg-slate-50 rounded-lg border border-slate-100">
+            <p className="text-slate-600 mb-6">No encontramos artículos para este tema.</p>
+            <button
+              onClick={() => selectTag(null)}
+              className="px-6 py-3 bg-slate-900 text-white rounded-md hover:bg-orange-500 transition-colors"
+            >
+              Ver todos los artículos
+            </button>
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-20">
             {posts.map((post, index) => (
@@ -128,7 +285,7 @@ const Blog: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: (index % PAGE_SIZE % 3) * 0.1 }}
                 className="group"
               >
                 <Link to={`/blog/${post.slug}`} className="block">
@@ -171,6 +328,22 @@ const Blog: React.FC = () => {
                 </Link>
               </motion.article>
             ))}
+          </div>
+        )}
+
+        {!isLoading && !error && (
+          <div ref={sentinelRef} className="mt-16 flex justify-center min-h-[2rem]">
+            {isLoadingMore && (
+              <span className="text-xs uppercase tracking-widest text-slate-500">Cargando más artículos…</span>
+            )}
+            {loadMoreError && (
+              <button
+                onClick={() => { setLoadMoreError(false); loadPage(page + 1, activeTag?.id); }}
+                className="px-6 py-3 bg-slate-900 text-white rounded-md hover:bg-orange-500 transition-colors"
+              >
+                Reintentar cargar más
+              </button>
+            )}
           </div>
         )}
       </section>
