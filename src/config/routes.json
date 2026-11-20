@@ -45,6 +45,15 @@
     "changefreq": "weekly"
   },
   {
+    "id": "proyectos-realizados",
+    "path": "/proyectos-realizados-contenedores-modulares",
+    "component": "ProyectosRealizados",
+    "prerender": true,
+    "sitemap": true,
+    "priority": "0.8",
+    "changefreq": "monthly"
+  },
+  {
     "id": "contacto",
     "path": "/contacto",
     "component": "Contacto",

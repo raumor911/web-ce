@@ -283,6 +283,20 @@ const Proyectos: React.FC = () => {
         </div>
       </section>
 
+      <section className="py-16 md:py-20 border-t border-brand-gray">
+        <div className="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
+          <p className="text-lg text-brand-graphite/80 font-sans leading-relaxed mb-6">
+            ¿Prefieres ver cómo lucen estos espacios ya terminados? Revisa las fotografías de oficinas, un laboratorio, un aula móvil y una edificación construida con contenedores.
+          </p>
+          <Link
+            to="/proyectos-realizados-contenedores-modulares"
+            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-brand-petroleum underline decoration-brand-orange decoration-2 underline-offset-4 hover:text-brand-orange transition-colors"
+          >
+            Ver proyectos realizados <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+
       <FAQ 
         items={faqData} 
         title="Dudas sobre Proyectos Especiales"

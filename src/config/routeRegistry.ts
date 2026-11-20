@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import VentaRenta from '../pages/VentaRenta';
 import Oficinas from '../pages/Oficinas';
 import Proyectos from '../pages/Proyectos';
+import ProyectosRealizados from '../pages/ProyectosRealizados';
 import Nosotros from '../pages/Nosotros';
 import Contacto from '../pages/Contacto';
 import Blog from '../pages/Blog';
@@ -34,6 +35,7 @@ export const componentRegistry: Record<string, React.ComponentType> = {
   VentaRenta,
   Oficinas,
   Proyectos,
+  ProyectosRealizados,
   Nosotros,
   Contacto,
   Blog,

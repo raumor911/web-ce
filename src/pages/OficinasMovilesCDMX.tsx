@@ -300,6 +300,12 @@ const OficinasMovilesCDMX: React.FC = () => {
             <p className="text-lg text-slate-700 font-sans leading-relaxed italic">
               "Un contenedor utilizado únicamente para almacenamiento resuelve una necesidad de resguardo. Una oficina móvil requiere configuración adicional para permitir una función de trabajo."
             </p>
+            <Link
+              to="/proyectos-realizados-contenedores-modulares#oficinas"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-brand-petroleum underline decoration-brand-orange decoration-2 underline-offset-4 hover:text-brand-orange transition-colors"
+            >
+              Ver oficinas en contenedor ya construidas <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
