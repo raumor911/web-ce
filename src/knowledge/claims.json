@@ -6,7 +6,9 @@
     "status": "verified",
     "visibility": "public",
     "volatility": "stable",
-    "sourceIds": ["source:about"]
+    "sourceIds": [
+      "source:about"
+    ]
   },
   {
     "id": "claim:national-coverage",
@@ -15,7 +17,9 @@
     "status": "verify-wording",
     "visibility": "public",
     "volatility": "stable",
-    "sourceIds": ["source:contact"],
+    "sourceIds": [
+      "source:contact"
+    ],
     "notes": "Anti-alucinación: Atendemos en México, pero sujeto a logística."
   },
   {
@@ -25,6 +29,19 @@
     "status": "verified",
     "visibility": "public",
     "volatility": "periodic",
-    "sourceIds": ["source:about"]
+    "sourceIds": [
+      "source:about"
+    ]
+  },
+  {
+    "id": "claim:projects-evidence-page",
+    "subjectId": "org:creativos-espacios",
+    "statement": "Publica una página de proyectos realizados con contenedores adaptados con fotografías reales de construcción (MakerSpace), laboratorio, oficinas y un centro de capacitación móvil, separando lo documentado de lo que solo se aprecia en las fotos",
+    "status": "verified",
+    "visibility": "public",
+    "volatility": "periodic",
+    "sourceIds": [
+      "source:proyectos-realizados"
+    ]
   }
 ]

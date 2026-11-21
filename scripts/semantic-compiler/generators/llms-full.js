@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { canonicalPath, canonicalUrl } from '../../../src/lib/canonicalUrl.mjs';
 
 export function generateLLMSFull(knowledge, outDir) {
   const org = knowledge.organization;
@@ -57,7 +58,7 @@ export function generateLLMSFull(knowledge, outDir) {
     content += `## Oferta One Trip\n\n`;
     content += `${oneTripPolicy.description}\n\n`;
     if (oneTripPolicy.canonicalPath) {
-      content += `- **Hub canónico**: ${oneTripPolicy.canonicalPath}\n`;
+      content += `- **Hub canónico**: ${canonicalPath(oneTripPolicy.canonicalPath)}\n`;
     }
     const supportedProducts = (oneTripPolicy.productIds || [])
       .map(id => knowledge.products.find(p => p.id === id)?.name)
@@ -70,7 +71,7 @@ export function generateLLMSFull(knowledge, outDir) {
     oneTripPolicy.rules.forEach(r => content += `- ${r}\n`);
     content += `\n### Rutas por intención\n`;
     oneTripIntents.forEach(i => {
-      if (i.canonicalPath) content += `- **${i.name}**: ${i.canonicalPath}\n`;
+      if (i.canonicalPath) content += `- **${i.name}**: ${canonicalPath(i.canonicalPath)}\n`;
     });
     content += `\n### Regla de precisión\n`;
     content += `No inferir precio, inventario ni disponibilidad inmediata para One Trip si no existe una fuente publicada que lo confirme. Transporte, descarga y maniobras se cotizan según destino y condiciones del sitio.\n\n`;
@@ -129,8 +130,22 @@ export function generateLLMSFull(knowledge, outDir) {
       content += `- **Objetivo**: ${i.goal}\n`;
       content += `- **Necesidad**: ${i.need}\n`;
       content += `- **Etapa**: ${i.transactionStage}\n`;
-      if (i.canonicalPath) content += `- **Ruta canónica**: ${i.canonicalPath}\n`;
+      if (i.canonicalPath) content += `- **Ruta canónica**: ${canonicalPath(i.canonicalPath)}\n`;
       content += `\n${i.description}\n\n`;
+    });
+  }
+
+  if (knowledge.cases && knowledge.cases.length > 0) {
+    content += `## Proyectos realizados (evidencia)\n\n`;
+    content += `Ruta canónica: ${canonicalPath(knowledge.cases[0].canonicalPath)}\n\n`;
+    knowledge.cases.forEach(c => {
+      content += `### ${c.name}\n`;
+      content += `- **Tipo**: ${c.caseKind === 'project' ? 'Proyecto' : 'Referencia sin proyecto asignado (no es un caso)'}\n`;
+      content += `- **Categoría**: ${c.category}\n`;
+      if (c.documentedInSource?.length) content += `- **Documentado en el material de origen**: ${c.documentedInSource.join(' ')}\n`;
+      if (c.visibleInPhotos?.length) content += `- **Visible en las fotografías (observación, no especificación)**: ${c.visibleInPhotos.join('; ')}.\n`;
+      if (c.groupingCertainty) content += `- **Certeza de agrupación**: ${c.groupingCertainty}\n`;
+      content += `- **No confirmado**: ${c.notConfirmed.join('; ')}.\n\n`;
     });
   }
 
@@ -138,7 +153,7 @@ export function generateLLMSFull(knowledge, outDir) {
   
   content += `## Fuentes canónicas\n\n`;
   knowledge.sources.forEach(s => {
-    if (s.url) content += `- [${s.name}](${s.url})\n`;
+    if (s.url) content += `- [${s.name}](${canonicalUrl(new URL(s.url).pathname)})\n`;
   });
   
   fs.writeFileSync(path.join(outDir, 'llms-full.txt'), content);

@@ -4,14 +4,14 @@
 
 ## Sitio oficial
 
-https://creativosespacios.mx
+https://creativosespacios.mx/
 
 ## Soluciones principales
 
-- [Venta de contenedores](/soluciones/venta-renta): Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes.
-- [Renta de contenedores](/soluciones/venta-renta): Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos.
-- [Oficinas reubicables](/soluciones/oficinas): Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta.
-- [Proyectos modulares](/proyectos): Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente.
+- [Venta de contenedores](/soluciones/venta-renta/): Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes.
+- [Renta de contenedores](/soluciones/venta-renta/): Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos.
+- [Oficinas reubicables](/soluciones/oficinas/): Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta.
+- [Proyectos modulares](/proyectos/): Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente.
 
 ## Aplicaciones principales
 
@@ -33,12 +33,12 @@ https://creativosespacios.mx
 
 Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.
 
-- [Oferta One Trip](/contenedores-nuevos-one-trip-cdmx)
-- [Compra de contenedor 20 FT One Trip](/contenedor-one-trip-20-pies-cdmx)
-- [Compra de contenedor 40 FT High Cube One Trip](/contenedor-one-trip-40-high-cube-cdmx)
-- [One Trip para proyecto arquitectónico](/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx)
-- [One Trip para proyecto educativo](/contenedores-one-trip-para-escuelas-cdmx)
-- [One Trip para proyecto corporativo](/contenedores-one-trip-para-proyectos-corporativos-cdmx)
+- [Oferta One Trip](/contenedores-nuevos-one-trip-cdmx/)
+- [Compra de contenedor 20 FT One Trip](/contenedor-one-trip-20-pies-cdmx/)
+- [Compra de contenedor 40 FT High Cube One Trip](/contenedor-one-trip-40-high-cube-cdmx/)
+- [One Trip para proyecto arquitectónico](/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/)
+- [One Trip para proyecto educativo](/contenedores-one-trip-para-escuelas-cdmx/)
+- [One Trip para proyecto corporativo](/contenedores-one-trip-para-proyectos-corporativos-cdmx/)
 
 **Formatos soportados:** Contenedor marítimo 20 FT Standard, Contenedor marítimo 40 FT High Cube.
 
@@ -49,12 +49,36 @@ Suministro bajo cotización de contenedores One Trip para proyectos donde la con
 - Precio y disponibilidad se confirman al momento de cotizar.
 - No existe renta de contenedores One Trip.
 
+## Proyectos realizados (evidencia)
+
+- [Proyectos realizados con contenedores adaptados](/proyectos-realizados-contenedores-modulares/): fotografías reales de proyectos con contenedores, separando lo documentado de lo que solo se aprecia en las imágenes.
+- [Ruta documental de casos](/ai/cases.md) ([JSON](/ai/cases.json)): cada caso con lo documentado, lo visible en fotos y lo no confirmado.
+
+Casos incluidos:
+
+- MakerSpace, Santa Cruz Meyehualco (Construcción con contenedores)
+- Laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático, UNAM (Laboratorio en contenedor)
+- Oficinas para un proveedor de gas natural industrial (Oficinas, contenedor 40′ DC)
+- Oficina compacta en contenedor azul de 20 pies (Oficinas, contenedor 20′ DC)
+- Un solo espacio a partir de tres contenedores usados de 40′ HC (Oficinas, tres contenedores 40′ HC usados)
+- Oficina de 20 pies con ventanas protegidas (Oficinas, contenedor 20′ DC)
+- Oficina de 40 pies con protecciones proyectables en ventanas (Oficinas, contenedor 40′ HC)
+- Unidades de 40 pies en serie, con acceso individual (Oficinas, contenedor 40′ DC)
+- Centro de capacitación modular móvil (Centro de capacitación modular / móvil, contenedor 40′ DC)
+
+**Reglas de precisión:**
+- Los casos no incluyen fechas, costos, medidas de obra, resultados ni testimonios: no están documentados. No inferirlos.
+- Lo "visible en fotos" es observación, no especificación técnica.
+- Las referencias sin proyecto asignado no deben presentarse como parte de un caso.
+- Un proyecto realizado no es una oferta ni un precio: cada proyecto se cotiza según su alcance.
+
 ## Información ampliada
 
 - [Manifiesto de Contenido](/ai/content-manifest.json)
 - [Perfil de Empresa](/ai/company.md)
 - [Catálogo de Servicios](/ai/services.md)
 - [Casos de Uso](/ai/use-cases.md)
+- [Casos y evidencia de proyectos realizados](/ai/cases.md)
 - [Terminología Preferida](/ai/terminology.md)
 - [Respuestas Canónicas](/ai/canonical-answers.md)
 - [Intenciones de Usuario](/ai/intents.md)

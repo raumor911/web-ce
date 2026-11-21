@@ -110,7 +110,7 @@ const Contacto: React.FC = () => {
       },
       {
         "@type": "ContactPage",
-        "@id": `${pageUrl}/#contact`,
+        "@id": `${pageUrl}#contact`,
         "url": pageUrl,
         "mainEntity": {
           "@id": ORG_ID

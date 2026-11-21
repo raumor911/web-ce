@@ -221,10 +221,10 @@ const ProveedorContenedoresCDMX: React.FC = () => {
                 Un contenedor puede utilizarse para resguardar herramienta, materiales, consumibles y otros insumos que necesitan permanecer disponibles durante el desarrollo del proyecto.
               </p>
               <div className="flex flex-col gap-3">
-                <Link to="/contenedores-para-obra-cdmx" className="text-[10px] font-bold tracking-widest text-brand-petroleum hover:text-brand-orange flex items-center gap-2 transition-colors uppercase">
+                <Link to="/contenedores-para-obra-cdmx/" className="text-[10px] font-bold tracking-widest text-brand-petroleum hover:text-brand-orange flex items-center gap-2 transition-colors uppercase">
                   VER SOLUCIONES PARA OBRA <ArrowRight className="h-3 w-3" />
                 </Link>
-                <Link to="/contenedores-para-almacenamiento-cdmx" className="text-[10px] font-bold tracking-widest text-brand-petroleum hover:text-brand-orange flex items-center gap-2 transition-colors uppercase">
+                <Link to="/contenedores-para-almacenamiento-cdmx/" className="text-[10px] font-bold tracking-widest text-brand-petroleum hover:text-brand-orange flex items-center gap-2 transition-colors uppercase">
                   VER ALMACENAMIENTO <ArrowRight className="h-3 w-3" />
                 </Link>
               </div>
@@ -279,10 +279,10 @@ const ProveedorContenedoresCDMX: React.FC = () => {
                 Cuando una operación o proyecto necesita espacio sólo durante un periodo determinado, la renta permite incorporar capacidad sin convertirla necesariamente en infraestructura permanente.
               </p>
               <div className="flex flex-col gap-3">
-                <Link to="/renta-contenedores-cdmx" className="text-[10px] font-bold tracking-widest text-brand-petroleum hover:text-brand-orange flex items-center gap-2 transition-colors uppercase">
+                <Link to="/renta-contenedores-cdmx/" className="text-[10px] font-bold tracking-widest text-brand-petroleum hover:text-brand-orange flex items-center gap-2 transition-colors uppercase">
                   VER RENTA DE CONTENEDORES <ArrowRight className="h-3 w-3" />
                 </Link>
-                <Link to="/proyectos" className="text-[10px] font-bold tracking-widest text-brand-petroleum hover:text-brand-orange flex items-center gap-2 transition-colors uppercase">
+                <Link to="/proyectos/" className="text-[10px] font-bold tracking-widest text-brand-petroleum hover:text-brand-orange flex items-center gap-2 transition-colors uppercase">
                   VER PROYECTOS <ArrowRight className="h-3 w-3" />
                 </Link>
               </div>
@@ -313,7 +313,7 @@ const ProveedorContenedoresCDMX: React.FC = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link to={p?.id === 'product:container-20ft' ? '/contenedor-20-pies-cdmx' : (p?.id === 'product:container-40ft' ? '/contenedor-40-pies-cdmx' : '/contenedor-40-high-cube-cdmx')} className="text-[10px] font-bold tracking-widest text-white hover:text-brand-orange transition-colors uppercase flex items-center gap-2">
+                  <Link to={p?.id === 'product:container-20ft' ? '/contenedor-20-pies-cdmx/' : (p?.id === 'product:container-40ft' ? '/contenedor-40-pies-cdmx/' : '/contenedor-40-high-cube-cdmx/')} className="text-[10px] font-bold tracking-widest text-white hover:text-brand-orange transition-colors uppercase flex items-center gap-2">
                     ESPECIFICACIONES <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
@@ -333,10 +333,10 @@ const ProveedorContenedoresCDMX: React.FC = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
-              { title: "NECESITO ALMACENAR", desc: "Inventario, materiales, herramientas, refacciones o insumos.", link: "/contenedores-para-almacenamiento-cdmx", label: "VER ALMACENAMIENTO", icon: <Boxes className="h-6 w-6" /> },
-              { title: "NECESITO UNA BODEGA", desc: "Capacidad adicional cuando no quieres construir una instalación permanente.", link: "/contenedores-para-bodega-cdmx", label: "VER BODEGAS", icon: <Building2 className="h-6 w-6" /> },
-              { title: "NECESITO PARA OBRA", desc: "Espacio para materiales, herramienta o necesidades temporales.", link: "/contenedores-para-obra-cdmx", label: "VER SOLUCIONES OBRA", icon: <HardHat className="h-6 w-6" /> },
-              { title: "ESPACIO DE TRABAJO", desc: "Espacios móviles o acondicionados para necesidades operativas.", link: "/oficinas-moviles-cdmx", label: "VER OFICINAS MÓVILES", icon: <Layout className="h-6 w-6" /> }
+              { title: "NECESITO ALMACENAR", desc: "Inventario, materiales, herramientas, refacciones o insumos.", link: "/contenedores-para-almacenamiento-cdmx/", label: "VER ALMACENAMIENTO", icon: <Boxes className="h-6 w-6" /> },
+              { title: "NECESITO UNA BODEGA", desc: "Capacidad adicional cuando no quieres construir una instalación permanente.", link: "/contenedores-para-bodega-cdmx/", label: "VER BODEGAS", icon: <Building2 className="h-6 w-6" /> },
+              { title: "NECESITO PARA OBRA", desc: "Espacio para materiales, herramienta o necesidades temporales.", link: "/contenedores-para-obra-cdmx/", label: "VER SOLUCIONES OBRA", icon: <HardHat className="h-6 w-6" /> },
+              { title: "ESPACIO DE TRABAJO", desc: "Espacios móviles o acondicionados para necesidades operativas.", link: "/oficinas-moviles-cdmx/", label: "VER OFICINAS MÓVILES", icon: <Layout className="h-6 w-6" /> }
             ].map((item, index) => (
               <div key={index} className="p-8 bg-slate-50 border border-slate-100 rounded-sm flex flex-col items-center text-center group hover:border-brand-orange transition-colors">
                 <div className="text-brand-orange mb-6">{item.icon}</div>
@@ -415,7 +415,7 @@ const ProveedorContenedoresCDMX: React.FC = () => {
               <p className="text-slate-600 font-sans mb-8 text-sm leading-relaxed">
                 Cuando la empresa quiere incorporar el contenedor a su infraestructura, reutilizarlo o mantenerlo disponible para necesidades recurrentes.
               </p>
-              <Link to="/compra-contenedores-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold text-xs tracking-widest uppercase group-hover:gap-3 transition-all">
+              <Link to="/compra-contenedores-cdmx/" className="inline-flex items-center gap-2 text-brand-orange font-bold text-xs tracking-widest uppercase group-hover:gap-3 transition-all">
                 VER COMPRA <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -425,7 +425,7 @@ const ProveedorContenedoresCDMX: React.FC = () => {
               <p className="text-slate-600 font-sans mb-8 text-sm leading-relaxed">
                 Cuando la necesidad está asociada a un proyecto, temporada o periodo determinado de tiempo.
               </p>
-              <Link to="/renta-contenedores-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold text-xs tracking-widest uppercase group-hover:gap-3 transition-all">
+              <Link to="/renta-contenedores-cdmx/" className="inline-flex items-center gap-2 text-brand-orange font-bold text-xs tracking-widest uppercase group-hover:gap-3 transition-all">
                 VER RENTA <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -442,7 +442,7 @@ const ProveedorContenedoresCDMX: React.FC = () => {
             <p className="text-lg text-white/70 font-sans mb-10 leading-relaxed max-w-2xl mx-auto">
               Algunas necesidades implican varias unidades, diferentes tamaños, compra o renta, acondicionamiento o una combinación de soluciones. Podemos revisar el requerimiento completo antes de definir la alternativa.
             </p>
-            <Link to="/proyectos" className="bg-brand-orange px-10 py-4 text-xs font-bold tracking-widest hover:bg-brand-orange-dark transition-all inline-flex items-center gap-3 uppercase">
+            <Link to="/proyectos/" className="bg-brand-orange px-10 py-4 text-xs font-bold tracking-widest hover:bg-brand-orange-dark transition-all inline-flex items-center gap-3 uppercase">
               REVISAR UN REQUERIMIENTO <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -530,11 +530,11 @@ const ProveedorContenedoresCDMX: React.FC = () => {
       <nav className="py-12 bg-brand-white border-t border-slate-100">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-[10px] font-bold tracking-widest uppercase text-slate-400">
-            <Link to="/compra-contenedores-cdmx" className="hover:text-brand-orange transition-colors">COMPRA</Link>
-            <Link to="/renta-contenedores-cdmx" className="hover:text-brand-orange transition-colors">RENTA</Link>
-            <Link to="/contenedores-usados-cdmx" className="hover:text-brand-orange transition-colors">USADOS</Link>
-            <Link to="/proyectos" className="hover:text-brand-orange transition-colors">PROYECTOS</Link>
-            <Link to="/oficinas-moviles-cdmx" className="hover:text-brand-orange transition-colors">OFICINAS</Link>
+            <Link to="/compra-contenedores-cdmx/" className="hover:text-brand-orange transition-colors">COMPRA</Link>
+            <Link to="/renta-contenedores-cdmx/" className="hover:text-brand-orange transition-colors">RENTA</Link>
+            <Link to="/contenedores-usados-cdmx/" className="hover:text-brand-orange transition-colors">USADOS</Link>
+            <Link to="/proyectos/" className="hover:text-brand-orange transition-colors">PROYECTOS</Link>
+            <Link to="/oficinas-moviles-cdmx/" className="hover:text-brand-orange transition-colors">OFICINAS</Link>
           </div>
         </div>
       </nav>

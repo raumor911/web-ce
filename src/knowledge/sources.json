@@ -9,36 +9,49 @@
   {
     "id": "source:about",
     "type": "webpage",
-    "url": "https://creativosespacios.mx/nosotros",
+    "url": "https://creativosespacios.mx/nosotros/",
     "name": "Nuestra Empresa",
     "status": "canonical"
   },
   {
     "id": "source:solutions-renta",
     "type": "webpage",
-    "url": "https://creativosespacios.mx/soluciones/venta-renta",
+    "url": "https://creativosespacios.mx/soluciones/venta-renta/",
     "name": "Venta y Renta de Contenedores",
     "status": "canonical"
   },
   {
     "id": "source:solutions-oficinas",
     "type": "webpage",
-    "url": "https://creativosespacios.mx/soluciones/oficinas",
+    "url": "https://creativosespacios.mx/soluciones/oficinas/",
     "name": "Oficinas Reubicables",
     "status": "canonical"
   },
   {
     "id": "source:projects",
     "type": "webpage",
-    "url": "https://creativosespacios.mx/proyectos",
+    "url": "https://creativosespacios.mx/proyectos/",
     "name": "Proyectos Modulares",
     "status": "canonical"
   },
   {
     "id": "source:contact",
     "type": "webpage",
-    "url": "https://creativosespacios.mx/contacto",
+    "url": "https://creativosespacios.mx/contacto/",
     "name": "Contacto",
     "status": "canonical"
+  },
+  {
+    "id": "source:proyectos-realizados",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/proyectos-realizados-contenedores-modulares/",
+    "name": "Proyectos realizados con contenedores adaptados",
+    "status": "canonical"
+  },
+  {
+    "id": "source:material-proyectos-ce",
+    "type": "internal-only",
+    "name": "Material fotográfico de proyectos de Creativos Espacios (documento de 23 páginas)",
+    "status": "internal"
   }
 ]

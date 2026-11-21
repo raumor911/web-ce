@@ -1,3 +1,4 @@
+import { getCanonicalPath } from '../lib/canonical';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Box, Building2, Warehouse, CheckCircle2, Zap, Truck, MessageSquare } from 'lucide-react';
@@ -41,7 +42,7 @@ const Home: React.FC = () => {
         : s.id === 'service:relocatable-offices'
         ? '/images/home-solution-offices.png'
         : '/images/home-solution-projects.png',
-      href: s.canonicalPath
+      href: getCanonicalPath(s.canonicalPath)
     }));
 
   return (
@@ -135,7 +136,7 @@ const Home: React.FC = () => {
               <button onClick={handleGeneralQuote} className="btn-primary">
                 Solicitar Cotización
               </button>
-              <Link to="/soluciones/venta-renta" className="btn-outline">
+              <Link to="/soluciones/venta-renta/" className="btn-outline">
                 Ver Soluciones
               </Link>
             </div>
@@ -184,21 +185,21 @@ const Home: React.FC = () => {
               {
                 title: "Venta y Renta de Contenedores",
                 desc: "Unidades estándar de 20 y 40 pies para almacenamiento y logística.",
-                href: "/soluciones/venta-renta",
+                href: "/soluciones/venta-renta/",
                 img: "/images/home-solution-containers.png",
                 fallbackImg: "/images/home-solution-containers.svg"
               },
               {
                 title: "Oficinas Reubicables",
                 desc: "Módulos administrativos equipados para uso inmediato en campo.",
-                href: "/soluciones/oficinas",
+                href: "/soluciones/oficinas/",
                 img: "/images/home-solution-offices.png",
                 fallbackImg: "/images/home-solution-offices.svg"
               },
               {
                 title: "Soluciones a la medida",
                 desc: "Ingeniería modular para necesidades técnicas, operativas y funcionales específicas.",
-                href: "/proyectos",
+                href: "/proyectos/",
                 img: "/images/home-solution-projects.png",
                 fallbackImg: "/images/home-solution-projects.svg"
               }
@@ -295,7 +296,7 @@ const Home: React.FC = () => {
             Solicitar Cotización
           </button>
           <div className="mt-12">
-            <Link to="/proveedor-de-contenedores-cdmx" className="text-brand-orange font-bold text-[10px] uppercase tracking-[0.2em] hover:underline">
+            <Link to="/proveedor-de-contenedores-cdmx/" className="text-brand-orange font-bold text-[10px] uppercase tracking-[0.2em] hover:underline">
               Contenedores para empresas y proyectos en CDMX
             </Link>
           </div>

@@ -199,7 +199,7 @@ const Oficinas: React.FC = () => {
               Oficinas reubicables con distribución, equipamiento y servicios.
             </p>
             <div className="flex justify-center">
-              <Link to="/oficinas-moviles-cdmx" className="text-brand-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 hover:gap-3 transition-all">
+              <Link to="/oficinas-moviles-cdmx/" className="text-brand-orange font-bold text-sm tracking-widest uppercase flex items-center gap-2 hover:gap-3 transition-all">
                 Explorar Oficinas Móviles en CDMX <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

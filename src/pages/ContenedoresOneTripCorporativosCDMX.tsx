@@ -41,9 +41,9 @@ const ContenedoresOneTripCorporativosCDMX: React.FC = () => (
       finalTitle: '¿El proyecto requiere una unidad One Trip como base?',
       finalText: 'Comparta el uso previsto, ubicación y formato de interés. CE confirmará suministro y podrá evaluar el alcance requerido para el proyecto.',
       relatedLinks: [
-        { title: '20 FT Standard One Trip', text: 'Formato compacto para módulos de menor huella.', href: '/contenedor-one-trip-20-pies-cdmx' },
-        { title: '40 FT High Cube One Trip', text: 'Mayor volumen y altura para configuraciones corporativas más amplias.', href: '/contenedor-one-trip-40-high-cube-cdmx' },
-        { title: 'Proyectos arquitectónicos', text: 'Profundice en la lógica de selección para unidades integradas al diseño.', href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx' }
+        { title: '20 FT Standard One Trip', text: 'Formato compacto para módulos de menor huella.', href: '/contenedor-one-trip-20-pies-cdmx/' },
+        { title: '40 FT High Cube One Trip', text: 'Mayor volumen y altura para configuraciones corporativas más amplias.', href: '/contenedor-one-trip-40-high-cube-cdmx/' },
+        { title: 'Proyectos arquitectónicos', text: 'Profundice en la lógica de selección para unidades integradas al diseño.', href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/' }
       ]
     }}
   />

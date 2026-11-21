@@ -257,32 +257,32 @@ const CaseSection: React.FC<{
 
 const offerLinks = [
   {
-    to: '/oficinas-moviles-cdmx',
+    to: '/oficinas-moviles-cdmx/',
     title: 'Oficinas móviles',
     desc: 'Espacios de trabajo en contenedor, reubicables, como los del capítulo 03.',
   },
   {
-    to: '/proyectos',
+    to: '/proyectos/',
     title: 'Proyectos modulares especiales',
     desc: 'Cuando la necesidad no cabe en un formato estándar: laboratorios, aulas, edificaciones.',
   },
   {
-    to: '/soluciones/venta-renta',
+    to: '/soluciones/venta-renta/',
     title: 'Venta y renta de contenedores',
     desc: 'Contenedores de 20 y 40 pies como punto de partida para tu proyecto.',
   },
   {
-    to: '/contenedor-40-pies-cdmx',
+    to: '/contenedor-40-pies-cdmx/',
     title: 'Contenedor de 40 pies',
     desc: 'El formato de varias de las oficinas, del laboratorio y del aula móvil mostrados.',
   },
   {
-    to: '/contenedor-20-pies-cdmx',
+    to: '/contenedor-20-pies-cdmx/',
     title: 'Contenedor de 20 pies',
     desc: 'La opción compacta de las oficinas de 20 pies.',
   },
   {
-    to: '/contenedores-usados-cdmx',
+    to: '/contenedores-usados-cdmx/',
     title: 'Contenedores usados',
     desc: 'Como los tres contenedores usados que se unieron para formar un solo espacio.',
   },
@@ -546,7 +546,7 @@ const ProyectosRealizados: React.FC = () => {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </button>
             <Link
-              to="/contacto"
+              to="/contacto/"
               className="inline-flex items-center rounded-sm border border-white/30 px-10 py-4 text-sm font-bold tracking-wider text-white transition-colors hover:bg-white/10"
             >
               IR A CONTACTO

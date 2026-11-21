@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": "https://creativosespacios.mx/#website",
-  "url": "https://creativosespacios.mx",
+  "url": "https://creativosespacios.mx/",
   "name": "Creativos Espacios",
   "publisher": {
     "@id": "https://creativosespacios.mx/#organization"

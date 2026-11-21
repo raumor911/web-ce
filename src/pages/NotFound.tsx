@@ -42,7 +42,7 @@ const NotFound: React.FC = () => {
             </Link>
             
             <Link 
-              to="/contacto" 
+              to="/contacto/" 
               className="w-full sm:w-auto px-8 py-4 border border-slate-200 text-slate-900 font-medium rounded-md hover:bg-slate-50 transition-all"
             >
               Reportar anomalía técnica

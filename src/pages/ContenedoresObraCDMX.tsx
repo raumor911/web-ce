@@ -199,7 +199,7 @@ const ContenedoresObraCDMX: React.FC = () => {
                 <p className="text-slate-600 font-sans text-sm">Capacidad para insumos utilizados durante el proyecto, manteniendo el orden en el sitio de obra.</p>
               </div>
             </div>
-            <Link to="/soluciones/oficinas" className="group overflow-hidden border border-brand-orange/20 bg-brand-orange/5 rounded-sm hover:bg-brand-orange/10 transition-all">
+            <Link to="/soluciones/oficinas/" className="group overflow-hidden border border-brand-orange/20 bg-brand-orange/5 rounded-sm hover:bg-brand-orange/10 transition-all">
               <div className="aspect-video overflow-hidden">
                 <img 
                   src="/images/oficina-contenedor-creativos-espacios.png" 
@@ -242,8 +242,8 @@ const ContenedoresObraCDMX: React.FC = () => {
           </div>
 
           <div className="flex gap-8">
-            <Link to="/compra-contenedores-cdmx" className="font-bold text-brand-orange hover:translate-x-1 transition-transform inline-flex items-center gap-2">COMPRA <ArrowRight className="h-4 w-4" /></Link>
-            <Link to="/renta-contenedores-cdmx" className="font-bold text-brand-orange hover:translate-x-1 transition-transform inline-flex items-center gap-2">RENTA <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/compra-contenedores-cdmx/" className="font-bold text-brand-orange hover:translate-x-1 transition-transform inline-flex items-center gap-2">COMPRA <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/renta-contenedores-cdmx/" className="font-bold text-brand-orange hover:translate-x-1 transition-transform inline-flex items-center gap-2">RENTA <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
@@ -288,7 +288,7 @@ const ContenedoresObraCDMX: React.FC = () => {
                 </p>
               </div>
               <Link 
-                to="/soluciones/oficinas"
+                to="/soluciones/oficinas/"
                 className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
               >
                 <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Oficinas</span>
@@ -325,15 +325,15 @@ const ContenedoresObraCDMX: React.FC = () => {
               <h3 className="text-2xl font-bold mb-6">Dimensiones disponibles</h3>
               <p className="text-white/70 mb-8 font-sans">Selecciona el tamaño adecuado según la escala de tu obra y los requerimientos de almacenamiento.</p>
               <div className="grid grid-cols-1 gap-4">
-                <Link to="/contenedor-20-pies-cdmx" className="p-4 border border-white/10 hover:border-brand-orange transition-colors flex justify-between items-center group">
+                <Link to="/contenedor-20-pies-cdmx/" className="p-4 border border-white/10 hover:border-brand-orange transition-colors flex justify-between items-center group">
                   <span>Contenedor 20 Pies</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link to="/contenedor-40-pies-cdmx" className="p-4 border border-white/10 hover:border-brand-orange transition-colors flex justify-between items-center group">
+                <Link to="/contenedor-40-pies-cdmx/" className="p-4 border border-white/10 hover:border-brand-orange transition-colors flex justify-between items-center group">
                   <span>Contenedor 40 Pies</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link to="/contenedor-40-high-cube-cdmx" className="p-4 border border-white/10 hover:border-brand-orange transition-colors flex justify-between items-center group">
+                <Link to="/contenedor-40-high-cube-cdmx/" className="p-4 border border-white/10 hover:border-brand-orange transition-colors flex justify-between items-center group">
                   <span>Contenedor 40 High Cube</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>

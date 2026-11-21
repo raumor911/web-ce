@@ -6,6 +6,7 @@ import http from 'http';
 import https from 'https';
 import handler from 'serve-handler';
 import { getPublishedPosts } from './wordpress-build-posts.js';
+import { canonicalUrl } from '../src/lib/canonicalUrl.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, '../dist');
@@ -140,10 +141,8 @@ async function prerender() {
             canonical: canonical ? canonical.getAttribute('href') || '' : ''
           };
         });
-        const expectedCanonical = new URL(
-          route === '/' ? '/' : route.replace(/\/+$/, ''),
-          'https://creativosespacios.mx/'
-        ).toString();
+        // Regla única de URLs (barra final): src/lib/canonicalUrl.mjs
+        const expectedCanonical = canonicalUrl(route);
         if (!metadata.h1) {
           throw new Error('Missing or empty H1');
         }

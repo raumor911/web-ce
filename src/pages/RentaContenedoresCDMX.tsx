@@ -121,7 +121,7 @@ const RentaContenedoresCDMX: React.FC = () => {
             Obtén espacio adicional para materiales, inventario, herramientas o proyectos sin convertir una necesidad temporal en infraestructura permanente.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto" className="btn-primary">Cotizar renta</a>
+            <a href="/contacto/" className="btn-primary">Cotizar renta</a>
             <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
@@ -296,7 +296,7 @@ const RentaContenedoresCDMX: React.FC = () => {
               <MessageSquare className="w-5 h-5 text-brand-petroleum" />
               Solicitar Cotización de Renta
             </button>
-            <a href="/contacto" className="btn-secondary border-white/20 text-white hover:bg-white/10">
+            <a href="/contacto/" className="btn-secondary border-white/20 text-white hover:bg-white/10">
               Formulario de Contacto
             </a>
           </div>

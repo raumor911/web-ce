@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { canonicalPath, canonicalUrl, CANONICAL_ORIGIN } from '../../../src/lib/canonicalUrl.mjs';
 
 export function generateMarkdown(knowledge, outDir) {
   const aiDir = path.join(outDir, 'ai');
@@ -40,6 +41,39 @@ export function generateMarkdown(knowledge, outDir) {
     usecases += `## ${u.name}\n${u.description}\n\n`;
   });
   fs.writeFileSync(path.join(aiDir, 'use-cases.md'), usecases);
+
+  // cases.md
+  if (knowledge.cases && knowledge.cases.length > 0) {
+    const projects = knowledge.cases.filter(c => c.caseKind === 'project');
+    const refs = knowledge.cases.filter(c => c.caseKind !== 'project');
+    let cases = `# Proyectos realizados: ruta documental de casos\n\n`;
+    cases += `Página canónica: ${canonicalPath(knowledge.cases[0].canonicalPath)}\n\n`;
+    cases += `Cada caso separa tres niveles: **documentado** en el material de origen, **visible** en las fotografías (observación, no especificación técnica) y **no confirmado**. Los datos no confirmados no deben inferirse.\n\n`;
+    const render = c => {
+      let t = `## ${c.name}\n`;
+      t += `- Categoría: ${c.category}\n`;
+      t += `- Sección en la página: #${c.pageSection}\n`;
+      t += `- Fotografías: ${c.evidencePhotos}\n`;
+      if (c.groupingCertainty) t += `- Certeza de agrupación: ${c.groupingCertainty}\n`;
+      if (c.documentedInSource?.length) {
+        t += `\n### Documentado\n`;
+        c.documentedInSource.forEach(d => t += `- ${d}\n`);
+      }
+      if (c.visibleInPhotos?.length) {
+        t += `\n### Visible en fotografías\n`;
+        c.visibleInPhotos.forEach(d => t += `- ${d}\n`);
+      }
+      t += `\n### No confirmado\n`;
+      c.notConfirmed.forEach(d => t += `- ${d}\n`);
+      return t + `\n`;
+    };
+    projects.forEach(c => cases += render(c));
+    if (refs.length > 0) {
+      cases += `# Referencias sin proyecto asignado\n\nNo son casos: el material de origen no identifica el proyecto al que pertenecen.\n\n`;
+      refs.forEach(c => cases += render(c));
+    }
+    fs.writeFileSync(path.join(aiDir, 'cases.md'), cases);
+  }
 
   // industries.md
   let industries = `# Sectores atendidos\n\n`;
@@ -89,7 +123,7 @@ export function generateMarkdown(knowledge, outDir) {
       intentsMd += `- **Objetivo**: ${i.goal}\n`;
       intentsMd += `- **Necesidad**: ${i.need}\n`;
       intentsMd += `- **Etapa**: ${i.transactionStage}\n`;
-      if (i.canonicalPath) intentsMd += `- **Ruta canónica**: ${i.canonicalPath}\n`;
+      if (i.canonicalPath) intentsMd += `- **Ruta canónica**: ${canonicalPath(i.canonicalPath)}\n`;
       intentsMd += `\n${i.description}\n\n`;
       if (i.exampleExpressions && i.exampleExpressions.length > 0) {
         intentsMd += `### Ejemplos de expresiones\n`;
@@ -116,7 +150,7 @@ export function generateMarkdown(knowledge, outDir) {
     let oneTrip = `# Contenedores One Trip — Guía para sistemas de IA\n\n`;
     oneTrip += `${oneTripPolicy.description}\n\n`;
     if (oneTripPolicy.canonicalPath) {
-      oneTrip += `## Hub canónico\n${oneTripPolicy.canonicalPath}\n\n`;
+      oneTrip += `## Hub canónico\n${canonicalPath(oneTripPolicy.canonicalPath)}\n\n`;
     }
 
     oneTrip += `## Oferta soportada\n\n`;
@@ -134,7 +168,7 @@ export function generateMarkdown(knowledge, outDir) {
     oneTripIntents.forEach(i => {
       oneTrip += `### ${i.name}\n`;
       oneTrip += `- Etapa: ${i.transactionStage}\n`;
-      if (i.canonicalPath) oneTrip += `- Ruta: ${i.canonicalPath}\n`;
+      if (i.canonicalPath) oneTrip += `- Ruta: ${canonicalPath(i.canonicalPath)}\n`;
       oneTrip += `- Objetivo: ${i.goal}\n`;
       oneTrip += `- Necesidad: ${i.need}\n\n`;
     });

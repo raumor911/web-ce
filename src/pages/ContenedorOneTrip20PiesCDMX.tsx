@@ -42,9 +42,9 @@ const ContenedorOneTrip20PiesCDMX: React.FC = () => (
       finalTitle: '¿Necesita un 20 FT Standard One Trip?',
       finalText: 'Comparta la ubicación del proyecto y el uso previsto. CE confirmará disponibilidad, precio y condiciones de suministro para esta unidad.',
       relatedLinks: [
-        { title: '40 FT High Cube One Trip', text: 'Alternativa para proyectos que necesitan mayor volumen y altura interior.', href: '/contenedor-one-trip-40-high-cube-cdmx' },
-        { title: 'Proyectos arquitectónicos', text: 'Vea cómo se evalúa One Trip cuando la unidad forma parte del diseño.', href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx' },
-        { title: 'Hub One Trip', text: 'Regrese a la oferta general de contenedores One Trip de CE.', href: '/contenedores-nuevos-one-trip-cdmx' }
+        { title: '40 FT High Cube One Trip', text: 'Alternativa para proyectos que necesitan mayor volumen y altura interior.', href: '/contenedor-one-trip-40-high-cube-cdmx/' },
+        { title: 'Proyectos arquitectónicos', text: 'Vea cómo se evalúa One Trip cuando la unidad forma parte del diseño.', href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/' },
+        { title: 'Hub One Trip', text: 'Regrese a la oferta general de contenedores One Trip de CE.', href: '/contenedores-nuevos-one-trip-cdmx/' }
       ]
     }}
   />

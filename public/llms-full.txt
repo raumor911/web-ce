@@ -159,7 +159,7 @@ Suministro bajo cotización de contenedores One Trip para proyectos donde la con
 
 Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.
 
-- **Hub canónico**: /contenedores-nuevos-one-trip-cdmx
+- **Hub canónico**: /contenedores-nuevos-one-trip-cdmx/
 - **Condición**: One Trip
 - **Modalidad**: Venta únicamente
 - **Formatos soportados**: Contenedor marítimo 20 FT Standard, Contenedor marítimo 40 FT High Cube
@@ -173,12 +173,12 @@ Suministro bajo cotización de contenedores One Trip para proyectos donde la con
 - No existe renta de contenedores One Trip.
 
 ### Rutas por intención
-- **Compra de contenedor One Trip**: /contenedores-nuevos-one-trip-cdmx
-- **Compra de contenedor 20 FT One Trip**: /contenedor-one-trip-20-pies-cdmx
-- **Compra de contenedor 40 FT High Cube One Trip**: /contenedor-one-trip-40-high-cube-cdmx
-- **One Trip para proyecto arquitectónico**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx
-- **One Trip para proyecto educativo**: /contenedores-one-trip-para-escuelas-cdmx
-- **One Trip para proyecto corporativo**: /contenedores-one-trip-para-proyectos-corporativos-cdmx
+- **Compra de contenedor One Trip**: /contenedores-nuevos-one-trip-cdmx/
+- **Compra de contenedor 20 FT One Trip**: /contenedor-one-trip-20-pies-cdmx/
+- **Compra de contenedor 40 FT High Cube One Trip**: /contenedor-one-trip-40-high-cube-cdmx/
+- **One Trip para proyecto arquitectónico**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/
+- **One Trip para proyecto educativo**: /contenedores-one-trip-para-escuelas-cdmx/
+- **One Trip para proyecto corporativo**: /contenedores-one-trip-para-proyectos-corporativos-cdmx/
 
 ### Regla de precisión
 No inferir precio, inventario ni disponibilidad inmediata para One Trip si no existe una fuente publicada que lo confirme. Transporte, descarga y maniobras se cotizan según destino y condiciones del sitio.
@@ -501,6 +501,9 @@ Su especialidad es desarrollar y suministrar infraestructura modular estratégic
 **¿Cuál es su diferenciador?**
 Nuestro enfoque parte de la comprensión profunda de la necesidad operativa del cliente antes de definir la configuración técnica y el alcance de la solución modular.
 
+**¿Creativos Espacios tiene proyectos realizados que pueda ver?**
+Sí. La página /proyectos-realizados-contenedores-modulares/ reúne fotografías reales de proyectos con contenedores adaptados: el MakerSpace de Santa Cruz Meyehualco (construcción de tres niveles), un laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático de la UNAM, oficinas en contenedores de 20 y 40 pies y un centro de capacitación móvil. Distingue lo que el material documenta de lo que solo se aprecia en las fotos. No publica fechas, costos, medidas de obra ni testimonios, porque no están documentados; cada proyecto se cotiza según su alcance.
+
 ## Terminología
 
 ### Términos preferidos
@@ -572,7 +575,7 @@ Habilitar un espacio de trabajo acondicionado y reubicable para funciones admini
 - **Objetivo**: Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial
 - **Necesidad**: Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible
 - **Etapa**: transactional
-- **Ruta canónica**: /contenedores-nuevos-one-trip-cdmx
+- **Ruta canónica**: /contenedores-nuevos-one-trip-cdmx/
 
 Adquirir un contenedor con mínimo uso para un proyecto donde la condición superficial y la presentación de la unidad son relevantes.
 
@@ -580,7 +583,7 @@ Adquirir un contenedor con mínimo uso para un proyecto donde la condición supe
 - **Objetivo**: Comprar un 20 FT Standard One Trip
 - **Necesidad**: Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración
 - **Etapa**: transactional
-- **Ruta canónica**: /contenedor-one-trip-20-pies-cdmx
+- **Ruta canónica**: /contenedor-one-trip-20-pies-cdmx/
 
 Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde importan la condición superficial y una huella compacta.
 
@@ -588,7 +591,7 @@ Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde imp
 - **Objetivo**: Comprar un 40 FT High Cube One Trip
 - **Necesidad**: Unidad High Cube de mínimo uso y mayor capacidad
 - **Etapa**: transactional
-- **Ruta canónica**: /contenedor-one-trip-40-high-cube-cdmx
+- **Ruta canónica**: /contenedor-one-trip-40-high-cube-cdmx/
 
 Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor volumen y altura interior.
 
@@ -596,7 +599,7 @@ Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor 
 - **Objetivo**: Seleccionar una base física adecuada para intervención arquitectónica
 - **Necesidad**: Unidad con menor desgaste acumulado y condición superficial más predecible
 - **Etapa**: comparison
-- **Ruta canónica**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx
+- **Ruta canónica**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/
 
 Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visible o intervenido.
 
@@ -604,7 +607,7 @@ Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visi
 - **Objetivo**: Seleccionar una base física adecuada para un espacio educativo
 - **Necesidad**: Unidad visible y de mínimo uso para acondicionamiento posterior
 - **Etapa**: comparison
-- **Ruta canónica**: /contenedores-one-trip-para-escuelas-cdmx
+- **Ruta canónica**: /contenedores-one-trip-para-escuelas-cdmx/
 
 Buscar una unidad de mínimo uso como base para aulas, administración u otros espacios de una institución educativa.
 
@@ -612,9 +615,98 @@ Buscar una unidad de mínimo uso como base para aulas, administración u otros e
 - **Objetivo**: Seleccionar una base física alineada con presentación y uso corporativo
 - **Necesidad**: Unidad de mínimo uso para proyecto visible y acondicionamiento posterior
 - **Etapa**: comparison
-- **Ruta canónica**: /contenedores-one-trip-para-proyectos-corporativos-cdmx
+- **Ruta canónica**: /contenedores-one-trip-para-proyectos-corporativos-cdmx/
 
 Buscar una unidad de mínimo uso para oficinas, recepciones, showrooms o módulos visibles de una empresa.
+
+### Ver proyectos realizados con contenedores
+- **Objetivo**: Evaluar la capacidad de ejecución con ejemplos reales
+- **Necesidad**: Evidencia de casos de contenedores adaptados
+- **Etapa**: comparison
+- **Ruta canónica**: /proyectos-realizados-contenedores-modulares/
+
+Revisar evidencia fotográfica de proyectos reales con contenedores adaptados antes de decidir una cotización.
+
+## Proyectos realizados (evidencia)
+
+Ruta canónica: /proyectos-realizados-contenedores-modulares/
+
+### MakerSpace, Santa Cruz Meyehualco
+- **Tipo**: Proyecto
+- **Categoría**: Construcción con contenedores
+- **Documentado en el material de origen**: Nombre y ubicación del proyecto: MakerSpace, Santa Cruz Meyehualco.
+- **Visible en las fotografías (observación, no especificación)**: Edificio de tres niveles con contenedores apilados; Estructura de acero y columnas; Aberturas para puertas y ventanas, barandales y escalera; Interiores en obra con instalaciones visibles.
+- **No confirmado**: Cliente o promotor; Número y tipo de contenedores; Dimensiones y superficie construida; Alcance de la obra; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático, UNAM
+- **Tipo**: Proyecto
+- **Categoría**: Laboratorio en contenedor
+- **Documentado en el material de origen**: Proyecto: laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático, UNAM.
+- **Visible en las fotografías (observación, no especificación)**: Rotulación visible: Observatorio Mexicano del Clima y la Composición Atmosférica (OMECCA); Traslado nocturno sobre plataforma con grúa.
+- **No confirmado**: Dimensiones del contenedor; Equipamiento científico; Alcance del contrato; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Oficinas para un proveedor de gas natural industrial
+- **Tipo**: Proyecto
+- **Categoría**: Oficinas, contenedor 40′ DC
+- **Documentado en el material de origen**: Uso: oficinas para un proveedor de gas natural industrial. Dimensiones: contenedor 40′ DC. Acabados: aislamiento térmico, piso vinílico y clima integrado.
+- **Visible en las fotografías (observación, no especificación)**: Contenedor blanco con ventanas, puerta de acceso y plataforma con barandal, apoyado sobre bases.
+- **No confirmado**: Nombre del cliente; Ubicación; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Oficina compacta en contenedor azul de 20 pies
+- **Tipo**: Proyecto
+- **Categoría**: Oficinas, contenedor 20′ DC
+- **Documentado en el material de origen**: Dimensiones: contenedor de 20′ DC. Acabados: aislante térmico y plafón, piso vinílico SPC, instalación eléctrica y minisplit.
+- **Visible en las fotografías (observación, no especificación)**: Rejas de diseño geométrico en puerta y ventanas; Superficies de trabajo continuas en ambos muros.
+- **Certeza de agrupación**: media (las fotos interiores de la pág. 12 se asocian por coincidencia visual de rejas, sin pie de foto que lo confirme)
+- **No confirmado**: Cliente; Ubicación; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Un solo espacio a partir de tres contenedores usados de 40′ HC
+- **Tipo**: Proyecto
+- **Categoría**: Oficinas, tres contenedores 40′ HC usados
+- **Documentado en el material de origen**: Composición: unión de tres contenedores de 40′ HC usados. Acabados: instalación eléctrica aparente.
+- **Visible en las fotografías (observación, no especificación)**: Puerta corrediza de vidrio en el módulo central; Interiores en proceso con canalización eléctrica visible.
+- **Certeza de agrupación**: media (las fotos de las págs. 14 y 15 se asocian por evidencia visual)
+- **No confirmado**: Cliente; Ubicación; Uso final del espacio; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Oficina de 20 pies con ventanas protegidas
+- **Tipo**: Proyecto
+- **Categoría**: Oficinas, contenedor 20′ DC
+- **Documentado en el material de origen**: Dimensiones: contenedor de 20′ DC. Uso: oficinas.
+- **Visible en las fotografías (observación, no especificación)**: Contenedor en franjas blancas y grises con puerta de vidrio y dos ventanas con reja cuadriculada.
+- **No confirmado**: Cliente; Ubicación; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Oficina de 40 pies con protecciones proyectables en ventanas
+- **Tipo**: Proyecto
+- **Categoría**: Oficinas, contenedor 40′ HC
+- **Documentado en el material de origen**: Dimensiones: contenedor de 40′ HC. Detalle: protecciones proyectables en ventanas.
+- **Visible en las fotografías (observación, no especificación)**: Puerta de acceso con hoja de reja; Contenedor maniobrado con grúa en patio.
+- **No confirmado**: Cliente; Ubicación; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Unidades de 40 pies en serie, con acceso individual
+- **Tipo**: Proyecto
+- **Categoría**: Oficinas, contenedor 40′ DC
+- **Documentado en el material de origen**: Dimensiones: contenedor de 40′ DC.
+- **Visible en las fotografías (observación, no especificación)**: Varias unidades alineadas, cada una con puerta propia; Interior con piso vinílico tipo madera y minisplit.
+- **No confirmado**: Cliente; Uso específico; Ubicación; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Centro de capacitación modular móvil
+- **Tipo**: Proyecto
+- **Categoría**: Centro de capacitación modular / móvil, contenedor 40′ DC
+- **Documentado en el material de origen**: Uso: centro de capacitación modular / móvil. Dimensiones: contenedor de 40′ DC.
+- **Visible en las fotografías (observación, no especificación)**: Montado sobre remolque con escalera de acceso; Butacas en gradas y mobiliario fijo; Interior forrado en madera con luminarias de riel, minisplit y piso metálico antiderrapante.
+- **No confirmado**: Cliente; Capacidad de personas; Fechas, plazos y costos; Resultados medibles y testimonios.
+
+### Referencia: interiores de contenedor acondicionado (sin proyecto asignado)
+- **Tipo**: Referencia sin proyecto asignado (no es un caso)
+- **Categoría**: Interiores acondicionados
+- **Visible en las fotografías (observación, no especificación)**: Muros y techo forrados en blanco con iluminación; Piso metálico antiderrapante; Aire acondicionado tipo minisplit y puerta de acceso.
+- **No confirmado**: Proyecto al que pertenecen: no identificado en el material de origen; Especificaciones técnicas.
+
+### Referencia: acabados interiores en oficinas (sin proyecto asignado)
+- **Tipo**: Referencia sin proyecto asignado (no es un caso)
+- **Categoría**: Acabados interiores
+- **Documentado en el material de origen**: Tablaroca, piso de azulejo, aislamiento térmico y clima integrado. Aislante térmico, plafón, lambrín, piso PVC antiderrapante, instalación eléctrica y minisplit. Aislante térmico, plafón, lambrín, piso cerámico, instalación eléctrica y minisplit, además de un privado.
+- **No confirmado**: Proyecto al que corresponde cada combinación de acabados: no identificado en el material de origen.
 
 ## Limitaciones de precisión
 
@@ -623,8 +715,9 @@ La información aquí provista está sujeta a disponibilidad de inventario, fact
 ## Fuentes canónicas
 
 - [Creativos Espacios - Homepage](https://creativosespacios.mx/)
-- [Nuestra Empresa](https://creativosespacios.mx/nosotros)
-- [Venta y Renta de Contenedores](https://creativosespacios.mx/soluciones/venta-renta)
-- [Oficinas Reubicables](https://creativosespacios.mx/soluciones/oficinas)
-- [Proyectos Modulares](https://creativosespacios.mx/proyectos)
-- [Contacto](https://creativosespacios.mx/contacto)
+- [Nuestra Empresa](https://creativosespacios.mx/nosotros/)
+- [Venta y Renta de Contenedores](https://creativosespacios.mx/soluciones/venta-renta/)
+- [Oficinas Reubicables](https://creativosespacios.mx/soluciones/oficinas/)
+- [Proyectos Modulares](https://creativosespacios.mx/proyectos/)
+- [Contacto](https://creativosespacios.mx/contacto/)
+- [Proyectos realizados con contenedores adaptados](https://creativosespacios.mx/proyectos-realizados-contenedores-modulares/)

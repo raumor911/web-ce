@@ -42,7 +42,7 @@ function diff() {
   
   const aiFiles = [
     'company.json', 'company.md', 'services.json', 'services.md',
-    'industries.md', 'use-cases.md', 'faq.md', 'terminology.md',
+    'industries.md', 'use-cases.md', 'cases.md', 'cases.json', 'faq.md', 'terminology.md',
     'glossary.md', 'canonical-answers.md', 'claims-register.json',
     'sources.json', 'knowledge-graph.json', 'content-manifest.json',
     'schema/organization.jsonld', 'schema/services.jsonld', 'schema/website.jsonld'

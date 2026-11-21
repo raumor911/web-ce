@@ -123,7 +123,7 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
             Una configuración de 40 pies con mayor altura que puede aportar capacidad adicional para determinados proyectos de almacenamiento y acondicionamiento.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto" className="btn-primary">Consultar High Cube</a>
+            <a href="/contacto/" className="btn-primary">Consultar High Cube</a>
             <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
@@ -214,7 +214,7 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
                 </p>
               </div>
               <a 
-                href="/soluciones/oficinas"
+                href="/soluciones/oficinas/"
                 className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
               >
                 <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Soluciones</span>
@@ -278,7 +278,7 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
             <p className="text-white/70 text-lg mb-10 leading-relaxed font-sans">
               Cuando el contenedor dejará de funcionar únicamente como almacenamiento, la altura disponible puede influir en la configuración del proyecto, permitiendo instalaciones ocultas o mayor despeje interior.
             </p>
-            <a href="/soluciones/oficinas" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
+            <a href="/soluciones/oficinas/" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
               Ver soluciones acondicionadas <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -289,10 +289,10 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
       <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12 bg-brand-gray/10">
         <h2 className="text-2xl font-serif text-brand-petroleum mb-8">Otras configuraciones de 40 pies</h2>
         <div className="flex flex-wrap gap-4">
-          <a href="/contenedor-40-pies-cdmx" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-brand-gray text-brand-petroleum hover:border-brand-orange transition-colors">
+          <a href="/contenedor-40-pies-cdmx/" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-brand-gray text-brand-petroleum hover:border-brand-orange transition-colors">
             Contenedor 40 Standard <ArrowRight className="h-4 w-4" />
           </a>
-          <a href="/contenedores-usados-cdmx" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-brand-gray text-brand-petroleum hover:border-brand-orange transition-colors">
+          <a href="/contenedores-usados-cdmx/" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-brand-gray text-brand-petroleum hover:border-brand-orange transition-colors">
             Contenedores usados <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -314,7 +314,7 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
           <p className="max-w-2xl mx-auto text-lg text-white/70 mb-12 font-sans">
             Consulta disponibilidad y opciones de logística en Ciudad de México para esta configuración de mayor capacidad vertical.
           </p>
-          <a href="/contacto" className="btn-primary">Solicitar información</a>
+          <a href="/contacto/" className="btn-primary">Solicitar información</a>
         </div>
       </section>
 

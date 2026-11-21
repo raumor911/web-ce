@@ -234,10 +234,10 @@ const ContenedoresBodegaCDMX: React.FC = () => {
                 Si la necesidad está asociada a un proyecto temporal, la renta puede ser una alternativa. Si forma parte de una operación recurrente o de mayor duración, puede evaluarse la compra.
               </p>
               <div className="flex flex-wrap gap-8">
-                <Link to="/compra-contenedores-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
+                <Link to="/compra-contenedores-cdmx/" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
                   COMPRAR BODEGA <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link to="/renta-contenedores-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
+                <Link to="/renta-contenedores-cdmx/" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
                   RENTAR BODEGA <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -286,7 +286,7 @@ const ContenedoresBodegaCDMX: React.FC = () => {
                 </p>
               </div>
               <Link 
-                to="/soluciones/oficinas"
+                to="/soluciones/oficinas/"
                 className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
               >
                 <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Soluciones</span>

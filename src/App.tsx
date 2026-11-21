@@ -27,7 +27,7 @@ const App: React.FC = () => {
             })}
 
             {/* Special Redirects */}
-            <Route path="soluciones" element={<Navigate to="/soluciones/venta-renta" replace />} />
+            <Route path="soluciones" element={<Navigate to="/soluciones/venta-renta/" replace />} />
 
             {/* Dynamic Routes */}
             <Route path="blog/:slug" element={<BlogPost />} />

@@ -123,7 +123,7 @@ const Contenedor40PiesCDMX: React.FC = () => {
             Mayor longitud y capacidad para operaciones que requieren almacenar más materiales, inventario o equipamiento dentro de una misma unidad.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto" className="btn-primary">Consultar 40 pies</a>
+            <a href="/contacto/" className="btn-primary">Consultar 40 pies</a>
             <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
@@ -196,7 +196,7 @@ const Contenedor40PiesCDMX: React.FC = () => {
                 </p>
               </div>
               <a 
-                href="/soluciones/oficinas"
+                href="/soluciones/oficinas/"
                 className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
               >
                 <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Soluciones</span>
@@ -249,7 +249,7 @@ const Contenedor40PiesCDMX: React.FC = () => {
             </div>
           </div>
           <div className="text-center mt-12">
-            <a href="/contacto" className="btn-primary">Ayúdame a elegir</a>
+            <a href="/contacto/" className="btn-primary">Ayúdame a elegir</a>
           </div>
         </div>
       </section>
@@ -286,9 +286,9 @@ const Contenedor40PiesCDMX: React.FC = () => {
         <h2 className="text-3xl md:text-5xl font-serif text-brand-petroleum mb-12">Modalidades disponibles</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { title: "Comprar", link: "/compra-contenedores-cdmx", desc: "Adquisición definitiva para proyectos permanentes." },
-            { title: "Rentar", link: "/renta-contenedores-cdmx", desc: "Flexibilidad operativa para necesidades temporales." },
-            { title: "Proyecto", link: "/proyectos", desc: "Base para soluciones industriales acondicionadas." }
+            { title: "Comprar", link: "/compra-contenedores-cdmx/", desc: "Adquisición definitiva para proyectos permanentes." },
+            { title: "Rentar", link: "/renta-contenedores-cdmx/", desc: "Flexibilidad operativa para necesidades temporales." },
+            { title: "Proyecto", link: "/proyectos/", desc: "Base para soluciones industriales acondicionadas." }
           ].map((item, idx) => (
             <a key={idx} href={item.link} className="group p-8 border border-brand-gray hover:border-brand-orange transition-colors">
               <h4 className="text-xl font-serif text-brand-petroleum mb-2">{item.title}</h4>
@@ -303,10 +303,10 @@ const Contenedor40PiesCDMX: React.FC = () => {
       <section className="py-20 md:py-32 container mx-auto px-6 lg:px-12 bg-brand-gray/10">
         <h2 className="text-2xl font-serif text-brand-petroleum mb-8">Otras configuraciones disponibles</h2>
         <div className="flex flex-wrap gap-4">
-          <a href="/contenedor-20-pies-cdmx" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-brand-gray text-brand-petroleum hover:border-brand-orange transition-colors">
+          <a href="/contenedor-20-pies-cdmx/" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-brand-gray text-brand-petroleum hover:border-brand-orange transition-colors">
             Contenedor 20 pies <ArrowRight className="h-4 w-4" />
           </a>
-          <a href="/contenedor-40-high-cube-cdmx" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-brand-gray text-brand-petroleum hover:border-brand-orange transition-colors">
+          <a href="/contenedor-40-high-cube-cdmx/" className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-brand-gray text-brand-petroleum hover:border-brand-orange transition-colors">
             Contenedor 40 High Cube <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -328,7 +328,7 @@ const Contenedor40PiesCDMX: React.FC = () => {
           <p className="max-w-2xl mx-auto text-lg text-white/70 mb-12 font-sans">
             Consulta disponibilidad y opciones de logística para grandes volúmenes en Ciudad de México y zona metropolitana.
           </p>
-          <a href="/contacto" className="btn-primary">Consultar ahora</a>
+          <a href="/contacto/" className="btn-primary">Consultar ahora</a>
         </div>
       </section>
 

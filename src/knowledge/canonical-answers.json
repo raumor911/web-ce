@@ -23,5 +23,10 @@
     "id": "answer:differentiator",
     "question": "¿Cuál es su diferenciador?",
     "answer": "Nuestro enfoque parte de la comprensión profunda de la necesidad operativa del cliente antes de definir la configuración técnica y el alcance de la solución modular."
+  },
+  {
+    "id": "answer:completed-projects",
+    "question": "¿Creativos Espacios tiene proyectos realizados que pueda ver?",
+    "answer": "Sí. La página /proyectos-realizados-contenedores-modulares/ reúne fotografías reales de proyectos con contenedores adaptados: el MakerSpace de Santa Cruz Meyehualco (construcción de tres niveles), un laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático de la UNAM, oficinas en contenedores de 20 y 40 pies y un centro de capacitación móvil. Distingue lo que el material documenta de lo que solo se aprecia en las fotos. No publica fechas, costos, medidas de obra ni testimonios, porque no están documentados; cada proyecto se cotiza según su alcance."
   }
 ]

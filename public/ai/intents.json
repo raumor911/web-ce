@@ -172,7 +172,7 @@
     ],
     "status": "published",
     "visibility": "public",
-    "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+    "canonicalPath": "/contenedores-nuevos-one-trip-cdmx/",
     "commercialPolicyIds": [
       "commercial:one-trip-sale"
     ]
@@ -198,7 +198,7 @@
     ],
     "status": "published",
     "visibility": "public",
-    "canonicalPath": "/contenedor-one-trip-20-pies-cdmx",
+    "canonicalPath": "/contenedor-one-trip-20-pies-cdmx/",
     "commercialPolicyIds": [
       "commercial:one-trip-sale"
     ]
@@ -224,7 +224,7 @@
     ],
     "status": "published",
     "visibility": "public",
-    "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx",
+    "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx/",
     "commercialPolicyIds": [
       "commercial:one-trip-sale"
     ]
@@ -251,7 +251,7 @@
     ],
     "status": "published",
     "visibility": "public",
-    "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx",
+    "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/",
     "commercialPolicyIds": [
       "commercial:one-trip-sale"
     ]
@@ -278,7 +278,7 @@
     ],
     "status": "published",
     "visibility": "public",
-    "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx",
+    "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx/",
     "commercialPolicyIds": [
       "commercial:one-trip-sale"
     ]
@@ -305,9 +305,37 @@
     ],
     "status": "published",
     "visibility": "public",
-    "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx",
+    "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx/",
     "commercialPolicyIds": [
       "commercial:one-trip-sale"
     ]
+  },
+  {
+    "id": "intent:see-completed-projects",
+    "name": "Ver proyectos realizados con contenedores",
+    "description": "Revisar evidencia fotográfica de proyectos reales con contenedores adaptados antes de decidir una cotización.",
+    "goal": "Evaluar la capacidad de ejecución con ejemplos reales",
+    "need": "Evidencia de casos de contenedores adaptados",
+    "transactionStage": "comparison",
+    "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
+    "useCaseIds": [
+      "usecase:custom-infrastructure",
+      "usecase:mobile-office",
+      "usecase:specialized-operations"
+    ],
+    "serviceIds": [
+      "service:modular-projects",
+      "service:relocatable-offices"
+    ],
+    "exampleExpressions": [
+      "¿Tienen proyectos hechos con contenedores?",
+      "Quiero ver ejemplos de oficinas en contenedor",
+      "¿Han hecho laboratorios o aulas en contenedor?"
+    ],
+    "sourceIds": [
+      "source:proyectos-realizados"
+    ],
+    "status": "published",
+    "visibility": "public"
   }
 ]

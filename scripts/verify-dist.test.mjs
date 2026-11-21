@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const command = path.join(path.dirname(fileURLToPath(import.meta.url)), 'verify-dist.mjs');
 const domain = 'https://creativosespacios.mx';
+const slash = r => r === '/' ? r : r.replace(/\/+$/, '') + '/';
 function write(root, name, value) {
   const file = path.join(root, name);
   fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -15,7 +16,7 @@ function write(root, name, value) {
 }
 function html(route, title) {
   return '<html><head><title>' + title + '</title><meta name="description" content="Texto comercial" />' +
-    '<link rel="canonical" href="' + domain + route + '" />' +
+    '<link rel="canonical" href="' + domain + slash(route) + '" />' +
     '<link rel="stylesheet" href="/assets/site.css" />' +
     '<script src="/assets/site.js"></script></head>' +
     '<body><h1>' + title + '</h1><p>Contenido propio de la página.</p></body></html>';
@@ -28,7 +29,7 @@ function fixture(t) {
     {path:'/compra-contenedores-cdmx',prerender:true,sitemap:true},
     {path:'/404',prerender:true,sitemap:false}
   ]));
-  write(root, 'dist/sitemap.xml', '<urlset>' + ['/', '/compra-contenedores-cdmx']
+  write(root, 'dist/sitemap.xml', '<urlset>' + ['/', '/compra-contenedores-cdmx/']
     .map(p => '<url><loc>' + domain + p + '</loc></url>').join('') + '</urlset>');
   write(root, 'public/.htaccess', 'RewriteEngine On');
   write(root, 'dist/.htaccess', 'RewriteEngine On');
@@ -53,7 +54,7 @@ for (const [name, edit, evidence] of [
   ['fallback 404', root => write(root,'dist/compra-contenedores-cdmx/index.html',html('/compra-contenedores-cdmx','404 - Página no encontrada')), /Fallback 404/],
   ['bundle JS faltante', root => fs.rmSync(path.join(root,'dist/assets/site.js')), /Recurso ausente/],
   ['HTML idéntico al inicio', root => write(root,'dist/compra-contenedores-cdmx/index.html',fs.readFileSync(path.join(root,'dist/index.html'))), /HTML idéntico/],
-  ['sitemap con artículos', root => write(root,'dist/sitemap.xml','<urlset>' + ['/', '/compra-contenedores-cdmx', '/blog/post'].map(p => '<url><loc>' + domain + p + '</loc></url>').join('') + '</urlset>'), /sitemap\.xml no debe listar artículos/],
+  ['sitemap con artículos', root => write(root,'dist/sitemap.xml','<urlset>' + ['/', '/compra-contenedores-cdmx/', '/blog/post/'].map(p => '<url><loc>' + domain + p + '</loc></url>').join('') + '</urlset>'), /sitemap\.xml no debe listar artículos/],
   ['htaccess ausente', root => fs.rmSync(path.join(root,'dist/.htaccess')), /Falta dist\/\.htaccess/]
 ]) {
   test('rechaza ' + name, t => {
@@ -75,4 +76,25 @@ test('rechaza un dist sin artículos prerenderizados', t => {
   const root=fixture(t);
   fs.rmSync(path.join(root,'dist/blog'),{recursive:true});
   const r=run(root); assert.equal(r.status,1); assert.match(r.stderr,/Blog incompleto/);
+});
+
+test('rechaza un loc de sitemap sin barra final', t => {
+  const root=fixture(t);
+  write(root,'dist/sitemap.xml','<urlset><url><loc>' + domain + '/</loc></url><url><loc>' + domain + '/compra-contenedores-cdmx</loc></url></urlset>');
+  const r=run(root); assert.equal(r.status,1); assert.match(r.stderr,/fuera de la regla de barra final/);
+});
+test('rechaza una canónica sin barra final', t => {
+  const root=fixture(t);
+  write(root,'dist/compra-contenedores-cdmx/index.html',html('/compra-contenedores-cdmx','Comprar contenedor CDMX').replace('/compra-contenedores-cdmx/"','/compra-contenedores-cdmx"'));
+  const r=run(root); assert.equal(r.status,1); assert.match(r.stderr,/canonical incorrecto/);
+});
+test('el índice /blog/ es válido en sitemap.xml (no es un artículo)', t => {
+  const root=fixture(t);
+  write(root,'src/config/routes.json',JSON.stringify([
+    {path:'/',prerender:true,sitemap:true},{path:'/compra-contenedores-cdmx',prerender:true,sitemap:true},
+    {path:'/blog',prerender:true,sitemap:true},{path:'/404',prerender:true,sitemap:false}]));
+  write(root,'dist/sitemap.xml','<urlset>' + ['/', '/compra-contenedores-cdmx/', '/blog/']
+    .map(p => '<url><loc>' + domain + p + '</loc></url>').join('') + '</urlset>');
+  write(root,'dist/blog/index.html',html('/blog','Blog de contenedores'));
+  const r=run(root); assert.equal(r.status,0,r.stderr + r.stdout);
 });

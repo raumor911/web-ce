@@ -131,7 +131,7 @@ const OficinasMovilesCDMX: React.FC = () => {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <Link 
-              to="/soluciones/oficinas"
+              to="/soluciones/oficinas/"
               className="flex items-center gap-3 rounded-sm border border-white/30 bg-white/10 px-8 py-4 text-sm font-bold tracking-wider text-white backdrop-blur-sm transition-all hover:bg-white/20"
             >
               VER OFICINAS
@@ -151,7 +151,7 @@ const OficinasMovilesCDMX: React.FC = () => {
               Las oficinas móviles ofrecen una respuesta ágil para establecer puntos de trabajo en ubicaciones estratégicas desde {baseLocation?.name || 'Iztapalapa'}, atendiendo toda la {location?.name || 'CDMX'}.
             </p>
             <div className="mt-6">
-              <Link to="/oficina-para-supervision-de-obra-cdmx" className="text-brand-orange font-bold text-sm tracking-widest uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
+              <Link to="/oficina-para-supervision-de-obra-cdmx/" className="text-brand-orange font-bold text-sm tracking-widest uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
                 SOLUCIÓN PARA SUPERVISIÓN DE OBRA <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -244,8 +244,8 @@ const OficinasMovilesCDMX: React.FC = () => {
                 </div>
               </div>
               <div className="flex gap-8">
-                <Link to="/compra-contenedores-cdmx" className="font-bold text-brand-orange inline-flex items-center gap-2 hover:gap-3 transition-all">COMPRA <ArrowRight className="h-4 w-4" /></Link>
-                <Link to="/renta-contenedores-cdmx" className="font-bold text-brand-orange inline-flex items-center gap-2 hover:gap-3 transition-all">RENTA <ArrowRight className="h-4 w-4" /></Link>
+                <Link to="/compra-contenedores-cdmx/" className="font-bold text-brand-orange inline-flex items-center gap-2 hover:gap-3 transition-all">COMPRA <ArrowRight className="h-4 w-4" /></Link>
+                <Link to="/renta-contenedores-cdmx/" className="font-bold text-brand-orange inline-flex items-center gap-2 hover:gap-3 transition-all">RENTA <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </div>
             <div className="relative">
@@ -301,7 +301,7 @@ const OficinasMovilesCDMX: React.FC = () => {
               "Un contenedor utilizado únicamente para almacenamiento resuelve una necesidad de resguardo. Una oficina móvil requiere configuración adicional para permitir una función de trabajo."
             </p>
             <Link
-              to="/proyectos-realizados-contenedores-modulares#oficinas"
+              to="/proyectos-realizados-contenedores-modulares/#oficinas"
               className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-brand-petroleum underline decoration-brand-orange decoration-2 underline-offset-4 hover:text-brand-orange transition-colors"
             >
               Ver oficinas en contenedor ya construidas <ArrowRight className="h-4 w-4" />

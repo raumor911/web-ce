@@ -3,7 +3,7 @@
 Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.
 
 ## Hub canónico
-/contenedores-nuevos-one-trip-cdmx
+/contenedores-nuevos-one-trip-cdmx/
 
 ## Oferta soportada
 
@@ -24,37 +24,37 @@ Suministro bajo cotización de contenedores One Trip para proyectos donde la con
 
 ### Compra de contenedor One Trip
 - Etapa: transactional
-- Ruta: /contenedores-nuevos-one-trip-cdmx
+- Ruta: /contenedores-nuevos-one-trip-cdmx/
 - Objetivo: Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial
 - Necesidad: Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible
 
 ### Compra de contenedor 20 FT One Trip
 - Etapa: transactional
-- Ruta: /contenedor-one-trip-20-pies-cdmx
+- Ruta: /contenedor-one-trip-20-pies-cdmx/
 - Objetivo: Comprar un 20 FT Standard One Trip
 - Necesidad: Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración
 
 ### Compra de contenedor 40 FT High Cube One Trip
 - Etapa: transactional
-- Ruta: /contenedor-one-trip-40-high-cube-cdmx
+- Ruta: /contenedor-one-trip-40-high-cube-cdmx/
 - Objetivo: Comprar un 40 FT High Cube One Trip
 - Necesidad: Unidad High Cube de mínimo uso y mayor capacidad
 
 ### One Trip para proyecto arquitectónico
 - Etapa: comparison
-- Ruta: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx
+- Ruta: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/
 - Objetivo: Seleccionar una base física adecuada para intervención arquitectónica
 - Necesidad: Unidad con menor desgaste acumulado y condición superficial más predecible
 
 ### One Trip para proyecto educativo
 - Etapa: comparison
-- Ruta: /contenedores-one-trip-para-escuelas-cdmx
+- Ruta: /contenedores-one-trip-para-escuelas-cdmx/
 - Objetivo: Seleccionar una base física adecuada para un espacio educativo
 - Necesidad: Unidad visible y de mínimo uso para acondicionamiento posterior
 
 ### One Trip para proyecto corporativo
 - Etapa: comparison
-- Ruta: /contenedores-one-trip-para-proyectos-corporativos-cdmx
+- Ruta: /contenedores-one-trip-para-proyectos-corporativos-cdmx/
 - Objetivo: Seleccionar una base física alineada con presentación y uso corporativo
 - Necesidad: Unidad de mínimo uso para proyecto visible y acondicionamiento posterior
 
