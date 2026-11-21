@@ -16,7 +16,8 @@
     "generate:ai": "echo 'LEGACY GENERATOR DISABLED. Use compile:knowledge instead.' && exit 1",
     "validate:ai": "grep -rE '\\[VALIDAR|TODO|TBD|example.com|correo@ejemplo|0000000000' public/ai public/*.txt || echo 'Validation passed'",
     "verify:dist": "node scripts/verify-dist.mjs",
-    "test:verify-dist": "node --test scripts/verify-dist.test.mjs"
+    "test:verify-dist": "node --test scripts/verify-dist.test.mjs",
+    "test:robots": "node --test scripts/robots.test.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

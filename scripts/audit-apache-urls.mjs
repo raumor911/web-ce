@@ -111,7 +111,14 @@ async function main() {
     process.exitCode = 2; return;
   }
   const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/config/routes.json'), 'utf8'));
-  const sitemap = fs.readFileSync(path.join(ROOT, 'public/sitemap.xml'), 'utf8');
+  let sitemap = fs.readFileSync(path.join(ROOT, 'public/sitemap.xml'), 'utf8');
+  // sitemap.xml ya no lista artículos: tomar uno de dist/blog para el caso de blog.
+  if (!/<loc>\s*[^<]*\/blog\//i.test(sitemap)) {
+    const blogDir = path.join(ROOT, 'dist/blog');
+    const slug = fs.existsSync(blogDir) && fs.readdirSync(blogDir, { withFileTypes: true })
+      .find(d => d.isDirectory() && fs.existsSync(path.join(blogDir, d.name, 'index.html')))?.name;
+    if (slug) sitemap += '<loc>' + ORIGIN + '/blog/' + slug + '</loc>';
+  }
   const cases = buildCases(config, sitemap, args.includes('--full'));
   const results = [];
   for (const item of cases) {
