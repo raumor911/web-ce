@@ -121,7 +121,7 @@ const CompraContenedoresCDMX: React.FC = () => {
             Contenedores de 20 y 40 pies para almacenamiento, obra, operación empresarial y proyectos que requieren espacio adicional.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto" className="btn-primary">Solicitar información</a>
+            <a href="/contacto/" className="btn-primary">Solicitar información</a>
             <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
@@ -170,11 +170,11 @@ const CompraContenedoresCDMX: React.FC = () => {
               </p>
             </div>
             <div className="space-y-4">
-              <a href="/soluciones/oficinas" className="flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group/link">
+              <a href="/soluciones/oficinas/" className="flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group/link">
                 <span className="text-xs font-bold uppercase tracking-widest">Ver Oficinas</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1.5" />
               </a>
-              <a href="/proyectos" className="flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group/link">
+              <a href="/proyectos/" className="flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group/link">
                 <span className="text-xs font-bold uppercase tracking-widest">Proyectos Especiales</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1.5" />
               </a>
@@ -197,7 +197,7 @@ const CompraContenedoresCDMX: React.FC = () => {
               </p>
             </div>
             <a
-              href="/contenedores-nuevos-one-trip-cdmx"
+              href="/contenedores-nuevos-one-trip-cdmx/"
               className="btn-primary whitespace-nowrap"
             >
               Ver contenedores One Trip
@@ -243,7 +243,7 @@ const CompraContenedoresCDMX: React.FC = () => {
             <p className="text-lg md:text-xl text-brand-graphite leading-relaxed mb-10 font-sans">
               Creativos Espacios opera desde su centro operativo en {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}. Desde este punto coordinamos proyectos de compra, acondicionamiento y logística de contenedores para empresas y proyectos en la {location?.name || 'Ciudad de México'} y zona metropolitana.
             </p>
-            <a href="/contacto" className="btn-secondary uppercase tracking-widest text-xs font-bold">Contactar con un asesor</a>
+            <a href="/contacto/" className="btn-secondary uppercase tracking-widest text-xs font-bold">Contactar con un asesor</a>
           </div>
         </div>
       </section>
@@ -270,7 +270,7 @@ const CompraContenedoresCDMX: React.FC = () => {
               <MessageSquare className="w-5 h-5 text-brand-petroleum" />
               Solicitar Cotización por WhatsApp
             </button>
-            <a href="/contacto" className="btn-secondary border-white/20 text-white hover:bg-white/10">
+            <a href="/contacto/" className="btn-secondary border-white/20 text-white hover:bg-white/10">
               Formulario de Contacto
             </a>
           </div>

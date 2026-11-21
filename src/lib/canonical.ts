@@ -1,4 +1,4 @@
-import { CANONICAL_ORIGIN, canonicalUrl } from './canonicalUrl.mjs';
+import { CANONICAL_ORIGIN, canonicalPath, canonicalUrl } from './canonicalUrl.mjs';
 
 export const CANONICAL_DOMAIN = CANONICAL_ORIGIN;
 
@@ -8,6 +8,11 @@ export const WEBSITE_ID = `${CANONICAL_DOMAIN}/#website`;
 /** URL canónica: ruta de página con barra final; archivos con extensión sin barra. */
 export function getCanonicalUrl(path: string): string {
   return canonicalUrl(path);
+}
+
+/** Ruta canónica (sin dominio) para enlaces internos: páginas con barra final. */
+export function getCanonicalPath(path: string): string {
+  return canonicalPath(path);
 }
 
 export function getWebPageId(path: string): string {

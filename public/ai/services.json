@@ -5,7 +5,7 @@
     "category": "Infraestructura modular",
     "description": "Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes.",
     "transactionType": "sale",
-    "canonicalPath": "/soluciones/venta-renta",
+    "canonicalPath": "/soluciones/venta-renta/",
     "availability": "subject-to-confirmation",
     "requiresAssessment": true,
     "productIds": [
@@ -38,7 +38,7 @@
     "category": "Infraestructura modular",
     "description": "Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos.",
     "transactionType": "rental",
-    "canonicalPath": "/soluciones/venta-renta",
+    "canonicalPath": "/soluciones/venta-renta/",
     "availability": "subject-to-confirmation",
     "requiresAssessment": true,
     "productIds": [
@@ -71,7 +71,7 @@
     "category": "Infraestructura modular",
     "description": "Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta.",
     "transactionType": "sale-or-rental",
-    "canonicalPath": "/soluciones/oficinas",
+    "canonicalPath": "/soluciones/oficinas/",
     "availability": "subject-to-confirmation",
     "requiresAssessment": true,
     "configurationIds": [
@@ -104,7 +104,7 @@
     "category": "Infraestructura modular",
     "description": "Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente.",
     "transactionType": "custom-project",
-    "canonicalPath": "/proyectos",
+    "canonicalPath": "/proyectos/",
     "availability": "subject-to-confirmation",
     "requiresAssessment": true,
     "useCaseIds": [

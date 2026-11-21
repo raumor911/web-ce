@@ -41,9 +41,9 @@ const ContenedoresOneTripEscuelasCDMX: React.FC = () => (
       finalTitle: '¿Su institución necesita una base One Trip para un nuevo espacio?',
       finalText: 'Comparta el uso previsto y la ubicación del proyecto. CE podrá orientar el formato y confirmar condiciones de suministro.',
       relatedLinks: [
-        { title: '20 FT Standard One Trip', text: 'Formato compacto para funciones de menor huella.', href: '/contenedor-one-trip-20-pies-cdmx' },
-        { title: '40 FT High Cube One Trip', text: 'Mayor volumen y altura interior para proyectos de mayor escala.', href: '/contenedor-one-trip-40-high-cube-cdmx' },
-        { title: 'Proyectos arquitectónicos', text: 'Vea la lógica de selección cuando la unidad forma parte del diseño.', href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx' }
+        { title: '20 FT Standard One Trip', text: 'Formato compacto para funciones de menor huella.', href: '/contenedor-one-trip-20-pies-cdmx/' },
+        { title: '40 FT High Cube One Trip', text: 'Mayor volumen y altura interior para proyectos de mayor escala.', href: '/contenedor-one-trip-40-high-cube-cdmx/' },
+        { title: 'Proyectos arquitectónicos', text: 'Vea la lógica de selección cuando la unidad forma parte del diseño.', href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/' }
       ]
     }}
   />

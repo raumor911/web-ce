@@ -56,8 +56,8 @@ interface Props {
 }
 
 const productDetailPath: Record<string, string> = {
-  'product:container-20ft': '/contenedor-one-trip-20-pies-cdmx',
-  'product:container-40hc': '/contenedor-one-trip-40-high-cube-cdmx'
+  'product:container-20ft': '/contenedor-one-trip-20-pies-cdmx/',
+  'product:container-40hc': '/contenedor-one-trip-40-high-cube-cdmx/'
 };
 
 export const OneTripIntentLanding: React.FC<Props> = ({ config }) => {
@@ -185,7 +185,7 @@ export const OneTripIntentLanding: React.FC<Props> = ({ config }) => {
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-col sm:flex-row gap-4">
             <button onClick={openPrimaryQuote} className="btn-primary">Solicitar cotización</button>
-            <Link to="/contenedores-nuevos-one-trip-cdmx" className="btn-secondary border-white/20 text-white hover:bg-white/10">
+            <Link to="/contenedores-nuevos-one-trip-cdmx/" className="btn-secondary border-white/20 text-white hover:bg-white/10">
               Ver oferta One Trip
             </Link>
           </motion.div>

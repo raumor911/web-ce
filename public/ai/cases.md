@@ -1,6 +1,6 @@
 # Proyectos realizados: ruta documental de casos
 
-Página canónica: /proyectos-realizados-contenedores-modulares
+Página canónica: /proyectos-realizados-contenedores-modulares/
 
 Cada caso separa tres niveles: **documentado** en el material de origen, **visible** en las fotografías (observación, no especificación técnica) y **no confirmado**. Los datos no confirmados no deben inferirse.
 

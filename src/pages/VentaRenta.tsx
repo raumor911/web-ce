@@ -167,7 +167,7 @@ const VentaRenta: React.FC = () => {
             </p>
           </div>
           <a
-            href="/contenedores-nuevos-one-trip-cdmx"
+            href="/contenedores-nuevos-one-trip-cdmx/"
             className="btn-primary whitespace-nowrap"
           >
             Ver contenedores One Trip
@@ -182,10 +182,10 @@ const VentaRenta: React.FC = () => {
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
-            <a href="/renta-contenedores-cdmx" className="btn-primary uppercase tracking-widest text-xs font-bold px-10">
+            <a href="/renta-contenedores-cdmx/" className="btn-primary uppercase tracking-widest text-xs font-bold px-10">
               Ver opciones de renta
             </a>
-            <a href="/compra-contenedores-cdmx" className="btn-secondary uppercase tracking-widest text-xs font-bold px-10">
+            <a href="/compra-contenedores-cdmx/" className="btn-secondary uppercase tracking-widest text-xs font-bold px-10">
               Detalles de venta
             </a>
           </div>
@@ -232,10 +232,10 @@ const VentaRenta: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Almacenamiento", path: "/contenedores-para-almacenamiento-cdmx", desc: "Resguardo seguro de materiales y equipo." },
-              { title: "Bodega Temporal", path: "/contenedores-para-bodega-cdmx", desc: "Espacio adicional cerca de su operación." },
-              { title: "Apoyo en Obra", path: "/contenedores-para-obra-cdmx", desc: "Infraestructura operativa en sitio." },
-              { title: "Oficina Móvil", path: "/oficinas-moviles-cdmx", desc: "Espacios de trabajo reubicables." }
+              { title: "Almacenamiento", path: "/contenedores-para-almacenamiento-cdmx/", desc: "Resguardo seguro de materiales y equipo." },
+              { title: "Bodega Temporal", path: "/contenedores-para-bodega-cdmx/", desc: "Espacio adicional cerca de su operación." },
+              { title: "Apoyo en Obra", path: "/contenedores-para-obra-cdmx/", desc: "Infraestructura operativa en sitio." },
+              { title: "Oficina Móvil", path: "/oficinas-moviles-cdmx/", desc: "Espacios de trabajo reubicables." }
             ].map((useCase) => (
               <a 
                 key={useCase.path}

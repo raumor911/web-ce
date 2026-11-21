@@ -2,7 +2,7 @@
   "id": "commercial:one-trip-sale",
   "name": "Venta de Contenedores One Trip",
   "description": "Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.",
-  "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+  "canonicalPath": "/contenedores-nuevos-one-trip-cdmx/",
   "condition": "one-trip",
   "transactionType": "sale",
   "supportedProducts": [
@@ -50,7 +50,7 @@
     {
       "id": "intent:container-one-trip-sale",
       "name": "Compra de contenedor One Trip",
-      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx/",
       "transactionStage": "transactional",
       "goal": "Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial",
       "need": "Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible",
@@ -64,7 +64,7 @@
     {
       "id": "intent:container-one-trip-20ft",
       "name": "Compra de contenedor 20 FT One Trip",
-      "canonicalPath": "/contenedor-one-trip-20-pies-cdmx",
+      "canonicalPath": "/contenedor-one-trip-20-pies-cdmx/",
       "transactionStage": "transactional",
       "goal": "Comprar un 20 FT Standard One Trip",
       "need": "Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración",
@@ -78,7 +78,7 @@
     {
       "id": "intent:container-one-trip-40hc",
       "name": "Compra de contenedor 40 FT High Cube One Trip",
-      "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx",
+      "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx/",
       "transactionStage": "transactional",
       "goal": "Comprar un 40 FT High Cube One Trip",
       "need": "Unidad High Cube de mínimo uso y mayor capacidad",
@@ -92,7 +92,7 @@
     {
       "id": "intent:container-one-trip-architecture",
       "name": "One Trip para proyecto arquitectónico",
-      "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx",
+      "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/",
       "transactionStage": "comparison",
       "goal": "Seleccionar una base física adecuada para intervención arquitectónica",
       "need": "Unidad con menor desgaste acumulado y condición superficial más predecible",
@@ -106,7 +106,7 @@
     {
       "id": "intent:container-one-trip-education",
       "name": "One Trip para proyecto educativo",
-      "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx",
+      "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx/",
       "transactionStage": "comparison",
       "goal": "Seleccionar una base física adecuada para un espacio educativo",
       "need": "Unidad visible y de mínimo uso para acondicionamiento posterior",
@@ -120,7 +120,7 @@
     {
       "id": "intent:container-one-trip-corporate",
       "name": "One Trip para proyecto corporativo",
-      "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx",
+      "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx/",
       "transactionStage": "comparison",
       "goal": "Seleccionar una base física alineada con presentación y uso corporativo",
       "need": "Unidad de mínimo uso para proyecto visible y acondicionamiento posterior",

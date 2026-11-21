@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { canonicalPath, canonicalUrl, CANONICAL_ORIGIN } from '../../../src/lib/canonicalUrl.mjs';
 
 export function generateJSONLD(knowledge, outDir) {
   const schemaDir = path.join(outDir, 'ai', 'schema');
@@ -18,7 +19,7 @@ export function generateJSONLD(knowledge, outDir) {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "@id": `https://creativosespacios.mx${s.canonicalPath}#${s.id.split(':')[1]}`,
+        "@id": `${canonicalUrl(s.canonicalPath)}#${s.id.split(':')[1]}`,
         "name": s.name,
         "description": s.description
       }
@@ -32,7 +33,7 @@ export function generateJSONLD(knowledge, outDir) {
     "name": org.name,
     "legalName": org.legalName,
     "description": org.description,
-    "url": org.canonicalUrl,
+    "url": canonicalUrl("/"),
     "telephone": org.contact.telephone,
     "email": org.contact.email,
     "address": {
@@ -49,7 +50,7 @@ export function generateJSONLD(knowledge, outDir) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": websiteId,
-    "url": org.canonicalUrl,
+    "url": canonicalUrl("/"),
     "name": org.name,
     "publisher": { "@id": orgId },
     "inLanguage": org.language

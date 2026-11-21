@@ -1,4 +1,4 @@
-import { getCanonicalUrl } from '../lib/canonical';
+import { getCanonicalPath, getCanonicalUrl } from '../lib/canonical';
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -168,7 +168,7 @@ const BlogPost: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
           <p className="text-slate-600 mb-6">{error || 'Artículo no encontrado'}</p>
-          <Link to="/blog" className="text-orange-500 font-bold hover:underline flex items-center justify-center gap-2">
+          <Link to="/blog/" className="text-orange-500 font-bold hover:underline flex items-center justify-center gap-2">
             <ArrowLeft className="w-4 h-4" /> Volver al blog
           </Link>
         </div>
@@ -197,7 +197,7 @@ const BlogPost: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <Link 
-              to="/blog" 
+              to="/blog/" 
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-orange-500 transition-colors mb-8 group"
             >
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
@@ -271,7 +271,7 @@ const BlogPost: React.FC = () => {
               {postTags.map((t) => (
                 <Link
                   key={t.id}
-                  to={`/blog?tag=${t.slug}`}
+                  to={`${getCanonicalPath('/blog')}?tag=${t.slug}`}
                   className="px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest border border-slate-200 text-slate-600 hover:border-orange-500 hover:text-orange-500 transition-colors"
                   dangerouslySetInnerHTML={{ __html: t.name }}
                 />
@@ -330,7 +330,7 @@ const BlogPost: React.FC = () => {
             </div>
             
             <Link 
-              to="/contacto"
+              to="/contacto/"
               className="text-xs font-bold text-slate-900 hover:text-orange-500 transition-colors uppercase tracking-[0.2em] flex items-center gap-3 group"
             >
               Consultar sobre este tema

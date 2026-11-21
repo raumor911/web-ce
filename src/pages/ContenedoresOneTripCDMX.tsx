@@ -112,19 +112,19 @@ const ContenedoresOneTripCDMX: React.FC = () => {
       icon: Landmark,
       title: 'Proyectos arquitectónicos',
       text: 'Para proyectos donde el contenedor será intervenido, integrado al diseño o permanecerá visible como parte de la solución.',
-      href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx'
+      href: '/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/'
     },
     {
       icon: GraduationCap,
       title: 'Proyectos educativos',
       text: 'Para aulas, módulos administrativos, espacios de atención y ampliaciones donde también importa la presentación del espacio.',
-      href: '/contenedores-one-trip-para-escuelas-cdmx'
+      href: '/contenedores-one-trip-para-escuelas-cdmx/'
     },
     {
       icon: Building2,
       title: 'Proyectos corporativos',
       text: 'Para oficinas, recepciones, showrooms, centros de ventas y espacios de representación.',
-      href: '/contenedores-one-trip-para-proyectos-corporativos-cdmx'
+      href: '/contenedores-one-trip-para-proyectos-corporativos-cdmx/'
     },
     {
       icon: ShoppingBag,
@@ -277,8 +277,8 @@ const ContenedoresOneTripCDMX: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <Link
                       to={offer.product.id === 'product:container-20ft'
-                        ? '/contenedor-one-trip-20-pies-cdmx'
-                        : '/contenedor-one-trip-40-high-cube-cdmx'}
+                        ? '/contenedor-one-trip-20-pies-cdmx/'
+                        : '/contenedor-one-trip-40-high-cube-cdmx/'}
                       className="btn-secondary text-center"
                     >
                       Ver detalle
@@ -347,8 +347,8 @@ const ContenedoresOneTripCDMX: React.FC = () => {
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link to="/compra-contenedores-cdmx" className="btn-primary">Ver contenedores usados en venta</Link>
-            <Link to="/renta-contenedores-cdmx" className="btn-secondary border-white/20 text-white hover:bg-white/10">Ver contenedores en renta</Link>
+            <Link to="/compra-contenedores-cdmx/" className="btn-primary">Ver contenedores usados en venta</Link>
+            <Link to="/renta-contenedores-cdmx/" className="btn-secondary border-white/20 text-white hover:bg-white/10">Ver contenedores en renta</Link>
           </div>
         </div>
       </section>

@@ -259,13 +259,13 @@ const Proyectos: React.FC = () => {
               Analizamos el uso, las condiciones del sitio y los requerimientos técnicos de cada proyecto. A partir de esta información, definimos la configuración, los servicios y las adecuaciones necesarias para entregar una solución preparada para su instalación y puesta en operación.
             </p>
             <div className="mb-12 flex flex-wrap gap-x-8 gap-y-4">
-              <Link to="/oficina-para-supervision-de-obra-cdmx" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
+              <Link to="/oficina-para-supervision-de-obra-cdmx/" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
                 SOLUCIÓN PARA SUPERVISIÓN DE OBRA <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/contenedores-para-data-center-cdmx" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
+              <Link to="/contenedores-para-data-center-cdmx/" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
                 SOLUCIÓN DATA CENTER <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/proveedor-de-contenedores-cdmx" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
+              <Link to="/proveedor-de-contenedores-cdmx/" className="text-brand-orange font-bold text-xs md:text-sm tracking-[0.2em] uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">
                 SOLUCIONES PARA EMPRESAS <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -289,7 +289,7 @@ const Proyectos: React.FC = () => {
             ¿Prefieres ver cómo lucen estos espacios ya terminados? Revisa las fotografías de oficinas, un laboratorio, un aula móvil y una edificación construida con contenedores.
           </p>
           <Link
-            to="/proyectos-realizados-contenedores-modulares"
+            to="/proyectos-realizados-contenedores-modulares/"
             className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-brand-petroleum underline decoration-brand-orange decoration-2 underline-offset-4 hover:text-brand-orange transition-colors"
           >
             Ver proyectos realizados <ArrowRight className="h-4 w-4" />

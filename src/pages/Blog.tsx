@@ -1,4 +1,4 @@
-import { getCanonicalUrl } from '../lib/canonical';
+import { getCanonicalPath, getCanonicalUrl } from '../lib/canonical';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -289,7 +289,7 @@ const Blog: React.FC = () => {
                 transition={{ duration: 0.6, delay: (index % PAGE_SIZE % 3) * 0.1 }}
                 className="group"
               >
-                <Link to={`/blog/${post.slug}`} className="block">
+                <Link to={getCanonicalPath(`/blog/${post.slug}`)} className="block">
                   <div className="aspect-video mb-8 overflow-hidden rounded-md bg-slate-100 relative">
                     {post._embedded?.['wp:featuredmedia']?.[0]?.source_url ? (
                       <img 

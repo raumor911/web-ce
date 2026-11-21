@@ -282,7 +282,7 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
               <p className="mb-8 text-sm text-slate-600 font-sans leading-relaxed">
                 Para empresas que necesitan incorporar el espacio a su infraestructura o reutilizarlo posteriormente.
               </p>
-              <Link to="/compra-contenedores-cdmx" className="btn-primary w-full text-[10px] tracking-widest">
+              <Link to="/compra-contenedores-cdmx/" className="btn-primary w-full text-[10px] tracking-widest">
                 CONSULTAR COMPRA
               </Link>
             </div>
@@ -292,7 +292,7 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
               <p className="mb-8 text-sm text-slate-600 font-sans leading-relaxed">
                 Para necesidades temporales asociadas a la duración de una obra o proyecto.
               </p>
-              <Link to="/renta-contenedores-cdmx" className="btn-primary w-full text-[10px] tracking-widest">
+              <Link to="/renta-contenedores-cdmx/" className="btn-primary w-full text-[10px] tracking-widest">
                 CONSULTAR RENTA
               </Link>
             </div>
@@ -332,7 +332,7 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
             <p className="text-lg text-slate-700 font-sans leading-relaxed italic mb-8">
               "Una oficina móvil puede utilizarse en distintos contextos. Cuando se configura para supervisión de obra, el punto de partida deja de ser únicamente el contenedor y pasa a ser la forma en que el equipo necesita operar dentro del proyecto."
             </p>
-            <Link to="/oficinas-moviles-cdmx" className="text-brand-orange font-bold text-xs tracking-[0.2em] uppercase hover:underline">
+            <Link to="/oficinas-moviles-cdmx/" className="text-brand-orange font-bold text-xs tracking-[0.2em] uppercase hover:underline">
               CONOCER MÁS SOBRE OFICINAS MÓVILES
             </Link>
           </div>
@@ -406,11 +406,11 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
       <nav className="py-12 bg-brand-white border-t border-slate-100">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-[10px] font-bold tracking-widest uppercase text-slate-400">
-            <Link to="/proyectos" className="hover:text-brand-orange transition-colors">PROYECTOS</Link>
-            <Link to="/soluciones/oficinas" className="hover:text-brand-orange transition-colors">OFICINAS</Link>
-            <Link to="/oficinas-moviles-cdmx" className="hover:text-brand-orange transition-colors">OFICINAS MÓVILES</Link>
-            <Link to="/compra-contenedores-cdmx" className="hover:text-brand-orange transition-colors">COMPRA</Link>
-            <Link to="/renta-contenedores-cdmx" className="hover:text-brand-orange transition-colors">RENTA</Link>
+            <Link to="/proyectos/" className="hover:text-brand-orange transition-colors">PROYECTOS</Link>
+            <Link to="/soluciones/oficinas/" className="hover:text-brand-orange transition-colors">OFICINAS</Link>
+            <Link to="/oficinas-moviles-cdmx/" className="hover:text-brand-orange transition-colors">OFICINAS MÓVILES</Link>
+            <Link to="/compra-contenedores-cdmx/" className="hover:text-brand-orange transition-colors">COMPRA</Link>
+            <Link to="/renta-contenedores-cdmx/" className="hover:text-brand-orange transition-colors">RENTA</Link>
           </div>
         </div>
       </nav>

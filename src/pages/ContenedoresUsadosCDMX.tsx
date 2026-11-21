@@ -121,7 +121,7 @@ const ContenedoresUsadosCDMX: React.FC = () => {
             Una alternativa para proyectos que necesitan capacidad de almacenamiento o infraestructura basada en contenedores sin requerir necesariamente una unidad nueva.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto" className="btn-primary">Consultar disponibilidad</a>
+            <a href="/contacto/" className="btn-primary">Consultar disponibilidad</a>
             <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
@@ -196,7 +196,7 @@ const ContenedoresUsadosCDMX: React.FC = () => {
                 </p>
               </div>
               <a 
-                href="/proyectos"
+                href="/proyectos/"
                 className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
               >
                 <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Proyectos</span>
@@ -248,7 +248,7 @@ const ContenedoresUsadosCDMX: React.FC = () => {
             El tamaño y la condición adecuada dependen de lo que necesitas almacenar, del sitio y de si el contenedor requerirá modificaciones posteriores.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="/contacto" className="btn-primary">Solicitar asesoría</a>
+            <a href="/contacto/" className="btn-primary">Solicitar asesoría</a>
             <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>

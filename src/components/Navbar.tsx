@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import logoCreativosEspacios from '../assets/images/logo-creativos-espacios.png';
 import { SemanticSelectors } from '../semantic/selectors';
+import { getCanonicalPath } from '../lib/canonical';
 
 type NavItem = {
   name: string;
@@ -18,10 +19,10 @@ const desktopSolutionsId = 'desktop-solutions-menu';
 
 const navItems: NavItem[] = [
   { name: 'Inicio', href: '/' },
-  { name: 'Proyectos', href: '/proyectos' },
-  { name: 'Nuestra Empresa', href: '/nosotros' },
-  { name: 'Contacto', href: '/contacto' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'Proyectos', href: '/proyectos/' },
+  { name: 'Nuestra Empresa', href: '/nosotros/' },
+  { name: 'Contacto', href: '/contacto/' },
+  { name: 'Blog', href: '/blog/' },
 ];
 
 const isSolutionsRoute = (pathname: string) => pathname.startsWith('/soluciones');
@@ -35,17 +36,17 @@ export const Navbar: React.FC = () => {
   const solutions: SolutionItem[] = [
     {
       name: 'Venta y renta de contenedores',
-      href: serviceSale?.canonicalPath || '/soluciones/venta-renta',
+      href: getCanonicalPath(serviceSale?.canonicalPath || '/soluciones/venta-renta'),
       description: serviceSale?.description || 'Disponibilidad para almacenamiento, operación y proyectos temporales.',
     },
     {
       name: 'Oficinas reubicables',
-      href: serviceOffices?.canonicalPath || '/soluciones/oficinas',
+      href: getCanonicalPath(serviceOffices?.canonicalPath || '/soluciones/oficinas'),
       description: serviceOffices?.description || 'Espacios para supervisión, administración y ampliaciones operativas.',
     },
     {
       name: 'Proyectos modulares',
-      href: serviceProjects?.canonicalPath || '/proyectos',
+      href: getCanonicalPath(serviceProjects?.canonicalPath || '/proyectos'),
       description: serviceProjects?.description || 'Soluciones adaptadas a requerimientos técnicos y funcionales.',
     },
   ];
@@ -321,7 +322,7 @@ export const Navbar: React.FC = () => {
                   >
                     <div className="overflow-hidden rounded-md border border-[rgba(15,23,42,0.08)] bg-white p-2 shadow-[0_12px_24px_rgba(15,23,42,0.08)]">
                       {solutions.map((item, index) => {
-                        const isActive = location.pathname === item.href;
+                        const isActive = getCanonicalPath(location.pathname) === getCanonicalPath(item.href);
 
                         return (
                           <Link
@@ -351,7 +352,7 @@ export const Navbar: React.FC = () => {
                 </li>
 
                 {navItems.slice(1).map((item) => {
-                  const isActive = location.pathname === item.href;
+                  const isActive = getCanonicalPath(location.pathname) === getCanonicalPath(item.href);
 
                   return (
                     <li key={item.href} className="h-full">
@@ -460,7 +461,7 @@ export const Navbar: React.FC = () => {
                   <div className="min-h-0">
                     <div className="space-y-2 rounded-md bg-brand-gray/35 p-2">
                       {solutions.map((item) => {
-                        const isActive = location.pathname === item.href;
+                        const isActive = getCanonicalPath(location.pathname) === getCanonicalPath(item.href);
 
                         return (
                           <Link
@@ -484,7 +485,7 @@ export const Navbar: React.FC = () => {
               </div>
 
               {navItems.slice(1).map((item) => {
-                const isActive = location.pathname === item.href;
+                const isActive = getCanonicalPath(location.pathname) === getCanonicalPath(item.href);
 
                 return (
                   <Link

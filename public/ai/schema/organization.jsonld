@@ -5,7 +5,7 @@
   "name": "Creativos Espacios",
   "legalName": "Creativos Espacios",
   "description": "Creativos Espacios desarrolla infraestructura modular para empresas, industria y proyectos que requieren incorporar capacidad operativa sin depender de la construcción tradicional. Desde la venta y renta de contenedores hasta la habilitación de oficinas reubicables y proyectos modulares.",
-  "url": "https://creativosespacios.mx",
+  "url": "https://creativosespacios.mx/",
   "telephone": "55 5426 9941",
   "email": "ventas@creativosespacios.mx",
   "address": {
@@ -29,7 +29,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://creativosespacios.mx/soluciones/venta-renta#container-sale",
+          "@id": "https://creativosespacios.mx/soluciones/venta-renta/#container-sale",
           "name": "Venta de contenedores",
           "description": "Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes."
         }
@@ -38,7 +38,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://creativosespacios.mx/soluciones/venta-renta#container-rental",
+          "@id": "https://creativosespacios.mx/soluciones/venta-renta/#container-rental",
           "name": "Renta de contenedores",
           "description": "Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos."
         }
@@ -47,7 +47,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://creativosespacios.mx/soluciones/oficinas#relocatable-offices",
+          "@id": "https://creativosespacios.mx/soluciones/oficinas/#relocatable-offices",
           "name": "Oficinas reubicables",
           "description": "Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta."
         }
@@ -56,7 +56,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://creativosespacios.mx/proyectos#modular-projects",
+          "@id": "https://creativosespacios.mx/proyectos/#modular-projects",
           "name": "Proyectos modulares",
           "description": "Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente."
         }

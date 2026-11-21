@@ -224,10 +224,10 @@ const ContenedoresAlmacenamientoCDMX: React.FC = () => {
                 </div>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Link to="/compra-contenedores-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
+                <Link to="/compra-contenedores-cdmx/" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all">
                   COMPRA DE CONTENEDORES <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link to="/renta-contenedores-cdmx" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all ml-8">
+                <Link to="/renta-contenedores-cdmx/" className="inline-flex items-center gap-2 text-brand-orange font-bold hover:gap-3 transition-all ml-8">
                   RENTA DE CONTENEDORES <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -287,7 +287,7 @@ const ContenedoresAlmacenamientoCDMX: React.FC = () => {
                 </p>
               </div>
               <Link 
-                to="/renta-contenedores-cdmx"
+                to="/renta-contenedores-cdmx/"
                 className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
               >
                 <span className="text-xs font-bold uppercase tracking-widest text-white">Ver Renta</span>

@@ -1,8 +1,8 @@
 {
   "name": "Creativos Espacios Knowledge Graph",
   "version": "2.1.0",
-  "knowledgeFingerprint": "eb451c2758545c3545f65bc84bbf8227811e52df20fb3f5b3dbd1c5b03a543cb",
-  "generatedAt": "2026-11-21T08:17:07.377Z",
+  "knowledgeFingerprint": "240eab6887564277cfd3f32d39275ea512526d7873df60f4d945880a91106c6a",
+  "generatedAt": "2026-11-21T08:42:54.601Z",
   "nodes": [
     {
       "id": "org:creativos-espacios",
@@ -141,7 +141,7 @@
       "category": "Infraestructura modular",
       "description": "Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes.",
       "transactionType": "sale",
-      "canonicalPath": "/soluciones/venta-renta",
+      "canonicalPath": "/soluciones/venta-renta/",
       "availability": "subject-to-confirmation",
       "requiresAssessment": true,
       "productIds": [
@@ -175,7 +175,7 @@
       "category": "Infraestructura modular",
       "description": "Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos.",
       "transactionType": "rental",
-      "canonicalPath": "/soluciones/venta-renta",
+      "canonicalPath": "/soluciones/venta-renta/",
       "availability": "subject-to-confirmation",
       "requiresAssessment": true,
       "productIds": [
@@ -209,7 +209,7 @@
       "category": "Infraestructura modular",
       "description": "Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta.",
       "transactionType": "sale-or-rental",
-      "canonicalPath": "/soluciones/oficinas",
+      "canonicalPath": "/soluciones/oficinas/",
       "availability": "subject-to-confirmation",
       "requiresAssessment": true,
       "configurationIds": [
@@ -243,7 +243,7 @@
       "category": "Infraestructura modular",
       "description": "Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente.",
       "transactionType": "custom-project",
-      "canonicalPath": "/proyectos",
+      "canonicalPath": "/proyectos/",
       "availability": "subject-to-confirmation",
       "requiresAssessment": true,
       "useCaseIds": [
@@ -729,7 +729,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Construcción con contenedores",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "construccion",
       "documentedInSource": [
         "Nombre y ubicación del proyecto: MakerSpace, Santa Cruz Meyehualco."
@@ -768,7 +768,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Laboratorio en contenedor",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "laboratorio",
       "documentedInSource": [
         "Proyecto: laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático, UNAM."
@@ -804,7 +804,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Oficinas, contenedor 40′ DC",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "oficinas",
       "documentedInSource": [
         "Uso: oficinas para un proveedor de gas natural industrial.",
@@ -840,7 +840,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Oficinas, contenedor 20′ DC",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "oficinas",
       "documentedInSource": [
         "Dimensiones: contenedor de 20′ DC.",
@@ -877,7 +877,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Oficinas, tres contenedores 40′ HC usados",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "oficinas",
       "documentedInSource": [
         "Composición: unión de tres contenedores de 40′ HC usados.",
@@ -915,7 +915,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Oficinas, contenedor 20′ DC",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "oficinas",
       "documentedInSource": [
         "Dimensiones: contenedor de 20′ DC.",
@@ -950,7 +950,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Oficinas, contenedor 40′ HC",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "oficinas",
       "documentedInSource": [
         "Dimensiones: contenedor de 40′ HC.",
@@ -986,7 +986,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Oficinas, contenedor 40′ DC",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "oficinas",
       "documentedInSource": [
         "Dimensiones: contenedor de 40′ DC."
@@ -1022,7 +1022,7 @@
       "visibility": "public",
       "caseKind": "project",
       "category": "Centro de capacitación modular / móvil, contenedor 40′ DC",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "capacitacion",
       "documentedInSource": [
         "Uso: centro de capacitación modular / móvil.",
@@ -1059,7 +1059,7 @@
       "visibility": "public",
       "caseKind": "unassigned-reference",
       "category": "Interiores acondicionados",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "laboratorio",
       "documentedInSource": [],
       "visibleInPhotos": [
@@ -1091,7 +1091,7 @@
       "visibility": "public",
       "caseKind": "unassigned-reference",
       "category": "Acabados interiores",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "pageSection": "oficinas",
       "documentedInSource": [
         "Tablaroca, piso de azulejo, aislamiento térmico y clima integrado.",
@@ -2308,42 +2308,42 @@
       "id": "source:about",
       "type": "webpage",
       "name": "Nuestra Empresa",
-      "url": "https://creativosespacios.mx/nosotros",
+      "url": "https://creativosespacios.mx/nosotros/",
       "status": "canonical"
     },
     {
       "id": "source:solutions-renta",
       "type": "webpage",
       "name": "Venta y Renta de Contenedores",
-      "url": "https://creativosespacios.mx/soluciones/venta-renta",
+      "url": "https://creativosespacios.mx/soluciones/venta-renta/",
       "status": "canonical"
     },
     {
       "id": "source:solutions-oficinas",
       "type": "webpage",
       "name": "Oficinas Reubicables",
-      "url": "https://creativosespacios.mx/soluciones/oficinas",
+      "url": "https://creativosespacios.mx/soluciones/oficinas/",
       "status": "canonical"
     },
     {
       "id": "source:projects",
       "type": "webpage",
       "name": "Proyectos Modulares",
-      "url": "https://creativosespacios.mx/proyectos",
+      "url": "https://creativosespacios.mx/proyectos/",
       "status": "canonical"
     },
     {
       "id": "source:contact",
       "type": "webpage",
       "name": "Contacto",
-      "url": "https://creativosespacios.mx/contacto",
+      "url": "https://creativosespacios.mx/contacto/",
       "status": "canonical"
     },
     {
       "id": "source:proyectos-realizados",
       "type": "webpage",
       "name": "Proyectos realizados con contenedores adaptados",
-      "url": "https://creativosespacios.mx/proyectos-realizados-contenedores-modulares",
+      "url": "https://creativosespacios.mx/proyectos-realizados-contenedores-modulares/",
       "status": "canonical"
     },
     {
@@ -2411,7 +2411,7 @@
         "one-trip"
       ],
       "originType": "explicit",
-      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx/",
       "intentIds": [
         "intent:container-one-trip-sale",
         "intent:container-one-trip-20ft",
@@ -2606,7 +2606,7 @@
       ],
       "status": "published",
       "visibility": "public",
-      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx",
+      "canonicalPath": "/contenedores-nuevos-one-trip-cdmx/",
       "commercialPolicyIds": [
         "commercial:one-trip-sale"
       ]
@@ -2633,7 +2633,7 @@
       ],
       "status": "published",
       "visibility": "public",
-      "canonicalPath": "/contenedor-one-trip-20-pies-cdmx",
+      "canonicalPath": "/contenedor-one-trip-20-pies-cdmx/",
       "commercialPolicyIds": [
         "commercial:one-trip-sale"
       ]
@@ -2660,7 +2660,7 @@
       ],
       "status": "published",
       "visibility": "public",
-      "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx",
+      "canonicalPath": "/contenedor-one-trip-40-high-cube-cdmx/",
       "commercialPolicyIds": [
         "commercial:one-trip-sale"
       ]
@@ -2688,7 +2688,7 @@
       ],
       "status": "published",
       "visibility": "public",
-      "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx",
+      "canonicalPath": "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/",
       "commercialPolicyIds": [
         "commercial:one-trip-sale"
       ]
@@ -2716,7 +2716,7 @@
       ],
       "status": "published",
       "visibility": "public",
-      "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx",
+      "canonicalPath": "/contenedores-one-trip-para-escuelas-cdmx/",
       "commercialPolicyIds": [
         "commercial:one-trip-sale"
       ]
@@ -2744,7 +2744,7 @@
       ],
       "status": "published",
       "visibility": "public",
-      "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx",
+      "canonicalPath": "/contenedores-one-trip-para-proyectos-corporativos-cdmx/",
       "commercialPolicyIds": [
         "commercial:one-trip-sale"
       ]
@@ -2757,7 +2757,7 @@
       "goal": "Evaluar la capacidad de ejecución con ejemplos reales",
       "need": "Evidencia de casos de contenedores adaptados",
       "transactionStage": "comparison",
-      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares/",
       "useCaseIds": [
         "usecase:custom-infrastructure",
         "usecase:mobile-office",
