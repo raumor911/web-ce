@@ -40,5 +40,18 @@
     "url": "https://creativosespacios.mx/contacto",
     "name": "Contacto",
     "status": "canonical"
+  },
+  {
+    "id": "source:proyectos-realizados",
+    "type": "webpage",
+    "url": "https://creativosespacios.mx/proyectos-realizados-contenedores-modulares",
+    "name": "Proyectos realizados con contenedores adaptados",
+    "status": "canonical"
+  },
+  {
+    "id": "source:material-proyectos-ce",
+    "type": "internal-only",
+    "name": "Material fotográfico de proyectos de Creativos Espacios (documento de 23 páginas)",
+    "status": "internal"
   }
 ]

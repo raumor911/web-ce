@@ -309,5 +309,33 @@
     "commercialPolicyIds": [
       "commercial:one-trip-sale"
     ]
+  },
+  {
+    "id": "intent:see-completed-projects",
+    "name": "Ver proyectos realizados con contenedores",
+    "description": "Revisar evidencia fotográfica de proyectos reales con contenedores adaptados antes de decidir una cotización.",
+    "goal": "Evaluar la capacidad de ejecución con ejemplos reales",
+    "need": "Evidencia de casos de contenedores adaptados",
+    "transactionStage": "comparison",
+    "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+    "useCaseIds": [
+      "usecase:custom-infrastructure",
+      "usecase:mobile-office",
+      "usecase:specialized-operations"
+    ],
+    "serviceIds": [
+      "service:modular-projects",
+      "service:relocatable-offices"
+    ],
+    "exampleExpressions": [
+      "¿Tienen proyectos hechos con contenedores?",
+      "Quiero ver ejemplos de oficinas en contenedor",
+      "¿Han hecho laboratorios o aulas en contenedor?"
+    ],
+    "sourceIds": [
+      "source:proyectos-realizados"
+    ],
+    "status": "published",
+    "visibility": "public"
   }
 ]

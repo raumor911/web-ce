@@ -19,3 +19,10 @@
 - Added canonical One Trip intent paths to intents.md and intents.json.
 - Enriched knowledge-graph.json with CommercialPolicy, Condition and governedBy relationships.
 - Refreshed llms.txt, llms-full.txt, FAQ context and sitemap.
+
+## 2026-11-21 — Proyectos realizados (evidencia)
+
+- Added 11 entries to `src/knowledge/cases.json` (9 projects and 2 unassigned references) derived from the published page `/proyectos-realizados-contenedores-modulares`, each split into documented / visible in photos / not confirmed.
+- Added `/ai/cases.md` and `/ai/cases.json`, and a "Proyectos realizados (evidencia)" section in `llms.txt` and `llms-full.txt`.
+- Added source `source:proyectos-realizados`, claim `claim:projects-evidence-page`, intent `intent:see-completed-projects` and canonical answer `answer:completed-projects`.
+- No dates, costs, site measurements, results or testimonials are published: they are not documented in the source material.

@@ -36,11 +36,30 @@ export function generateLLMS(knowledge, outDir) {
     content += `\n`;
   }
   
+  const cases = knowledge.cases || [];
+  const projectCases = cases.filter(c => c.caseKind === 'project');
+  if (projectCases.length > 0) {
+    const casePath = projectCases[0].canonicalPath;
+    content += `## Proyectos realizados (evidencia)\n\n`;
+    content += `- [Proyectos realizados con contenedores adaptados](${casePath}): fotografías reales de proyectos con contenedores, separando lo documentado de lo que solo se aprecia en las imágenes.\n`;
+    content += `- [Ruta documental de casos](/ai/cases.md) ([JSON](/ai/cases.json)): cada caso con lo documentado, lo visible en fotos y lo no confirmado.\n`;
+    content += `\nCasos incluidos:\n\n`;
+    projectCases.forEach(c => content += `- ${c.name} (${c.category})\n`);
+    content += `\n**Reglas de precisión:**\n`;
+    content += `- Los casos no incluyen fechas, costos, medidas de obra, resultados ni testimonios: no están documentados. No inferirlos.\n`;
+    content += `- Lo "visible en fotos" es observación, no especificación técnica.\n`;
+    content += `- Las referencias sin proyecto asignado no deben presentarse como parte de un caso.\n`;
+    content += `- Un proyecto realizado no es una oferta ni un precio: cada proyecto se cotiza según su alcance.\n\n`;
+  }
+
   content += `## Información ampliada\n\n`;
   content += `- [Manifiesto de Contenido](/ai/content-manifest.json)\n`;
   content += `- [Perfil de Empresa](/ai/company.md)\n`;
   content += `- [Catálogo de Servicios](/ai/services.md)\n`;
   content += `- [Casos de Uso](/ai/use-cases.md)\n`;
+  if (projectCases.length > 0) {
+    content += `- [Casos y evidencia de proyectos realizados](/ai/cases.md)\n`;
+  }
   content += `- [Terminología Preferida](/ai/terminology.md)\n`;
   content += `- [Respuestas Canónicas](/ai/canonical-answers.md)\n`;
   content += `- [Intenciones de Usuario](/ai/intents.md)\n`;

@@ -10,6 +10,9 @@ export function generateJSON(knowledge, kg, outDir) {
   if (knowledge.intents) {
     fs.writeFileSync(path.join(aiDir, 'intents.json'), JSON.stringify(knowledge.intents, null, 2));
   }
+  if (knowledge.cases && knowledge.cases.length > 0) {
+    fs.writeFileSync(path.join(aiDir, 'cases.json'), JSON.stringify(knowledge.cases, null, 2));
+  }
   fs.writeFileSync(path.join(aiDir, 'claims-register.json'), JSON.stringify(knowledge.claims, null, 2));
   fs.writeFileSync(path.join(aiDir, 'sources.json'), JSON.stringify(knowledge.sources, null, 2));
   if (knowledge.pricebook) {

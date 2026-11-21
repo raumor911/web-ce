@@ -156,3 +156,16 @@ Buscar una unidad de mínimo uso para oficinas, recepciones, showrooms o módulo
 - "contenedor para centro de ventas"
 - "contenedor nuevo para recepción"
 
+## Ver proyectos realizados con contenedores
+- **Objetivo**: Evaluar la capacidad de ejecución con ejemplos reales
+- **Necesidad**: Evidencia de casos de contenedores adaptados
+- **Etapa**: comparison
+- **Ruta canónica**: /proyectos-realizados-contenedores-modulares
+
+Revisar evidencia fotográfica de proyectos reales con contenedores adaptados antes de decidir una cotización.
+
+### Ejemplos de expresiones
+- "¿Tienen proyectos hechos con contenedores?"
+- "Quiero ver ejemplos de oficinas en contenedor"
+- "¿Han hecho laboratorios o aulas en contenedor?"
+

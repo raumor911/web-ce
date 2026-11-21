@@ -1,8 +1,8 @@
 {
   "name": "Creativos Espacios Knowledge Graph",
   "version": "2.1.0",
-  "knowledgeFingerprint": "a55ee6deb7579bd707a161065eabec1006b29a69fb1ffb0b021b977888c670f1",
-  "generatedAt": "2026-11-20T22:17:29.988Z",
+  "knowledgeFingerprint": "474a2735663c8592566b8da6a8c762bd211397ee435ba6303b4237c5bcbce9a9",
+  "generatedAt": "2026-11-21T07:24:22.282Z",
   "nodes": [
     {
       "id": "org:creativos-espacios",
@@ -720,6 +720,399 @@
       "type": "regional",
       "name": "Estado de México",
       "countryCode": "MX"
+    },
+    {
+      "id": "case:makerspace-santa-cruz-meyehualco",
+      "type": "Case",
+      "name": "MakerSpace, Santa Cruz Meyehualco",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Construcción con contenedores",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "construccion",
+      "documentedInSource": [
+        "Nombre y ubicación del proyecto: MakerSpace, Santa Cruz Meyehualco."
+      ],
+      "visibleInPhotos": [
+        "Edificio de tres niveles con contenedores apilados",
+        "Estructura de acero y columnas",
+        "Aberturas para puertas y ventanas, barandales y escalera",
+        "Interiores en obra con instalaciones visibles"
+      ],
+      "notConfirmed": [
+        "Cliente o promotor",
+        "Número y tipo de contenedores",
+        "Dimensiones y superficie construida",
+        "Alcance de la obra",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 7,
+      "serviceIds": [
+        "service:modular-projects"
+      ],
+      "useCaseIds": [
+        "usecase:custom-infrastructure"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
+    },
+    {
+      "id": "case:laboratorio-icaycc-unam",
+      "type": "Case",
+      "name": "Laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático, UNAM",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Laboratorio en contenedor",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "laboratorio",
+      "documentedInSource": [
+        "Proyecto: laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático, UNAM."
+      ],
+      "visibleInPhotos": [
+        "Rotulación visible: Observatorio Mexicano del Clima y la Composición Atmosférica (OMECCA)",
+        "Traslado nocturno sobre plataforma con grúa"
+      ],
+      "notConfirmed": [
+        "Dimensiones del contenedor",
+        "Equipamiento científico",
+        "Alcance del contrato",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 1,
+      "serviceIds": [
+        "service:modular-projects"
+      ],
+      "useCaseIds": [
+        "usecase:specialized-operations"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
+    },
+    {
+      "id": "case:oficinas-proveedor-gas-natural-40dc",
+      "type": "Case",
+      "name": "Oficinas para un proveedor de gas natural industrial",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Oficinas, contenedor 40′ DC",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "oficinas",
+      "documentedInSource": [
+        "Uso: oficinas para un proveedor de gas natural industrial.",
+        "Dimensiones: contenedor 40′ DC.",
+        "Acabados: aislamiento térmico, piso vinílico y clima integrado."
+      ],
+      "visibleInPhotos": [
+        "Contenedor blanco con ventanas, puerta de acceso y plataforma con barandal, apoyado sobre bases"
+      ],
+      "notConfirmed": [
+        "Nombre del cliente",
+        "Ubicación",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 1,
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "useCaseIds": [
+        "usecase:mobile-office"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
+    },
+    {
+      "id": "case:oficina-20dc-azul",
+      "type": "Case",
+      "name": "Oficina compacta en contenedor azul de 20 pies",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Oficinas, contenedor 20′ DC",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "oficinas",
+      "documentedInSource": [
+        "Dimensiones: contenedor de 20′ DC.",
+        "Acabados: aislante térmico y plafón, piso vinílico SPC, instalación eléctrica y minisplit."
+      ],
+      "visibleInPhotos": [
+        "Rejas de diseño geométrico en puerta y ventanas",
+        "Superficies de trabajo continuas en ambos muros"
+      ],
+      "notConfirmed": [
+        "Cliente",
+        "Ubicación",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 4,
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "useCaseIds": [
+        "usecase:mobile-office"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ],
+      "groupingCertainty": "media (las fotos interiores de la pág. 12 se asocian por coincidencia visual de rejas, sin pie de foto que lo confirme)"
+    },
+    {
+      "id": "case:oficinas-tres-contenedores-40hc-usados",
+      "type": "Case",
+      "name": "Un solo espacio a partir de tres contenedores usados de 40′ HC",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Oficinas, tres contenedores 40′ HC usados",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "oficinas",
+      "documentedInSource": [
+        "Composición: unión de tres contenedores de 40′ HC usados.",
+        "Acabados: instalación eléctrica aparente."
+      ],
+      "visibleInPhotos": [
+        "Puerta corrediza de vidrio en el módulo central",
+        "Interiores en proceso con canalización eléctrica visible"
+      ],
+      "notConfirmed": [
+        "Cliente",
+        "Ubicación",
+        "Uso final del espacio",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 5,
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "useCaseIds": [
+        "usecase:mobile-office"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ],
+      "groupingCertainty": "media (las fotos de las págs. 14 y 15 se asocian por evidencia visual)"
+    },
+    {
+      "id": "case:oficina-20dc-exterior-gris",
+      "type": "Case",
+      "name": "Oficina de 20 pies con ventanas protegidas",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Oficinas, contenedor 20′ DC",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "oficinas",
+      "documentedInSource": [
+        "Dimensiones: contenedor de 20′ DC.",
+        "Uso: oficinas."
+      ],
+      "visibleInPhotos": [
+        "Contenedor en franjas blancas y grises con puerta de vidrio y dos ventanas con reja cuadriculada"
+      ],
+      "notConfirmed": [
+        "Cliente",
+        "Ubicación",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 1,
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "useCaseIds": [
+        "usecase:mobile-office"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
+    },
+    {
+      "id": "case:oficina-40hc-protecciones-proyectables",
+      "type": "Case",
+      "name": "Oficina de 40 pies con protecciones proyectables en ventanas",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Oficinas, contenedor 40′ HC",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "oficinas",
+      "documentedInSource": [
+        "Dimensiones: contenedor de 40′ HC.",
+        "Detalle: protecciones proyectables en ventanas."
+      ],
+      "visibleInPhotos": [
+        "Puerta de acceso con hoja de reja",
+        "Contenedor maniobrado con grúa en patio"
+      ],
+      "notConfirmed": [
+        "Cliente",
+        "Ubicación",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 1,
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "useCaseIds": [
+        "usecase:mobile-office"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
+    },
+    {
+      "id": "case:contenedor-40dc-unidades-en-serie",
+      "type": "Case",
+      "name": "Unidades de 40 pies en serie, con acceso individual",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Oficinas, contenedor 40′ DC",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "oficinas",
+      "documentedInSource": [
+        "Dimensiones: contenedor de 40′ DC."
+      ],
+      "visibleInPhotos": [
+        "Varias unidades alineadas, cada una con puerta propia",
+        "Interior con piso vinílico tipo madera y minisplit"
+      ],
+      "notConfirmed": [
+        "Cliente",
+        "Uso específico",
+        "Ubicación",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 2,
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "useCaseIds": [
+        "usecase:mobile-office"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
+    },
+    {
+      "id": "case:centro-capacitacion-movil-40dc",
+      "type": "Case",
+      "name": "Centro de capacitación modular móvil",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "project",
+      "category": "Centro de capacitación modular / móvil, contenedor 40′ DC",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "capacitacion",
+      "documentedInSource": [
+        "Uso: centro de capacitación modular / móvil.",
+        "Dimensiones: contenedor de 40′ DC."
+      ],
+      "visibleInPhotos": [
+        "Montado sobre remolque con escalera de acceso",
+        "Butacas en gradas y mobiliario fijo",
+        "Interior forrado en madera con luminarias de riel, minisplit y piso metálico antiderrapante"
+      ],
+      "notConfirmed": [
+        "Cliente",
+        "Capacidad de personas",
+        "Fechas, plazos y costos",
+        "Resultados medibles y testimonios"
+      ],
+      "evidencePhotos": 4,
+      "serviceIds": [
+        "service:modular-projects"
+      ],
+      "useCaseIds": [
+        "usecase:specialized-operations"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
+    },
+    {
+      "id": "case:referencia-interiores-acondicionados",
+      "type": "Case",
+      "name": "Referencia: interiores de contenedor acondicionado (sin proyecto asignado)",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "unassigned-reference",
+      "category": "Interiores acondicionados",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "laboratorio",
+      "documentedInSource": [],
+      "visibleInPhotos": [
+        "Muros y techo forrados en blanco con iluminación",
+        "Piso metálico antiderrapante",
+        "Aire acondicionado tipo minisplit y puerta de acceso"
+      ],
+      "notConfirmed": [
+        "Proyecto al que pertenecen: no identificado en el material de origen",
+        "Especificaciones técnicas"
+      ],
+      "evidencePhotos": 3,
+      "serviceIds": [
+        "service:modular-projects"
+      ],
+      "useCaseIds": [
+        "usecase:custom-infrastructure"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
+    },
+    {
+      "id": "case:referencia-acabados-interiores",
+      "type": "Case",
+      "name": "Referencia: acabados interiores en oficinas (sin proyecto asignado)",
+      "status": "published",
+      "visibility": "public",
+      "caseKind": "unassigned-reference",
+      "category": "Acabados interiores",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "pageSection": "oficinas",
+      "documentedInSource": [
+        "Tablaroca, piso de azulejo, aislamiento térmico y clima integrado.",
+        "Aislante térmico, plafón, lambrín, piso PVC antiderrapante, instalación eléctrica y minisplit.",
+        "Aislante térmico, plafón, lambrín, piso cerámico, instalación eléctrica y minisplit, además de un privado."
+      ],
+      "visibleInPhotos": [],
+      "notConfirmed": [
+        "Proyecto al que corresponde cada combinación de acabados: no identificado en el material de origen"
+      ],
+      "evidencePhotos": 6,
+      "serviceIds": [
+        "service:relocatable-offices"
+      ],
+      "useCaseIds": [
+        "usecase:mobile-office"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados",
+        "source:material-proyectos-ce"
+      ]
     },
     {
       "id": "faq:general-what-we-do",
@@ -1892,6 +2285,19 @@
       ]
     },
     {
+      "id": "claim:projects-evidence-page",
+      "type": "Claim",
+      "name": "Publica una página de proyectos realizados con contenedores adaptados con fotografías reales de construcción (MakerSpace), laboratorio, oficinas y un centro de capacitación móvil, separando lo documentado de lo que solo se aprecia en las fotos",
+      "subjectId": "org:creativos-espacios",
+      "statement": "Publica una página de proyectos realizados con contenedores adaptados con fotografías reales de construcción (MakerSpace), laboratorio, oficinas y un centro de capacitación móvil, separando lo documentado de lo que solo se aprecia en las fotos",
+      "status": "verified",
+      "visibility": "public",
+      "volatility": "periodic",
+      "sourceIds": [
+        "source:proyectos-realizados"
+      ]
+    },
+    {
       "id": "source:homepage",
       "type": "webpage",
       "name": "Creativos Espacios - Homepage",
@@ -1931,6 +2337,13 @@
       "type": "webpage",
       "name": "Contacto",
       "url": "https://creativosespacios.mx/contacto",
+      "status": "canonical"
+    },
+    {
+      "id": "source:proyectos-realizados",
+      "type": "webpage",
+      "name": "Proyectos realizados con contenedores adaptados",
+      "url": "https://creativosespacios.mx/proyectos-realizados-contenedores-modulares",
       "status": "canonical"
     },
     {
@@ -2335,6 +2748,35 @@
       "commercialPolicyIds": [
         "commercial:one-trip-sale"
       ]
+    },
+    {
+      "id": "intent:see-completed-projects",
+      "type": "Intent",
+      "name": "Ver proyectos realizados con contenedores",
+      "description": "Revisar evidencia fotográfica de proyectos reales con contenedores adaptados antes de decidir una cotización.",
+      "goal": "Evaluar la capacidad de ejecución con ejemplos reales",
+      "need": "Evidencia de casos de contenedores adaptados",
+      "transactionStage": "comparison",
+      "canonicalPath": "/proyectos-realizados-contenedores-modulares",
+      "useCaseIds": [
+        "usecase:custom-infrastructure",
+        "usecase:mobile-office",
+        "usecase:specialized-operations"
+      ],
+      "serviceIds": [
+        "service:modular-projects",
+        "service:relocatable-offices"
+      ],
+      "exampleExpressions": [
+        "¿Tienen proyectos hechos con contenedores?",
+        "Quiero ver ejemplos de oficinas en contenedor",
+        "¿Han hecho laboratorios o aulas en contenedor?"
+      ],
+      "sourceIds": [
+        "source:proyectos-realizados"
+      ],
+      "status": "published",
+      "visibility": "public"
     },
     {
       "id": "price:container-20ft-used-sale",
@@ -2942,6 +3384,116 @@
       "relation": "isSupportedByProduct"
     },
     {
+      "source": "case:makerspace-santa-cruz-meyehualco",
+      "target": "service:modular-projects",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:makerspace-santa-cruz-meyehualco",
+      "target": "usecase:custom-infrastructure",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:laboratorio-icaycc-unam",
+      "target": "service:modular-projects",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:laboratorio-icaycc-unam",
+      "target": "usecase:specialized-operations",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficinas-proveedor-gas-natural-40dc",
+      "target": "service:relocatable-offices",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficinas-proveedor-gas-natural-40dc",
+      "target": "usecase:mobile-office",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficina-20dc-azul",
+      "target": "service:relocatable-offices",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficina-20dc-azul",
+      "target": "usecase:mobile-office",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficinas-tres-contenedores-40hc-usados",
+      "target": "service:relocatable-offices",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficinas-tres-contenedores-40hc-usados",
+      "target": "usecase:mobile-office",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficina-20dc-exterior-gris",
+      "target": "service:relocatable-offices",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficina-20dc-exterior-gris",
+      "target": "usecase:mobile-office",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficina-40hc-protecciones-proyectables",
+      "target": "service:relocatable-offices",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:oficina-40hc-protecciones-proyectables",
+      "target": "usecase:mobile-office",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:contenedor-40dc-unidades-en-serie",
+      "target": "service:relocatable-offices",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:contenedor-40dc-unidades-en-serie",
+      "target": "usecase:mobile-office",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:centro-capacitacion-movil-40dc",
+      "target": "service:modular-projects",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:centro-capacitacion-movil-40dc",
+      "target": "usecase:specialized-operations",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:referencia-interiores-acondicionados",
+      "target": "service:modular-projects",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:referencia-interiores-acondicionados",
+      "target": "usecase:custom-infrastructure",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:referencia-acabados-interiores",
+      "target": "service:relocatable-offices",
+      "relation": "demonstrates"
+    },
+    {
+      "source": "case:referencia-acabados-interiores",
+      "target": "usecase:mobile-office",
+      "relation": "demonstrates"
+    },
+    {
       "source": "faq:rent-vs-buy",
       "target": "service:container-sale",
       "relation": "about"
@@ -3442,6 +3994,16 @@
       "relation": "supportedBy"
     },
     {
+      "source": "claim:projects-evidence-page",
+      "target": "org:creativos-espacios",
+      "relation": "about"
+    },
+    {
+      "source": "claim:projects-evidence-page",
+      "target": "source:proyectos-realizados",
+      "relation": "supportedBy"
+    },
+    {
       "source": "commercial:one-trip-sale",
       "target": "service:container-sale",
       "relation": "appliesToService"
@@ -3725,6 +4287,36 @@
       "source": "intent:container-one-trip-corporate",
       "target": "commercial:one-trip-sale",
       "relation": "governedBy"
+    },
+    {
+      "source": "intent:see-completed-projects",
+      "target": "usecase:custom-infrastructure",
+      "relation": "resolvesTo"
+    },
+    {
+      "source": "intent:see-completed-projects",
+      "target": "usecase:mobile-office",
+      "relation": "resolvesTo"
+    },
+    {
+      "source": "intent:see-completed-projects",
+      "target": "usecase:specialized-operations",
+      "relation": "resolvesTo"
+    },
+    {
+      "source": "intent:see-completed-projects",
+      "target": "service:modular-projects",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:see-completed-projects",
+      "target": "service:relocatable-offices",
+      "relation": "mayRequire"
+    },
+    {
+      "source": "intent:see-completed-projects",
+      "target": "source:proyectos-realizados",
+      "relation": "supportedBy"
     },
     {
       "source": "price:container-20ft-used-sale",

@@ -134,6 +134,20 @@ export function generateLLMSFull(knowledge, outDir) {
     });
   }
 
+  if (knowledge.cases && knowledge.cases.length > 0) {
+    content += `## Proyectos realizados (evidencia)\n\n`;
+    content += `Ruta canónica: ${knowledge.cases[0].canonicalPath}\n\n`;
+    knowledge.cases.forEach(c => {
+      content += `### ${c.name}\n`;
+      content += `- **Tipo**: ${c.caseKind === 'project' ? 'Proyecto' : 'Referencia sin proyecto asignado (no es un caso)'}\n`;
+      content += `- **Categoría**: ${c.category}\n`;
+      if (c.documentedInSource?.length) content += `- **Documentado en el material de origen**: ${c.documentedInSource.join(' ')}\n`;
+      if (c.visibleInPhotos?.length) content += `- **Visible en las fotografías (observación, no especificación)**: ${c.visibleInPhotos.join('; ')}.\n`;
+      if (c.groupingCertainty) content += `- **Certeza de agrupación**: ${c.groupingCertainty}\n`;
+      content += `- **No confirmado**: ${c.notConfirmed.join('; ')}.\n\n`;
+    });
+  }
+
   content += `## Limitaciones de precisión\n\nLa información aquí provista está sujeta a disponibilidad de inventario, factibilidad logística y evaluación de alcance técnico.\n\n`;
   
   content += `## Fuentes canónicas\n\n`;

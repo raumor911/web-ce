@@ -41,6 +41,39 @@ export function generateMarkdown(knowledge, outDir) {
   });
   fs.writeFileSync(path.join(aiDir, 'use-cases.md'), usecases);
 
+  // cases.md
+  if (knowledge.cases && knowledge.cases.length > 0) {
+    const projects = knowledge.cases.filter(c => c.caseKind === 'project');
+    const refs = knowledge.cases.filter(c => c.caseKind !== 'project');
+    let cases = `# Proyectos realizados: ruta documental de casos\n\n`;
+    cases += `Página canónica: ${knowledge.cases[0].canonicalPath}\n\n`;
+    cases += `Cada caso separa tres niveles: **documentado** en el material de origen, **visible** en las fotografías (observación, no especificación técnica) y **no confirmado**. Los datos no confirmados no deben inferirse.\n\n`;
+    const render = c => {
+      let t = `## ${c.name}\n`;
+      t += `- Categoría: ${c.category}\n`;
+      t += `- Sección en la página: #${c.pageSection}\n`;
+      t += `- Fotografías: ${c.evidencePhotos}\n`;
+      if (c.groupingCertainty) t += `- Certeza de agrupación: ${c.groupingCertainty}\n`;
+      if (c.documentedInSource?.length) {
+        t += `\n### Documentado\n`;
+        c.documentedInSource.forEach(d => t += `- ${d}\n`);
+      }
+      if (c.visibleInPhotos?.length) {
+        t += `\n### Visible en fotografías\n`;
+        c.visibleInPhotos.forEach(d => t += `- ${d}\n`);
+      }
+      t += `\n### No confirmado\n`;
+      c.notConfirmed.forEach(d => t += `- ${d}\n`);
+      return t + `\n`;
+    };
+    projects.forEach(c => cases += render(c));
+    if (refs.length > 0) {
+      cases += `# Referencias sin proyecto asignado\n\nNo son casos: el material de origen no identifica el proyecto al que pertenecen.\n\n`;
+      refs.forEach(c => cases += render(c));
+    }
+    fs.writeFileSync(path.join(aiDir, 'cases.md'), cases);
+  }
+
   // industries.md
   let industries = `# Sectores atendidos\n\n`;
   knowledge.industries.forEach(i => {
