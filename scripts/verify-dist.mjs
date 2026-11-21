@@ -52,11 +52,18 @@ if (!/<urlset(?:\s|>)/i.test(sitemap)) problems.push('Sitemap XML sin elemento u
 const locs = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(m => m[1].replace(/&amp;/g, '&'));
 const locSet = new Set(locs);
 if (locSet.size !== locs.length) problems.push('Existen URLs duplicadas en dist/sitemap.xml');
-const blogPaths = locs.filter(url => url.startsWith(origin + '/blog/')).map(url => {
-  try { return new URL(url).pathname; }
-  catch { problems.push('URL de blog inválida: ' + url); return ''; }
-}).filter(Boolean);
-if (blogPaths.length < minBlog) problems.push(`Blog incompleto: ${blogPaths.length} artículos en sitemap, mínimo requerido ${minBlog}. Verificar API WordPress y build.`);
+// Los artículos ya no van en sitemap.xml (los lista /sitemap-blog.xml en el servidor):
+// se descubren en disco, dist/blog/<slug>/index.html.
+const blogDir = path.join(dist, 'blog');
+const blogPaths = fs.existsSync(blogDir)
+  ? fs.readdirSync(blogDir, { withFileTypes: true })
+      .filter(d => d.isDirectory() && exists(path.join(blogDir, d.name, 'index.html')))
+      .map(d => '/blog/' + d.name).sort()
+  : [];
+for (const url of locs.filter(url => url.startsWith(origin + '/blog/'))) {
+  problems.push('sitemap.xml no debe listar artículos (van en sitemap-blog.xml): ' + url);
+}
+if (blogPaths.length < minBlog) problems.push(`Blog incompleto: ${blogPaths.length} artículos prerenderizados en dist/blog, mínimo requerido ${minBlog}. Verificar API WordPress y build.`);
 const expected = [...config.filter(r => r && r.prerender && typeof r.path === 'string' && r.path.startsWith('/')).map(r => r.path), ...blogPaths];
 if (new Set(expected).size !== expected.length) problems.push('Rutas prerenderizadas duplicadas entre manifiesto y sitemap.');
 for (const r of config.filter(r => r && r.sitemap && typeof r.path === 'string' && r.path.startsWith('/'))) {

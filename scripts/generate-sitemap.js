@@ -43,7 +43,10 @@ async function generateSitemap() {
       };
     });
 
-    const allRoutes = [...staticRoutes, ...dynamicRoutes];
+    // sitemap.xml lista solo páginas estáticas. Los artículos viven en
+    // /sitemap-blog.xml (cron PHP en el servidor, fuera de dist). Aquí solo se
+    // valida que cada artículo del snapshot esté prerenderizado.
+    const allRoutes = [...staticRoutes];
     const today = new Date().toISOString().split('T')[0];
     
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -67,7 +70,7 @@ ${allRoutes.map(route => {
     fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);
     fs.rmSync(BLOG_SNAPSHOT);
     
-    console.log(`✓ Sitemap generated successfully with ${allRoutes.length} URLs (${posts.length} WordPress articles).`);
+    console.log(`✓ Sitemap generated successfully with ${allRoutes.length} static URLs (${dynamicRoutes.length} WordPress articles validated as prerendered, listed in sitemap-blog.xml, not here).`);
   } catch (error) {
     console.error('✗ Sitemap generation failed:', error.message);
     process.exit(1);

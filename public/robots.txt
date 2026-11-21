@@ -1,6 +1,7 @@
-# robots.txt - Creativos Espacios 
- 
- User-agent: * 
- Disallow: /blog-admin/ 
- 
- Sitemap: https://creativosespacios.mx/sitemap.xml
+# robots.txt - Creativos Espacios
+
+User-agent: *
+Disallow: /blog-admin/
+
+Sitemap: https://creativosespacios.mx/sitemap.xml
+Sitemap: https://creativosespacios.mx/sitemap-blog.xml

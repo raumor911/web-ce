@@ -28,7 +28,7 @@ function fixture(t) {
     {path:'/compra-contenedores-cdmx',prerender:true,sitemap:true},
     {path:'/404',prerender:true,sitemap:false}
   ]));
-  write(root, 'dist/sitemap.xml', '<urlset>' + ['/', '/compra-contenedores-cdmx', '/blog/post']
+  write(root, 'dist/sitemap.xml', '<urlset>' + ['/', '/compra-contenedores-cdmx']
     .map(p => '<url><loc>' + domain + p + '</loc></url>').join('') + '</urlset>');
   write(root, 'public/.htaccess', 'RewriteEngine On');
   write(root, 'dist/.htaccess', 'RewriteEngine On');
@@ -53,7 +53,7 @@ for (const [name, edit, evidence] of [
   ['fallback 404', root => write(root,'dist/compra-contenedores-cdmx/index.html',html('/compra-contenedores-cdmx','404 - Página no encontrada')), /Fallback 404/],
   ['bundle JS faltante', root => fs.rmSync(path.join(root,'dist/assets/site.js')), /Recurso ausente/],
   ['HTML idéntico al inicio', root => write(root,'dist/compra-contenedores-cdmx/index.html',fs.readFileSync(path.join(root,'dist/index.html'))), /HTML idéntico/],
-  ['post faltante', root => fs.rmSync(path.join(root,'dist/blog/post/index.html')), /blog\/post: falta/],
+  ['sitemap con artículos', root => write(root,'dist/sitemap.xml','<urlset>' + ['/', '/compra-contenedores-cdmx', '/blog/post'].map(p => '<url><loc>' + domain + p + '</loc></url>').join('') + '</urlset>'), /sitemap\.xml no debe listar artículos/],
   ['htaccess ausente', root => fs.rmSync(path.join(root,'dist/.htaccess')), /Falta dist\/\.htaccess/]
 ]) {
   test('rechaza ' + name, t => {
@@ -71,8 +71,8 @@ test('manifiesto SHA256 solamente tras éxito', t => {
   assert.match(fs.readFileSync(out,'utf8'),/assets\/site\.js/);
 });
 
-test('rechaza un sitemap que pierde todos los artículos', t => {
+test('rechaza un dist sin artículos prerenderizados', t => {
   const root=fixture(t);
-  write(root,'dist/sitemap.xml','<urlset><url><loc>' + domain + '/</loc></url><url><loc>' + domain + '/compra-contenedores-cdmx</loc></url></urlset>');
+  fs.rmSync(path.join(root,'dist/blog'),{recursive:true});
   const r=run(root); assert.equal(r.status,1); assert.match(r.stderr,/Blog incompleto/);
 });

@@ -46,11 +46,11 @@ function fixture(t,posts=[post(1)],html=true){
   return root;
 }
 const run=root=>spawnSync(process.execPath,['scripts/generate-sitemap.js'],{cwd:root,encoding:'utf8',timeout:10000});
-test('sitemap reuses article snapshot and cleans temporary file',t=>{
+test('sitemap validates article snapshot, omits articles and cleans temporary file',t=>{
   const root=fixture(t),r=run(root);assert.equal(r.status,0,r.stderr);
   const xml=fs.readFileSync(path.join(root,'dist/sitemap.xml'),'utf8');
   assert.equal(xml,fs.readFileSync(path.join(root,'public/sitemap.xml'),'utf8'));
-  assert.match(xml,/\/blog\/post-1/);
+  assert.doesNotMatch(xml,/\/blog\/post-1/);
   assert.equal(fs.existsSync(path.join(root,'dist/.ce-build-posts.json')),false);
 });
 test('missing article blocks sitemap and preserves previous sitemap',t=>{
