@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { canonicalUrl } from '../src/lib/canonicalUrl.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(__dirname, '../public');
@@ -52,9 +53,8 @@ async function generateSitemap() {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allRoutes.map(route => {
-  // Centralized URL normalization for sitemap
-  const cleanPath = route.url.replace(/^\/|\/$/g, '');
-  const loc = cleanPath ? `${DOMAIN}/${cleanPath}` : `${DOMAIN}/`;
+  // Regla única de URLs (barra final): src/lib/canonicalUrl.mjs
+  const loc = canonicalUrl(route.url);
   
   return `  <url>
     <loc>${loc}</loc>

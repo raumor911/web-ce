@@ -4,14 +4,14 @@
 
 ## Sitio oficial
 
-https://creativosespacios.mx
+https://creativosespacios.mx/
 
 ## Soluciones principales
 
-- [Venta de contenedores](/soluciones/venta-renta): Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes.
-- [Renta de contenedores](/soluciones/venta-renta): Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos.
-- [Oficinas reubicables](/soluciones/oficinas): Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta.
-- [Proyectos modulares](/proyectos): Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente.
+- [Venta de contenedores](/soluciones/venta-renta/): Suministro de contenedores de diferentes tamaños y configuraciones para proyectos que requieren activos permanentes.
+- [Renta de contenedores](/soluciones/venta-renta/): Arrendamiento de unidades modulares para almacenamiento o proyectos temporales, con flexibilidad de plazos.
+- [Oficinas reubicables](/soluciones/oficinas/): Espacios de trabajo configurables diseñados para instalarse rápidamente en campo o en planta.
+- [Proyectos modulares](/proyectos/): Soluciones a la medida que integran múltiples módulos o especificaciones especiales según los requerimientos técnicos del cliente.
 
 ## Aplicaciones principales
 
@@ -33,12 +33,12 @@ https://creativosespacios.mx
 
 Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.
 
-- [Oferta One Trip](/contenedores-nuevos-one-trip-cdmx)
-- [Compra de contenedor 20 FT One Trip](/contenedor-one-trip-20-pies-cdmx)
-- [Compra de contenedor 40 FT High Cube One Trip](/contenedor-one-trip-40-high-cube-cdmx)
-- [One Trip para proyecto arquitectónico](/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx)
-- [One Trip para proyecto educativo](/contenedores-one-trip-para-escuelas-cdmx)
-- [One Trip para proyecto corporativo](/contenedores-one-trip-para-proyectos-corporativos-cdmx)
+- [Oferta One Trip](/contenedores-nuevos-one-trip-cdmx/)
+- [Compra de contenedor 20 FT One Trip](/contenedor-one-trip-20-pies-cdmx/)
+- [Compra de contenedor 40 FT High Cube One Trip](/contenedor-one-trip-40-high-cube-cdmx/)
+- [One Trip para proyecto arquitectónico](/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/)
+- [One Trip para proyecto educativo](/contenedores-one-trip-para-escuelas-cdmx/)
+- [One Trip para proyecto corporativo](/contenedores-one-trip-para-proyectos-corporativos-cdmx/)
 
 **Formatos soportados:** Contenedor marítimo 20 FT Standard, Contenedor marítimo 40 FT High Cube.
 
@@ -51,7 +51,7 @@ Suministro bajo cotización de contenedores One Trip para proyectos donde la con
 
 ## Proyectos realizados (evidencia)
 
-- [Proyectos realizados con contenedores adaptados](/proyectos-realizados-contenedores-modulares): fotografías reales de proyectos con contenedores, separando lo documentado de lo que solo se aprecia en las imágenes.
+- [Proyectos realizados con contenedores adaptados](/proyectos-realizados-contenedores-modulares/): fotografías reales de proyectos con contenedores, separando lo documentado de lo que solo se aprecia en las imágenes.
 - [Ruta documental de casos](/ai/cases.md) ([JSON](/ai/cases.json)): cada caso con lo documentado, lo visible en fotos y lo no confirmado.
 
 Casos incluidos:

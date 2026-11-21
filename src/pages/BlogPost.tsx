@@ -1,3 +1,4 @@
+import { getCanonicalUrl } from '../lib/canonical';
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -67,7 +68,7 @@ const BlogPost: React.FC = () => {
     const author = post._embedded?.['author']?.[0];
     const description = getMetaDescription(post);
     const siteUrl = 'https://creativosespacios.mx';
-    const postUrl = `${siteUrl}/blog/${post.slug}`;
+    const postUrl = getCanonicalUrl(`/blog/${post.slug}`);
 
     return {
       "@context": "https://schema.org",
@@ -105,7 +106,7 @@ const BlogPost: React.FC = () => {
               "@type": "ListItem",
               "position": 2,
               "name": "Blog",
-              "item": `${siteUrl}/blog`
+              "item": getCanonicalUrl('/blog')
             },
             {
               "@type": "ListItem",

@@ -39,6 +39,8 @@ function fixture(t,posts=[post(1)],html=true){
   write('package.json','{"type":"module"}');
   fs.mkdirSync(path.join(root,'scripts'),{recursive:true});
   fs.copyFileSync(generator,path.join(root,'scripts/generate-sitemap.js'));
+  fs.mkdirSync(path.join(root,'src/lib'),{recursive:true});
+  fs.copyFileSync(path.join(path.dirname(generator),'../src/lib/canonicalUrl.mjs'),path.join(root,'src/lib/canonicalUrl.mjs'));
   write('src/config/routes.json',JSON.stringify([{path:'/',sitemap:true},{path:'/blog',sitemap:true}]));
   write('dist/.ce-build-posts.json',JSON.stringify({posts}));
   if(html)for(const p of posts)write('dist/blog/'+p.slug+'/index.html','<h1>Article</h1>');
@@ -51,6 +53,8 @@ test('sitemap validates article snapshot, omits articles and cleans temporary fi
   const xml=fs.readFileSync(path.join(root,'dist/sitemap.xml'),'utf8');
   assert.equal(xml,fs.readFileSync(path.join(root,'public/sitemap.xml'),'utf8'));
   assert.doesNotMatch(xml,/\/blog\/post-1/);
+  const locs=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
+  assert.deepEqual(locs,['https://creativosespacios.mx/','https://creativosespacios.mx/blog/']);
   assert.equal(fs.existsSync(path.join(root,'dist/.ce-build-posts.json')),false);
 });
 test('missing article blocks sitemap and preserves previous sitemap',t=>{

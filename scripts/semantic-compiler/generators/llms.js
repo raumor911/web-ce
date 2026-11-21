@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import { canonicalPath, canonicalUrl } from '../../../src/lib/canonicalUrl.mjs';
 
 export function generateLLMS(knowledge, outDir) {
   const org = knowledge.organization;
-  const services = knowledge.services.map(s => `- [${s.name}](${s.canonicalPath}): ${s.description}`).join('\n');
+  const services = knowledge.services.map(s => `- [${s.name}](${canonicalPath(s.canonicalPath)}): ${s.description}`).join('\n');
   const useCases = knowledge['use-cases'].map(u => `- ${u.name}: ${u.description}`).join('\n');
   const oneTripPolicy = knowledge.commercial?.find(c => c.id === 'commercial:one-trip-sale');
   const oneTripIntents = (knowledge.intents || []).filter(i => i.commercialPolicyIds?.includes('commercial:one-trip-sale'));
@@ -12,7 +13,7 @@ export function generateLLMS(knowledge, outDir) {
   content += `> ${org.preferredPositioning}\n\n`;
   
   content += `## Sitio oficial\n\n`;
-  content += `${org.canonicalUrl}\n\n`;
+  content += `${canonicalUrl('/')}\n\n`;
   
   content += `## Soluciones principales\n\n${services}\n\n`;
   content += `## Aplicaciones principales\n\n${useCases}\n\n`;
@@ -25,11 +26,11 @@ export function generateLLMS(knowledge, outDir) {
     content += `## Contenedores One Trip\n\n`;
     content += `${oneTripPolicy.description}\n\n`;
     if (oneTripPolicy.canonicalPath) {
-      content += `- [Oferta One Trip](${oneTripPolicy.canonicalPath})\n`;
+      content += `- [Oferta One Trip](${canonicalPath(oneTripPolicy.canonicalPath)})\n`;
     }
     oneTripIntents
       .filter(i => i.canonicalPath && i.canonicalPath !== oneTripPolicy.canonicalPath)
-      .forEach(i => content += `- [${i.name}](${i.canonicalPath})\n`);
+      .forEach(i => content += `- [${i.name}](${canonicalPath(i.canonicalPath)})\n`);
     content += `\n**Formatos soportados:** ${supportedProducts.join(', ')}.\n\n`;
     content += `**Reglas comerciales:**\n`;
     oneTripPolicy.rules.forEach(rule => content += `- ${rule}\n`);
@@ -39,7 +40,7 @@ export function generateLLMS(knowledge, outDir) {
   const cases = knowledge.cases || [];
   const projectCases = cases.filter(c => c.caseKind === 'project');
   if (projectCases.length > 0) {
-    const casePath = projectCases[0].canonicalPath;
+    const casePath = canonicalPath(projectCases[0].canonicalPath);
     content += `## Proyectos realizados (evidencia)\n\n`;
     content += `- [Proyectos realizados con contenedores adaptados](${casePath}): fotografías reales de proyectos con contenedores, separando lo documentado de lo que solo se aprecia en las imágenes.\n`;
     content += `- [Ruta documental de casos](/ai/cases.md) ([JSON](/ai/cases.json)): cada caso con lo documentado, lo visible en fotos y lo no confirmado.\n`;

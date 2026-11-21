@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { canonicalUrl } from '../src/lib/canonicalUrl.mjs';
 
 const argv = process.argv.slice(2);
 const root = path.resolve(argv.find(v => !v.startsWith('--')) || process.cwd());
@@ -20,7 +21,7 @@ const results = [];
 
 const read = file => fs.readFileSync(file, 'utf8');
 const exists = file => fs.existsSync(file) && fs.statSync(file).isFile();
-const canonical = route => origin + (route === '/' ? '/' : '/' + route.replace(/^\/+|\/+$/g, ''));
+const canonical = route => canonicalUrl(route);
 const visibleText = html => html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '').replace(/<[^>]*>/g, '').replace(/&(?:nbsp|#160);/gi, ' ').replace(/\s+/g, ' ').trim();
 const attrs = tag => Object.fromEntries([...tag.matchAll(/([\w:-]+)\s*=\s*(['"])(.*?)\2/g)].map(m => [m[1].toLowerCase(), m[3]]));
 
@@ -51,6 +52,11 @@ const sitemap = read(sitemapPath);
 if (!/<urlset(?:\s|>)/i.test(sitemap)) problems.push('Sitemap XML sin elemento urlset');
 const locs = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(m => m[1].replace(/&amp;/g, '&'));
 const locSet = new Set(locs);
+for (const loc of locs) {
+  let pathname;
+  try { pathname = new URL(loc).pathname; } catch { continue; }
+  if (canonicalUrl(pathname) !== loc) problems.push('URL de sitemap fuera de la regla de barra final: ' + loc);
+}
 if (locSet.size !== locs.length) problems.push('Existen URLs duplicadas en dist/sitemap.xml');
 // Los artículos ya no van en sitemap.xml (los lista /sitemap-blog.xml en el servidor):
 // se descubren en disco, dist/blog/<slug>/index.html.
@@ -60,7 +66,7 @@ const blogPaths = fs.existsSync(blogDir)
       .filter(d => d.isDirectory() && exists(path.join(blogDir, d.name, 'index.html')))
       .map(d => '/blog/' + d.name).sort()
   : [];
-for (const url of locs.filter(url => url.startsWith(origin + '/blog/'))) {
+for (const url of locs.filter(url => url.startsWith(origin + '/blog/') && url !== origin + '/blog/')) {
   problems.push('sitemap.xml no debe listar artículos (van en sitemap-blog.xml): ' + url);
 }
 if (blogPaths.length < minBlog) problems.push(`Blog incompleto: ${blogPaths.length} artículos prerenderizados en dist/blog, mínimo requerido ${minBlog}. Verificar API WordPress y build.`);

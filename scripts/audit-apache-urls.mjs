@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { canonicalPath } from '../src/lib/canonicalUrl.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const ORIGIN = 'https://creativosespacios.mx';
@@ -25,20 +26,21 @@ export function buildCases(manifest, sitemap, full = false) {
   const cases = [];
   for (const p of selected) {
     if (!paths.includes(p)) continue;
-    cases.push({ path: p, kind: 'html', expected: noSlash(p) });
-    if (p !== '/') cases.push({ path: noSlash(p) + '/', kind: 'html', expected: noSlash(p) });
+    // Regla de barra final: la URL canónica responde 200 directo; la variante sin barra redirige a ella.
+    cases.push({ path: canonicalPath(p), kind: 'html', expected: canonicalPath(p) });
+    if (p !== '/') cases.push({ path: noSlash(p), kind: 'html', expected: canonicalPath(p) });
   }
   const firstBlog = [...sitemap.matchAll(/<loc>\s*([^<]+)<\/loc>/gi)]
     .map(m => m[1].replaceAll('&amp;', '&'))
-    .find(url => url.startsWith(ORIGIN + '/blog/'));
+    .find(url => url.startsWith(ORIGIN + '/blog/') && url !== ORIGIN + '/blog/');
   if (firstBlog) {
     const blogPath = new URL(firstBlog).pathname;
-    cases.push({ path: blogPath, kind: 'html', expected: noSlash(blogPath) });
+    cases.push({ path: canonicalPath(blogPath), kind: 'html', expected: canonicalPath(blogPath) });
   }
   return [...cases,
-    { path: '/404', kind: 'html', expected: '/404' },
+    { path: '/404/', kind: 'html', expected: '/404/' },
     { path: '/index.html', kind: 'redirect', expected: '/' },
-    { path: '/catalogo', kind: 'redirect', expected: '/soluciones/venta-renta' },
+    { path: '/catalogo', kind: 'redirect', expected: '/soluciones/venta-renta/' },
     { path: '/ce-html-05-route-that-does-not-exist-2026', kind: 'missing' },
     { path: '/favicon-96x96.png', kind: 'asset' },
     { path: '/robots.txt', kind: 'asset' },
@@ -79,7 +81,7 @@ export async function probe(testCase, { origin = ORIGIN, request = fetch, timeou
         if (!metadata.title || (metadata.title === GENERIC_TITLE && testCase.expected !== '/')) issues.push('Generic or missing title');
         const expectedCanonical = new URL(testCase.expected, origin).href;
         if (metadata.canonical !== expectedCanonical) issues.push('Canonical mismatch: ' + (metadata.canonical || '(missing)'));
-        if (testCase.expected !== '/404' && /^404(?:\b|\s|-)/i.test(metadata.title)) issues.push('Unexpected 404 page');
+        if (testCase.expected !== '/404/' && /^404(?:\b|\s|-)/i.test(metadata.title)) issues.push('Unexpected 404 page');
         if (urlPath !== testCase.expected) warnings.push('Final URL differs from expected canonical pathname');
       }
     } else if (testCase.kind === 'missing') {
@@ -88,7 +90,7 @@ export async function probe(testCase, { origin = ORIGIN, request = fetch, timeou
       if (!ok) issues.push('Asset HTTP ' + response.status);
     } else if (testCase.kind === 'redirect') {
       if (!ok || redirects.length === 0 || noSlash(urlPath) !== noSlash(testCase.expected)) issues.push('Missing/incorrect redirect');
-      if (urlPath !== testCase.expected) warnings.push('Redirect target ends with a trailing slash');
+      if (urlPath !== testCase.expected) warnings.push('Redirect target differs from expected canonical path');
     } else if (testCase.kind === 'wordpress') {
       if (response.status === 401 || response.status === 403 || response.status === 404 || response.status >= 500) warnings.push('WordPress route requires hosting-level verification');
       // Access controls may legitimately return 401/403. Never parse or log the CMS response body.

@@ -159,7 +159,7 @@ Suministro bajo cotización de contenedores One Trip para proyectos donde la con
 
 Suministro bajo cotización de contenedores One Trip para proyectos donde la condición superficial y el mínimo uso son relevantes.
 
-- **Hub canónico**: /contenedores-nuevos-one-trip-cdmx
+- **Hub canónico**: /contenedores-nuevos-one-trip-cdmx/
 - **Condición**: One Trip
 - **Modalidad**: Venta únicamente
 - **Formatos soportados**: Contenedor marítimo 20 FT Standard, Contenedor marítimo 40 FT High Cube
@@ -173,12 +173,12 @@ Suministro bajo cotización de contenedores One Trip para proyectos donde la con
 - No existe renta de contenedores One Trip.
 
 ### Rutas por intención
-- **Compra de contenedor One Trip**: /contenedores-nuevos-one-trip-cdmx
-- **Compra de contenedor 20 FT One Trip**: /contenedor-one-trip-20-pies-cdmx
-- **Compra de contenedor 40 FT High Cube One Trip**: /contenedor-one-trip-40-high-cube-cdmx
-- **One Trip para proyecto arquitectónico**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx
-- **One Trip para proyecto educativo**: /contenedores-one-trip-para-escuelas-cdmx
-- **One Trip para proyecto corporativo**: /contenedores-one-trip-para-proyectos-corporativos-cdmx
+- **Compra de contenedor One Trip**: /contenedores-nuevos-one-trip-cdmx/
+- **Compra de contenedor 20 FT One Trip**: /contenedor-one-trip-20-pies-cdmx/
+- **Compra de contenedor 40 FT High Cube One Trip**: /contenedor-one-trip-40-high-cube-cdmx/
+- **One Trip para proyecto arquitectónico**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/
+- **One Trip para proyecto educativo**: /contenedores-one-trip-para-escuelas-cdmx/
+- **One Trip para proyecto corporativo**: /contenedores-one-trip-para-proyectos-corporativos-cdmx/
 
 ### Regla de precisión
 No inferir precio, inventario ni disponibilidad inmediata para One Trip si no existe una fuente publicada que lo confirme. Transporte, descarga y maniobras se cotizan según destino y condiciones del sitio.
@@ -502,7 +502,7 @@ Su especialidad es desarrollar y suministrar infraestructura modular estratégic
 Nuestro enfoque parte de la comprensión profunda de la necesidad operativa del cliente antes de definir la configuración técnica y el alcance de la solución modular.
 
 **¿Creativos Espacios tiene proyectos realizados que pueda ver?**
-Sí. La página /proyectos-realizados-contenedores-modulares reúne fotografías reales de proyectos con contenedores adaptados: el MakerSpace de Santa Cruz Meyehualco (construcción de tres niveles), un laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático de la UNAM, oficinas en contenedores de 20 y 40 pies y un centro de capacitación móvil. Distingue lo que el material documenta de lo que solo se aprecia en las fotos. No publica fechas, costos, medidas de obra ni testimonios, porque no están documentados; cada proyecto se cotiza según su alcance.
+Sí. La página /proyectos-realizados-contenedores-modulares/ reúne fotografías reales de proyectos con contenedores adaptados: el MakerSpace de Santa Cruz Meyehualco (construcción de tres niveles), un laboratorio para el Instituto de Ciencias de la Atmósfera y Cambio Climático de la UNAM, oficinas en contenedores de 20 y 40 pies y un centro de capacitación móvil. Distingue lo que el material documenta de lo que solo se aprecia en las fotos. No publica fechas, costos, medidas de obra ni testimonios, porque no están documentados; cada proyecto se cotiza según su alcance.
 
 ## Terminología
 
@@ -575,7 +575,7 @@ Habilitar un espacio de trabajo acondicionado y reubicable para funciones admini
 - **Objetivo**: Comprar una unidad One Trip adecuada para un proyecto de mayor exigencia superficial
 - **Necesidad**: Contenedor de mínimo uso para intervención, integración arquitectónica o presentación visible
 - **Etapa**: transactional
-- **Ruta canónica**: /contenedores-nuevos-one-trip-cdmx
+- **Ruta canónica**: /contenedores-nuevos-one-trip-cdmx/
 
 Adquirir un contenedor con mínimo uso para un proyecto donde la condición superficial y la presentación de la unidad son relevantes.
 
@@ -583,7 +583,7 @@ Adquirir un contenedor con mínimo uso para un proyecto donde la condición supe
 - **Objetivo**: Comprar un 20 FT Standard One Trip
 - **Necesidad**: Unidad compacta de mínimo uso para proyecto, acondicionamiento o integración
 - **Etapa**: transactional
-- **Ruta canónica**: /contenedor-one-trip-20-pies-cdmx
+- **Ruta canónica**: /contenedor-one-trip-20-pies-cdmx/
 
 Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde importan la condición superficial y una huella compacta.
 
@@ -591,7 +591,7 @@ Adquirir un contenedor 20 FT Standard con mínimo uso para un proyecto donde imp
 - **Objetivo**: Comprar un 40 FT High Cube One Trip
 - **Necesidad**: Unidad High Cube de mínimo uso y mayor capacidad
 - **Etapa**: transactional
-- **Ruta canónica**: /contenedor-one-trip-40-high-cube-cdmx
+- **Ruta canónica**: /contenedor-one-trip-40-high-cube-cdmx/
 
 Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor volumen y altura interior.
 
@@ -599,7 +599,7 @@ Adquirir un 40 FT High Cube con mínimo uso para un proyecto que requiere mayor 
 - **Objetivo**: Seleccionar una base física adecuada para intervención arquitectónica
 - **Necesidad**: Unidad con menor desgaste acumulado y condición superficial más predecible
 - **Etapa**: comparison
-- **Ruta canónica**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx
+- **Ruta canónica**: /contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/
 
 Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visible o intervenido.
 
@@ -607,7 +607,7 @@ Buscar una unidad de mínimo uso como base para un proyecto arquitectónico visi
 - **Objetivo**: Seleccionar una base física adecuada para un espacio educativo
 - **Necesidad**: Unidad visible y de mínimo uso para acondicionamiento posterior
 - **Etapa**: comparison
-- **Ruta canónica**: /contenedores-one-trip-para-escuelas-cdmx
+- **Ruta canónica**: /contenedores-one-trip-para-escuelas-cdmx/
 
 Buscar una unidad de mínimo uso como base para aulas, administración u otros espacios de una institución educativa.
 
@@ -615,7 +615,7 @@ Buscar una unidad de mínimo uso como base para aulas, administración u otros e
 - **Objetivo**: Seleccionar una base física alineada con presentación y uso corporativo
 - **Necesidad**: Unidad de mínimo uso para proyecto visible y acondicionamiento posterior
 - **Etapa**: comparison
-- **Ruta canónica**: /contenedores-one-trip-para-proyectos-corporativos-cdmx
+- **Ruta canónica**: /contenedores-one-trip-para-proyectos-corporativos-cdmx/
 
 Buscar una unidad de mínimo uso para oficinas, recepciones, showrooms o módulos visibles de una empresa.
 
@@ -623,13 +623,13 @@ Buscar una unidad de mínimo uso para oficinas, recepciones, showrooms o módulo
 - **Objetivo**: Evaluar la capacidad de ejecución con ejemplos reales
 - **Necesidad**: Evidencia de casos de contenedores adaptados
 - **Etapa**: comparison
-- **Ruta canónica**: /proyectos-realizados-contenedores-modulares
+- **Ruta canónica**: /proyectos-realizados-contenedores-modulares/
 
 Revisar evidencia fotográfica de proyectos reales con contenedores adaptados antes de decidir una cotización.
 
 ## Proyectos realizados (evidencia)
 
-Ruta canónica: /proyectos-realizados-contenedores-modulares
+Ruta canónica: /proyectos-realizados-contenedores-modulares/
 
 ### MakerSpace, Santa Cruz Meyehualco
 - **Tipo**: Proyecto
@@ -715,9 +715,9 @@ La información aquí provista está sujeta a disponibilidad de inventario, fact
 ## Fuentes canónicas
 
 - [Creativos Espacios - Homepage](https://creativosespacios.mx/)
-- [Nuestra Empresa](https://creativosespacios.mx/nosotros)
-- [Venta y Renta de Contenedores](https://creativosespacios.mx/soluciones/venta-renta)
-- [Oficinas Reubicables](https://creativosespacios.mx/soluciones/oficinas)
-- [Proyectos Modulares](https://creativosespacios.mx/proyectos)
-- [Contacto](https://creativosespacios.mx/contacto)
-- [Proyectos realizados con contenedores adaptados](https://creativosespacios.mx/proyectos-realizados-contenedores-modulares)
+- [Nuestra Empresa](https://creativosespacios.mx/nosotros/)
+- [Venta y Renta de Contenedores](https://creativosespacios.mx/soluciones/venta-renta/)
+- [Oficinas Reubicables](https://creativosespacios.mx/soluciones/oficinas/)
+- [Proyectos Modulares](https://creativosespacios.mx/proyectos/)
+- [Contacto](https://creativosespacios.mx/contacto/)
+- [Proyectos realizados con contenedores adaptados](https://creativosespacios.mx/proyectos-realizados-contenedores-modulares/)

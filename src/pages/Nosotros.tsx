@@ -22,7 +22,7 @@ const Nosotros: React.FC = () => {
       },
       {
         "@type": "AboutPage",
-        "@id": `${pageUrl}/#about`,
+        "@id": `${pageUrl}#about`,
         "url": pageUrl,
         "mainEntity": { "@id": ORG_ID }
       },

@@ -1,3 +1,4 @@
+import { getCanonicalUrl } from '../lib/canonical';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -136,7 +137,7 @@ const Blog: React.FC = () => {
             {
               "@type": "WebPage",
               "@id": "https://creativosespacios.mx/blog/#webpage",
-              "url": "https://creativosespacios.mx/blog",
+              "url": getCanonicalUrl('/blog'),
               "name": "Blog e Insights | Creativos Espacios",
               "isPartOf": { "@id": "https://creativosespacios.mx/#website" },
               "description": "Noticias, guías y tendencias sobre infraestructura modular, contenedores marítimos y soluciones de espacio en México."
@@ -154,7 +155,7 @@ const Blog: React.FC = () => {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Blog",
-                  "item": "https://creativosespacios.mx/blog"
+                  "item": getCanonicalUrl('/blog')
                 }
               ]
             }
