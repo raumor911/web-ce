@@ -102,6 +102,9 @@ ErrorDocument 404 /404.html
 # ========================================================= 
 
 <IfModule mod_mime.c>
+    # Producción servía /ai/*.md sin Content-Type (verificado con curl -I el 2026-11-23).
+    AddType text/markdown .md
+    AddType application/ld+json .jsonld
     AddCharset UTF-8 .txt .md .json .jsonld .xml
 </IfModule>
 
