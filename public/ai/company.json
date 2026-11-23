@@ -12,13 +12,13 @@
     "email": "ventas@creativosespacios.mx",
     "whatsapp": "https://wa.me/522291846751",
     "address": {
-      "streetAddress": "Colonia, Av. del Árbol 104",
+      "streetAddress": "Av. del Árbol 104",
       "addressLocality": "Lomas de San Lorenzo",
       "borough": "Iztapalapa",
       "postalCode": "09780",
       "addressRegion": "Ciudad de México",
       "addressCountry": "MX",
-      "formattedAddress": "Colonia, Av. del Árbol 104, Lomas de San Lorenzo, Iztapalapa, 09780 Ciudad de México, CDMX"
+      "formattedAddress": "Av. del Árbol 104, Lomas de San Lorenzo, Iztapalapa, 09780 Ciudad de México, CDMX"
     }
   },
   "canonicalUrl": "https://creativosespacios.mx",
