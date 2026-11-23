@@ -98,3 +98,24 @@ test('el índice /blog/ es válido en sitemap.xml (no es un artículo)', t => {
   write(root,'dist/blog/index.html',html('/blog','Blog de contenedores'));
   const r=run(root); assert.equal(r.status,0,r.stderr + r.stdout);
 });
+
+test('rechaza JSON-LD inválido', t => {
+  const root=fixture(t);
+  write(root,'dist/compra-contenedores-cdmx/index.html',html('/compra-contenedores-cdmx','Comprar contenedor CDMX')
+    .replace('</head>','<script type="application/ld+json">{"@context": </script></head>'));
+  const r=run(root); assert.equal(r.status,1); assert.match(r.stderr,/JSON-LD inválido/);
+});
+test('acepta JSON-LD válido y una alterna Markdown existente', t => {
+  const root=fixture(t);
+  write(root,'dist/ai/cases.md','# Casos');
+  write(root,'dist/compra-contenedores-cdmx/index.html',html('/compra-contenedores-cdmx','Comprar contenedor CDMX')
+    .replace('</head>','<script type="application/ld+json">{"@context":"https://schema.org"}</script>' +
+      '<link rel="alternate" type="text/markdown" href="' + domain + '/ai/cases.md" /></head>'));
+  const r=run(root); assert.equal(r.status,0,r.stderr + r.stdout);
+});
+test('rechaza una alterna Markdown que no existe en dist', t => {
+  const root=fixture(t);
+  write(root,'dist/compra-contenedores-cdmx/index.html',html('/compra-contenedores-cdmx','Comprar contenedor CDMX')
+    .replace('</head>','<link rel="alternate" type="text/markdown" href="/ai/no-existe.md" /></head>'));
+  const r=run(root); assert.equal(r.status,1); assert.match(r.stderr,/Alterna Markdown ausente/);
+});

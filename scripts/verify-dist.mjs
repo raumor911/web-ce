@@ -106,6 +106,19 @@ for (const route of expected) {
   if (route !== '/404' && /^404(?:\s|\b|\s*-)/i.test(row.title)) issues.push('Fallback 404 capturado en ruta válida');
   if (row.canonical !== canonical(route)) issues.push('canonical incorrecto/ausente: ' + (row.canonical || '(vacío)'));
   if (!/<meta\b[^>]*\bname=['"]description['"][^>]*>/i.test(html) && !/<meta\b[^>]*\bcontent=['"][^'"]+['"][^>]*\bname=['"]description['"][^>]*>/i.test(html)) issues.push('meta description ausente');
+  // Agent-ready: todo bloque JSON-LD debe ser JSON válido y toda alterna Markdown debe existir en dist.
+  for (const m of html.matchAll(/<script\b[^>]*type=['"]application\/ld\+json['"][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try { JSON.parse(m[1]); } catch (e) { issues.push('JSON-LD inválido: ' + e.message.slice(0, 80)); }
+  }
+  for (const a of links) {
+    if (!(a.rel || '').split(/\s+/).includes('alternate') || !/^text\/markdown\b/i.test(a.type || '')) continue;
+    let target;
+    try { target = new URL(a.href || '', origin + '/').pathname; } catch { issues.push('Alterna Markdown con href inválido: ' + a.href); continue; }
+    let decodedTarget;
+    try { decodedTarget = decodeURIComponent(target); } catch { issues.push('Alterna Markdown mal codificada: ' + target); continue; }
+    const targetFile = path.resolve(dist, '.' + decodedTarget);
+    if (!targetFile.startsWith(dist + path.sep) || !exists(targetFile)) issues.push('Alterna Markdown ausente en dist: ' + target);
+  }
   // Para no bloquear el build por imágenes de contenido opcionales, verificar solo el bundle obligatorio JS/CSS.
   const sources = [...html.matchAll(/<(?:script|link)\b[^>]*>/gi)].map(m => attrs(m[0]));
   for (const a of sources) {
