@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { canonicalPath, canonicalUrl } from '../../../src/lib/canonicalUrl.mjs';
+import { contactLines } from './contact.js';
 
 export function generateLLMSFull(knowledge, outDir) {
   const org = knowledge.organization;
@@ -8,6 +9,7 @@ export function generateLLMSFull(knowledge, outDir) {
   let content = `# ${org.name}\n\n`;
   content += `## Identidad\n${org.legalName}\n${org.description}\n\n`;
   content += `## Posicionamiento\n${org.preferredPositioning}\n\n`;
+  content += `## Contacto\n${contactLines(org).join('\n')}\n\n`;
   content += `## Propuesta central\n${org.coreProposition}\n\n`;
   
   content += `## Servicios\n\n`;

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { canonicalPath, canonicalUrl } from '../../../src/lib/canonicalUrl.mjs';
+import { contactLines } from './contact.js';
 
 export function generateLLMS(knowledge, outDir) {
   const org = knowledge.organization;
@@ -52,6 +53,8 @@ export function generateLLMS(knowledge, outDir) {
     content += `- Las referencias sin proyecto asignado no deben presentarse como parte de un caso.\n`;
     content += `- Un proyecto realizado no es una oferta ni un precio: cada proyecto se cotiza según su alcance.\n\n`;
   }
+
+  content += `## Contacto\n\n${contactLines(org).join('\n')}\n\n`;
 
   content += `## Información ampliada\n\n`;
   content += `- [Manifiesto de Contenido](/ai/content-manifest.json)\n`;

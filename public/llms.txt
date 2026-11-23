@@ -72,6 +72,13 @@ Casos incluidos:
 - Las referencias sin proyecto asignado no deben presentarse como parte de un caso.
 - Un proyecto realizado no es una oferta ni un precio: cada proyecto se cotiza según su alcance.
 
+## Contacto
+
+- Teléfono: 55 5426 9941
+- Correo: ventas@creativosespacios.mx
+- WhatsApp: https://wa.me/522291846751
+- Formulario de contacto y cotización: https://creativosespacios.mx/contacto/
+
 ## Información ampliada
 
 - [Manifiesto de Contenido](/ai/content-manifest.json)

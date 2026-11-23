@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { canonicalPath, canonicalUrl, CANONICAL_ORIGIN } from '../../../src/lib/canonicalUrl.mjs';
+import { contactLines } from './contact.js';
 
 export function generateMarkdown(knowledge, outDir) {
   const aiDir = path.join(outDir, 'ai');
@@ -9,6 +10,7 @@ export function generateMarkdown(knowledge, outDir) {
   // company.md
   let company = `# ${knowledge.organization.name}\n\n${knowledge.organization.description}\n\n`;
   company += `## Identidad\n- Nombre legal: ${knowledge.organization.legalName}\n- País: ${knowledge.organization.country}\n\n`;
+  company += `## Contacto\n${contactLines(knowledge.organization).join('\n')}\n\n`;
   fs.writeFileSync(path.join(aiDir, 'company.md'), company);
 
   // services.md
