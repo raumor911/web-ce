@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   server: {
     proxy: {
       '/blog-admin': {
@@ -24,9 +24,10 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [
-          'react-dev-locator',
-        ],
+        // react-dev-locator solo sirve al inspector del IDE en desarrollo. En build
+        // inyectaba atributos trae-inspector-* (con la ruta local del equipo) en el
+        // HTML prerenderizado que leen buscadores y agentes de IA.
+        plugins: command === 'serve' ? ['react-dev-locator'] : [],
       },
     }),
     tsconfigPaths(),
@@ -50,4 +51,4 @@ export default defineConfig({
       }
     }) */
   ],
-})
+}))
