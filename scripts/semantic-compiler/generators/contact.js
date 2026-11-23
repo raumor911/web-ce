@@ -1,8 +1,7 @@
 import { canonicalUrl } from '../../../src/lib/canonicalUrl.mjs';
 
 // Datos de contacto para las salidas de IA, tomados solo de organization.contact
-// (fuente: src/knowledge/organization.json). No incluye horario: el JSON-LD y la
-// página de contacto discrepan y está pendiente de confirmar por Raúl.
+// (fuente: src/knowledge/organization.json).
 // Teléfono y WhatsApp son líneas distintas a propósito (confirmado por Raúl).
 function whatsappDisplay(url) {
   const digits = String(url || '').match(/wa\.me\/(\d+)/)?.[1];
@@ -20,6 +19,7 @@ export function contactLines(org) {
     lines.push(`- WhatsApp (línea distinta del teléfono): ${shown ? `${shown}, ` : ''}${c.whatsapp}`);
   }
   if (c.email) lines.push(`- Correo: ${c.email}`);
+  if (c.openingHours?.display) lines.push(`- Horario de atención técnica: ${c.openingHours.display}`);
   lines.push(`- Formulario de contacto y cotización: ${canonicalUrl('/contacto')}`);
   return lines;
 }
