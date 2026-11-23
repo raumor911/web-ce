@@ -11,6 +11,12 @@
     "telephone": "55 5426 9941",
     "email": "ventas@creativosespacios.mx",
     "whatsapp": "https://wa.me/522291846751",
+    "openingHours": {
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00",
+      "display": "Lunes a Viernes 09:00 - 18:00 hrs."
+    },
     "address": {
       "streetAddress": "Av. del Árbol 104",
       "addressLocality": "Lomas de San Lorenzo",

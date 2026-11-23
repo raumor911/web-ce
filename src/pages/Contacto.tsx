@@ -373,7 +373,7 @@ const Contacto: React.FC = () => {
             <div className="pt-10 md:pt-12 border-t border-brand-gray mt-12">
               <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-graphite/30">
                 Horario de atención técnica: <br />
-                Lunes a Viernes 08:00 - 18:00 hrs.
+                {org.contact.openingHours?.display}
               </p>
             </div>
           </div>

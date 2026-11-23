@@ -72,15 +72,9 @@ export const Layout: React.FC = () => {
                   },
                   "openingHoursSpecification": {
                     "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": [
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday"
-                    ],
-                    "opens": "09:00",
-                    "closes": "18:00"
+                    "dayOfWeek": ${JSON.stringify(org.contact.openingHours?.dayOfWeek ?? [])},
+                    "opens": "${org.contact.openingHours?.opens ?? ''}",
+                    "closes": "${org.contact.openingHours?.closes ?? ''}"
                   },
                   "sameAs": [
                     "https://wa.me/522291846751",
