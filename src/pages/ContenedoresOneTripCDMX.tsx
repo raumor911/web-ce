@@ -140,6 +140,7 @@ const ContenedoresOneTripCDMX: React.FC = () => {
         title="Contenedores Nuevos One Trip en CDMX | Venta"
         description="Venta de contenedores nuevos One Trip en CDMX en formatos 20 FT Standard y 40 FT High Cube para proyectos arquitectónicos, educativos, corporativos y comerciales. Solicita disponibilidad y cotización."
         jsonLd={jsonLd}
+        markdownAlternate={{ path: '/ai/one-trip.md', title: 'Guía One Trip (Markdown)' }}
       />
 
       <header className="relative overflow-hidden bg-brand-petroleum py-24 md:py-36">

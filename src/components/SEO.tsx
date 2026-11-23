@@ -11,6 +11,8 @@ interface SEOProps {
   type?: string;
   ogImage?: string;
   jsonLd?: Record<string, any>;
+  /** Representación alterna de la misma página (p. ej. Markdown en /ai/). Solo si existe y es 1:1. */
+  markdownAlternate?: { path: string; title: string };
 }
 
 export const SEO: React.FC<SEOProps> = ({ 
@@ -19,7 +21,8 @@ export const SEO: React.FC<SEOProps> = ({
   canonical, 
   type = 'website',
   ogImage,
-  jsonLd
+  jsonLd,
+  markdownAlternate
 }) => {
   const { pathname } = useLocation();
   const fullTitle = `${title} | Creativos Espacios - Infraestructura Modular`;
@@ -37,6 +40,14 @@ export const SEO: React.FC<SEOProps> = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
+      {markdownAlternate && (
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href={getCanonicalUrl(markdownAlternate.path)}
+          title={markdownAlternate.title}
+        />
+      )}
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
