@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { canonicalPath, canonicalUrl } from '../../../src/lib/canonicalUrl.mjs';
 import { contactLines } from './contact.js';
+import { usagePolicySection } from './usage-policy.js';
 
 export function generateLLMSFull(knowledge, outDir) {
   const org = knowledge.organization;
@@ -151,6 +152,7 @@ export function generateLLMSFull(knowledge, outDir) {
     });
   }
 
+  content += usagePolicySection();
   content += `## Limitaciones de precisión\n\nLa información aquí provista está sujeta a disponibilidad de inventario, factibilidad logística y evaluación de alcance técnico.\n\n`;
   
   content += `## Fuentes canónicas\n\n`;

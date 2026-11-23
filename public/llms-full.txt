@@ -715,6 +715,12 @@ Ruta canónica: /proyectos-realizados-contenedores-modulares/
 - **Documentado en el material de origen**: Tablaroca, piso de azulejo, aislamiento térmico y clima integrado. Aislante térmico, plafón, lambrín, piso PVC antiderrapante, instalación eléctrica y minisplit. Aislante térmico, plafón, lambrín, piso cerámico, instalación eléctrica y minisplit, además de un privado.
 - **No confirmado**: Proyecto al que corresponde cada combinación de acabados: no identificado en el material de origen.
 
+## Política de uso por IA
+
+- Este sitio declara en /robots.txt que su contenido no debe usarse para entrenar modelos de IA.
+- Los agentes de búsqueda de IA y los que consultan una página a petición de un usuario están permitidos.
+- /robots.txt es un acuerdo voluntario entre rastreadores y sitios, no un control de acceso.
+
 ## Limitaciones de precisión
 
 La información aquí provista está sujeta a disponibilidad de inventario, factibilidad logística y evaluación de alcance técnico.

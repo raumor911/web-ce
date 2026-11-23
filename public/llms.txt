@@ -95,6 +95,12 @@ Casos incluidos:
 - [Guía de Precios de Referencia](/ai/pricebook.md)
 - [Preguntas Frecuentes](/ai/faq.md)
 
+## Política de uso por IA
+
+- Este sitio declara en /robots.txt que su contenido no debe usarse para entrenar modelos de IA.
+- Los agentes de búsqueda de IA y los que consultan una página a petición de un usuario están permitidos.
+- /robots.txt es un acuerdo voluntario entre rastreadores y sitios, no un control de acceso.
+
 ## Fuente de verdad
 
 Este archivo y los recursos en /ai/ representan la fuente de verdad estructurada de Creativos Espacios para asistentes de IA.
