@@ -1,20 +1,24 @@
 # robots.txt - Creativos Espacios
 #
-# Política declarada de rastreo para IA (sin cambio de comportamiento: antes de
-# declararla ya estaba permitido todo salvo /blog-admin/).
-# Un grupo con un User-agent propio ignora el grupo "*": por eso /blog-admin/
-# se repite en cada grupo. No quitar esa línea.
+# Política de uso por IA (decisión de Raúl Morales): el contenido de este sitio NO
+# debe usarse para entrenar modelos de IA. Siguen permitidos los agentes de búsqueda
+# de IA y los que navegan a petición de un usuario (citan y enlazan al sitio).
 #
-# Los nombres de agentes están tomados de la documentación de cada proveedor y
-# deben revisarse periódicamente (cambian). Dueño de la decisión: Raúl Morales.
-# Para excluir el uso en entrenamiento, mover el agente del grupo 3 a un grupo
-# propio con "Disallow: /".
+# robots.txt es un acuerdo voluntario entre rastreadores y sitios, no un control de
+# acceso: no impide el acceso técnico y algunos agentes pueden ignorarlo.
+#
+# Un grupo con User-agent propio ignora el grupo "*": por eso /blog-admin/ se repite
+# en los grupos permitidos. No quitar esa línea.
+#
+# Los nombres de agentes se verificaron contra la documentación de cada proveedor el
+# 2026-11-23, salvo los marcados como HIPÓTESIS (nombre no verificado), que se dejan
+# por ser inocuos si no existen. Revisar periódicamente: los proveedores los cambian.
 
-# Grupo 1: rastreadores de búsqueda y de respuesta de asistentes de IA
-# (citan y enlazan al sitio).
+# Grupo 1: agentes de búsqueda de IA (citan y enlazan al sitio).
 User-agent: OAI-SearchBot
 User-agent: Claude-SearchBot
 User-agent: PerplexityBot
+User-agent: Amzn-SearchBot
 Allow: /
 Disallow: /blog-admin/
 
@@ -22,17 +26,29 @@ Disallow: /blog-admin/
 User-agent: ChatGPT-User
 User-agent: Claude-User
 User-agent: Perplexity-User
+User-agent: Amzn-User
 Allow: /
 Disallow: /blog-admin/
 
-# Grupo 3: rastreadores de entrenamiento de modelos.
+# Grupo 3: rastreadores de entrenamiento de modelos de IA. Bloqueados.
+# Verificados en documentación: GPTBot (OpenAI), ClaudeBot (Anthropic),
+# Google-Extended (Google; cubre entrenamiento de Gemini y también el grounding en
+# Gemini Apps; no afecta a Google Search), Applebot-Extended (Apple), CCBot (Common
+# Crawl), Meta-ExternalAgent (Meta), Amazonbot (Amazon: "puede usarse para entrenar
+# modelos de IA de Amazon").
+# HIPÓTESIS (no verificados contra documentación vigente): anthropic-ai (ya no aparece
+# en la documentación actual de Anthropic), Bytespider, cohere-ai.
 User-agent: GPTBot
 User-agent: ClaudeBot
+User-agent: anthropic-ai
 User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: CCBot
-Allow: /
-Disallow: /blog-admin/
+User-agent: Meta-ExternalAgent
+User-agent: Amazonbot
+User-agent: Bytespider
+User-agent: cohere-ai
+Disallow: /
 
 # Resto de rastreadores.
 User-agent: *

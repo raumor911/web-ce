@@ -27,7 +27,8 @@ for (const file of targets) {
 }
 
 // Grupos por agente (RFC 9309): un grupo con User-agent propio ignora el grupo "*",
-// así que cada grupo debe repetir Disallow: /blog-admin/ o ese agente podría rastrear WordPress.
+// así que cada grupo debe repetir Disallow: /blog-admin/ (o bloquear todo con Disallow: /)
+// o ese agente podría rastrear WordPress.
 function parseGroups(text) {
   const groups = [];
   let current = null;
@@ -52,29 +53,54 @@ function parseGroups(text) {
   return groups;
 }
 
-const AI_AGENTS = [
-  'OAI-SearchBot', 'ChatGPT-User', 'GPTBot',
-  'Claude-SearchBot', 'Claude-User', 'ClaudeBot',
-  'PerplexityBot', 'Perplexity-User', 'Google-Extended',
+// Política de Raúl Morales: el sitio NO se usa para entrenar modelos de IA; sí se permiten
+// los agentes de búsqueda y los que actúan a petición de un usuario.
+const TRAINING_AGENTS = [
+  'GPTBot', 'ClaudeBot', 'anthropic-ai', 'Google-Extended', 'Applebot-Extended',
+  'CCBot', 'Meta-ExternalAgent', 'Amazonbot', 'Bytespider', 'cohere-ai',
+];
+const SEARCH_AND_ON_DEMAND_AGENTS = [
+  'OAI-SearchBot', 'Claude-SearchBot', 'PerplexityBot', 'Amzn-SearchBot',
+  'ChatGPT-User', 'Claude-User', 'Perplexity-User', 'Amzn-User',
 ];
 
 for (const file of targets) {
   const rel = path.relative(ROOT, file);
   const groups = parseGroups(fs.readFileSync(file, 'utf8'));
-  test(`${rel}: cada grupo de agente bloquea /blog-admin/`, () => {
+  const groupOf = agent => groups.find(g => g.agents.includes(agent));
+  test(`${rel}: cada grupo bloquea /blog-admin/ (o todo el sitio)`, () => {
     assert.ok(groups.length > 0);
     for (const g of groups) {
-      assert.ok(g.rules.includes('disallow: /blog-admin/'), `grupo sin Disallow /blog-admin/: ${g.agents.join(', ')}`);
+      assert.ok(
+        g.rules.includes('disallow: /blog-admin/') || g.rules.includes('disallow: /'),
+        `grupo sin Disallow /blog-admin/: ${g.agents.join(', ')}`
+      );
     }
   });
-  test(`${rel}: existe el grupo comodín *`, () => {
-    assert.ok(groups.some(g => g.agents.includes('*')));
+  test(`${rel}: existe el grupo comodín * y no bloquea todo el sitio`, () => {
+    const star = groups.find(g => g.agents.includes('*'));
+    assert.ok(star);
+    assert.ok(!star.rules.includes('disallow: /'));
   });
-  test(`${rel}: agentes de IA declarados a propósito`, () => {
-    const declared = new Set(groups.flatMap(g => g.agents));
-    for (const agent of AI_AGENTS) assert.ok(declared.has(agent), `falta ${agent}`);
+  test(`${rel}: agentes de entrenamiento bloqueados con Disallow: /`, () => {
+    for (const agent of TRAINING_AGENTS) {
+      const g = groupOf(agent);
+      assert.ok(g, `falta ${agent}`);
+      assert.ok(g.rules.includes('disallow: /'), `${agent} sin Disallow: /`);
+      assert.ok(!g.rules.includes('allow: /'), `${agent} con Allow: / contradictorio`);
+    }
   });
-  test(`${rel}: ningún grupo bloquea el sitio completo sin decisión explícita`, () => {
-    for (const g of groups) assert.ok(!g.rules.includes('disallow: /'), `Disallow: / en ${g.agents.join(', ')}`);
+  test(`${rel}: agentes de búsqueda y a petición permitidos y sin acceso a /blog-admin/`, () => {
+    for (const agent of SEARCH_AND_ON_DEMAND_AGENTS) {
+      const g = groupOf(agent);
+      assert.ok(g, `falta ${agent}`);
+      assert.ok(!g.rules.includes('disallow: /'), `${agent} bloqueado por Disallow: /`);
+      assert.ok(g.rules.includes('disallow: /blog-admin/'), `${agent} sin Disallow /blog-admin/`);
+    }
+  });
+  test(`${rel}: los agentes de búsqueda no comparten grupo con los de entrenamiento`, () => {
+    for (const agent of SEARCH_AND_ON_DEMAND_AGENTS) {
+      assert.ok(!TRAINING_AGENTS.some(t => groupOf(agent).agents.includes(t)), agent);
+    }
   });
 }
