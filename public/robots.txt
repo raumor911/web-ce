@@ -1,7 +1,43 @@
 # robots.txt - Creativos Espacios
+#
+# Política declarada de rastreo para IA (sin cambio de comportamiento: antes de
+# declararla ya estaba permitido todo salvo /blog-admin/).
+# Un grupo con un User-agent propio ignora el grupo "*": por eso /blog-admin/
+# se repite en cada grupo. No quitar esa línea.
+#
+# Los nombres de agentes están tomados de la documentación de cada proveedor y
+# deben revisarse periódicamente (cambian). Dueño de la decisión: Raúl Morales.
+# Para excluir el uso en entrenamiento, mover el agente del grupo 3 a un grupo
+# propio con "Disallow: /".
 
+# Grupo 1: rastreadores de búsqueda y de respuesta de asistentes de IA
+# (citan y enlazan al sitio).
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+Allow: /
+Disallow: /blog-admin/
+
+# Grupo 2: agentes que navegan a petición de un usuario concreto.
+User-agent: ChatGPT-User
+User-agent: Claude-User
+User-agent: Perplexity-User
+Allow: /
+Disallow: /blog-admin/
+
+# Grupo 3: rastreadores de entrenamiento de modelos.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+Disallow: /blog-admin/
+
+# Resto de rastreadores.
 User-agent: *
 Disallow: /blog-admin/
 
+# Guía para asistentes de IA (convención no estándar): /llms.txt y /ai/
 Sitemap: https://creativosespacios.mx/sitemap.xml
 Sitemap: https://creativosespacios.mx/sitemap-blog.xml
