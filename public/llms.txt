@@ -72,6 +72,15 @@ Casos incluidos:
 - Las referencias sin proyecto asignado no deben presentarse como parte de un caso.
 - Un proyecto realizado no es una oferta ni un precio: cada proyecto se cotiza según su alcance.
 
+## Contacto
+
+- Dirección: Av. del Árbol 104, Lomas de San Lorenzo, Iztapalapa, 09780 Ciudad de México, CDMX
+- Teléfono: 55 5426 9941
+- WhatsApp (línea distinta del teléfono): +52 229 184 6751, https://wa.me/522291846751
+- Correo: ventas@creativosespacios.mx
+- Horario de atención técnica: Lunes a Viernes 09:00 - 18:00 hrs.
+- Formulario de contacto y cotización: https://creativosespacios.mx/contacto/
+
 ## Información ampliada
 
 - [Manifiesto de Contenido](/ai/content-manifest.json)
@@ -86,6 +95,12 @@ Casos incluidos:
 - [Oferta One Trip estructurada](/ai/one-trip.json)
 - [Guía de Precios de Referencia](/ai/pricebook.md)
 - [Preguntas Frecuentes](/ai/faq.md)
+
+## Política de uso por IA
+
+- Este sitio declara en /robots.txt que su contenido no debe usarse para entrenar modelos de IA.
+- Los agentes de búsqueda de IA y los que consultan una página a petición de un usuario están permitidos.
+- /robots.txt es un acuerdo voluntario entre rastreadores y sitios, no un control de acceso.
 
 ## Fuente de verdad
 

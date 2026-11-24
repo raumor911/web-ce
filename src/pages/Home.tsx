@@ -67,7 +67,7 @@ const Home: React.FC = () => {
             "@id": ORG_ID,
             "name": org.name,
             "legalName": org.legalName,
-            "url": org.canonicalUrl,
+            "url": getCanonicalUrl('/'),
             "telephone": org.contact.telephone,
             "email": org.contact.email,
             "address": {
@@ -82,7 +82,7 @@ const Home: React.FC = () => {
           {
             "@type": "WebSite",
             "@id": WEBSITE_ID,
-            "url": org.canonicalUrl,
+            "url": getCanonicalUrl('/'),
             "name": org.name,
             "publisher": { "@id": ORG_ID },
             "inLanguage": org.language

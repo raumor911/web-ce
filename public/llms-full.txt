@@ -7,6 +7,14 @@ Creativos Espacios desarrolla infraestructura modular para empresas, industria y
 ## Posicionamiento
 Proveedor de infraestructura modular y adecuación de espacios operativos temporales o permanentes.
 
+## Contacto
+- Dirección: Av. del Árbol 104, Lomas de San Lorenzo, Iztapalapa, 09780 Ciudad de México, CDMX
+- Teléfono: 55 5426 9941
+- WhatsApp (línea distinta del teléfono): +52 229 184 6751, https://wa.me/522291846751
+- Correo: ventas@creativosespacios.mx
+- Horario de atención técnica: Lunes a Viernes 09:00 - 18:00 hrs.
+- Formulario de contacto y cotización: https://creativosespacios.mx/contacto/
+
 ## Propuesta central
 Capacidad operativa sin construir desde cero.
 
@@ -707,6 +715,12 @@ Ruta canónica: /proyectos-realizados-contenedores-modulares/
 - **Categoría**: Acabados interiores
 - **Documentado en el material de origen**: Tablaroca, piso de azulejo, aislamiento térmico y clima integrado. Aislante térmico, plafón, lambrín, piso PVC antiderrapante, instalación eléctrica y minisplit. Aislante térmico, plafón, lambrín, piso cerámico, instalación eléctrica y minisplit, además de un privado.
 - **No confirmado**: Proyecto al que corresponde cada combinación de acabados: no identificado en el material de origen.
+
+## Política de uso por IA
+
+- Este sitio declara en /robots.txt que su contenido no debe usarse para entrenar modelos de IA.
+- Los agentes de búsqueda de IA y los que consultan una página a petición de un usuario están permitidos.
+- /robots.txt es un acuerdo voluntario entre rastreadores y sitios, no un control de acceso.
 
 ## Limitaciones de precisión
 

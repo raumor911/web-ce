@@ -39,3 +39,7 @@ Su objetivo es reducir ambigüedad y facilitar que motores de búsqueda, modelos
 La presencia de estos archivos no garantiza que un sistema de inteligencia artificial los rastree, utilice o cite.
 
 El contenido HTML visible, los enlaces internos, los datos estructurados y la consistencia general del sitio continúan siendo fundamentales.
+
+## Política de uso por IA
+
+El sitio declara en /robots.txt que su contenido no debe usarse para entrenar modelos de IA; los agentes de búsqueda y los que actúan a petición de un usuario están permitidos. /robots.txt es un acuerdo voluntario entre rastreadores y sitios, no un control de acceso.

@@ -350,6 +350,7 @@ const ProyectosRealizados: React.FC = () => {
         description={DESCRIPTION}
         ogImage={imageSrc(heroImage.file)}
         jsonLd={jsonLd}
+        markdownAlternate={{ path: '/ai/cases.md', title: 'Ruta documental de casos (Markdown)' }}
       />
 
       {/* 1. APERTURA */}

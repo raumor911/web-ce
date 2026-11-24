@@ -10,10 +10,20 @@ export interface AddressInfo {
   formattedAddress: string;
 }
 
+export interface OpeningHours {
+  /** Nombres de día de schema.org en inglés (Monday...). */
+  dayOfWeek: string[];
+  opens: string;
+  closes: string;
+  /** Texto visible en español. */
+  display: string;
+}
+
 export interface ContactInfo {
   telephone: string;
   email: string;
   whatsapp: string;
+  openingHours?: OpeningHours;
   address: AddressInfo;
 }
 

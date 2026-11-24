@@ -1,8 +1,8 @@
 {
   "name": "Creativos Espacios Knowledge Graph",
   "version": "2.1.0",
-  "knowledgeFingerprint": "240eab6887564277cfd3f32d39275ea512526d7873df60f4d945880a91106c6a",
-  "generatedAt": "2026-11-21T08:42:54.601Z",
+  "knowledgeFingerprint": "0138a1e95ad3450ed34c955be8b74ea36e003d3f58f6a410f86123c137766cad",
+  "generatedAt": "2026-11-23T20:29:55.098Z",
   "nodes": [
     {
       "id": "org:creativos-espacios",
@@ -18,14 +18,26 @@
         "telephone": "55 5426 9941",
         "email": "ventas@creativosespacios.mx",
         "whatsapp": "https://wa.me/522291846751",
+        "openingHours": {
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00",
+          "display": "Lunes a Viernes 09:00 - 18:00 hrs."
+        },
         "address": {
-          "streetAddress": "Colonia, Av. del Árbol 104",
+          "streetAddress": "Av. del Árbol 104",
           "addressLocality": "Lomas de San Lorenzo",
           "borough": "Iztapalapa",
           "postalCode": "09780",
           "addressRegion": "Ciudad de México",
           "addressCountry": "MX",
-          "formattedAddress": "Colonia, Av. del Árbol 104, Lomas de San Lorenzo, Iztapalapa, 09780 Ciudad de México, CDMX"
+          "formattedAddress": "Av. del Árbol 104, Lomas de San Lorenzo, Iztapalapa, 09780 Ciudad de México, CDMX"
         }
       },
       "canonicalUrl": "https://creativosespacios.mx",

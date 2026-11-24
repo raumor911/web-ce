@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { canonicalPath, canonicalUrl } from '../../../src/lib/canonicalUrl.mjs';
+import { contactLines } from './contact.js';
+import { usagePolicySection } from './usage-policy.js';
 
 export function generateLLMS(knowledge, outDir) {
   const org = knowledge.organization;
@@ -53,6 +55,8 @@ export function generateLLMS(knowledge, outDir) {
     content += `- Un proyecto realizado no es una oferta ni un precio: cada proyecto se cotiza según su alcance.\n\n`;
   }
 
+  content += `## Contacto\n\n${contactLines(org).join('\n')}\n\n`;
+
   content += `## Información ampliada\n\n`;
   content += `- [Manifiesto de Contenido](/ai/content-manifest.json)\n`;
   content += `- [Perfil de Empresa](/ai/company.md)\n`;
@@ -76,6 +80,7 @@ export function generateLLMS(knowledge, outDir) {
     content += `- [Preguntas Frecuentes](/ai/faq.md)\n`;
   }
   
+  content += `\n${usagePolicySection().replace(/\n+$/, '')}\n`;
   content += `\n## Fuente de verdad\n\nEste archivo y los recursos en /ai/ representan la fuente de verdad estructurada de Creativos Espacios para asistentes de IA.\n`;
   
   fs.writeFileSync(path.join(outDir, 'llms.txt'), content);
