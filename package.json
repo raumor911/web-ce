@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run validate:knowledge && npm run compile:knowledge && tsc -b && vite build && node scripts/prerender.js && node scripts/generate-sitemap.js && node scripts/verify-dist.mjs",
+    "build": "npm run validate:knowledge && npm run compile:knowledge && tsc -b && vite build && node scripts/prerender.js && node scripts/generate-sitemap.js && node scripts/verify-dist.mjs && node scripts/telemetry/verify-telemetry-dist.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "check": "tsc -b --noEmit",
@@ -19,7 +19,9 @@
     "test:verify-dist": "node --test scripts/verify-dist.test.mjs",
     "test:robots": "node --test scripts/robots.test.mjs",
     "test:urls": "node --test src/lib/canonicalUrl.test.mjs",
-    "test:telemetry": "node --test \"src/telemetry/tests/*.test.ts\" \"scripts/telemetry/*.test.mjs\""
+    "test:telemetry": "node --test \"src/telemetry/tests/*.test.ts\" \"scripts/telemetry/*.test.mjs\"",
+    "telemetry:package": "node scripts/telemetry/build-release-package.mjs",
+    "telemetry:verify-dist": "node scripts/telemetry/verify-telemetry-dist.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
