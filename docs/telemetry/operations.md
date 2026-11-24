@@ -62,9 +62,11 @@ Respaldar (descarga) lo que se va a reemplazar en `public_html`: `telemetria/` y
 
 Antes del paso 8: **no hay interfaz de consentimiento** (sección 6); con la bandera encendida y sin interfaz, el estado `unknown` no captura nada.
 
-## 6. Consentimiento: decisión pendiente de Raúl
+## 6. Consentimiento: inhabilitado por decisión de Raúl (2026-11-24)
 
-El cliente respeta tres estados (`unknown`, `denied`, `granted`) y expone `window.ceTelemetry.setConsent('granted'|'denied')`. **No hay banner ni página de preferencias**: sin una, nadie puede conceder y no se captura nada. Opciones: (a) construir un aviso mínimo con aceptar/rechazar y enlace al aviso de privacidad (requiere decidir el texto y actualizar la política); (b) no activar la captura todavía; (c) otra base legal que decida Raúl. **No es asesoría legal.**
+**Decisión de Raúl:** la interfaz de consentimiento y el texto de privacidad quedan **inhabilitados de momento**: no se construyen ni se publican. Consecuencia operativa: **no se ejecutan los pasos 7 ni 8** (encender servidor y cliente) hasta que Raúl retome este punto; la telemetría permanece apagada en servidor y cliente. Lo ya implementado no cambia: el cliente respeta tres estados (`unknown`, `denied`, `granted`) y, sin interfaz, el estado `unknown` no captura nada.
+
+Descripción previa de la decisión, conservada como referencia para cuando se retome. El cliente respeta tres estados (`unknown`, `denied`, `granted`) y expone `window.ceTelemetry.setConsent('granted'|'denied')`. **No hay banner ni página de preferencias**: sin una, nadie puede conceder y no se captura nada. Opciones: (a) construir un aviso mínimo con aceptar/rechazar y enlace al aviso de privacidad (requiere decidir el texto y actualizar la política); (b) no activar la captura todavía; (c) otra base legal que decida Raúl. **No es asesoría legal.**
 
 ## 7. Cron (rutas y versión de PHP: `unknown`, a completar por Raúl)
 

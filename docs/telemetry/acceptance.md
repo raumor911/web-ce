@@ -35,5 +35,5 @@ La intercepción de peticiones de Puppeteer cancela los `sendBeacon` al descarga
 2. `npm run build` termina con exit 0 y `dist/` equivale a la línea base salvo `telemetria/` y `telemetria-admin/`; auditoría de dist sin hallazgos.
 3. Prueba de navegador completa (9 de 9) con la bandera encendida en un entorno local, y diagnosticadas las dos fallas pendientes.
 4. Comprobaciones de cPanel de `hosting-evidence.md` resueltas.
-5. Decisión sobre la interfaz de consentimiento y la política de privacidad.
+5. Interfaz de consentimiento y política de privacidad: **inhabilitadas de momento por decisión de Raúl (2026-11-24)**. Mientras sigan así, no se enciende ninguna bandera (servidor ni cliente). Este criterio se reabre cuando Raúl lo retome.
 6. Revisión de código y seguridad por Raúl (A-035): esta es autorrevisión, no revisión independiente.
