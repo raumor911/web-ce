@@ -67,3 +67,18 @@ T::test('base de datos (desechable): idempotencia de agregados y migraciones', f
     $b = $pdo->query('SELECT COUNT(*) AS n, COALESCE(SUM(page_views),0) AS pv FROM daily_web_metrics WHERE local_date = "2026-11-24"')->fetch();
     T::eq($a, $b, 'recalcular el mismo día no duplica ni suma dos veces');
 });
+
+T::test('tablero: celdas CSV neutralizan fórmulas y comillas', function () {
+    T::eq('"\'=SUM(A1)"', \Ce\Telemetry\Admin\Admin::csvCell('=SUM(A1)'));
+    T::eq('"\'@x"', \Ce\Telemetry\Admin\Admin::csvCell('@x'));
+    T::eq('"a ""b"""', \Ce\Telemetry\Admin\Admin::csvCell('a "b"'));
+    T::eq('"12"', \Ce\Telemetry\Admin\Admin::csvCell(12));
+});
+T::test('tablero: sin REMOTE_USER o con modo desconocido queda cerrado', function () {
+    $a = new \Ce\Telemetry\Admin\Admin(new Config(['admin' => ['auth' => 'server']]), [], []);
+    T::eq(false, $a->authorized());
+    $b = new \Ce\Telemetry\Admin\Admin(new Config(['admin' => ['auth' => 'server']]), ['REMOTE_USER' => 'alguien'], []);
+    T::eq(true, $b->authorized());
+    $c = new \Ce\Telemetry\Admin\Admin(new Config(['admin' => ['auth' => 'app']]), ['REMOTE_USER' => 'alguien'], []);
+    T::eq(false, $c->authorized(), "el modo 'app' no está implementado en v1");
+});

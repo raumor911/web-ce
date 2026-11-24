@@ -59,8 +59,8 @@ return [
     'rate_limits' => ['ip_per_min' => 60, 'session_events_per_min' => 600, 'global_per_min' => 120],
 
     // Tablero privado. 'server' = protegido por cPanel Directory Privacy (se exige REMOTE_USER).
-    // 'app' = autenticación propia: usuarios => hash de password_hash(). Nunca contraseñas en claro.
-    'admin' => ['auth' => 'server', 'users' => [], 'session_hours' => 8, 'max_login_attempts' => 5],
+    // Cualquier otro valor (p. ej. 'app') NO está implementado en v1 y deja el tablero cerrado.
+    'admin' => ['auth' => 'server'],
 
     // Alerta de salud por espacio (MiB de tablas de telemetría) y detención de ingesta; 0 = sin umbral.
     'disk_alert_mb' => 0,
