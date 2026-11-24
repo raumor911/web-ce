@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "$comment": "Fuente única del contrato de telemetría CE. La leen el cliente (TypeScript), el servidor (PHP) y la generación de docs. No editar a mano sin correr npm run test:telemetry.",
+  "limits": {
+    "max_events_per_request": 20,
+    "max_body_bytes": 32768,
+    "max_path_length": 512,
+    "max_id_length": 64,
+    "max_utm_length": 100,
+    "max_host_length": 100,
+    "max_release_length": 64,
+    "max_sequence": 1000000,
+    "max_result_count": 100000,
+    "engagement_max_ms": 30000,
+    "clock_window_ms": 86400000,
+    "queue_max_events": 100,
+    "queue_max_bytes": 262144,
+    "flush_events": 10,
+    "flush_interval_ms": 5000,
+    "retry_max": 2,
+    "retry_max_age_ms": 30000,
+    "session_idle_ms": 1800000,
+    "engagement_idle_ms": 60000,
+    "engagement_flush_ms": 30000,
+    "inventory_visible_ratio": 0.5,
+    "inventory_visible_ms": 1000,
+    "route_settle_ms": 50,
+    "utm_max_digit_run": 6,
+    "rate_ip_per_min": 60,
+    "rate_session_events_per_min": 600,
+    "rate_global_per_min": 120
+  },
+  "patterns": {
+    "uuid": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    "id": "^[a-z0-9][a-z0-9:_.-]{0,63}$",
+    "release": "^[A-Za-z0-9._-]{1,64}$",
+    "host": "^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+$",
+    "timestamp": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$",
+    "utm": "^[a-z0-9 _.:+/-]{1,100}$"
+  },
+  "enums": {
+    "channel": [
+      "whatsapp",
+      "phone",
+      "email"
+    ],
+    "intent": [
+      "quote",
+      "availability",
+      "contact"
+    ],
+    "placement": [
+      "navbar",
+      "floating",
+      "hero",
+      "body",
+      "final",
+      "footer",
+      "inventory",
+      "drawer",
+      "contact-page",
+      "blog"
+    ],
+    "form_id": [
+      "contacto"
+    ],
+    "error_code": [
+      "validation",
+      "network",
+      "server",
+      "rejected",
+      "unknown"
+    ],
+    "device_class": [
+      "mobile",
+      "tablet",
+      "desktop",
+      "unknown"
+    ],
+    "percent": [
+      25,
+      50,
+      75,
+      90
+    ]
+  },
+  "events": {
+    "page_view": {
+      "required": [],
+      "optional": {
+        "previous_path": "path",
+        "landing_source": "host",
+        "utm_source": "utm",
+        "utm_medium": "utm",
+        "utm_campaign": "utm",
+        "device_class": "enum:device_class"
+      }
+    },
+    "navigation_click": {
+      "required": {
+        "element_id": "element",
+        "destination_path": "path",
+        "placement": "enum:placement"
+      },
+      "optional": {}
+    },
+    "contact_click": {
+      "required": {
+        "channel": "enum:channel",
+        "intent": "enum:intent",
+        "element_id": "element",
+        "placement": "enum:placement"
+      },
+      "optional": {
+        "product_id": "id"
+      }
+    },
+    "quote_click": {
+      "required": {
+        "element_id": "element",
+        "placement": "enum:placement"
+      },
+      "optional": {
+        "product_id": "id",
+        "solution_id": "id"
+      }
+    },
+    "inventory_view": {
+      "required": {
+        "product_id": "id"
+      },
+      "optional": {
+        "category_id": "id"
+      }
+    },
+    "filter_change": {
+      "required": {
+        "filter_id": "id",
+        "option_id": "id",
+        "result_count": "count"
+      },
+      "optional": {}
+    },
+    "search_submit": {
+      "required": {
+        "search_category": "id",
+        "result_count": "count"
+      },
+      "optional": {}
+    },
+    "form_start": {
+      "required": {
+        "form_id": "enum:form_id"
+      },
+      "optional": {}
+    },
+    "form_submit_attempt": {
+      "required": {
+        "form_id": "enum:form_id"
+      },
+      "optional": {}
+    },
+    "form_submit_success": {
+      "required": {
+        "form_id": "enum:form_id"
+      },
+      "optional": {}
+    },
+    "form_submit_error": {
+      "required": {
+        "form_id": "enum:form_id",
+        "error_code": "enum:error_code"
+      },
+      "optional": {}
+    },
+    "scroll_depth": {
+      "required": {
+        "percent": "enum:percent"
+      },
+      "optional": {}
+    },
+    "engagement": {
+      "required": {
+        "active_ms": "active_ms"
+      },
+      "optional": {}
+    }
+  },
+  "excluded_path_prefixes": [
+    "/blog-admin",
+    "/telemetria-admin",
+    "/telemetria/",
+    "/formulario-creativosespacios.php",
+    "/wp-",
+    "/cgi-bin"
+  ],
+  "routes": {
+    "/": "home",
+    "/nosotros/": "nosotros",
+    "/soluciones/venta-renta/": "venta-renta",
+    "/soluciones/oficinas/": "oficinas",
+    "/proyectos/": "proyectos",
+    "/proyectos-realizados-contenedores-modulares/": "proyectos-realizados",
+    "/contacto/": "contacto",
+    "/blog/": "blog",
+    "/compra-contenedores-cdmx/": "compra-cdmx",
+    "/contenedores-nuevos-one-trip-cdmx/": "one-trip-cdmx",
+    "/contenedor-one-trip-20-pies-cdmx/": "one-trip-20ft-cdmx",
+    "/contenedor-one-trip-40-high-cube-cdmx/": "one-trip-40hc-cdmx",
+    "/contenedores-one-trip-para-proyectos-arquitectonicos-cdmx/": "one-trip-architecture-cdmx",
+    "/contenedores-one-trip-para-escuelas-cdmx/": "one-trip-schools-cdmx",
+    "/contenedores-one-trip-para-proyectos-corporativos-cdmx/": "one-trip-corporate-cdmx",
+    "/renta-contenedores-cdmx/": "renta-cdmx",
+    "/contenedores-usados-cdmx/": "usados-cdmx",
+    "/contenedor-20-pies-cdmx/": "20ft-cdmx",
+    "/contenedor-40-pies-cdmx/": "40ft-cdmx",
+    "/contenedor-40-high-cube-cdmx/": "40hc-cdmx",
+    "/contenedores-para-almacenamiento-cdmx/": "almacenamiento-cdmx",
+    "/contenedores-para-bodega-cdmx/": "bodega-cdmx",
+    "/contenedores-para-obra-cdmx/": "obra-cdmx",
+    "/oficinas-moviles-cdmx/": "oficinas-moviles-cdmx",
+    "/oficina-para-supervision-de-obra-cdmx/": "supervision-obra-cdmx",
+    "/proveedor-de-contenedores-cdmx/": "proveedor-cdmx",
+    "/contenedores-para-data-center-cdmx/": "data-center-cdmx",
+    "/privacidad/": "privacidad",
+    "/terminos/": "terminos",
+    "/404/": "not-found"
+  },
+  "route_prefixes": {
+    "/blog/": "blog-post"
+  }
+}

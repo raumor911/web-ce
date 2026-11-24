@@ -1,0 +1,418 @@
+{
+  "navbar-whatsapp-desktop": {
+    "event": "contact_click",
+    "placement": "navbar",
+    "channel": "whatsapp",
+    "intent": "availability"
+  },
+  "navbar-whatsapp-mobile": {
+    "event": "contact_click",
+    "placement": "navbar",
+    "channel": "whatsapp",
+    "intent": "availability"
+  },
+  "floating-whatsapp": {
+    "event": "contact_click",
+    "placement": "floating",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "footer-nav-soluciones-venta-renta": {
+    "event": "navigation_click",
+    "placement": "footer"
+  },
+  "footer-nav-soluciones-oficinas": {
+    "event": "navigation_click",
+    "placement": "footer"
+  },
+  "footer-nav-proyectos": {
+    "event": "navigation_click",
+    "placement": "footer"
+  },
+  "footer-nav-blog": {
+    "event": "navigation_click",
+    "placement": "footer"
+  },
+  "footer-nav-privacidad": {
+    "event": "navigation_click",
+    "placement": "footer"
+  },
+  "footer-nav-terminos": {
+    "event": "navigation_click",
+    "placement": "footer"
+  },
+  "inventory-card-quote": {
+    "event": "quote_click",
+    "placement": "inventory"
+  },
+  "drawer-whatsapp-submit": {
+    "event": "contact_click",
+    "placement": "drawer",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "one-trip-intent-hero-quote": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "one-trip-intent-format-quote": {
+    "event": "quote_click",
+    "placement": "body"
+  },
+  "one-trip-intent-final-quote": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "one-trip-intent-offer-quote": {
+    "event": "quote_click",
+    "placement": "inventory"
+  },
+  "contacto-phone-link": {
+    "event": "contact_click",
+    "placement": "contact-page",
+    "channel": "phone",
+    "intent": "contact"
+  },
+  "home-hero-quote": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "home-final-quote": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "nosotros-pillars-whatsapp": {
+    "event": "contact_click",
+    "placement": "body",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "nosotros-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "blog-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "blog",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "blog-post-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "blog",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "oficinas-solution-whatsapp": {
+    "event": "contact_click",
+    "placement": "body",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "proyectos-solution-whatsapp": {
+    "event": "contact_click",
+    "placement": "body",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "proyectos-realizados-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "proyectos-realizados-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "one-trip-hero-quote": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "one-trip-hero-quote-alt": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "one-trip-final-quote": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "one-trip-final-quote-alt": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "one-trip-offer-quote": {
+    "event": "quote_click",
+    "placement": "inventory"
+  },
+  "compra-cdmx-hero-form-link": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "compra-cdmx-body-form-link": {
+    "event": "quote_click",
+    "placement": "body"
+  },
+  "compra-cdmx-final-form-link": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "compra-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "compra-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "20ft-cdmx-hero-form-link": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "20ft-cdmx-final-form-link": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "20ft-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "40hc-cdmx-hero-form-link": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "40hc-cdmx-final-form-link": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "40hc-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "40ft-cdmx-hero-form-link": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "40ft-cdmx-body-form-link": {
+    "event": "quote_click",
+    "placement": "body"
+  },
+  "40ft-cdmx-final-form-link": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "40ft-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "almacenamiento-cdmx-hero-whatsapp-quote": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "almacenamiento-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "almacenamiento-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "bodega-cdmx-hero-whatsapp-quote": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "bodega-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "data-center-cdmx-hero-whatsapp-quote": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "data-center-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "data-center-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "obra-cdmx-hero-whatsapp-quote": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "obra-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "obra-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "usados-cdmx-hero-form-link": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "usados-cdmx-final-form-link": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "usados-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "usados-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "supervision-obra-cdmx-hero-whatsapp-quote": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "supervision-obra-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "supervision-obra-cdmx-final-whatsapp-alt": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "oficinas-moviles-cdmx-hero-whatsapp-quote": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "oficinas-moviles-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "proveedor-cdmx-hero-whatsapp-quote": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "proveedor-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "proveedor-cdmx-body-whatsapp": {
+    "event": "contact_click",
+    "placement": "body",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "proveedor-cdmx-final-whatsapp-quote": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "proveedor-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "renta-cdmx-hero-form-link": {
+    "event": "quote_click",
+    "placement": "hero"
+  },
+  "renta-cdmx-final-form-link": {
+    "event": "quote_click",
+    "placement": "final"
+  },
+  "renta-cdmx-hero-whatsapp": {
+    "event": "contact_click",
+    "placement": "hero",
+    "channel": "whatsapp",
+    "intent": "contact"
+  },
+  "renta-cdmx-body-whatsapp": {
+    "event": "contact_click",
+    "placement": "body",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "renta-cdmx-final-whatsapp": {
+    "event": "contact_click",
+    "placement": "final",
+    "channel": "whatsapp",
+    "intent": "quote"
+  },
+  "navbar-nav-proyectos": {
+    "event": "navigation_click",
+    "placement": "navbar"
+  },
+  "navbar-nav-nosotros": {
+    "event": "navigation_click",
+    "placement": "navbar"
+  },
+  "navbar-nav-contacto": {
+    "event": "navigation_click",
+    "placement": "navbar"
+  },
+  "navbar-nav-blog": {
+    "event": "navigation_click",
+    "placement": "navbar"
+  },
+  "navbar-nav-soluciones-venta-renta": {
+    "event": "navigation_click",
+    "placement": "navbar"
+  },
+  "navbar-nav-soluciones-oficinas": {
+    "event": "navigation_click",
+    "placement": "navbar"
+  }
+}
