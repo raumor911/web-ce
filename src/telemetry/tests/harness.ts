@@ -62,7 +62,7 @@ export function harness(opts: {
       clearTimeout: (h) => { const i = timers.findIndex((t) => t.id === h); if (i >= 0) timers.splice(i, 1); },
       setInterval: (fn, ms) => { const id = ++tid; timers.push({ id, at: mono + ms, fn, every: ms }); return id; },
       clearInterval: (h) => { const i = timers.findIndex((t) => t.id === h); if (i >= 0) timers.splice(i, 1); },
-      attach: () => { attached++; return () => { detached++; }; },
+      attach: (c) => { c.activity(); /* como el DOM real: usa el colector al adjuntar (regresión: error de inicialización con preferencia ya concedida) */ attached++; return () => { detached++; }; },
     },
     consent, session, queue, transport,
   });

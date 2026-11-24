@@ -23,7 +23,7 @@ export interface CollectorEnv {
   clearTimeout: (h: unknown) => void;
   setInterval: (fn: () => void, ms: number) => unknown;
   clearInterval: (h: unknown) => void;
-  attach: () => () => void;     // registra los listeners del DOM; devuelve la función que los retira
+  attach: (collector: Collector) => () => void;     // registra los listeners del DOM; devuelve la función que los retira
   debug?: (msg: string) => void;
 }
 
@@ -147,7 +147,7 @@ export function createCollector(deps: {
   function activate() {
     if (active || isExcluded()) return;
     active = true;
-    detach = env.attach();
+    detach = env.attach(api);
     engagementTimer = env.setInterval(() => { if (view && view.visible) emitEngagement(); }, LIMITS.engagement_flush_ms);
     if (currentPath !== null) api.setPath(currentPath, { documentLoad: false });
   }
@@ -164,8 +164,6 @@ export function createCollector(deps: {
   }
 
   const unsubscribe = consent.subscribe((state) => { if (state === 'granted') activate(); else deactivate(); });
-  if (consent.get() === 'granted') activate();
-
   const api: Collector = {
     setPath(pathname, opts = {}) {
       currentPath = pathname;
@@ -275,5 +273,7 @@ export function createCollector(deps: {
     get currentViewId() { return view ? view.id : null; },
     get dropped() { return queue.dropped + invalid; },
   };
+  // La activación inicial va DESPUÉS de construir `api` (antes provocaba un error de inicialización con preferencia ya concedida).
+  if (consent.get() === 'granted') activate();
   return api;
 }

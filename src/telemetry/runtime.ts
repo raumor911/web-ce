@@ -61,7 +61,7 @@ export function getRuntime(): Runtime | null {
       excluded: () => import.meta.env.DEV === true || window.__CE_TELEMETRY_DISABLED__ === true || local?.getItem(EXCLUDE_KEY) === '1',
       setTimeout: (fn, ms) => window.setTimeout(fn, ms), clearTimeout: (h) => window.clearTimeout(h as number),
       setInterval: (fn, ms) => window.setInterval(fn, ms), clearInterval: (h) => window.clearInterval(h as number),
-      attach: () => attachDom(collector, window, document),
+      attach: (c) => attachDom(c, window, document),
     },
     consent, session, queue, transport,
   });
