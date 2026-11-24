@@ -4,6 +4,7 @@ import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import logoCreativosEspacios from '../assets/images/logo-creativos-espacios.png';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalPath } from '../lib/canonical';
+import { ce, ceNav } from '../telemetry/element-map';
 
 type NavItem = {
   name: string;
@@ -330,7 +331,7 @@ export const Navbar: React.FC = () => {
                             ref={(element) => {
                               desktopItemRefs.current[index] = element;
                             }}
-                            to={item.href}
+                            to={item.href} {...ceNav('navbar', item.href)}
                             role="menuitem"
                             aria-current={isActive ? 'page' : undefined}
                             className="group flex items-start justify-between gap-5 rounded-[4px] px-5 py-4 text-left transition-colors duration-200 hover:bg-brand-gray/70 focus-visible:bg-brand-gray/70 focus-visible:outline-none"
@@ -357,7 +358,7 @@ export const Navbar: React.FC = () => {
                   return (
                     <li key={item.href} className="h-full">
                       <Link
-                        to={item.href}
+                        to={item.href} {...ceNav('navbar', item.href)}
                         aria-current={isActive ? 'page' : undefined}
                         className={`${navLinkClass} ${getNavStateClass(isActive)}`}
                       >
@@ -371,7 +372,7 @@ export const Navbar: React.FC = () => {
 
             <div className="hidden md:flex items-center justify-end">
               <a
-                href={org.contact.whatsapp}
+                href={org.contact.whatsapp} {...ce('navbar-whatsapp-desktop')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={[
@@ -466,7 +467,7 @@ export const Navbar: React.FC = () => {
                         return (
                           <Link
                             key={item.href}
-                            to={item.href}
+                            to={item.href} {...ceNav('navbar', item.href)}
                             aria-current={isActive ? 'page' : undefined}
                             className="block rounded-[4px] px-3 py-3 transition-colors duration-200 hover:bg-white focus-visible:bg-white focus-visible:outline-none"
                           >
@@ -490,7 +491,7 @@ export const Navbar: React.FC = () => {
                 return (
                   <Link
                     key={item.href}
-                    to={item.href}
+                    to={item.href} {...ceNav('navbar', item.href)}
                     aria-current={isActive ? 'page' : undefined}
                     className="py-4 text-base font-medium text-brand-petroleum focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
                   >
@@ -502,7 +503,7 @@ export const Navbar: React.FC = () => {
 
             <div className="mt-auto pt-6">
               <a
-                href={org.contact.whatsapp}
+                href={org.contact.whatsapp} {...ce('navbar-whatsapp-mobile')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-brand-petroleum px-5 py-3 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-brand-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-4 focus-visible:ring-offset-white"
@@ -515,7 +516,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       <a
-        href={org.contact.whatsapp}
+        href={org.contact.whatsapp} {...ce('floating-whatsapp')}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-[calc(2rem+env(safe-area-inset-bottom))] right-[calc(1.5rem+env(safe-area-inset-right))] z-[60] flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-300 hover:bg-brand-petroleum hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-4 focus-visible:ring-offset-white md:bottom-10 md:right-10 md:h-[72px] md:w-[72px]"

@@ -11,6 +11,7 @@ import { coverageToAreaServed } from '../lib/semantic-schema';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const Oficinas: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -223,7 +224,7 @@ const Oficinas: React.FC = () => {
                   </ul>
                 </div>
                 <button 
-                  onClick={() => window.open(org.contact.whatsapp, '_blank')}
+                  onClick={() => window.open(org.contact.whatsapp, '_blank')} {...ce('oficinas-solution-whatsapp')}
                   className="text-xs font-bold uppercase tracking-widest flex items-center gap-3 text-brand-petroleum hover:text-brand-orange transition-colors group"
                 >
                   Solicitar Cotización <ArrowRight size={18} className="text-brand-orange group-hover:translate-x-2 transition-transform" />

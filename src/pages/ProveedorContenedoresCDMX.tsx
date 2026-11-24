@@ -29,6 +29,7 @@ import { coverageToAreaServed } from '../lib/semantic-schema';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const ProveedorContenedoresCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -175,14 +176,14 @@ const ProveedorContenedoresCDMX: React.FC = () => {
           
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4 items-center">
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('proveedor-cdmx-hero-whatsapp-quote')}
               className="group relative flex items-center gap-3 overflow-hidden rounded-sm bg-brand-orange px-8 py-4 text-sm font-bold tracking-wider text-white transition-all hover:bg-brand-orange-dark"
             >
               SOLICITAR COTIZACIÓN
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('proveedor-cdmx-hero-whatsapp')}
               className="flex items-center gap-3 rounded-sm border border-white/30 bg-white/5 px-8 py-4 text-sm font-bold tracking-wider text-white backdrop-blur-sm transition-all hover:bg-white/10"
             >
               HABLAR POR WHATSAPP
@@ -389,7 +390,7 @@ const ProveedorContenedoresCDMX: React.FC = () => {
                 </p>
               </div>
               <button 
-                onClick={ctaWhatsApp}
+                onClick={ctaWhatsApp} {...ce('proveedor-cdmx-body-whatsapp')}
                 className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
               >
                 <span className="text-xs font-bold uppercase tracking-widest text-white">Consultar Entrega</span>
@@ -511,13 +512,13 @@ const ProveedorContenedoresCDMX: React.FC = () => {
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('proveedor-cdmx-final-whatsapp-quote')}
               className="bg-brand-orange px-12 py-5 text-sm font-bold tracking-widest hover:bg-brand-orange-dark transition-all inline-flex items-center gap-3 uppercase shadow-lg shadow-brand-orange/20"
             >
               SOLICITAR COTIZACIÓN <ArrowRight className="h-4 w-4" />
             </button>
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('proveedor-cdmx-final-whatsapp')}
               className="border border-white/30 bg-white/5 backdrop-blur-sm px-12 py-5 text-sm font-bold tracking-widest hover:bg-white/10 transition-all inline-flex items-center gap-3 uppercase"
             >
               HABLAR POR WHATSAPP <MessageSquare className="h-4 w-4" />

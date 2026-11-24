@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const ContenedoresDataCenterCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -137,14 +138,14 @@ const ContenedoresDataCenterCDMX: React.FC = () => {
           
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('data-center-cdmx-hero-whatsapp-quote')}
               className="group relative flex items-center gap-3 overflow-hidden rounded-sm bg-brand-orange px-8 py-4 text-sm font-bold tracking-wider text-white transition-all hover:bg-brand-orange-dark"
             >
               CONSULTAR PROYECTO TÉCNICO
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('data-center-cdmx-hero-whatsapp')}
               className="flex items-center gap-3 rounded-sm border border-white/30 bg-white/10 px-8 py-4 text-sm font-bold tracking-wider text-white backdrop-blur-sm transition-all hover:bg-white/20"
             >
               HABLAR CON UN ASESOR
@@ -323,7 +324,7 @@ const ContenedoresDataCenterCDMX: React.FC = () => {
             Dinos qué equipos necesitas albergar y cuáles son tus requerimientos de potencia y enfriamiento. Evaluamos la factibilidad técnica para tu proyecto en CDMX.
           </p>
           <button 
-            onClick={ctaWhatsApp}
+            onClick={ctaWhatsApp} {...ce('data-center-cdmx-final-whatsapp')}
             className="bg-brand-petroleum px-12 py-5 text-sm font-bold tracking-widest hover:bg-brand-petroleum-light transition-all inline-flex items-center gap-3 uppercase"
           >
             INICIAR REVISIÓN DE PROYECTO <ArrowRight className="h-4 w-4" />

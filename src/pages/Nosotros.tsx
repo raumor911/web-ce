@@ -4,6 +4,7 @@ import { SEO } from '../components/SEO';
 import { Shield, Settings, Truck, MapPin, CheckCircle2, Building2, Box, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
+import { ce } from '../telemetry/element-map';
 
 const Nosotros: React.FC = () => {
   const pageUrl = getCanonicalUrl('/nosotros');
@@ -156,7 +157,7 @@ const Nosotros: React.FC = () => {
                   {item.desc}
                 </p>
                 <a 
-                  href="https://wa.me/522291846751" 
+                  href="https://wa.me/522291846751" {...ce('nosotros-pillars-whatsapp')} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-primary mt-auto py-4 px-8 text-[10px] md:text-xs"
@@ -269,7 +270,7 @@ const Nosotros: React.FC = () => {
             Trabajaremos contigo para definir la solución modular más adecuada para tu operación.
           </p>
           <div className="flex justify-center">
-            <a href="https://wa.me/522291846751" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href="https://wa.me/522291846751" {...ce('nosotros-final-whatsapp')} target="_blank" rel="noopener noreferrer" className="btn-primary">
               Solicitar Cotización
             </a>
           </div>

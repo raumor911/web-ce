@@ -8,6 +8,7 @@ import { SemanticSelectors } from '../semantic/selectors';
 import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const Home: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -133,7 +134,7 @@ const Home: React.FC = () => {
               {org.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-              <button onClick={handleGeneralQuote} className="btn-primary">
+              <button onClick={handleGeneralQuote} {...ce('home-hero-quote')} className="btn-primary">
                 Solicitar Cotización
               </button>
               <Link to="/soluciones/venta-renta/" className="btn-outline">
@@ -292,7 +293,7 @@ const Home: React.FC = () => {
             ¿Listo para incorporar capacidad <br />
             operativa en su proyecto?
           </h2>
-          <button onClick={handleGeneralQuote} className="btn-primary">
+          <button onClick={handleGeneralQuote} {...ce('home-final-quote')} className="btn-primary">
             Solicitar Cotización
           </button>
           <div className="mt-12">

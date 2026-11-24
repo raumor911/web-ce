@@ -9,6 +9,7 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const Contenedor40HighCubeCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -123,8 +124,8 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
             Una configuración de 40 pies con mayor altura que puede aportar capacidad adicional para determinados proyectos de almacenamiento y acondicionamiento.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto/" className="btn-primary">Consultar High Cube</a>
-            <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <a href="/contacto/" {...ce('40hc-cdmx-hero-form-link')} className="btn-primary">Consultar High Cube</a>
+            <button onClick={ctaWhatsApp} {...ce('40hc-cdmx-hero-whatsapp')} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
           </motion.div>
@@ -314,7 +315,7 @@ const Contenedor40HighCubeCDMX: React.FC = () => {
           <p className="max-w-2xl mx-auto text-lg text-white/70 mb-12 font-sans">
             Consulta disponibilidad y opciones de logística en Ciudad de México para esta configuración de mayor capacidad vertical.
           </p>
-          <a href="/contacto/" className="btn-primary">Solicitar información</a>
+          <a href="/contacto/" {...ce('40hc-cdmx-final-form-link')} className="btn-primary">Solicitar información</a>
         </div>
       </section>
 

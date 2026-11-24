@@ -9,6 +9,7 @@ import { SemanticSelectors } from '../semantic/selectors';
 import { PublicContainerOffer } from '../types/semantic';
 import { getCanonicalUrl, getEntityId, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
 import { getHeroMotionConfig } from '../lib/heroMotion';
+import { ce } from '../telemetry/element-map';
 
 const ContenedoresOneTripCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -165,10 +166,10 @@ const ContenedoresOneTripCDMX: React.FC = () => {
             Unidades de fabricación reciente para proyectos donde la presentación, el estado superficial y una base con mínimo uso son parte del resultado final.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-col sm:flex-row gap-4">
-            <button onClick={openGeneralQuote} className="btn-primary">
+            <button onClick={openGeneralQuote} {...ce('one-trip-hero-quote')} className="btn-primary">
               Solicitar cotización
             </button>
-            <button onClick={openGeneralQuote} className="btn-secondary border-white/20 text-white hover:bg-white/10">
+            <button onClick={openGeneralQuote} {...ce('one-trip-hero-quote-alt')} className="btn-secondary border-white/20 text-white hover:bg-white/10">
               Cotizar por WhatsApp
             </button>
           </motion.div>
@@ -285,7 +286,7 @@ const ContenedoresOneTripCDMX: React.FC = () => {
                       Ver detalle
                     </Link>
                     <button
-                      onClick={() => openProductQuote(offer)}
+                      onClick={() => openProductQuote(offer)} {...ce('one-trip-offer-quote', { product: offer.product.id })}
                       className="flex items-center justify-center gap-3 px-6 py-4 bg-brand-orange text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-orange-dark transition-all group"
                     >
                       Cotizar
@@ -382,8 +383,8 @@ const ContenedoresOneTripCDMX: React.FC = () => {
             Comparta el formato que necesita, la ubicación del proyecto y el uso previsto. Creativos Espacios confirmará disponibilidad, precio y condiciones de suministro.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button onClick={openGeneralQuote} className="btn-primary">Solicitar cotización</button>
-            <button onClick={openGeneralQuote} className="btn-secondary">Cotizar por WhatsApp</button>
+            <button onClick={openGeneralQuote} {...ce('one-trip-final-quote')} className="btn-primary">Solicitar cotización</button>
+            <button onClick={openGeneralQuote} {...ce('one-trip-final-quote-alt')} className="btn-secondary">Cotizar por WhatsApp</button>
           </div>
         </div>
       </section>

@@ -9,6 +9,7 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const CompraContenedoresCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -121,8 +122,8 @@ const CompraContenedoresCDMX: React.FC = () => {
             Contenedores de 20 y 40 pies para almacenamiento, obra, operación empresarial y proyectos que requieren espacio adicional.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto/" className="btn-primary">Solicitar información</a>
-            <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <a href="/contacto/" {...ce('compra-cdmx-hero-form-link')} className="btn-primary">Solicitar información</a>
+            <button onClick={ctaWhatsApp} {...ce('compra-cdmx-hero-whatsapp')} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
           </motion.div>
@@ -243,7 +244,7 @@ const CompraContenedoresCDMX: React.FC = () => {
             <p className="text-lg md:text-xl text-brand-graphite leading-relaxed mb-10 font-sans">
               Creativos Espacios opera desde su centro operativo en {baseLocation?.name || 'Iztapalapa'}, {location?.name || 'Ciudad de México'}. Desde este punto coordinamos proyectos de compra, acondicionamiento y logística de contenedores para empresas y proyectos en la {location?.name || 'Ciudad de México'} y zona metropolitana.
             </p>
-            <a href="/contacto/" className="btn-secondary uppercase tracking-widest text-xs font-bold">Contactar con un asesor</a>
+            <a href="/contacto/" {...ce('compra-cdmx-body-form-link')} className="btn-secondary uppercase tracking-widest text-xs font-bold">Contactar con un asesor</a>
           </div>
         </div>
       </section>
@@ -266,11 +267,11 @@ const CompraContenedoresCDMX: React.FC = () => {
             Solicite una cotización formal que incluya el costo de entrega y maniobras en su ubicación específica.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button onClick={ctaWhatsApp} className="btn-primary flex items-center gap-3">
+            <button onClick={ctaWhatsApp} {...ce('compra-cdmx-final-whatsapp')} className="btn-primary flex items-center gap-3">
               <MessageSquare className="w-5 h-5 text-brand-petroleum" />
               Solicitar Cotización por WhatsApp
             </button>
-            <a href="/contacto/" className="btn-secondary border-white/20 text-white hover:bg-white/10">
+            <a href="/contacto/" {...ce('compra-cdmx-final-form-link')} className="btn-secondary border-white/20 text-white hover:bg-white/10">
               Formulario de Contacto
             </a>
           </div>

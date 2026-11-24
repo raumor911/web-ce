@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, MapPin, Package, Phone, User, MessageSquare, AlertCircle } from 'lucide-react';
 import { PublicContainerOffer } from '../../types/semantic';
+import { ce } from '../../telemetry/element-map';
 
 interface DeliveryQuoteDrawerProps {
   isOpen: boolean;
@@ -351,7 +352,7 @@ Quedo atento a la cotización de envío y maniobras.`;
               <div className="p-6 border-t border-slate-100 bg-white sticky bottom-0">
                 <button
                   type="submit"
-                  form="delivery-quote-form"
+                  form="delivery-quote-form" {...ce('drawer-whatsapp-submit')}
                   disabled={!selectedOffer}
                   className="w-full flex items-center justify-center gap-3 px-6 py-5 bg-brand-orange text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-orange-dark transition-all group shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
                 >

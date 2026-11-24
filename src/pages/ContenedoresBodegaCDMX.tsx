@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const ContenedoresBodegaCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -125,14 +126,14 @@ const ContenedoresBodegaCDMX: React.FC = () => {
           
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('bodega-cdmx-hero-whatsapp-quote')}
               className="group relative flex items-center gap-3 overflow-hidden rounded-sm bg-brand-orange px-8 py-4 text-sm font-bold tracking-wider text-white transition-all hover:bg-brand-orange-dark"
             >
               CONSULTAR CONTENEDOR PARA BODEGA
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('bodega-cdmx-hero-whatsapp')}
               className="flex items-center gap-3 rounded-sm border border-white/30 bg-white/10 px-8 py-4 text-sm font-bold tracking-wider text-white backdrop-blur-sm transition-all hover:bg-white/20"
             >
               HABLAR POR WHATSAPP

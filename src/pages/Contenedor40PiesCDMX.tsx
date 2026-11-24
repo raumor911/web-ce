@@ -9,6 +9,7 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const Contenedor40PiesCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -123,8 +124,8 @@ const Contenedor40PiesCDMX: React.FC = () => {
             Mayor longitud y capacidad para operaciones que requieren almacenar más materiales, inventario o equipamiento dentro de una misma unidad.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto/" className="btn-primary">Consultar 40 pies</a>
-            <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <a href="/contacto/" {...ce('40ft-cdmx-hero-form-link')} className="btn-primary">Consultar 40 pies</a>
+            <button onClick={ctaWhatsApp} {...ce('40ft-cdmx-hero-whatsapp')} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
           </motion.div>
@@ -249,7 +250,7 @@ const Contenedor40PiesCDMX: React.FC = () => {
             </div>
           </div>
           <div className="text-center mt-12">
-            <a href="/contacto/" className="btn-primary">Ayúdame a elegir</a>
+            <a href="/contacto/" {...ce('40ft-cdmx-body-form-link')} className="btn-primary">Ayúdame a elegir</a>
           </div>
         </div>
       </section>
@@ -328,7 +329,7 @@ const Contenedor40PiesCDMX: React.FC = () => {
           <p className="max-w-2xl mx-auto text-lg text-white/70 mb-12 font-sans">
             Consulta disponibilidad y opciones de logística para grandes volúmenes en Ciudad de México y zona metropolitana.
           </p>
-          <a href="/contacto/" className="btn-primary">Consultar ahora</a>
+          <a href="/contacto/" {...ce('40ft-cdmx-final-form-link')} className="btn-primary">Consultar ahora</a>
         </div>
       </section>
 

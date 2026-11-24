@@ -9,6 +9,7 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const Contenedor20PiesCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -123,8 +124,8 @@ const Contenedor20PiesCDMX: React.FC = () => {
             Una configuración compacta para proyectos donde se necesita capacidad de almacenamiento o una base para soluciones acondicionadas sin ocupar el espacio de una unidad de mayor longitud.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto/" className="btn-primary">Consultar 20 pies</a>
-            <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <a href="/contacto/" {...ce('20ft-cdmx-hero-form-link')} className="btn-primary">Consultar 20 pies</a>
+            <button onClick={ctaWhatsApp} {...ce('20ft-cdmx-hero-whatsapp')} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
           </motion.div>
@@ -287,7 +288,7 @@ const Contenedor20PiesCDMX: React.FC = () => {
           <p className="max-w-2xl mx-auto text-lg text-white/70 mb-12">
             Consulta disponibilidad y opciones de entrega en Ciudad de México para tu próximo proyecto de almacenamiento o infraestructura.
           </p>
-          <a href="/contacto/" className="btn-primary">Consultar ahora</a>
+          <a href="/contacto/" {...ce('20ft-cdmx-final-form-link')} className="btn-primary">Consultar ahora</a>
         </div>
       </section>
 

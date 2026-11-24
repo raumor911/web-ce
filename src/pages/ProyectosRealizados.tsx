@@ -6,6 +6,7 @@ import { SEO } from '../components/SEO';
 import { SemanticSelectors } from '../semantic/selectors';
 import { getHeroMotionConfig } from '../lib/heroMotion';
 import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from '../lib/canonical';
+import { ce } from '../telemetry/element-map';
 import {
   chapters,
   allCases,
@@ -390,7 +391,7 @@ const ProyectosRealizados: React.FC = () => {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <button
-                onClick={ctaWhatsApp}
+                onClick={ctaWhatsApp} {...ce('proyectos-realizados-hero-whatsapp')}
                 className="inline-flex items-center gap-3 rounded-sm border border-white/30 px-8 py-4 text-sm font-bold tracking-wider text-white transition-colors hover:bg-white/10"
               >
                 COMENTAR MI NECESIDAD
@@ -540,7 +541,7 @@ const ProyectosRealizados: React.FC = () => {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('proyectos-realizados-final-whatsapp')}
               className="inline-flex items-center gap-3 rounded-sm bg-brand-orange px-10 py-4 text-sm font-bold tracking-wider text-white transition-colors hover:bg-white hover:text-brand-petroleum"
             >
               ESCRIBIR POR WHATSAPP

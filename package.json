@@ -18,7 +18,8 @@
     "verify:dist": "node scripts/verify-dist.mjs",
     "test:verify-dist": "node --test scripts/verify-dist.test.mjs",
     "test:robots": "node --test scripts/robots.test.mjs",
-    "test:urls": "node --test src/lib/canonicalUrl.test.mjs"
+    "test:urls": "node --test src/lib/canonicalUrl.test.mjs",
+    "test:telemetry": "node --test \"src/telemetry/tests/*.test.ts\" \"scripts/telemetry/*.test.mjs\""
   },
   "dependencies": {
     "clsx": "^2.1.1",

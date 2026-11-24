@@ -9,6 +9,7 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const RentaContenedoresCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -121,8 +122,8 @@ const RentaContenedoresCDMX: React.FC = () => {
             Obtén espacio adicional para materiales, inventario, herramientas o proyectos sin convertir una necesidad temporal en infraestructura permanente.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto/" className="btn-primary">Cotizar renta</a>
-            <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <a href="/contacto/" {...ce('renta-cdmx-hero-form-link')} className="btn-primary">Cotizar renta</a>
+            <button onClick={ctaWhatsApp} {...ce('renta-cdmx-hero-whatsapp')} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
           </motion.div>
@@ -201,7 +202,7 @@ const RentaContenedoresCDMX: React.FC = () => {
                 </p>
               </div>
               <button
-                onClick={ctaWhatsApp}
+                onClick={ctaWhatsApp} {...ce('renta-cdmx-body-whatsapp')}
                 className="w-full flex items-center justify-between p-4 border border-white/10 hover:bg-white/5 transition-all group"
               >
                 <span className="text-xs font-bold uppercase tracking-widest">Solicitar Evaluación</span>
@@ -292,11 +293,11 @@ const RentaContenedoresCDMX: React.FC = () => {
             Solicite una cotización formal de renta indicando el tiempo estimado y la ubicación de su proyecto.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button onClick={ctaWhatsApp} className="btn-primary flex items-center gap-3">
+            <button onClick={ctaWhatsApp} {...ce('renta-cdmx-final-whatsapp')} className="btn-primary flex items-center gap-3">
               <MessageSquare className="w-5 h-5 text-brand-petroleum" />
               Solicitar Cotización de Renta
             </button>
-            <a href="/contacto/" className="btn-secondary border-white/20 text-white hover:bg-white/10">
+            <a href="/contacto/" {...ce('renta-cdmx-final-form-link')} className="btn-secondary border-white/20 text-white hover:bg-white/10">
               Formulario de Contacto
             </a>
           </div>

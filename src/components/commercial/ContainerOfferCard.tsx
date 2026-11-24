@@ -5,6 +5,7 @@ import { PublicContainerOffer } from '../../types/semantic';
 import { InventoryStatus } from './InventoryStatus';
 import { OfferPrice } from './OfferPrice';
 import { DeliveryCostNotice } from './DeliveryCostNotice';
+import { ce, ceInventory } from '../../telemetry/element-map';
 
 interface ContainerOfferCardProps {
   offer: PublicContainerOffer;
@@ -25,6 +26,7 @@ export const ContainerOfferCard: React.FC<ContainerOfferCardProps> = ({ offer, o
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className="bg-white border border-slate-200 overflow-hidden flex flex-col h-full group hover:shadow-2xl transition-all duration-500"
+      {...ceInventory(product.id, offer.service.id)}
     >
       {/* Header / Status */}
       <div className="p-4 flex items-center justify-between border-b border-slate-100">
@@ -75,7 +77,7 @@ export const ContainerOfferCard: React.FC<ContainerOfferCardProps> = ({ offer, o
       {/* Footer / CTA */}
       <div className="p-4 bg-slate-50 border-t border-slate-100">
         <button
-          onClick={() => onQuote(offer)}
+          onClick={() => onQuote(offer)} {...ce('inventory-card-quote', { product: offer.product.id })}
           className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-brand-orange text-white font-bold text-xs uppercase tracking-[0.2em] hover:bg-brand-orange-dark transition-all group"
         >
           Solicitar Cotización

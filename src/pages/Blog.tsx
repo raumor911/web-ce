@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { ArrowRight, Calendar, User, Clock } from 'lucide-react';
 import { getPosts, getTags, WordPressPost, WordPressTag } from '../services/wordpress';
+import { ce } from '../telemetry/element-map';
 
 const PAGE_SIZE = 12;
 const PRIMARY_TAGS = 8;
@@ -359,7 +360,7 @@ const Blog: React.FC = () => {
               y proponer la solución modular más eficiente.
             </p>
             <a 
-              href="https://wa.me/522291846751" 
+              href="https://wa.me/522291846751" {...ce('blog-final-whatsapp')} 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex px-10 py-4 bg-slate-900 text-white font-medium rounded-md hover:bg-orange-500 transition-colors"

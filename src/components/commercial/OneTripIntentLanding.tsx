@@ -8,6 +8,7 @@ import { SemanticSelectors } from '../../semantic/selectors';
 import { ID, PublicContainerOffer } from '../../types/semantic';
 import { getCanonicalUrl, getEntityId, getWebPageId, ORG_ID, WEBSITE_ID } from '../../lib/canonical';
 import { getHeroMotionConfig } from '../../lib/heroMotion';
+import { ce } from '../../telemetry/element-map';
 
 export interface OneTripInfoCard {
   title: string;
@@ -184,7 +185,7 @@ export const OneTripIntentLanding: React.FC<Props> = ({ config }) => {
             {config.lead}
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-col sm:flex-row gap-4">
-            <button onClick={openPrimaryQuote} className="btn-primary">Solicitar cotización</button>
+            <button onClick={openPrimaryQuote} {...ce('one-trip-intent-hero-quote')} className="btn-primary">Solicitar cotización</button>
             <Link to="/contenedores-nuevos-one-trip-cdmx/" className="btn-secondary border-white/20 text-white hover:bg-white/10">
               Ver oferta One Trip
             </Link>
@@ -245,7 +246,7 @@ export const OneTripIntentLanding: React.FC<Props> = ({ config }) => {
                     <dd className="text-right font-bold text-brand-petroleum">Se confirman al cotizar</dd>
                   </div>
                 </dl>
-                <button onClick={openPrimaryQuote} className="btn-primary w-full mt-8">Cotizar este formato</button>
+                <button onClick={openPrimaryQuote} {...ce('one-trip-intent-format-quote')} className="btn-primary w-full mt-8">Cotizar este formato</button>
               </div>
             </div>
           </div>
@@ -275,7 +276,7 @@ export const OneTripIntentLanding: React.FC<Props> = ({ config }) => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Link to={productDetailPath[offer.product.id]} className="btn-secondary text-center">Ver detalle</Link>
-                    <button onClick={() => openOfferQuote(offer)} className="btn-primary">Cotizar</button>
+                    <button onClick={() => openOfferQuote(offer)} {...ce('one-trip-intent-offer-quote', { product: offer.product.id })} className="btn-primary">Cotizar</button>
                   </div>
                 </article>
               ))}
@@ -350,7 +351,7 @@ export const OneTripIntentLanding: React.FC<Props> = ({ config }) => {
           <span className="section-subtitle">{config.finalEyebrow}</span>
           <h2 className="section-title">{config.finalTitle}</h2>
           <p className="text-brand-graphite text-lg font-sans leading-relaxed mb-10">{config.finalText}</p>
-          <button onClick={openPrimaryQuote} className="btn-primary">Solicitar cotización</button>
+          <button onClick={openPrimaryQuote} {...ce('one-trip-intent-final-quote')} className="btn-primary">Solicitar cotización</button>
         </div>
       </section>
 

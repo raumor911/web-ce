@@ -6,12 +6,16 @@ import { ScrollToTop } from './components/ScrollToTop';
 import BlogPost from './pages/BlogPost';
 import routesConfig from './config/routes.json';
 import { componentRegistry } from './config/routeRegistry';
+import { TelemetryProvider } from './telemetry/TelemetryProvider';
+import { RouteObserver } from './telemetry/RouteObserver';
 
 const App: React.FC = () => {
   return (
     <HelmetProvider>
       <Router>
         <ScrollToTop />
+        <TelemetryProvider>
+        <RouteObserver />
         <Routes>
           <Route path="/" element={<Layout />}>
             {/* Static Routes from Manifest */}
@@ -39,6 +43,7 @@ const App: React.FC = () => {
             })()} />
           </Route>
         </Routes>
+        </TelemetryProvider>
       </Router>
     </HelmetProvider>
   );

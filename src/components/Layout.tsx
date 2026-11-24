@@ -5,6 +5,7 @@ import logoCreativosEspacios from '../assets/images/logo-creativos-espacios.png'
 import { Helmet } from 'react-helmet-async';
 import { Facebook, Instagram, Linkedin, MapPin as GoogleIcon } from 'lucide-react';
 import { SemanticSelectors } from '../semantic/selectors';
+import { ceNav } from '../telemetry/element-map';
 
 export const Layout: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -142,22 +143,22 @@ export const Layout: React.FC = () => {
             <h3 className="font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 md:mb-10 text-brand-orange">Servicios</h3>
             <ul className="text-brand-graphite text-sm md:text-base space-y-4 md:space-y-5 font-sans">
               <li>
-                <Link to="/soluciones/venta-renta/" className="hover:text-brand-orange transition-colors">
+                <Link to="/soluciones/venta-renta/" {...ceNav('footer', '/soluciones/venta-renta/')} className="hover:text-brand-orange transition-colors">
                   Venta y Renta de Contenedores
                 </Link>
               </li>
               <li>
-                <Link to="/soluciones/oficinas/" className="hover:text-brand-orange transition-colors">
+                <Link to="/soluciones/oficinas/" {...ceNav('footer', '/soluciones/oficinas/')} className="hover:text-brand-orange transition-colors">
                   Oficinas Reubicables
                 </Link>
               </li>
               <li>
-                <Link to="/proyectos/" className="hover:text-brand-orange transition-colors">
+                <Link to="/proyectos/" {...ceNav('footer', '/proyectos/')} className="hover:text-brand-orange transition-colors">
                   Proyectos
                 </Link>
               </li>
               <li>
-                <Link to="/blog/" className="hover:text-brand-orange transition-colors">
+                <Link to="/blog/" {...ceNav('footer', '/blog/')} className="hover:text-brand-orange transition-colors">
                   Blog
                 </Link>
               </li>
@@ -186,10 +187,10 @@ export const Layout: React.FC = () => {
             © 2026 Creativos Espacios. Todos los derechos reservados.
           </p>
           <div className="flex gap-8">
-            <Link to="/privacidad/" className="text-brand-graphite/40 text-[10px] uppercase tracking-widest hover:text-brand-orange transition-colors">
+            <Link to="/privacidad/" {...ceNav('footer', '/privacidad/')} className="text-brand-graphite/40 text-[10px] uppercase tracking-widest hover:text-brand-orange transition-colors">
               Privacidad
             </Link>
-            <Link to="/terminos/" className="text-brand-graphite/40 text-[10px] uppercase tracking-widest hover:text-brand-orange transition-colors">
+            <Link to="/terminos/" {...ceNav('footer', '/terminos/')} className="text-brand-graphite/40 text-[10px] uppercase tracking-widest hover:text-brand-orange transition-colors">
               Términos
             </Link>
           </div>

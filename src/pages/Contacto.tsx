@@ -4,6 +4,8 @@ import { SEO } from "../components/SEO";
 import { ArrowRight, Loader2, Mail, MapPin, Phone } from "lucide-react";
 import { SemanticSelectors } from "../semantic/selectors";
 import { getCanonicalUrl, getWebPageId, ORG_ID, WEBSITE_ID } from "../lib/canonical";
+import { telemetryBridge } from "../telemetry/bridge";
+import { ce } from "../telemetry/element-map";
 
 const Contacto: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -36,6 +38,7 @@ const Contacto: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    telemetryBridge.track("form_submit_attempt", { form_id: "contacto" });
     setLoading(true);
     setFeedback(null);
 
@@ -63,6 +66,7 @@ const Contacto: React.FC = () => {
         const result = await response.json();
         if (response.ok && result.success) {
           setFeedback({ type: "success", message: result.message });
+          telemetryBridge.track("form_submit_success", { form_id: "contacto" });
           setFormData({
             nombre: "",
             empresa: "",
@@ -72,12 +76,14 @@ const Contacto: React.FC = () => {
             website: "",
           });
         } else {
+          telemetryBridge.track("form_submit_error", { form_id: "contacto", error_code: response.ok ? "rejected" : "server" });
           setFeedback({
             type: "error",
             message: result.message || "Error al procesar la solicitud.",
           });
         }
       } else {
+        telemetryBridge.track("form_submit_error", { form_id: "contacto", error_code: "server" });
         setFeedback({
           type: "error",
           message: `El servidor bloqueó la solicitud (Estado ${response.status}). Verifique la configuración en cPanel.`,
@@ -85,6 +91,7 @@ const Contacto: React.FC = () => {
       }
     } catch (error) {
       console.error(error);
+      telemetryBridge.track("form_submit_error", { form_id: "contacto", error_code: "network" });
       setFeedback({
         type: "error",
         message: "No se pudo conectar con el servidor. Intente más tarde.",
@@ -186,7 +193,11 @@ const Contacto: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="bg-white p-8 sm:p-12 border border-brand-gray shadow-2xl"
           >
-            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+            <form
+              onSubmit={handleSubmit}
+              onFocus={() => telemetryBridge.track("form_start", { form_id: "contacto" }, "form_start:contacto")}
+              className="space-y-6 md:space-y-8"
+            >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-graphite/40 mb-3">
@@ -314,7 +325,7 @@ const Contacto: React.FC = () => {
                 </h3>
                 <div className="space-y-6 md:space-y-8">
                       <a
-                        href={`tel:${org.contact.telephone.replace(/\s/g, '')}`}
+                        href={`tel:${org.contact.telephone.replace(/\s/g, '')}`} {...ce('contacto-phone-link')}
                         className="flex items-center gap-6 md:gap-8 group"
                       >
                         <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-gray flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all duration-300">

@@ -9,6 +9,7 @@ import { getCanonicalUrl, getWebPageId, WEBSITE_ID } from '../lib/canonical';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const ContenedoresUsadosCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -121,8 +122,8 @@ const ContenedoresUsadosCDMX: React.FC = () => {
             Una alternativa para proyectos que necesitan capacidad de almacenamiento o infraestructura basada en contenedores sin requerir necesariamente una unidad nueva.
           </motion.p>
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4">
-            <a href="/contacto/" className="btn-primary">Consultar disponibilidad</a>
-            <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <a href="/contacto/" {...ce('usados-cdmx-hero-form-link')} className="btn-primary">Consultar disponibilidad</a>
+            <button onClick={ctaWhatsApp} {...ce('usados-cdmx-hero-whatsapp')} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
           </motion.div>
@@ -248,8 +249,8 @@ const ContenedoresUsadosCDMX: React.FC = () => {
             El tamaño y la condición adecuada dependen de lo que necesitas almacenar, del sitio y de si el contenedor requerirá modificaciones posteriores.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="/contacto/" className="btn-primary">Solicitar asesoría</a>
-            <button onClick={ctaWhatsApp} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <a href="/contacto/" {...ce('usados-cdmx-final-form-link')} className="btn-primary">Solicitar asesoría</a>
+            <button onClick={ctaWhatsApp} {...ce('usados-cdmx-final-whatsapp')} className="btn-secondary bg-white/10 hover:bg-white/20 text-white border-white/20">
               Hablar por WhatsApp
             </button>
           </div>

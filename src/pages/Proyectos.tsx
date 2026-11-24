@@ -11,6 +11,7 @@ import { coverageToAreaServed } from '../lib/semantic-schema';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const Proyectos: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -204,7 +205,7 @@ const Proyectos: React.FC = () => {
                 </ul>
                 <div className="mt-auto">
                   <button 
-                    onClick={() => window.open(org.contact.whatsapp, '_blank')}
+                    onClick={() => window.open(org.contact.whatsapp, '_blank')} {...ce('proyectos-solution-whatsapp')}
                     className="btn-primary w-full text-center py-4 md:py-5 text-[10px] md:text-xs block"
                   >
                     {sol.cta}

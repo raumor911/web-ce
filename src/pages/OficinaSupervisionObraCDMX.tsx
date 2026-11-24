@@ -11,6 +11,7 @@ import { coverageToAreaServed } from '../lib/semantic-schema';
 import { ContainerOfferCard } from '../components/commercial/ContainerOfferCard';
 import { DeliveryQuoteDrawer } from '../components/commercial/DeliveryQuoteDrawer';
 import { PublicContainerOffer } from '../types/semantic';
+import { ce } from '../telemetry/element-map';
 
 const OficinaSupervisionObraCDMX: React.FC = () => {
   const org = SemanticSelectors.getOrganization();
@@ -148,7 +149,7 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
           
           <motion.div variants={heroMotion.body} className="flex flex-wrap gap-4 items-center">
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('supervision-obra-cdmx-hero-whatsapp-quote')}
               className="group relative flex items-center gap-3 overflow-hidden rounded-sm bg-brand-orange px-8 py-4 text-sm font-bold tracking-wider text-white transition-all hover:bg-brand-orange-dark"
             >
               COTIZAR UNA OFICINA PARA OBRA
@@ -387,13 +388,13 @@ const OficinaSupervisionObraCDMX: React.FC = () => {
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('supervision-obra-cdmx-final-whatsapp')}
               className="bg-brand-orange px-12 py-5 text-sm font-bold tracking-widest hover:bg-brand-orange-dark transition-all inline-flex items-center gap-3 uppercase shadow-lg shadow-brand-orange/20"
             >
               REVISAR MI PROYECTO <ArrowRight className="h-4 w-4" />
             </button>
             <button 
-              onClick={ctaWhatsApp}
+              onClick={ctaWhatsApp} {...ce('supervision-obra-cdmx-final-whatsapp-alt')}
               className="border border-white/30 bg-white/5 backdrop-blur-sm px-12 py-5 text-sm font-bold tracking-widest hover:bg-white/10 transition-all inline-flex items-center gap-3 uppercase"
             >
               HABLAR POR WHATSAPP <MessageSquare className="h-4 w-4" />

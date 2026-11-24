@@ -107,6 +107,8 @@ async function prerender() {
 
       try {
         page = await browser.newPage();
+        // Telemetría: el prerender nunca captura (bandera explícita; no depende de navigator.webdriver).
+        await page.evaluateOnNewDocument(() => { window.__CE_TELEMETRY_DISABLED__ = true; });
         page.on('console', msg => console.log(`BROWSER [${msg.type()}]:`, msg.text()));
         page.on('pageerror', err => console.log('BROWSER PAGE ERROR:', err.message));
         page.on('requestfailed', request => console.log('BROWSER REQ FAILED:', request.url(), request.failure().errorText));
